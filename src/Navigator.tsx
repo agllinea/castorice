@@ -1,6 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronRight, FileText, Wrench, X } from 'lucide-react';
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ChevronRight, FileText, Wrench } from 'lucide-react';
 
 // Types
 export interface TreeNode {
@@ -16,9 +16,11 @@ interface NavigatorProps {
   expandedNodes: string[];
   isMobile: boolean;
   sidebarOpen: boolean;
+  sidebarWidth: number;
   onDocSelect: (docId: string) => void;
   onToggleNode: (nodeId: string) => void;
   onCloseSidebar: () => void;
+  onSidebarResize: (width: number) => void;
 }
 
 interface TreeNodeComponentProps {
@@ -154,10 +156,60 @@ const Navigator: React.FC<NavigatorProps> = ({
   expandedNodes,
   isMobile,
   sidebarOpen,
+  sidebarWidth,
   onDocSelect,
   onToggleNode,
   onCloseSidebar,
+  onSidebarResize,
 }) => {
+  const [isResizing, setIsResizing] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [startWidth, setStartWidth] = useState(sidebarWidth);
+
+  // Sidebar width constraints
+  const MIN_WIDTH = 200;
+  const MAX_WIDTH = 500;
+
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (isMobile) return;
+    
+    e.preventDefault();
+    setIsResizing(true);
+    setStartX(e.clientX);
+    setStartWidth(sidebarWidth);
+    
+    // Add cursor style to body
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+  }, [isMobile, sidebarWidth]);
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!isResizing) return;
+    
+    const deltaX = e.clientX - startX;
+    const newWidth = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, startWidth + deltaX));
+    onSidebarResize(newWidth);
+  }, [isResizing, startX, startWidth, onSidebarResize]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsResizing(false);
+    
+    // Remove cursor style from body
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  }, []);
+
+  useEffect(() => {
+    if (isResizing) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      
+      return () => {
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+    }
+  }, [isResizing, handleMouseMove, handleMouseUp]);
   const handleDocSelect = (docId: string): void => {
     onDocSelect(docId);
     if (isMobile) {
@@ -182,8 +234,9 @@ const Navigator: React.FC<NavigatorProps> = ({
         className={`${
           isMobile 
             ? 'fixed inset-0 z-40 bg-white'
-            : 'w-64 bg-white border-r border-gray-200'
+            : 'bg-white border-r border-gray-200 relative'
         }`}
+        style={!isMobile ? { width: sidebarWidth } : undefined}
         initial={isMobile ? { x: '-100%' } : false}
         animate={isMobile ? { x: sidebarOpen ? 0 : '-100%' } : {}}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
@@ -223,6 +276,21 @@ const Navigator: React.FC<NavigatorProps> = ({
             ))}
           </nav>
         </div>
+
+        {/* Resize Handle - Desktop Only */}
+        {!isMobile && (
+          <div
+            className={`absolute top-0 right-0 w-1 h-full cursor-col-resize hover:bg-blue-400 transition-colors group ${
+              isResizing ? 'bg-blue-500' : 'bg-transparent'
+            }`}
+            onMouseDown={handleMouseDown}
+          >
+            {/* Visual indicator on hover */}
+            <div className={`absolute top-0 right-0 w-1 h-full transition-all ${
+              isResizing ? 'bg-blue-500' : 'bg-gray-300 opacity-0 group-hover:opacity-100'
+            }`} />
+          </div>
+        )}
       </motion.div>
 
       {/* Mobile overlay */}
