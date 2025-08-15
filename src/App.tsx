@@ -9,198 +9,6 @@ import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, is
 import type { DocTool, TOCItem, TreeNode } from "./type";
 import appIndex from "./appIndex";
 
-// Mock data
-const mockDocs: DocTool[] = [
-    {
-        id: "react-hooks",
-        title: "React Hooks Guide",
-        type: "doc",
-        category: "Frontend",
-        content: `# React Hooks Guide
-
-React Hooks allow you to use state and other React features without writing a class.
-
-## useState
-
-The useState Hook lets you add React state to function components.
-
-\`\`\`javascript
-import React, { useState } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-\`\`\`
-
-## useEffect
-
-The useEffect Hook lets you perform side effects in function components.
-
-## useContext
-
-The useContext Hook lets you subscribe to React context without nesting.`,
-        tags: ["react", "hooks", "frontend", "javascript"],
-    },
-    {
-        id: "api-testing",
-        title: "API Testing with Postman",
-        type: "tool",
-        category: "Testing",
-        content: `# API Testing with Postman
-
-Postman is a powerful tool for API testing and development.
-
-## Getting Started
-
-1. Download and install Postman
-2. Create a new collection
-3. Add your first request
-
-## Best Practices
-
-- Use environment variables
-- Write tests for your APIs
-- Organize requests in collections`,
-        tags: ["postman", "api", "testing", "tools"],
-    },
-    {
-        id: "css-grid",
-        title: "CSS Grid Layout",
-        type: "doc",
-        category: "Frontend",
-        content: `# CSS Grid Layout
-
-CSS Grid Layout is a two-dimensional layout system for the web.
-
-## Basic Grid
-
-\`\`\`css
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-\`\`\`
-
-## Grid Areas
-
-You can name grid areas for easier layout management.`,
-        tags: ["css", "grid", "layout", "frontend"],
-    },
-    {
-        id: "docker-basics",
-        title: "Docker Basics",
-        type: "doc",
-        category: "DevOps",
-        content: `# Docker Basics
-
-Docker is a containerization platform.
-
-## Key Concepts
-
-- Images
-- Containers
-- Dockerfile
-- Docker Compose
-
-## Common Commands
-
-\`\`\`bash
-docker build -t myapp .
-docker run -p 3000:3000 myapp
-docker ps
-docker stop container_id
-\`\`\``,
-    },
-    {
-        id: "figma-shortcuts",
-        title: "Figma Keyboard Shortcuts",
-        type: "tool",
-        category: "Design",
-        content: `# Figma Keyboard Shortcuts
-
-Essential shortcuts to speed up your design workflow.
-
-## Selection Tools
-- V - Move tool
-- A - Frame tool
-- R - Rectangle tool
-- O - Ellipse tool
-
-## Actions
-- Cmd/Ctrl + D - Duplicate
-- Cmd/Ctrl + G - Group
-- Cmd/Ctrl + Shift + G - Ungroup`,
-    },
-];
-
-const navigationTree: TreeNode[] = [
-    {
-        id: "frontend",
-        label: "Frontend",
-        type: "doc",
-    },
-    { id: "react-hooks", label: "React Hooks Guide", type: "doc" },
-    { id: "css-grid", label: "CSS Grid Layout", type: "doc" },
-    {
-        id: "devops",
-        label: "DevOps",
-        children: [{ id: "docker-basics", label: "Docker Basics", type: "doc" }],
-    },
-    {
-        id: "tools",
-        label: "Tools",
-        children: [
-            { id: "api-testing", label: "API Testing with Postman", type: "tool" },
-            { id: "figma-shortcuts", label: "Figma Shortcuts", type: "tool" },
-            {
-                id: "wocaonimade",
-                label: "hahahhaha",
-                children: [
-                    {
-                        id: "frontend",
-                        label: "Frontend",
-                        type: "doc",
-                    },
-                    { id: "react-hooks", label: "React Hooks Guide", type: "doc" },
-                    { id: "css-grid", label: "CSS Grid Layout", type: "doc" },
-                    {
-                        id: "devops",
-                        label: "DevOps",
-                        children: [{ id: "docker-basics", label: "Docker Basics", type: "doc" }],
-                    },
-                    {
-                        id: "tools",
-                        label: "Tools",
-                        children: [
-                            { id: "api-testing", label: "API Testing with Postman", type: "tool" },
-                            { id: "figma-shortcuts1", label: "Figma Shortcuts1", type: "tool" },
-                        ],
-                    },
-                    {
-                        id: "design",
-                        label: "Design",
-                        children: [{ id: "figma-shortcuts", label: "Figma Shortcuts", type: "tool" }],
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        id: "design",
-        label: "Design",
-        children: [{ id: "figma-shortcuts", label: "Figma Shortcuts", type: "tool" }],
-    },
-];
-
 // Generate table of contents from content
 const generateTOC = (content: string): TOCItem[] => {
     const headings = content.match(/^#{1,3}\s+(.+)$/gm) || [];
@@ -215,35 +23,157 @@ const generateTOC = (content: string): TOCItem[] => {
     });
 };
 
+// Convert appIndex TreeNode to navigation format with proper labels
+const convertToNavigationTree = (nodes: TreeNode[]): TreeNode[] => {
+    return nodes.map(node => ({
+        ...node,
+        label: node.label || node.id.replace(/\.md$/, ''), // Remove .md extension for display
+        type: node.component ? 'tool' : (node.id.endsWith('.md') ? 'doc' : undefined),
+        children: node.children ? convertToNavigationTree(node.children) : undefined
+    }));
+};
+
+// Build path from appIndex structure
+const buildDocPath = (nodes: TreeNode[], targetId: string, currentPath: string[] = []): string[] | null => {
+    for (const node of nodes) {
+        const newPath = [...currentPath, node.id];
+        
+        if (node.id === targetId) {
+            return newPath;
+        }
+        
+        if (node.children) {
+            const result = buildDocPath(node.children, targetId, newPath);
+            if (result) {
+                return result;
+            }
+        }
+    }
+    return null;
+};
+
+// Convert path to file path for markdown files
+const pathToFilePath = (path: string[]): string => {
+    return path.join('/') + (path[path.length - 1].endsWith('.md') ? '' : '.md');
+};
+
+// Find node by path in appIndex
+const findNodeByPath = (nodes: TreeNode[], path: string[]): TreeNode | null => {
+    if (path.length === 0) return null;
+    
+    let currentNodes = nodes;
+    let targetNode: TreeNode | null = null;
+    
+    for (const pathSegment of path) {
+        const foundNode = currentNodes.find(node => node.id === pathSegment);
+        if (!foundNode) {
+            return null;
+        }
+        
+        targetNode = foundNode;
+        if (foundNode.children) {
+            currentNodes = foundNode.children;
+        }
+    }
+    
+    return targetNode;
+};
+
 // Main App Content Component
 const AppContent: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
-    const [sidebarWidth, setSidebarWidth] = useState<number>(384); // Default to w-96 (384px)
+    const [sidebarWidth, setSidebarWidth] = useState<number>(384);
     const [expandedNodes, setExpandedNodes] = useState<string[]>([]);
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+    const [currentDoc, setCurrentDoc] = useState<DocTool | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
-    // Parse current path from URL - memoize to prevent infinite loops
+    // Convert appIndex to navigation tree
+    const navigationTree = useMemo(() => convertToNavigationTree(appIndex), []);
+
+    // Parse current path from URL
     const currentPath = useMemo(() => urlToPath(location.pathname), [location.pathname]);
     const currentDocId = useMemo(() => getDocIdFromPath(currentPath), [currentPath]);
 
-    // Find current document
-    const currentDoc = useMemo(
-        () => (currentDocId ? mockDocs.find((doc) => doc.id === currentDocId) : undefined),
-        [currentDocId]
-    );
+    // Find current node from appIndex
+    const currentNode = useMemo(() => {
+        return currentDocId ? findNodeByPath(appIndex, currentPath) : null;
+    }, [currentDocId, currentPath]);
 
-    // Generate search results and table of contents
-    const tableOfContents = useMemo(() => (currentDoc ? generateTOC(currentDoc.content) : []), [currentDoc]);
+    // Generate table of contents
+    const tableOfContents = useMemo(() => {
+        return currentDoc ? generateTOC(currentDoc.content) : [];
+    }, [currentDoc]);
+
+    // Load document content
+    useEffect(() => {
+        if (!currentNode) {
+            setCurrentDoc(null);
+            return;
+        }
+
+        // If it's a component, create a DocTool entry
+        if (currentNode.component) {
+            setCurrentDoc({
+                id: currentNode.id,
+                title: currentNode.label || currentNode.id,
+                type: 'tool',
+                category: 'Interactive Tool',
+                content: '', // Components don't need content
+                component: currentNode.component
+            });
+            return;
+        }
+
+        // If it's a markdown file, load the content
+        if (currentNode.id.endsWith('.md') || (!currentNode.children && !currentNode.component)) {
+            const loadMarkdownContent = async () => {
+                setLoading(true);
+                try {
+                    const filePath = `/docs/${pathToFilePath(currentPath)}`;
+                    const response = await fetch(filePath);
+                    
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${filePath}`);
+                    }
+                    
+                    const content = await response.text();
+                    
+                    setCurrentDoc({
+                        id: currentNode.id,
+                        title: currentNode.label || currentNode.id.replace(/\.md$/, ''),
+                        type: 'doc',
+                        category: currentPath.length > 1 ? currentPath[0] : 'Documentation',
+                        content: content,
+                        tags: []
+                    });
+                } catch (error) {
+                    console.error('Error loading markdown file:', error);
+                    setCurrentDoc({
+                        id: currentNode.id,
+                        title: currentNode.label || currentNode.id,
+                        type: 'doc',
+                        category: 'Documentation',
+                        content: `# Error Loading Document\n\nCould not load the document at path: ${pathToFilePath(currentPath)}\n\nPlease check if the file exists in the public/docs folder.`,
+                        tags: []
+                    });
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            loadMarkdownContent();
+        }
+    }, [currentNode, currentPath]);
 
     // Set up initial expanded nodes based on current path
     useEffect(() => {
         if (currentPath.length > 0) {
             const expandedForPath = getExpandedNodesForPath(currentPath);
             setExpandedNodes((prev) => {
-                // Only update if there are actually new nodes to expand
                 const newNodes = expandedForPath.filter((node) => !prev.includes(node));
                 if (newNodes.length > 0) {
                     return [...new Set([...prev, ...expandedForPath])];
@@ -251,10 +181,9 @@ const AppContent: React.FC = () => {
                 return prev;
             });
         } else {
-            // Default expanded nodes when no path - only set if not already set
             setExpandedNodes((prev) => {
                 if (prev.length === 0) {
-                    return ["frontend", "tools"];
+                    return ["example"]; // Default to expand example
                 }
                 return prev;
             });
@@ -309,6 +238,44 @@ const AppContent: React.FC = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
+    // Create mock docs for search functionality (you might want to build this dynamically)
+    const mockDocs: DocTool[] = useMemo(() => {
+        const docs: DocTool[] = [];
+        
+        const extractDocs = (nodes: TreeNode[], parentPath: string[] = []) => {
+            nodes.forEach(node => {
+                const currentPath = [...parentPath, node.id];
+                
+                if (node.component) {
+                    docs.push({
+                        id: node.id,
+                        title: node.label || node.id,
+                        type: 'tool',
+                        category: 'Interactive Tool',
+                        content: '',
+                        component: node.component
+                    });
+                } else if (node.id.endsWith('.md') || (!node.children && !node.component)) {
+                    docs.push({
+                        id: node.id,
+                        title: node.label || node.id.replace(/\.md$/, ''),
+                        type: 'doc',
+                        category: parentPath.length > 0 ? parentPath[0] : 'Documentation',
+                        content: '', // Content will be loaded when needed
+                        tags: []
+                    });
+                }
+                
+                if (node.children) {
+                    extractDocs(node.children, currentPath);
+                }
+            });
+        };
+        
+        extractDocs(appIndex);
+        return docs;
+    }, []);
+
     return (
         <div className="h-screen bg-gray-50 flex flex-col">
             {/* Header */}
@@ -336,7 +303,12 @@ const AppContent: React.FC = () => {
                 />
 
                 {/* Content Area */}
-                <Content currentDoc={currentDoc} tableOfContents={tableOfContents} isMobile={isMobile} />
+                <Content 
+                    currentDoc={currentDoc} 
+                    tableOfContents={tableOfContents} 
+                    isMobile={isMobile}
+                    loading={loading}
+                />
             </div>
         </div>
     );
@@ -351,6 +323,7 @@ const DocumentRoute: React.FC = () => {
     const currentPath = pathSegments.map((segment) => decodeDocId(segment));
 
     // Validate the path exists in our navigation tree
+    const navigationTree = convertToNavigationTree(appIndex);
     if (pathSegments.length > 0 && !isValidPath(navigationTree, currentPath)) {
         return <Navigate to="/" replace />;
     }
@@ -360,13 +333,34 @@ const DocumentRoute: React.FC = () => {
 
 // Root App component with router
 const App: React.FC = () => {
+    // Find first available document for default redirect
+    const getFirstAvailableDoc = (): string => {
+        const findFirstLeaf = (nodes: TreeNode[]): string | null => {
+            for (const node of nodes) {
+                if (node.component || node.id.endsWith('.md') || (!node.children && !node.component)) {
+                    const docPath = buildDocPath(appIndex, node.id);
+                    if (docPath) {
+                        return pathToUrl(docPath);
+                    }
+                }
+                if (node.children) {
+                    const result = findFirstLeaf(node.children);
+                    if (result) return result;
+                }
+            }
+            return null;
+        };
+        
+        return findFirstLeaf(appIndex) || "example/basic%20tool/Counter";
+    };
+
     return (
         <Router>
             <Routes>
                 {/* Handle all paths including nested ones */}
                 <Route path="/*" element={<DocumentRoute />} />
                 {/* Default redirect to first document */}
-                <Route path="/" element={<Navigate to="/frontend/react-hooks" replace />} />
+                <Route path="/" element={<Navigate to={`/${getFirstAvailableDoc()}`} replace />} />
             </Routes>
         </Router>
     );

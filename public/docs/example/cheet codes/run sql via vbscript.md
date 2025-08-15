@@ -1,4 +1,4 @@
-```
+```vb.net
 Option Explicit
 
 Dim con, rs, strconn, strSQL, fso, file, output

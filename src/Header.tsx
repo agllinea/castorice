@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { FileText, Menu, Search, Wrench, X } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 
-import type { DocTool, TreeNode } from './type';
+import type { DocTool, SearchableDoc, TreeNode } from './type';
 
 interface HeaderProps {
   isMobile: boolean;
@@ -12,30 +12,165 @@ interface HeaderProps {
   onSearchResultClick: (docId: string) => void;
 }
 
-// Search utility
-const searchDocs = (docs: DocTool[], query: string): DocTool[] => {
+// Build searchable docs from navigation tree
+const buildSearchableDocs = (nodes: TreeNode[], parentPath: string[] = []): SearchableDoc[] => {
+  const docs: SearchableDoc[] = [];
+  
+  const processNode = (node: TreeNode, currentPath: string[]) => {
+    const fullPath = [...currentPath, node.id];
+    
+    if (node.component) {
+      // For components, create a searchable entry with basic info
+      docs.push({
+        id: node.id,
+        title: node.label || node.id,
+        type: 'tool',
+        category: currentPath.length > 0 ? currentPath[0] : 'Interactive Tool',
+        content: `Interactive ${node.label || node.id} tool component`,
+        tags: ['interactive', 'tool', 'component'],
+        path: fullPath
+      });
+    } else if (node.id.endsWith('.md') || (!node.children && !node.component)) {
+      // For markdown files, create a searchable entry (content will be loaded when needed)
+      docs.push({
+        id: node.id,
+        title: node.label || node.id.replace(/\.md$/, ''),
+        type: 'doc',
+        category: currentPath.length > 0 ? currentPath[0] : 'Documentation',
+        content: '', // Content will be loaded when needed for better search
+        tags: [],
+        path: fullPath
+      });
+    }
+    
+    if (node.children) {
+      node.children.forEach(child => processNode(child, fullPath));
+    }
+  };
+  
+  nodes.forEach(node => processNode(node, parentPath));
+  return docs;
+};
+
+// Enhanced search utility with better matching
+const searchDocs = (docs: SearchableDoc[], query: string): SearchableDoc[] => {
   if (!query) return [];
+  
   const lowercaseQuery = query.toLowerCase();
-  return docs.filter(doc =>
-    doc.title.toLowerCase().includes(lowercaseQuery) ||
-    doc.content.toLowerCase().includes(lowercaseQuery) ||
-    doc.tags?.some(tag => tag.toLowerCase().includes(lowercaseQuery))
-  ).slice(0, 8);
+  const queryWords = lowercaseQuery.split(' ').filter(word => word.length > 0);
+  
+  return docs
+    .map(doc => {
+      let score = 0;
+      const titleLower = doc.title.toLowerCase();
+      const categoryLower = doc.category.toLowerCase();
+      const contentLower = doc.content.toLowerCase();
+      
+      // Title matches (highest priority)
+      if (titleLower.includes(lowercaseQuery)) {
+        score += 100;
+      }
+      queryWords.forEach(word => {
+        if (titleLower.includes(word)) score += 50;
+      });
+      
+      // Category matches
+      if (categoryLower.includes(lowercaseQuery)) {
+        score += 30;
+      }
+      queryWords.forEach(word => {
+        if (categoryLower.includes(word)) score += 15;
+      });
+      
+      // Content matches (for components, this will be basic description)
+      if (contentLower.includes(lowercaseQuery)) {
+        score += 20;
+      }
+      queryWords.forEach(word => {
+        if (contentLower.includes(word)) score += 10;
+      });
+      
+      // Tag matches
+      doc.tags?.forEach(tag => {
+        if (tag.toLowerCase().includes(lowercaseQuery)) {
+          score += 40;
+        }
+        queryWords.forEach(word => {
+          if (tag.toLowerCase().includes(word)) score += 20;
+        });
+      });
+      
+      // Path matches (for nested items)
+      const pathStr = doc.path.join(' ').toLowerCase();
+      if (pathStr.includes(lowercaseQuery)) {
+        score += 10;
+      }
+      
+      return { doc, score };
+    })
+    .filter(({ score }) => score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 8)
+    .map(({ doc }) => doc);
 };
 
 const Header: React.FC<HeaderProps> = ({
   isMobile,
-  mockDocs,
   navigationTree,
   onSidebarToggle,
   onSearchResultClick,
 }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isSearchModalOpen, setIsSearchModalOpen] = useState<boolean>(false);
+  const [searchableDocs, setSearchableDocs] = useState<SearchableDoc[]>([]);
+  const [loadedContent, setLoadedContent] = useState<Map<string, string>>(new Map());
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+  // Build searchable docs from navigation tree
+  useEffect(() => {
+    const docs = buildSearchableDocs(navigationTree);
+    setSearchableDocs(docs);
+  }, [navigationTree]);
+
+  // Load content for markdown files when needed for better search
+  const loadContentForSearch = async (doc: SearchableDoc) => {
+    if (doc.type === 'tool' || loadedContent.has(doc.id)) {
+      return;
+    }
+
+    try {
+      const filePath = `/docs/${doc.path.join('/')}${doc.id.endsWith('.md') ? '' : '.md'}`;
+      const response = await fetch(filePath);
+      if (response.ok) {
+        const content = await response.text();
+        setLoadedContent(prev => new Map(prev).set(doc.id, content));
+        
+        // Update the searchable doc with loaded content
+        setSearchableDocs(prev => prev.map(d => 
+          d.id === doc.id ? { ...d, content } : d
+        ));
+      }
+    } catch (error) {
+      console.warn(`Could not load content for search: ${doc.id}`);
+    }
+  };
+
+  // Pre-load content for better search experience (debounced)
+  useEffect(() => {
+    if (searchQuery.length > 2) {
+      const timer = setTimeout(() => {
+        searchableDocs
+          .filter(doc => doc.type === 'doc' && !loadedContent.has(doc.id))
+          .slice(0, 3) // Load only first few to avoid too many requests
+          .forEach(loadContentForSearch);
+      }, 500);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [searchQuery, searchableDocs, loadedContent]);
+
   // Generate search results
-  const searchResults = searchDocs(mockDocs, searchQuery);
+  const searchResults = searchDocs(searchableDocs, searchQuery);
 
   // Handle escape key to close modal
   useEffect(() => {
@@ -89,7 +224,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <>
       {/* Header */}
-      <header className="bg-white backdrop-blur-sm border-b border-gray-200/60 px-4 py-3 flex items-center gap-4 relative z-[80] h-16 shadow-sm">
+      <header className="bg-white backdrop-blur-sm border-b border-gray-200/60 px-4 py-3 flex items-center gap-4 relative z-[80] h-14 shadow-sm">
         {/* Mobile menu button */}
         {isMobile && (
           <button
@@ -110,8 +245,6 @@ const Header: React.FC<HeaderProps> = ({
         <motion.button
           onClick={handleSearchClick}
           className="p-2.5 hover:bg-gray-100/80 rounded-xl transition-all duration-200 flex-shrink-0"
-        //   whileHover={{ scale: 1.05 }}
-        //   whileTap={{ scale: 0.95 }}
           aria-label="Search"
         >
           <Search className="w-5 h-5 text-gray-600" />
@@ -165,12 +298,11 @@ const Header: React.FC<HeaderProps> = ({
                     <div className="p-2">
                       {searchResults.map((doc, index) => (
                         <motion.div
-                          key={doc.id}
+                          key={`${doc.id}-${doc.path.join('/')}`}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: index * 0.03, duration: 0.2 }}
                           whileHover={{ x: 4 }}
-                        //   whileTap={{ scale: 0.98 }}
                           className="flex items-center gap-4 p-4 hover:bg-gray-100 cursor-pointer rounded-lg transition-colors duration-200 group"
                           onClick={() => handleSearchResultClick(doc.id)}
                         >
@@ -191,10 +323,33 @@ const Header: React.FC<HeaderProps> = ({
                             </div>
                             <div className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-200 truncate">
                               {doc.category}
+                              {doc.path.length > 1 && (
+                                <span className="text-gray-400 ml-2">
+                                  {doc.path.slice(0, -1).join(' → ')}
+                                </span>
+                              )}
                             </div>
+                            {doc.tags && doc.tags.length > 0 && (
+                              <div className="flex gap-1 mt-1">
+                                {doc.tags.slice(0, 3).map(tag => (
+                                  <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
                           </div>
                         </motion.div>
                       ))}
+                      {searchQuery.length > 2 && (
+                        <div className="px-4 py-2 text-xs text-gray-500 text-center border-t border-gray-100">
+                          Showing {searchResults.length} of {searchableDocs.filter(doc => 
+                            doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            doc.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            doc.content.toLowerCase().includes(searchQuery.toLowerCase())
+                          ).length} results
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <div className="p-8 text-center">
@@ -202,6 +357,9 @@ const Header: React.FC<HeaderProps> = ({
                         <Search className="w-6 h-6 text-gray-400" />
                       </div>
                       <p className="text-gray-500">No results found for "{searchQuery}"</p>
+                      <p className="text-sm text-gray-400 mt-1">
+                        Try different keywords or check spelling
+                      </p>
                     </div>
                   )
                 ) : (
@@ -211,7 +369,7 @@ const Header: React.FC<HeaderProps> = ({
                     </div>
                     <p className="text-gray-500 mb-2">Search documentation and tools</p>
                     <p className="text-sm text-gray-400">
-                      {/* Press <kbd className="px-2 py-1 bg-gray-100 rounded text-xs">⌘K</kbd> to open search anytime */}
+                      Press <kbd className="px-2 py-1 bg-gray-100 rounded text-xs font-mono">Ctrl+K</kbd> to open search anytime
                     </p>
                   </div>
                 )}

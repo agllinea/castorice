@@ -1,18 +1,18 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { FileText, Hash, List, Wrench, X } from "lucide-react";
+import { FileText, Hash, List, Loader, Wrench, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 
-
 import type { DocTool, TOCItem } from './type';
 
 interface ContentProps {
-    currentDoc: DocTool | undefined;
+    currentDoc: DocTool | null;
     tableOfContents: TOCItem[];
     isMobile: boolean;
+    loading?: boolean;
 }
 
 interface FloatingTOCProps {
@@ -162,8 +162,6 @@ const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose }) => 
                             Table of Contents
                         </h3>
                         <motion.button
-                            // whileHover={{ scale: 1.05 }}
-                            // whileTap={{ scale: 0.95 }}
                             onClick={onClose}
                             className="p-1.5 hover:bg-gray-200 rounded-lg transition-colors"
                             aria-label="Close table of contents"
@@ -188,7 +186,6 @@ const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose }) => 
                                         >
                                             <motion.button
                                                 whileHover={{ x: 2 }}
-                                                // whileTap={{ scale: 0.98 }}
                                                 onClick={() => scrollToHeading(item.id)}
                                                 className={`block py-2 px-3 text-left w-full rounded-lg transition-colors ${
                                                     activeId === item.id
@@ -216,13 +213,13 @@ const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose }) => 
     );
 };
 
-const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile }) => {
+const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile, loading = false }) => {
     const contentRef = useRef<HTMLElement>(null);
     const [tocOpen, setTocOpen] = useState(false);
 
     // Add IDs to headings after markdown is rendered
     useEffect(() => {
-        if (!contentRef.current || !currentDoc) return;
+        if (!contentRef.current || !currentDoc || currentDoc.component) return;
 
         const headings = contentRef.current.querySelectorAll("h1, h2, h3, h4, h5, h6");
         headings.forEach((heading, index) => {
@@ -239,6 +236,22 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
     useEffect(() => {
         setTocOpen(false);
     }, [currentDoc?.id]);
+
+    // Loading state
+    if (loading) {
+        return (
+            <div className="flex-1 flex overflow-hidden">
+                <main className="flex-1 overflow-y-auto p-6">
+                    <div className="flex items-center justify-center h-full">
+                        <div className="text-center">
+                            <Loader className="w-8 h-8 text-blue-600 mx-auto mb-4 animate-spin" />
+                            <h2 className="text-lg font-semibold text-gray-600">Loading document...</h2>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        );
+    }
 
     if (!currentDoc) {
         return (
@@ -269,11 +282,9 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
                     <div className="flex items-start justify-between gap-4 mb-2">
                         <h1 className="text-3xl font-bold text-gray-900 flex-1">{currentDoc.title}</h1>
 
-                        {/* TOC Toggle Button */}
-                        {tableOfContents.length > 0 && (
+                        {/* TOC Toggle Button - Only show for markdown content */}
+                        {!currentDoc.component && tableOfContents.length > 0 && (
                             <motion.button
-                                // whileHover={{ scale: 1.05 }}
-                                // whileTap={{ scale: 0.95 }}
                                 onClick={() => setTocOpen((prev: boolean) => !prev)}
                                 className="flex items-center gap-2 px-3 py-2 bg-white hover:bg-gray-100 text-gray-700 rounded-lg transition-colors text-sm font-medium shadow-sm border border-gray-200"
                                 aria-label="Open table of contents"
@@ -300,89 +311,98 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
             {/* Scrollable Content */}
             <main className="flex-1 overflow-y-auto p-6" ref={contentRef}>
                 <article className="max-w-4xl mx-auto">
-                    <div className="prose prose-lg max-w-none prose-headings:scroll-mt-24 prose-pre:bg-gray-900 prose-pre:text-gray-100">
-                        <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            components={{
-                                code: ({ node, className, children, ...props }) => {
-                                    const match = /language-(\w+)/.exec(className || "");
-                                    return match ? (
-                                        <SyntaxHighlighter
-                                            style={oneDark as any}
-                                            language={match[1]}
-                                            PreTag="div"
-                                            className="rounded-lg"
-                                        >
-                                            {String(children).replace(/\n$/, "")}
-                                        </SyntaxHighlighter>
-                                    ) : (
-                                        <code
-                                            className={`${className} bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm`}
+                    {currentDoc.component ? (
+                        // Render React component
+                        <div className="min-h-[50vh]">
+                            <currentDoc.component />
+                        </div>
+                    ) : (
+                        // Render Markdown content
+                        <div className="prose prose-lg max-w-none prose-headings:scroll-mt-24 prose-pre:bg-gray-900 prose-pre:text-gray-100">
+                            <ReactMarkdown
+                                remarkPlugins={[remarkGfm]}
+                                components={{
+                                    code: ({ node, className, children, ...props }) => {
+                                        const match = /language-(\w+)/.exec(className || "");
+                                        return match ? (
+                                            <SyntaxHighlighter
+                                                style={oneDark as any}
+                                                language={match[1]}
+                                                PreTag="div"
+                                                className="rounded-lg"
+                                            >
+                                                {String(children).replace(/\n$/, "")}
+                                            </SyntaxHighlighter>
+                                        ) : (
+                                            <code
+                                                className={`${className} bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm`}
+                                                {...props}
+                                            >
+                                                {children}
+                                            </code>
+                                        );
+                                    },
+                                    h1: ({ children, ...props }) => (
+                                        <h1 className="text-3xl font-bold mb-6 text-gray-900" {...props}>
+                                            {children}
+                                        </h1>
+                                    ),
+                                    h2: ({ children, ...props }) => (
+                                        <h2 className="text-2xl font-semibold mb-4 mt-8 text-gray-800" {...props}>
+                                            {children}
+                                        </h2>
+                                    ),
+                                    h3: ({ children, ...props }) => (
+                                        <h3 className="text-xl font-medium mb-3 mt-6 text-gray-700" {...props}>
+                                            {children}
+                                        </h3>
+                                    ),
+                                    p: ({ children, ...props }) => (
+                                        <p className="mb-4 leading-relaxed text-gray-700" {...props}>
+                                            {children}
+                                        </p>
+                                    ),
+                                    blockquote: ({ children, ...props }) => (
+                                        <blockquote
+                                            className="border-l-4 border-blue-500 pl-4 italic text-gray-700 my-4"
                                             {...props}
                                         >
                                             {children}
-                                        </code>
-                                    );
-                                },
-                                h1: ({ children, ...props }) => (
-                                    <h1 className="text-3xl font-bold mb-6 text-gray-900" {...props}>
-                                        {children}
-                                    </h1>
-                                ),
-                                h2: ({ children, ...props }) => (
-                                    <h2 className="text-2xl font-semibold mb-4 mt-8 text-gray-800" {...props}>
-                                        {children}
-                                    </h2>
-                                ),
-                                h3: ({ children, ...props }) => (
-                                    <h3 className="text-xl font-medium mb-3 mt-6 text-gray-700" {...props}>
-                                        {children}
-                                    </h3>
-                                ),
-                                p: ({ children, ...props }) => (
-                                    <p className="mb-4 leading-relaxed text-gray-700" {...props}>
-                                        {children}
-                                    </p>
-                                ),
-
-                                blockquote: ({ children, ...props }) => (
-                                    <blockquote
-                                        className="border-l-4 border-blue-500 pl-4 italic text-gray-700 my-4"
-                                        {...props}
-                                    >
-                                        {children}
-                                    </blockquote>
-                                ),
-                                table: ({ children, ...props }) => (
-                                    <div className="overflow-x-auto mb-4">
-                                        <table className="min-w-full border border-gray-300 rounded-lg" {...props}>
+                                        </blockquote>
+                                    ),
+                                    table: ({ children, ...props }) => (
+                                        <div className="overflow-x-auto mb-4">
+                                            <table className="min-w-full border border-gray-300 rounded-lg" {...props}>
+                                                {children}
+                                            </table>
+                                        </div>
+                                    ),
+                                    th: ({ children, ...props }) => (
+                                        <th
+                                            className="bg-gray-100 border border-gray-300 px-4 py-2 text-left font-semibold"
+                                            {...props}
+                                        >
                                             {children}
-                                        </table>
-                                    </div>
-                                ),
-                                th: ({ children, ...props }) => (
-                                    <th
-                                        className="bg-gray-100 border border-gray-300 px-4 py-2 text-left font-semibold"
-                                        {...props}
-                                    >
-                                        {children}
-                                    </th>
-                                ),
-                                td: ({ children, ...props }) => (
-                                    <td className="border border-gray-300 px-4 py-2" {...props}>
-                                        {children}
-                                    </td>
-                                ),
-                            }}
-                        >
-                            {currentDoc.content}
-                        </ReactMarkdown>
-                    </div>
+                                        </th>
+                                    ),
+                                    td: ({ children, ...props }) => (
+                                        <td className="border border-gray-300 px-4 py-2" {...props}>
+                                            {children}
+                                        </td>
+                                    ),
+                                }}
+                            >
+                                {currentDoc.content}
+                            </ReactMarkdown>
+                        </div>
+                    )}
                 </article>
             </main>
 
-            {/* Floating Table of Contents */}
-            <FloatingTOC items={tableOfContents} isOpen={tocOpen} onClose={() => setTocOpen(false)} />
+            {/* Floating Table of Contents - Only for markdown content */}
+            {!currentDoc.component && (
+                <FloatingTOC items={tableOfContents} isOpen={tocOpen} onClose={() => setTocOpen(false)} />
+            )}
         </div>
     );
 };
