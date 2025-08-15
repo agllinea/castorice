@@ -196,18 +196,18 @@ const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose }) => 
                                     {items.map((item) => (
                                         <motion.li
                                             key={item.index}
-                                            initial={{ opacity: 0, x: -10 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: item.index * 0.02 }}
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: item.index * 0.03, duration: 0.2 }}
                                         >
                                             <motion.button
-                                                //   whileHover={{ x: 2 }}
-                                                //   whileTap={{ scale: 0.98 }}
+                                                whileHover={{ x: 2 }}
+                                                // whileTap={{ scale: 0.98 }}
                                                 onClick={() => scrollToHeading(item.id)}
-                                                className={`block py-2 px-3 text-left w-full rounded-lg transition-all ${
+                                                className={`block py-2 px-3 text-left w-full rounded-lg transition-colors ${
                                                     activeId === item.id
                                                         ? "bg-blue-50 text-blue-700 border-l-2 border-blue-500"
-                                                        : "text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                                                        : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
                                                 } ${
                                                     item.level === 1
                                                         ? "font-medium text-base"
@@ -243,8 +243,8 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
             const tocItem = tableOfContents[index];
             if (tocItem) {
                 heading.id = tocItem.id;
-                // Add scroll margin for better positioning
-                heading.style.scrollMarginTop = "8rem"; // Account for fixed header
+                // Cast to HTMLElement to access style
+                (heading as HTMLElement).style.scrollMarginTop = "8rem";
             }
         });
     }, [currentDoc, tableOfContents]);
@@ -318,6 +318,26 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
                         <ReactMarkdown
                             remarkPlugins={[remarkGfm]}
                             components={{
+                                code: ({ node, className, children, ...props }) => {
+                                    const match = /language-(\w+)/.exec(className || "");
+                                    return match ? (
+                                        <SyntaxHighlighter
+                                            style={oneDark as any}
+                                            language={match[1]}
+                                            PreTag="div"
+                                            className="rounded-lg"
+                                        >
+                                            {String(children).replace(/\n$/, "")}
+                                        </SyntaxHighlighter>
+                                    ) : (
+                                        <code
+                                            className={`${className} bg-gray-100 text-gray-800 px-2 py-1 rounded text-sm`}
+                                            {...props}
+                                        >
+                                            {children}
+                                        </code>
+                                    );
+                                },
                                 h1: ({ children, ...props }) => (
                                     <h1 className="text-3xl font-bold mb-6 text-gray-900" {...props}>
                                         {children}
@@ -333,14 +353,12 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
                                         {children}
                                     </h3>
                                 ),
-                                pre: ({ children, ...props }) => (
-                                    <pre
-                                        className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto mb-4"
-                                        {...props}
-                                    >
+                                p: ({ children, ...props }) => (
+                                    <p className="mb-4 leading-relaxed text-gray-700" {...props}>
                                         {children}
-                                    </pre>
+                                    </p>
                                 ),
+
                                 blockquote: ({ children, ...props }) => (
                                     <blockquote
                                         className="border-l-4 border-blue-500 pl-4 italic text-gray-700 my-4"
@@ -350,7 +368,7 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
                                     </blockquote>
                                 ),
                                 table: ({ children, ...props }) => (
-                                    <div className="overflow-x-auto">
+                                    <div className="overflow-x-auto mb-4">
                                         <table className="min-w-full border border-gray-300 rounded-lg" {...props}>
                                             {children}
                                         </table>

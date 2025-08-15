@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronRight, FileText, Wrench } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronRight, FileText, Wrench, X } from 'lucide-react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 // Types
 export interface TreeNode {
@@ -126,7 +126,6 @@ const TreeNodeComponent: React.FC<TreeNodeComponentProps> = ({
       ) : (
         <motion.div
           whileHover={{ x: 2 }}
-          whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.1 }}
           className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors ${
             currentDocId === node.id ? 'bg-blue-50 text-blue-700' : 'text-gray-600'
@@ -229,39 +228,30 @@ const Navigator: React.FC<NavigatorProps> = ({
 
   return (
     <>
-      {/* Sidebar */}
+      {/* Sidebar - Always rendered on mobile, positioned with transform */}
       <motion.div 
         className={`${
           isMobile 
-            ? 'fixed inset-0 z-40 bg-white'
+            ? 'fixed inset-0 z-50 bg-white'
             : 'bg-white border-r border-gray-200 relative'
         }`}
         style={!isMobile ? { width: sidebarWidth } : undefined}
         initial={isMobile ? { x: '-100%' } : false}
         animate={isMobile ? { x: sidebarOpen ? 0 : '-100%' } : {}}
-        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        transition={isMobile ? { 
+          type: "tween", 
+          duration: 0.35, 
+          ease: [0.25, 0.1, 0.25, 1] // Material Design easing
+        } : { type: "spring", damping: 30, stiffness: 300 }}
       >
-        {isMobile && sidebarOpen && (
-          <motion.div 
-            className="flex items-center justify-between p-4 border-b border-gray-200"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
+        {/* Hidden mobile header - invisible but maintains space for actual header */}
+        {isMobile && (
+          <div className="invisible p-4">
             <h2 className="text-lg font-semibold">Navigation</h2>
-            <motion.button
-              onClick={onCloseSidebar}
-              className="p-2 hover:bg-gray-100 rounded-lg"
-              aria-label="Close sidebar"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <X className="w-5 h-5" />
-            </motion.button>
-          </motion.div>
+          </div>
         )}
         
-        <div className={`${isMobile ? 'p-4 h-full overflow-y-auto' : 'p-4 h-full overflow-y-auto'}`}>
+        <div className="p-4 h-full overflow-y-auto">
           <nav className="space-y-2" role="navigation" aria-label="Documentation navigation">
             {navigationTree.map(node => (
               <TreeNodeComponent
@@ -293,23 +283,24 @@ const Navigator: React.FC<NavigatorProps> = ({
         )}
       </motion.div>
 
-      {/* Mobile overlay */}
-      <AnimatePresence>
-        {isMobile && sidebarOpen && (
-          <motion.div
-            className="fixed inset-0 bg-black z-30"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={handleOverlayClick}
-            role="button"
-            tabIndex={0}
-            onKeyDown={handleOverlayKeyDown}
-            aria-label="Close sidebar overlay"
-          />
-        )}
-      </AnimatePresence>
+      {/* Mobile overlay - Always rendered, controlled by opacity and pointer events */}
+      {isMobile && (
+        <motion.div
+          className="fixed inset-0 bg-black z-40"
+          style={{
+            pointerEvents: sidebarOpen ? 'auto' : 'none'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: sidebarOpen ? 0.5 : 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          onClick={handleOverlayClick}
+          role="button"
+          tabIndex={sidebarOpen ? 0 : -1}
+          onKeyDown={handleOverlayKeyDown}
+          aria-label="Close sidebar overlay"
+          aria-hidden={!sidebarOpen}
+        />
+      )}
     </>
   );
 };
