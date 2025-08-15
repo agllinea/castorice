@@ -1,23 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { FileText, Hash, Menu, Search, Wrench, X } from 'lucide-react';
+import { FileText, Menu, Search, Wrench, X } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
 
-// Types
-interface DocTool {
-  id: string;
-  title: string;
-  type: 'doc' | 'tool';
-  category: string;
-  content: string;
-  tags?: string[];
-}
-
-interface TreeNode {
-  id: string;
-  label: string;
-  type?: 'doc' | 'tool';
-  children?: TreeNode[];
-}
+import type { DocTool, TreeNode } from './type';
 
 interface HeaderProps {
   isMobile: boolean;

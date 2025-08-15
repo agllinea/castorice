@@ -1,35 +1,13 @@
-import { FileText, Hash, Menu, Search, Wrench } from "lucide-react";
 import React, { useEffect, useMemo, useState } from "react";
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import Content from "./Content";
 import Header from "./Header";
 import Navigator from "./Navigator";
-import { decodeDocId, findDocByPath, findDocPath, getDocIdFromPath, getExpandedNodesForPath, isValidPath, pathToUrl, urlToPath } from "./routingUtils";
+import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, isValidPath, pathToUrl, urlToPath } from "./routingUtils";
 
-// Types
-interface DocTool {
-    id: string;
-    title: string;
-    type: "doc" | "tool";
-    category: string;
-    content: string;
-    tags?: string[];
-}
-
-interface TreeNode {
-    id: string;
-    label: string;
-    type?: "doc" | "tool";
-    children?: TreeNode[];
-}
-
-interface TOCItem {
-    level: number;
-    text: string;
-    id: string;
-    index: number;
-}
+import type { DocTool, TOCItem, TreeNode } from "./type";
+import appIndex from "./appIndex";
 
 // Mock data
 const mockDocs: DocTool[] = [
@@ -223,20 +201,6 @@ const navigationTree: TreeNode[] = [
     },
 ];
 
-// Search utility
-const searchDocs = (docs: DocTool[], query: string): DocTool[] => {
-    if (!query) return [];
-    const lowercaseQuery = query.toLowerCase();
-    return docs
-        .filter(
-            (doc) =>
-                doc.title.toLowerCase().includes(lowercaseQuery) ||
-                doc.content.toLowerCase().includes(lowercaseQuery) ||
-                doc.tags?.some((tag) => tag.toLowerCase().includes(lowercaseQuery))
-        )
-        .slice(0, 5);
-};
-
 // Generate table of contents from content
 const generateTOC = (content: string): TOCItem[] => {
     const headings = content.match(/^#{1,3}\s+(.+)$/gm) || [];
@@ -255,7 +219,6 @@ const generateTOC = (content: string): TOCItem[] => {
 const AppContent: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const params = useParams();
 
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
     const [sidebarWidth, setSidebarWidth] = useState<number>(384); // Default to w-96 (384px)
@@ -382,8 +345,6 @@ const AppContent: React.FC = () => {
 // Route component to handle document paths
 const DocumentRoute: React.FC = () => {
     const params = useParams();
-    const navigate = useNavigate();
-    const location = useLocation();
 
     // Parse the path from URL parameters
     const pathSegments = params["*"]?.split("/").filter(Boolean) || [];

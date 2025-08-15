@@ -6,22 +6,8 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 
-// Types
-export interface DocTool {
-    id: string;
-    title: string;
-    type: "doc" | "tool";
-    category: string;
-    content: string;
-    tags?: string[];
-}
 
-export interface TOCItem {
-    level: number;
-    text: string;
-    id: string;
-    index: number;
-}
+import type { DocTool, TOCItem } from './type';
 
 interface ContentProps {
     currentDoc: DocTool | undefined;

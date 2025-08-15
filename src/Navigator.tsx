@@ -1,14 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronRight, FileText, Wrench, X } from 'lucide-react';
+import { ChevronRight, FileText, Wrench } from 'lucide-react';
 import React, { useCallback, useEffect, useState } from 'react';
 
-// Types
-export interface TreeNode {
-  id: string;
-  label: string;
-  type?: 'doc' | 'tool';
-  children?: TreeNode[];
-}
+import type { TreeNode } from './type';
 
 interface NavigatorProps {
   navigationTree: TreeNode[];
