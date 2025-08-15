@@ -1,18 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { FileText, Hash, List, Loader, Wrench, X } from "lucide-react";
+import { FileText, Hash, List, Loader, Menu, Wrench, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 
-import type { DocTool, TOCItem } from './type';
+import type { DocTool, TOCItem } from "./type";
 
 interface ContentProps {
     currentDoc: DocTool | null;
     tableOfContents: TOCItem[];
     isMobile: boolean;
     loading?: boolean;
+    onSidebarToggle?: () => void; // Callback for sidebar toggle
 }
 
 interface FloatingTOCProps {
@@ -213,7 +214,13 @@ const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose }) => 
     );
 };
 
-const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile, loading = false }) => {
+const Content: React.FC<ContentProps> = ({
+    currentDoc,
+    tableOfContents,
+    loading = false,
+    isMobile,
+    onSidebarToggle,
+}) => {
     const contentRef = useRef<HTMLElement>(null);
     const [tocOpen, setTocOpen] = useState(false);
 
@@ -273,14 +280,27 @@ const Content: React.FC<ContentProps> = ({ currentDoc, tableOfContents, isMobile
             {/* Fixed Title Header */}
             <div className="bg-gray-50 px-6 py-4 flex-shrink-0 sticky top-0 z-30 border-b border-gray-200">
                 <div className="max-w-4xl mx-auto">
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                    {/* <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
                         {currentDoc.type === "tool" ? <Wrench className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
                         <span>{currentDoc.category}</span>
-                    </div>
+                    </div> */}
 
                     {/* Title and TOC Toggle */}
-                    <div className="flex items-start justify-between gap-4 mb-2">
-                        <h1 className="text-3xl font-bold text-gray-900 flex-1">{currentDoc.title}</h1>
+                    <div className="flex justify-between gap-4 items-center">
+                        <div className="flex justify-between gap-4 items-center overflow-auto">
+                            {isMobile && (
+                                <button
+                                    onClick={onSidebarToggle}
+                                    className="p-2.5 hover:bg-gray-100/80 rounded-xl transition-all duration-200 flex-shrink-0 active:scale-95"
+                                    aria-label="Toggle sidebar"
+                                >
+                                    <Menu className="w-5 h-5 text-gray-700" />
+                                </button>
+                            )}
+                            <div className="text-lg font-bold text-gray-900 flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
+                                {currentDoc.title}
+                            </div>
+                        </div>
 
                         {/* TOC Toggle Button - Only show for markdown content */}
                         {!currentDoc.component && tableOfContents.length > 0 && (

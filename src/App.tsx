@@ -2,12 +2,12 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import Content from "./Content";
-import Header from "./Header";
 import Navigator from "./Navigator";
 import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, isValidPath, pathToUrl, urlToPath } from "./routingUtils";
 
 import type { DocTool, TOCItem, TreeNode } from "./type";
 import appIndex from "./appIndex";
+import BackgroundMusicPlayer from "./components/BackgroundMusicPlayer";
 
 // Generate table of contents from content
 const generateTOC = (content: string): TOCItem[] => {
@@ -25,11 +25,11 @@ const generateTOC = (content: string): TOCItem[] => {
 
 // Convert appIndex TreeNode to navigation format with proper labels
 const convertToNavigationTree = (nodes: TreeNode[]): TreeNode[] => {
-    return nodes.map(node => ({
+    return nodes.map((node) => ({
         ...node,
-        label: node.label || node.id.replace(/\.md$/, ''), // Remove .md extension for display
-        type: node.component ? 'tool' : (node.id.endsWith('.md') ? 'doc' : undefined),
-        children: node.children ? convertToNavigationTree(node.children) : undefined
+        label: node.label || node.id.replace(/\.md$/, ""), // Remove .md extension for display
+        type: node.component ? "tool" : node.id.endsWith(".md") ? "doc" : undefined,
+        children: node.children ? convertToNavigationTree(node.children) : undefined,
     }));
 };
 
@@ -37,11 +37,11 @@ const convertToNavigationTree = (nodes: TreeNode[]): TreeNode[] => {
 const buildDocPath = (nodes: TreeNode[], targetId: string, currentPath: string[] = []): string[] | null => {
     for (const node of nodes) {
         const newPath = [...currentPath, node.id];
-        
+
         if (node.id === targetId) {
             return newPath;
         }
-        
+
         if (node.children) {
             const result = buildDocPath(node.children, targetId, newPath);
             if (result) {
@@ -54,28 +54,28 @@ const buildDocPath = (nodes: TreeNode[], targetId: string, currentPath: string[]
 
 // Convert path to file path for markdown files
 const pathToFilePath = (path: string[]): string => {
-    return path.join('/') + (path[path.length - 1].endsWith('.md') ? '' : '.md');
+    return path.join("/") + (path[path.length - 1].endsWith(".md") ? "" : ".md");
 };
 
 // Find node by path in appIndex
 const findNodeByPath = (nodes: TreeNode[], path: string[]): TreeNode | null => {
     if (path.length === 0) return null;
-    
+
     let currentNodes = nodes;
     let targetNode: TreeNode | null = null;
-    
+
     for (const pathSegment of path) {
-        const foundNode = currentNodes.find(node => node.id === pathSegment);
+        const foundNode = currentNodes.find((node) => node.id === pathSegment);
         if (!foundNode) {
             return null;
         }
-        
+
         targetNode = foundNode;
         if (foundNode.children) {
             currentNodes = foundNode.children;
         }
     }
-    
+
     return targetNode;
 };
 
@@ -120,45 +120,47 @@ const AppContent: React.FC = () => {
             setCurrentDoc({
                 id: currentNode.id,
                 title: currentNode.label || currentNode.id,
-                type: 'tool',
-                category: 'Interactive Tool',
-                content: '', // Components don't need content
-                component: currentNode.component
+                type: "tool",
+                category: "Interactive Tool",
+                content: "", // Components don't need content
+                component: currentNode.component,
             });
             return;
         }
 
         // If it's a markdown file, load the content
-        if (currentNode.id.endsWith('.md') || (!currentNode.children && !currentNode.component)) {
+        if (currentNode.id.endsWith(".md") || (!currentNode.children && !currentNode.component)) {
             const loadMarkdownContent = async () => {
                 setLoading(true);
                 try {
                     const filePath = `/docs/${pathToFilePath(currentPath)}`;
                     const response = await fetch(filePath);
-                    
+
                     if (!response.ok) {
                         throw new Error(`Failed to load ${filePath}`);
                     }
-                    
+
                     const content = await response.text();
-                    
+
                     setCurrentDoc({
                         id: currentNode.id,
-                        title: currentNode.label || currentNode.id.replace(/\.md$/, ''),
-                        type: 'doc',
-                        category: currentPath.length > 1 ? currentPath[0] : 'Documentation',
+                        title: currentNode.label || currentNode.id.replace(/\.md$/, ""),
+                        type: "doc",
+                        category: currentPath.length > 1 ? currentPath[0] : "Documentation",
                         content: content,
-                        tags: []
+                        tags: [],
                     });
                 } catch (error) {
-                    console.error('Error loading markdown file:', error);
+                    console.error("Error loading markdown file:", error);
                     setCurrentDoc({
                         id: currentNode.id,
                         title: currentNode.label || currentNode.id,
-                        type: 'doc',
-                        category: 'Documentation',
-                        content: `# Error Loading Document\n\nCould not load the document at path: ${pathToFilePath(currentPath)}\n\nPlease check if the file exists in the public/docs folder.`,
-                        tags: []
+                        type: "doc",
+                        category: "Documentation",
+                        content: `# Error Loading Document\n\nCould not load the document at path: ${pathToFilePath(
+                            currentPath
+                        )}\n\nPlease check if the file exists in the public/docs folder.`,
+                        tags: [],
                     });
                 } finally {
                     setLoading(false);
@@ -241,37 +243,37 @@ const AppContent: React.FC = () => {
     // Create mock docs for search functionality (you might want to build this dynamically)
     const mockDocs: DocTool[] = useMemo(() => {
         const docs: DocTool[] = [];
-        
+
         const extractDocs = (nodes: TreeNode[], parentPath: string[] = []) => {
-            nodes.forEach(node => {
+            nodes.forEach((node) => {
                 const currentPath = [...parentPath, node.id];
-                
+
                 if (node.component) {
                     docs.push({
                         id: node.id,
                         title: node.label || node.id,
-                        type: 'tool',
-                        category: 'Interactive Tool',
-                        content: '',
-                        component: node.component
+                        type: "tool",
+                        category: "Interactive Tool",
+                        content: "",
+                        component: node.component,
                     });
-                } else if (node.id.endsWith('.md') || (!node.children && !node.component)) {
+                } else if (node.id.endsWith(".md") || (!node.children && !node.component)) {
                     docs.push({
                         id: node.id,
-                        title: node.label || node.id.replace(/\.md$/, ''),
-                        type: 'doc',
-                        category: parentPath.length > 0 ? parentPath[0] : 'Documentation',
-                        content: '', // Content will be loaded when needed
-                        tags: []
+                        title: node.label || node.id.replace(/\.md$/, ""),
+                        type: "doc",
+                        category: parentPath.length > 0 ? parentPath[0] : "Documentation",
+                        content: "", // Content will be loaded when needed
+                        tags: [],
                     });
                 }
-                
+
                 if (node.children) {
                     extractDocs(node.children, currentPath);
                 }
             });
         };
-        
+
         extractDocs(appIndex);
         return docs;
     }, []);
@@ -279,13 +281,13 @@ const AppContent: React.FC = () => {
     return (
         <div className="h-screen bg-gray-50 flex flex-col">
             {/* Header */}
-            <Header
+            {/* <Header
                 isMobile={isMobile}
                 mockDocs={mockDocs}
                 navigationTree={navigationTree}
                 onSidebarToggle={handleSidebarToggle}
                 onSearchResultClick={handleSearchResultClick}
-            />
+            /> */}
 
             <div className="flex flex-1 overflow-hidden">
                 {/* Navigator Component */}
@@ -303,13 +305,15 @@ const AppContent: React.FC = () => {
                 />
 
                 {/* Content Area */}
-                <Content 
-                    currentDoc={currentDoc} 
-                    tableOfContents={tableOfContents} 
+                <Content
+                    currentDoc={currentDoc}
+                    tableOfContents={tableOfContents}
                     isMobile={isMobile}
                     loading={loading}
+                    onSidebarToggle={handleSidebarToggle}
                 />
             </div>
+            <BackgroundMusicPlayer musicPath="Antila Floriography.mp3" isPlaying={true} />
         </div>
     );
 };
@@ -337,7 +341,7 @@ const App: React.FC = () => {
     const getFirstAvailableDoc = (): string => {
         const findFirstLeaf = (nodes: TreeNode[]): string | null => {
             for (const node of nodes) {
-                if (node.component || node.id.endsWith('.md') || (!node.children && !node.component)) {
+                if (node.component || node.id.endsWith(".md") || (!node.children && !node.component)) {
                     const docPath = buildDocPath(appIndex, node.id);
                     if (docPath) {
                         return pathToUrl(docPath);
@@ -350,7 +354,7 @@ const App: React.FC = () => {
             }
             return null;
         };
-        
+
         return findFirstLeaf(appIndex) || "example/basic%20tool/Counter";
     };
 
