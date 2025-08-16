@@ -1,83 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 
-import Content from "./Content";
-import Navigator from "./Navigator";
-import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, isValidPath, pathToUrl, urlToPath } from "./routingUtils";
+import Content from "./components/Content";
+import Navigator from "./components/Navigator";
+import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, isValidPath, pathToUrl, urlToPath } from "./utils/routing";
 
-import type { DocTool, TOCItem, TreeNode } from "./type";
+import type { DocTool, TreeNode } from "./types/model";
 import appIndex from "./appIndex";
-import BackgroundMusicPlayer from "./components/BackgroundMusicPlayer";
-
-// Generate table of contents from content
-const generateTOC = (content: string): TOCItem[] => {
-    const headings = content.match(/^#{1,3}\s+(.+)$/gm) || [];
-    return headings.map((heading, index) => {
-        const level = heading.match(/^#+/)?.[0].length || 1;
-        const text = heading.replace(/^#+\s+/, "");
-        const id = text
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
-        return { level, text, id, index };
-    });
-};
-
-// Convert appIndex TreeNode to navigation format with proper labels
-const convertToNavigationTree = (nodes: TreeNode[]): TreeNode[] => {
-    return nodes.map((node) => ({
-        ...node,
-        label: node.label || node.id.replace(/\.md$/, ""), // Remove .md extension for display
-        type: node.component ? "tool" : node.id.endsWith(".md") ? "doc" : undefined,
-        children: node.children ? convertToNavigationTree(node.children) : undefined,
-    }));
-};
-
-// Build path from appIndex structure
-const buildDocPath = (nodes: TreeNode[], targetId: string, currentPath: string[] = []): string[] | null => {
-    for (const node of nodes) {
-        const newPath = [...currentPath, node.id];
-
-        if (node.id === targetId) {
-            return newPath;
-        }
-
-        if (node.children) {
-            const result = buildDocPath(node.children, targetId, newPath);
-            if (result) {
-                return result;
-            }
-        }
-    }
-    return null;
-};
-
-// Convert path to file path for markdown files
-const pathToFilePath = (path: string[]): string => {
-    return path.join("/") + (path[path.length - 1].endsWith(".md") ? "" : ".md");
-};
-
-// Find node by path in appIndex
-const findNodeByPath = (nodes: TreeNode[], path: string[]): TreeNode | null => {
-    if (path.length === 0) return null;
-
-    let currentNodes = nodes;
-    let targetNode: TreeNode | null = null;
-
-    for (const pathSegment of path) {
-        const foundNode = currentNodes.find((node) => node.id === pathSegment);
-        if (!foundNode) {
-            return null;
-        }
-
-        targetNode = foundNode;
-        if (foundNode.children) {
-            currentNodes = foundNode.children;
-        }
-    }
-
-    return targetNode;
-};
+import { convertToNavigationTree, findNodeByPath, generateTOC, pathToFilePath, buildDocPath } from "./utils/doc";
+import ThemeManager from "./ThemeManager";
+import "./App.css"
 
 // Main App Content Component
 const AppContent: React.FC = () => {
@@ -279,16 +211,7 @@ const AppContent: React.FC = () => {
     }, []);
 
     return (
-        <div className="h-screen bg-gray-50 flex flex-col">
-            {/* Header */}
-            {/* <Header
-                isMobile={isMobile}
-                mockDocs={mockDocs}
-                navigationTree={navigationTree}
-                onSidebarToggle={handleSidebarToggle}
-                onSearchResultClick={handleSearchResultClick}
-            /> */}
-
+        <div className="h-screen flex flex-col">
             <div className="flex flex-1 overflow-hidden">
                 {/* Navigator Component */}
                 <Navigator
@@ -313,7 +236,6 @@ const AppContent: React.FC = () => {
                     onSidebarToggle={handleSidebarToggle}
                 />
             </div>
-            <BackgroundMusicPlayer musicPath="Antila Floriography.mp3" isPlaying={true} />
         </div>
     );
 };
@@ -331,7 +253,6 @@ const DocumentRoute: React.FC = () => {
     if (pathSegments.length > 0 && !isValidPath(navigationTree, currentPath)) {
         return <Navigate to="/" replace />;
     }
-
     return <AppContent />;
 };
 
@@ -354,19 +275,20 @@ const App: React.FC = () => {
             }
             return null;
         };
-
         return findFirstLeaf(appIndex) || "example/basic%20tool/Counter";
     };
 
     return (
-        <Router>
-            <Routes>
-                {/* Handle all paths including nested ones */}
-                <Route path="/*" element={<DocumentRoute />} />
-                {/* Default redirect to first document */}
-                <Route path="/" element={<Navigate to={`/${getFirstAvailableDoc()}`} replace />} />
-            </Routes>
-        </Router>
+        <ThemeManager>
+            <Router>
+                <Routes>
+                    {/* Handle all paths including nested ones */}
+                    <Route path="/*" element={<DocumentRoute />} />
+                    {/* Default redirect to first document */}
+                    <Route path="/" element={<Navigate to={`/${getFirstAvailableDoc()}`} replace />} />
+                </Routes>
+            </Router>
+        </ThemeManager>
     );
 };
 

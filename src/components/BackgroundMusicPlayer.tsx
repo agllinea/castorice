@@ -5,6 +5,7 @@ interface BackgroundMusicPlayerProps {
   isPlaying: boolean;
   retryInterval?: number; // in milliseconds
   volume?: number; // 0 to 1
+  fadeInDuration?: number; // in milliseconds, default 10 seconds
   onPlayStateChange?: (playing: boolean) => void;
 }
 
@@ -13,13 +14,74 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
   isPlaying,
   retryInterval = 1000,
   volume = 0.2,
+  fadeInDuration = 30000, // 10 seconds default fade-in
   onPlayStateChange
 }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const retryTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadeIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [actuallyPlaying, setActuallyPlaying] = useState(false);
   const [hasUserInteracted, setHasUserInteracted] = useState(false);
   const [playAttempts, setPlayAttempts] = useState(0);
+  const [currentVolume, setCurrentVolume] = useState(0);
+
+  // Function to start fade-in effect
+  const startFadeIn = () => {
+    if (!audioRef.current) return;
+    
+    // Clear any existing fade interval
+    if (fadeIntervalRef.current) {
+      clearInterval(fadeIntervalRef.current);
+    }
+    
+    // Start with very low volume (almost silent)
+    const startVolume = 0.001;
+    const targetVolume = volume;
+    const steps = Math.max(50, fadeInDuration / 100); // At least 50 steps, or one step every 100ms
+    const volumeIncrement = (targetVolume - startVolume) / steps;
+    const stepDuration = fadeInDuration / steps;
+    
+    audioRef.current.volume = startVolume;
+    setCurrentVolume(startVolume);
+    
+    let currentStep = 0;
+    
+    fadeIntervalRef.current = setInterval(() => {
+      if (!audioRef.current) {
+        if (fadeIntervalRef.current) {
+          clearInterval(fadeIntervalRef.current);
+          fadeIntervalRef.current = null;
+        }
+        return;
+      }
+      
+      currentStep++;
+      const newVolume = Math.min(targetVolume, startVolume + (volumeIncrement * currentStep));
+      audioRef.current.volume = newVolume;
+      setCurrentVolume(newVolume);
+      
+      // If we've reached the target volume, stop the fade
+      if (newVolume >= targetVolume || currentStep >= steps) {
+        if (fadeIntervalRef.current) {
+          clearInterval(fadeIntervalRef.current);
+          fadeIntervalRef.current = null;
+        }
+      }
+    }, stepDuration);
+  };
+
+  // Function to stop fade and set volume immediately
+  const stopFadeAndSetVolume = (vol: number) => {
+    if (fadeIntervalRef.current) {
+      clearInterval(fadeIntervalRef.current);
+      fadeIntervalRef.current = null;
+    }
+    
+    if (audioRef.current) {
+      audioRef.current.volume = vol;
+      setCurrentVolume(vol);
+    }
+  };
 
   // Function to attempt playing the audio
   const attemptPlay = async () => {
@@ -37,13 +99,16 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
       setPlayAttempts(prev => prev + 1);
       onPlayStateChange?.(true);
       
+      // Start the fade-in effect
+      startFadeIn();
+      
       // Clear any pending retry
       if (retryTimeoutRef.current) {
         clearTimeout(retryTimeoutRef.current);
         retryTimeoutRef.current = null;
       }
       
-      console.log('Background music started successfully');
+      console.log('Background music started successfully with fade-in');
     } catch (error: any) {
       const attempt = playAttempts + 1;
       setActuallyPlaying(false);
@@ -75,6 +140,9 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
   const stopPlay = () => {
     if (!audioRef.current) return;
     
+    // Stop fade-in if running
+    stopFadeAndSetVolume(0);
+    
     audioRef.current.pause();
     setActuallyPlaying(false);
     onPlayStateChange?.(false);
@@ -105,6 +173,15 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
     }
   }, [isPlaying]);
 
+  // Effect to handle volume changes during playback
+  useEffect(() => {
+    if (audioRef.current && actuallyPlaying && !fadeIntervalRef.current) {
+      // Only update volume if we're not currently fading in
+      audioRef.current.volume = volume;
+      setCurrentVolume(volume);
+    }
+  }, [volume, actuallyPlaying]);
+
   useEffect(() => {
     // Ensure the path is absolute from the root
     const absolutePath = musicPath.startsWith('/') 
@@ -118,7 +195,7 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
     
     const audio = new Audio(fullUrl);
     audio.loop = true;
-    audio.volume = volume;
+    audio.volume = 0; // Start with no volume
     audio.preload = 'auto';
     audioRef.current = audio;
 
@@ -146,6 +223,11 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
     const handlePause = () => {
       setActuallyPlaying(false);
       onPlayStateChange?.(false);
+      // Stop any ongoing fade
+      if (fadeIntervalRef.current) {
+        clearInterval(fadeIntervalRef.current);
+        fadeIntervalRef.current = null;
+      }
     };
 
     const handleEnded = () => {
@@ -214,6 +296,10 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
         clearTimeout(retryTimeoutRef.current);
       }
       
+      if (fadeIntervalRef.current) {
+        clearInterval(fadeIntervalRef.current);
+      }
+      
       audio.removeEventListener('loadstart', handleLoadStart);
       audio.removeEventListener('loadeddata', handleLoadedData);
       audio.removeEventListener('canplay', handleCanPlay);
@@ -229,7 +315,7 @@ const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
       audio.pause();
       audio.src = '';
     };
-  }, [musicPath, retryInterval, volume]);
+  }, [musicPath, retryInterval]);
 
   // This component renders nothing (invisible)
   return null;
