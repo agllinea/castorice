@@ -3,6 +3,15 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import BackgroundMusicPlayer from "./components/BackgroundMusicPlayer";
 
+// Scrollbar style configuration
+export interface ScrollbarStyle {
+    id: string;
+    name: string;
+    description: string;
+    className: string;
+    preview: string;
+}
+
 // Theme configuration interface
 interface ThemeConfig {
     id: string;
@@ -29,7 +38,35 @@ interface ThemeContextType {
     musicEnabled: boolean;
     setMusicEnabled: (enabled: boolean) => void;
     musicPlaying: boolean;
+    currentScrollbarStyle: ScrollbarStyle;
+    scrollbarStyles: ScrollbarStyle[];
+    setScrollbarStyle: (styleId: string) => void;
 }
+
+// Available scrollbar styles
+const SCROLLBAR_STYLES: ScrollbarStyle[] = [
+    {
+        id: "default",
+        name: "Default",
+        description: "Standard elegant scrollbars",
+        className: "",
+        preview: "━━━━━━━━━━"
+    },
+    {
+        id: "elegant",
+        name: "Elegant",
+        description: "Premium gradient scrollbars with shadows",
+        className: "scrollbar-elegant",
+        preview: "▓▓▓▓▓▓▓▓▓▓"
+    },
+    {
+        id: "invisible",
+        name: "Invisible",
+        description: "Completely hidden scrollbars",
+        className: "scrollbar-invisible",
+        preview: "          "
+    }
+];
 
 // Pre-configured themes (simplified - colors now handled by CSS classes)
 const THEMES: Record<string, ThemeConfig> = {
@@ -84,6 +121,7 @@ const THEMES: Record<string, ThemeConfig> = {
 };
 
 const DEFAULT_THEME = "purple";
+const DEFAULT_SCROLLBAR_STYLE = "default";
 
 // Create context
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -97,13 +135,16 @@ const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DE
     const [currentThemeId, setCurrentThemeId] = useState<string>(defaultTheme);
     const [musicEnabled, setMusicEnabled] = useState<boolean>(true);
     const [musicPlaying, setMusicPlaying] = useState<boolean>(false);
+    const [currentScrollbarStyleId, setCurrentScrollbarStyleId] = useState<string>(DEFAULT_SCROLLBAR_STYLE);
 
     const currentTheme = THEMES[currentThemeId] || THEMES[DEFAULT_THEME];
+    const currentScrollbarStyle = SCROLLBAR_STYLES.find(style => style.id === currentScrollbarStyleId) || SCROLLBAR_STYLES[0];
 
     // Load saved preferences
     useEffect(() => {
         const savedTheme = localStorage.getItem("app-theme");
         const savedMusicEnabled = localStorage.getItem("app-music-enabled");
+        const savedScrollbarStyle = localStorage.getItem("app-scrollbar-style");
 
         if (savedTheme && THEMES[savedTheme]) {
             setCurrentThemeId(savedTheme);
@@ -111,6 +152,10 @@ const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DE
 
         if (savedMusicEnabled !== null) {
             setMusicEnabled(savedMusicEnabled === "true");
+        }
+
+        if (savedScrollbarStyle && SCROLLBAR_STYLES.find(style => style.id === savedScrollbarStyle)) {
+            setCurrentScrollbarStyleId(savedScrollbarStyle);
         }
     }, []);
 
@@ -144,6 +189,26 @@ const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DE
         localStorage.setItem("app-theme", currentThemeId);
     }, [currentTheme, currentThemeId]);
 
+    // Apply scrollbar style
+    useEffect(() => {
+        const html = document.documentElement;
+        
+        // Remove existing scrollbar classes
+        SCROLLBAR_STYLES.forEach(style => {
+            if (style.className) {
+                html.classList.remove(style.className);
+            }
+        });
+
+        // Add current scrollbar class
+        if (currentScrollbarStyle.className) {
+            html.classList.add(currentScrollbarStyle.className);
+        }
+
+        // Save scrollbar style preference
+        localStorage.setItem("app-scrollbar-style", currentScrollbarStyleId);
+    }, [currentScrollbarStyle, currentScrollbarStyleId]);
+
     // Save music preference
     useEffect(() => {
         localStorage.setItem("app-music-enabled", musicEnabled.toString());
@@ -152,6 +217,12 @@ const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DE
     const setTheme = (themeId: string): void => {
         if (THEMES[themeId]) {
             setCurrentThemeId(themeId);
+        }
+    };
+
+    const setScrollbarStyle = (styleId: string): void => {
+        if (SCROLLBAR_STYLES.find(style => style.id === styleId)) {
+            setCurrentScrollbarStyleId(styleId);
         }
     };
 
@@ -166,6 +237,9 @@ const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DE
         musicEnabled,
         setMusicEnabled,
         musicPlaying,
+        currentScrollbarStyle,
+        scrollbarStyles: SCROLLBAR_STYLES,
+        setScrollbarStyle,
     };
 
     return (

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Search, Wrench, X } from "lucide-react";
 import React, { useEffect, useRef } from "react";
+
 import type { SearchableDoc } from "../types/model";
 
 interface DocSearchProps {
@@ -54,7 +55,7 @@ const DocSearch: React.FC<DocSearchProps> = ({
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className={`backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-theme bg-theme-surface/95 ${
+                        className={`backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-theme bg-theme-surface/95 max-h-[60vh] ${
                             isMobile ? "w-[90vw] max-w-md" : "w-[600px]"
                         }`}
                         onClick={(e) => e.stopPropagation()}

@@ -9,7 +9,7 @@ import type { DocTool, TreeNode } from "./types/model";
 import appIndex from "./appIndex";
 import { convertToNavigationTree, findNodeByPath, generateTOC, pathToFilePath, buildDocPath } from "./utils/doc";
 import ThemeManager from "./ThemeManager";
-import "./App.css"
+import "./scrollbar.css"
 
 // Main App Content Component
 const AppContent: React.FC = () => {

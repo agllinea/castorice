@@ -1,11 +1,27 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Hash, X } from "lucide-react";
-import { useState, useEffect } from "react";
-import type { FloatingTOCProps } from "../types/component";
+import { useEffect, useState } from "react";
+
+import { useTheme } from "../ThemeManager";
+
+interface TOCItem {
+    id: string;
+    text: string;
+    level: number;
+    index: number;
+    path: string; // Added path for context
+}
+
+interface FloatingTOCProps {
+    items: TOCItem[];
+    isOpen: boolean;
+    onClose: () => void;
+}
 
 export const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose }) => {
     const [activeId, setActiveId] = useState<string>("");
     const [position, setPosition] = useState<{ top: number; right: number }>({ top: 0, right: 24 });
+    const { currentTheme } = useTheme();
 
     // Calculate position relative to TOC button
     useEffect(() => {
@@ -14,41 +30,64 @@ export const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose
             if (button) {
                 const rect = button.getBoundingClientRect();
                 setPosition({
-                    top: rect.bottom + 8, // 8px gap below button
-                    right: window.innerWidth - rect.right, // Align right edge with button
+                    top: rect.bottom + 15,
+                    right: window.innerWidth - rect.right,
                 });
             }
         }
     }, [isOpen]);
 
-    // Track scroll position to highlight active section
+    // Track active section using scroll listener
     useEffect(() => {
-        if (!isOpen) return;
+        if (!isOpen || items.length === 0) return;
 
         const handleScroll = () => {
-            const headings = items
-                .map((item) => ({
-                    id: item.id,
-                    element: document.getElementById(item.id),
-                }))
-                .filter((item) => item.element);
+            const scrollContainer = document.querySelector('.toc-content') as HTMLElement;
+            if (!scrollContainer) return;
 
-            // Find the heading that's currently in view
+            const scrollPosition = scrollContainer.scrollTop + 140; // Account for header offset
             let currentActiveId = "";
-            for (const heading of headings) {
-                const rect = heading.element!.getBoundingClientRect();
-                if (rect.top <= 150) {
-                    // Account for fixed header height
-                    currentActiveId = heading.id;
+
+            // Find the current section by checking which heading we've scrolled past
+            for (let i = items.length - 1; i >= 0; i--) {
+                const item = items[i];
+                const element = document.getElementById(item.id);
+                
+                if (element) {
+                    // Get element position relative to the scroll container
+                    const containerRect = scrollContainer.getBoundingClientRect();
+                    const elementRect = element.getBoundingClientRect();
+                    const elementTop = elementRect.top - containerRect.top + scrollContainer.scrollTop;
+                    
+                    if (scrollPosition >= elementTop - 50) { // Small buffer for better UX
+                        currentActiveId = item.id;
+                        break;
+                    }
                 }
             }
+
+            // If we haven't scrolled past any heading, check if we're near the top
+            if (!currentActiveId && scrollPosition < 200 && items.length > 0) {
+                currentActiveId = items[0].id;
+            }
+
             setActiveId(currentActiveId);
         };
 
-        window.addEventListener("scroll", handleScroll);
-        handleScroll(); // Initial check
+        // Add scroll listener to the scroll container
+        const scrollContainer = document.querySelector('.toc-content');
+        if (scrollContainer) {
+            scrollContainer.addEventListener('scroll', handleScroll);
+        }
+        
+        // Initial check
+        handleScroll();
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        return () => {
+            if (scrollContainer) {
+                scrollContainer.removeEventListener('scroll', handleScroll);
+            }
+        };
     }, [items, isOpen]);
 
     // Handle click outside to close
@@ -69,32 +108,66 @@ export const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [isOpen, onClose]);
 
-    const scrollToHeading = (id: string): void => {
-        // First try to find by exact ID
-        let element = document.getElementById(id);
+    // Handle escape key
+    useEffect(() => {
+        if (!isOpen) return;
 
-        // If not found, try to find by heading text (fallback)
-        if (!element) {
-            const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
-            const targetText = items.find((item) => item.id === id)?.text;
-            if (targetText) {
-                element = Array.from(headings).find((h) =>
-                    h.textContent?.toLowerCase().includes(targetText.toLowerCase())
-                ) as HTMLElement;
+        const handleEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape") {
+                onClose();
             }
-        }
+        };
 
+        document.addEventListener("keydown", handleEscape);
+        return () => document.removeEventListener("keydown", handleEscape);
+    }, [isOpen, onClose]);
+
+    const scrollToHeading = (item: TOCItem): void => {
+        console.log('Scrolling to:', item.level, item.text, 'ID:', item.id); // Debug log
+        
+        const element = document.getElementById(item.id);
+        
         if (element) {
-            element.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-                inline: "nearest",
-            });
+            console.log('Element found:', element); // Debug log
+            
+            // Get the scrollable container
+            const scrollContainer = document.querySelector('.toc-content') as HTMLElement;
+            
+            if (scrollContainer) {
+                // Calculate position relative to the scroll container
+                const containerRect = scrollContainer.getBoundingClientRect();
+                const elementRect = element.getBoundingClientRect();
+                
+                const relativeTop = elementRect.top - containerRect.top;
+                const currentScrollTop = scrollContainer.scrollTop;
+                const headerOffset = 140;
+                
+                const targetScrollTop = currentScrollTop + relativeTop - headerOffset;
+                
+                console.log('Scrolling to position:', targetScrollTop); // Debug log
+                
+                scrollContainer.scrollTo({
+                    top: targetScrollTop,
+                    behavior: 'smooth'
+                });
+                
+                // Update active state immediately for better UX
+                setActiveId(item.id);
+            } else {
+                // Fallback to window scroll
+                const headerOffset = 140;
+                const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+                const targetPosition = elementTop - headerOffset;
 
-            // Add offset to account for fixed header
-            setTimeout(() => {
-                window.scrollBy(0, -120); // Account for fixed header height
-            }, 100);
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                setActiveId(item.id);
+            }
+        } else {
+            console.warn('Element not found for ID:', item.id); // Debug log
         }
     };
 
@@ -111,7 +184,7 @@ export const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose
                         stiffness: 300,
                         duration: 0.3,
                     }}
-                    className="fixed w-80 max-w-[calc(100vw-3rem)] max-h-[calc(100vh-12rem)] bg-white rounded-2xl shadow-2xl border border-gray-200 z-40 overflow-hidden"
+                    className="fixed min-w-80  max-w-[calc(100vw-3rem)] max-h-[calc(100vh-12rem)] bg-theme-surface/95 backdrop-blur-md rounded-2xl shadow-2xl border border-theme z-40 overflow-hidden"
                     style={{
                         top: position.top,
                         right: position.right,
@@ -119,50 +192,68 @@ export const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose
                     data-toc-panel
                 >
                     {/* Header */}
-                    <div className="flex items-center justify-between p-4 border-b border-gray-100 bg-gray-50/50">
-                        <h3 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
-                            <Hash className="w-4 h-4 text-gray-600" />
+                    <div className="flex items-center justify-between p-4 border-b border-theme bg-theme-surface/80">
+                        <h3 className="text-sm font-semibold text-theme-primary flex items-center gap-2">
+                            <Hash className="w-4 h-4 text-theme-accent" />
                             Table of Contents
                         </h3>
                         <motion.button
                             onClick={onClose}
-                            className="p-1.5 hover:bg-gray-200 rounded-lg transition-colors"
+                            className="p-1.5 hover:bg-theme-hover rounded-lg transition-colors group"
                             aria-label="Close table of contents"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                         >
-                            <X className="w-4 h-4 text-gray-500" />
+                            <X className="w-4 h-4 text-theme-secondary group-hover:text-theme-primary transition-colors" />
                         </motion.button>
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 overflow-y-auto max-h-96">
+                    <div className="p-4 overflow-y-auto max-h-96 scrollbar-thin scrollbar-thumb-theme-border scrollbar-track-transparent">
                         {items.length === 0 ? (
-                            <p className="text-sm text-gray-500 text-center py-4">No headings found in this document</p>
+                            <p className="text-sm text-theme-secondary text-center py-4">No headings found in this document</p>
                         ) : (
-                            <nav>
+                            <nav className="overflow-x-hidden">
                                 <ul className="space-y-1 text-sm">
                                     {items.map((item) => (
                                         <motion.li
-                                            key={item.index}
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ delay: item.index * 0.03, duration: 0.2 }}
+                                            whileHover={{ x: -2 }}
+                                            key={`${item.id}-${item.index}`} // Use ID + index for uniqueness
                                         >
                                             <motion.button
-                                                whileHover={{ x: 2 }}
-                                                onClick={() => scrollToHeading(item.id)}
-                                                className={`block py-2 px-3 text-left w-full rounded-lg transition-colors ${
+                                                onClick={() => scrollToHeading(item)}
+                                                className={`block py-2.5 px-3 text-left w-full rounded-lg transition-all duration-200 group ${
                                                     activeId === item.id
-                                                        ? "bg-blue-50 text-blue-700 border-l-2 border-blue-500"
-                                                        : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+                                                        ? "bg-theme-active text-theme-accent border-l-3 border-theme-accent font-medium shadow-sm"
+                                                        : "text-theme-secondary hover:text-theme-primary hover:bg-theme-hover"
                                                 } ${
                                                     item.level === 1
-                                                        ? "font-medium text-base"
+                                                        ? "font-semibold text-base"
                                                         : item.level === 2
                                                         ? "ml-3 text-sm"
-                                                        : "ml-6 text-sm"
+                                                        : item.level === 3
+                                                        ? "ml-6 text-sm"
+                                                        : item.level === 4
+                                                        ? "ml-9 text-xs"
+                                                        : item.level === 5
+                                                        ? "ml-12 text-xs"
+                                                        : "ml-15 text-xs"
                                                 }`}
+                                                title={item.path} // Show full path on hover
                                             >
-                                                {item.text}
+                                                <span className="block truncate leading-tight">
+                                                    {item.text}
+                                                </span>
+                                                {/* Show path for deeply nested items */}
+                                                {/* {item.level > 2 && (
+                                                    <span className="text-xs opacity-60 block truncate mt-1">
+                                                        {item.path.split(" > ").slice(0, -1).join(" > ")}
+                                                    </span>
+                                                )} */}
+                                                {/* Debug info - shows level, ID, and active status */}
+                                                {/* <span className="text-xs opacity-40 block mt-1">
+                                                    H{item.level} • {item.id} {activeId === item.id ? "← active" : ""}
+                                                </span> */}
                                             </motion.button>
                                         </motion.li>
                                     ))}
@@ -170,6 +261,20 @@ export const FloatingTOC: React.FC<FloatingTOCProps> = ({ items, isOpen, onClose
                             </nav>
                         )}
                     </div>
+
+                    {/* Footer with item count and current active */}
+                    {items.length > 0 && (
+                        <div className="px-4 py-2 border-t border-theme bg-theme-surface/80">
+                            <div className="text-xs text-theme-secondary text-center">
+                                {items.length} section{items.length !== 1 ? 's' : ''} 
+                                {activeId && (
+                                    <span className="ml-2 text-theme-accent">
+                                        • {items.find(item => item.id === activeId)?.text.slice(0, 30)}...
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </motion.div>
             )}
         </AnimatePresence>

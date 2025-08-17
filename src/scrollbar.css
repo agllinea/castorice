@@ -1,0 +1,52 @@
+/* Fixed Scrollbar Styles */
+
+
+
+html *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+html *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    background: rgb(var(--theme-primary) / 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+/* ================= VARIANTS ================= */
+
+/* 2. Elegant - minimal with gradient */
+
+html.scrollbar-elegant::-webkit-scrollbar-track,
+html.scrollbar-elegant *::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+html.scrollbar-elegant::-webkit-scrollbar-thumb,
+html.scrollbar-elegant *::-webkit-scrollbar-thumb {
+    background: linear-gradient(120deg,
+            rgb(var(--theme-primary) / 0.4),
+            rgb(var(--theme-primary) / 0.1));
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* 4. Invisible - completely hidden */
+html.scrollbar-invisible,
+html.scrollbar-invisible * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html.scrollbar-invisible::-webkit-scrollbar,
+html.scrollbar-invisible *::-webkit-scrollbar {
+    display: none;
+}

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Search } from "lucide-react";
+import { Menu, Search, Settings } from "lucide-react";
 import React, { useCallback, useEffect, useState } from "react";
 
 import { useTheme } from "../ThemeManager";
@@ -10,6 +10,7 @@ import { TreeNodeComponent } from "./TreeNode";
 import DocSearch from "./DocSearch";
 import ThemeControl from "./ThemeControl";
 import type { SearchableDoc } from "../types/model";
+import ThemeSettings from "./Setting";
 
 const Navigator: React.FC<NavigatorProps> = ({
     navigationTree,
@@ -34,6 +35,9 @@ const Navigator: React.FC<NavigatorProps> = ({
     const [isSearchModalOpen, setIsSearchModalOpen] = useState<boolean>(false);
     const [searchableDocs, setSearchableDocs] = useState<SearchableDoc[]>([]);
     const [loadedContent, setLoadedContent] = useState<Map<string, string>>(new Map());
+
+    // Theme settings modal state
+    const [isThemeSettingsOpen, setIsThemeSettingsOpen] = useState<boolean>(false);
 
     // Sidebar width constraints
     const MIN_WIDTH = 200;
@@ -83,12 +87,14 @@ const Navigator: React.FC<NavigatorProps> = ({
     // Generate search results
     const searchResults = searchDocs(searchableDocs, searchQuery);
 
-    // Handle escape key to close modal
+    // Handle escape key to close modals
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
                 if (themeDropdownOpen) {
                     setThemeDropdownOpen(false);
+                } else if (isThemeSettingsOpen) {
+                    setIsThemeSettingsOpen(false);
                 } else if (isSearchModalOpen) {
                     setIsSearchModalOpen(false);
                     setSearchQuery("");
@@ -99,11 +105,16 @@ const Navigator: React.FC<NavigatorProps> = ({
                 event.preventDefault();
                 setIsSearchModalOpen(true);
             }
+            // CMD/Ctrl + , to open theme settings (like many apps)
+            if ((event.metaKey || event.ctrlKey) && event.key === ",") {
+                event.preventDefault();
+                setIsThemeSettingsOpen(true);
+            }
         };
 
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
-    }, [isSearchModalOpen, themeDropdownOpen]);
+    }, [isSearchModalOpen, themeDropdownOpen, isThemeSettingsOpen]);
 
     // Close theme dropdown when clicking outside
     useEffect(() => {
@@ -175,7 +186,7 @@ const Navigator: React.FC<NavigatorProps> = ({
 
     const handleSearchResultClick = (docId: string) => {
         handleDocSelect(docId);
-        handleCloseModal();
+        handleCloseSearchModal();
     };
 
     const handleOverlayClick = (): void => {
@@ -192,9 +203,17 @@ const Navigator: React.FC<NavigatorProps> = ({
         setIsSearchModalOpen(true);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseSearchModal = () => {
         setIsSearchModalOpen(false);
         setSearchQuery("");
+    };
+
+    const handleThemeSettingsClick = () => {
+        setIsThemeSettingsOpen(true);
+    };
+
+    const handleCloseThemeSettings = () => {
+        setIsThemeSettingsOpen(false);
     };
 
     const handleThemeSelect = (themeId: string) => {
@@ -222,27 +241,51 @@ const Navigator: React.FC<NavigatorProps> = ({
                         : { type: "spring", damping: 30, stiffness: 300 }
                 }
             >
-                {/* Header Section with Title and Search */}
-                <div className="backdrop-blur-sm border-b border-theme px-4 py-3 flex items-center gap-4 relative z-[80] h-16 shadow-sm bg-theme-surface">
+                {/* Header Section with Title and Controls */}
+                <div className="backdrop-blur-sm border-b border-theme px-4 py-3 flex items-center gap-2 relative z-[80] h-16 shadow-sm bg-theme-surface">
                     {isMobile && (
                         <motion.button
                             onClick={onCloseSidebar}
                             className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
-                            aria-label="Menu"
+                            aria-label="Close menu"
                         >
                             <Menu className="w-5 h-5" />
                         </motion.button>
                     )}
-                    {/* Search button */}
-                    <span className={`flex flex-1 ${isMobile && "justify-end"}`}>
+                    {!isMobile && (
                         <motion.button
                             onClick={handleSearchClick}
                             className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
-                            aria-label="Search"
+                            aria-label="Search documentation"
+                            title="Search (Ctrl+K)"
                         >
                             <Search className="w-5 h-5" />
                         </motion.button>
-                    </span>
+                    )}
+                    {/* Controls - Search and Theme Settings */}
+                    <div className={`flex gap-1 ml-auto flex-1"`}>
+                        {/* Search button */}
+                        {isMobile && (
+                            <motion.button
+                                onClick={handleSearchClick}
+                                className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
+                                aria-label="Search documentation"
+                                title="Search (Ctrl+K)"
+                            >
+                                <Search className="w-5 h-5" />
+                            </motion.button>
+                        )}
+
+                        {/* Theme Settings button */}
+                        <motion.button
+                            onClick={handleThemeSettingsClick}
+                            className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
+                            aria-label="Theme settings"
+                            title="Theme Settings (Ctrl+,)"
+                        >
+                            <Settings className="w-5 h-5" />
+                        </motion.button>
+                    </div>
                 </div>
 
                 <div
@@ -322,12 +365,15 @@ const Navigator: React.FC<NavigatorProps> = ({
                 isOpen={isSearchModalOpen}
                 query={searchQuery}
                 setQuery={setSearchQuery}
-                onClose={handleCloseModal}
+                onClose={handleCloseSearchModal}
                 results={searchResults}
                 onResultClick={handleSearchResultClick}
                 searchableDocs={searchableDocs}
                 isMobile={isMobile}
             />
+
+            {/* Theme Settings Modal */}
+            <ThemeSettings isOpen={isThemeSettingsOpen} onClose={handleCloseThemeSettings} isMobile={isMobile} />
         </>
     );
 };
