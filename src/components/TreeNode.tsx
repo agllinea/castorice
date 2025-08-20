@@ -36,7 +36,7 @@ export const TreeNodeComponent: React.FC<TreeNodeComponentProps> = ({
                 <div>
                     <motion.div
                         whileHover={{ x: -2 }}
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-theme-hover transition-colors text-theme-primary`}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-theme-hover transition-colors text-theme-secondary hover:text-theme-primary`}
                         onClick={handleNodeClick}
                         role="button"
                         tabIndex={0}
@@ -103,7 +103,7 @@ export const TreeNodeComponent: React.FC<TreeNodeComponentProps> = ({
                     className={`
                         flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer 
                         transition-colors
-                        ${isActive ? "bg-theme-active text-theme-accent" : "text-theme-primary hover:bg-theme-hover"}
+                        ${isActive ? "bg-theme-active text-theme-accent" : "text-theme-secondary hover:bg-theme-hover hover:text-theme-primary"}
                     `}
                     onClick={handleNodeClick}
                     role="button"

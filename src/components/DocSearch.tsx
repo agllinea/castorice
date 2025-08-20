@@ -2,18 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Search, Wrench, X } from "lucide-react";
 import React, { useEffect, useRef } from "react";
 
-import type { SearchableDoc } from "../types/model";
-
-interface DocSearchProps {
-    isOpen: boolean;
-    query: string;
-    setQuery: (q: string) => void;
-    onClose: () => void;
-    results: SearchableDoc[];
-    onResultClick: (docId: string) => void;
-    searchableDocs: SearchableDoc[];
-    isMobile: boolean;
-}
+import type { DocSearchProps } from "../types/component";
 
 const DocSearch: React.FC<DocSearchProps> = ({
     isOpen,
@@ -69,7 +58,7 @@ const DocSearch: React.FC<DocSearchProps> = ({
                                 placeholder="Search documentation and tools..."
                                 className="flex-1 bg-transparent border-none outline-none text-sm text-theme-primary placeholder:text-theme-secondary"
                                 value={query}
-                                onChange={e => setQuery(e.target.value)}
+                                onChange={(e) => setQuery(e.target.value)}
                             />
                             <button
                                 onClick={onClose}
@@ -138,15 +127,9 @@ const DocSearch: React.FC<DocSearchProps> = ({
                                                 {
                                                     searchableDocs.filter(
                                                         (doc) =>
-                                                            doc.title
-                                                                .toLowerCase()
-                                                                .includes(query.toLowerCase()) ||
-                                                            doc.category
-                                                                .toLowerCase()
-                                                                .includes(query.toLowerCase()) ||
-                                                            doc.content
-                                                                .toLowerCase()
-                                                                .includes(query.toLowerCase())
+                                                            doc.title.toLowerCase().includes(query.toLowerCase()) ||
+                                                            doc.category.toLowerCase().includes(query.toLowerCase()) ||
+                                                            doc.content.toLowerCase().includes(query.toLowerCase())
                                                     ).length
                                                 }{" "}
                                                 results
@@ -158,9 +141,7 @@ const DocSearch: React.FC<DocSearchProps> = ({
                                         <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 bg-theme-hover">
                                             <Search className="w-6 h-6 text-theme-secondary" />
                                         </div>
-                                        <p className="text-theme-secondary">
-                                            No results found for "{query}"
-                                        </p>
+                                        <p className="text-theme-secondary">No results found for "{query}"</p>
                                         <p className="text-sm mt-1 text-theme-secondary">
                                             Try different keywords or check spelling
                                         </p>
@@ -171,9 +152,7 @@ const DocSearch: React.FC<DocSearchProps> = ({
                                     <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
                                         <Search className="w-6 h-6 text-theme-secondary" />
                                     </div>
-                                    <p className="mb-2 text-theme-secondary">
-                                        Search documentation and tools
-                                    </p>
+                                    <p className="mb-2 text-theme-secondary">Search documentation and tools</p>
                                 </div>
                             )}
                         </div>

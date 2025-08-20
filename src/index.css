@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme-based CSS classes that work with Tailwind */
-
 /* Purple Theme */
 .theme-purple {
     --theme-primary: 139 92 246;

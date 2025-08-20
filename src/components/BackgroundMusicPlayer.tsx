@@ -1,13 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-
-interface BackgroundMusicPlayerProps {
-  musicPath: string;
-  isPlaying: boolean;
-  retryInterval?: number; // in milliseconds
-  volume?: number; // 0 to 1
-  fadeInDuration?: number; // in milliseconds, default 10 seconds
-  onPlayStateChange?: (playing: boolean) => void;
-}
+import type { BackgroundMusicPlayerProps } from '../types/component';
 
 const BackgroundMusicPlayer: React.FC<BackgroundMusicPlayerProps> = ({
   musicPath,

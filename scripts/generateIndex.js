@@ -108,7 +108,7 @@ const importStatements = imports
 
 // Generate appIndex code
 const appIndexCode =
-    `import type { TreeNode } from "./type";\n${importStatements}\n\n` +
+    `import type { TreeNode } from "./types/model";\n${importStatements}\n\n` +
     `const appIndex : TreeNode[] = ${JSON.stringify(appIndex, null, 4).replace(/"component":\s*"(\w+)"/g, 'component: $1')};\n\n` +
     `export default appIndex;\n`;
 

@@ -29,8 +29,46 @@ export interface TreeNode {
 }
 
 export interface TOCItem {
-    level: number;
-    text: string;
     id: string;
+    text: string;
+    level: number;
     index: number;
+    path: string; // Added path for context
 }
+export interface ScrollbarStyle {
+    id: string;
+    name: string;
+    description: string;
+    className: string;
+    preview: string;
+}
+
+export interface ThemeConfig {
+    id: string;
+    name: string;
+    background: {
+        image: string;
+        overlay?: string;
+        position?: string;
+        size?: string;
+        repeat?: string;
+    };
+    music: {
+        path: string;
+        volume?: number;
+        fadeInDuration?: number;
+    };
+}
+
+export interface ThemeContextType {
+    currentTheme: ThemeConfig;
+    themes: Record<string, ThemeConfig>;
+    setTheme: (themeId: string) => void;
+    musicEnabled: boolean;
+    setMusicEnabled: (enabled: boolean) => void;
+    musicPlaying: boolean;
+    currentScrollbarStyle: ScrollbarStyle;
+    scrollbarStyles: ScrollbarStyle[];
+    setScrollbarStyle: (styleId: string) => void;
+}
+

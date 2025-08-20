@@ -1,4 +1,5 @@
-import type { DocTool, TOCItem, TreeNode } from "./model";
+import type { ReactNode } from "react";
+import type { DocTool, SearchableDoc, TOCItem, TreeNode } from "./model";
 
 export interface NavigatorProps {
     navigationTree: TreeNode[];
@@ -11,6 +12,15 @@ export interface NavigatorProps {
     onToggleNode: (nodeId: string) => void;
     onCloseSidebar: () => void;
     onSidebarResize: (width: number) => void;
+}
+
+export interface BackgroundMusicPlayerProps {
+    musicPath: string;
+    isPlaying: boolean;
+    retryInterval?: number; // in milliseconds
+    volume?: number; // 0 to 1
+    fadeInDuration?: number; // in milliseconds, default 10 seconds
+    onPlayStateChange?: (playing: boolean) => void;
 }
 
 export interface TreeNodeComponentProps {
@@ -35,4 +45,32 @@ export interface FloatingTOCProps {
     items: TOCItem[];
     isOpen: boolean;
     onClose: () => void;
+}
+
+export interface ThemeSettingsProps {
+    isOpen: boolean;
+    onClose: () => void;
+    isMobile: boolean;
+}
+
+export interface DocSearchProps {
+    isOpen: boolean;
+    query: string;
+    setQuery: (q: string) => void;
+    onClose: () => void;
+    results: SearchableDoc[];
+    onResultClick: (docId: string) => void;
+    searchableDocs: SearchableDoc[];
+    isMobile: boolean;
+}
+
+export interface FloatingTOCProps {
+    items: TOCItem[];
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export interface ThemeManagerProps {
+    children: ReactNode;
+    defaultTheme?: string;
 }

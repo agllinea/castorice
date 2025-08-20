@@ -8,15 +8,8 @@ import remarkGfm from "remark-gfm";
 
 import type { ContentProps } from "../types/component";
 import { FloatingTOC } from "./FloatingTOC";
-import { useTheme } from "../ThemeManager";
 
-const Content: React.FC<ContentProps> = ({
-    currentDoc,
-    tableOfContents,
-    loading = false,
-    isMobile,
-    onSidebarToggle,
-}) => {
+const Content: React.FC<ContentProps> = ({ currentDoc, loading = false, isMobile, onSidebarToggle }) => {
     const contentRef = useRef<HTMLElement>(null);
     const [tocOpen, setTocOpen] = useState(false);
     const [tocItems, setTocItems] = useState<
@@ -28,12 +21,6 @@ const Content: React.FC<ContentProps> = ({
             path: string;
         }>
     >([]);
-    const { currentTheme } = useTheme();
-
-    // Helper function to generate unique IDs
-    const generateUniqueId = (): string => {
-        return `heading-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-    };
 
     // Keep a counter for heading slugs
     const headingCounts: Record<string, number> = {};
@@ -162,54 +149,43 @@ const Content: React.FC<ContentProps> = ({
     return (
         <div className="bg-theme-background flex-1 flex flex-col overflow-hidden relative">
             {/* Fixed Title Header with theme integration */}
-            <div className="bg-theme-surface/95 backdrop-blur-sm px-6 py-4 flex-shrink-0 sticky top-0 z-30 border-b border-theme h-16 shadow-sm">
-                <div className="max-w-4xl mx-auto">
-                    {/* Title and TOC Toggle */}
-                    <div className="flex justify-between gap-4 items-center">
-                        <div className="flex justify-between gap-4 items-center overflow-auto">
-                            {isMobile && (
-                                <button
-                                    onClick={onSidebarToggle}
-                                    className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 active:scale-95"
-                                    aria-label="Toggle sidebar"
-                                >
-                                    <Menu className="w-5 h-5 text-theme-primary" />
-                                </button>
-                            )}
-                            <div className="text-lg font-bold text-theme-primary flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
-                                {currentDoc.title}
-                            </div>
-                        </div>
+            <div className="bg-theme-surface/95 backdrop-blur-sm px-4 flex-shrink-0 sticky top-0 z-30 border-b border-theme h-16 shadow-sm flex justify-between gap-4 items-center">
+                <button
+                    disabled={!isMobile}
+                    onClick={onSidebarToggle}
+                    className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary cursor-pointer"
+                    aria-label="Toggle sidebar"
+                    style={{ visibility: isMobile ? "visible" : "hidden" }}
+                >
+                    <Menu className="w-5 h-5" />
+                </button>
+                {/* Document Title */}
+                <div className="text-center text-theme-secondary flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
+                    <div className="text-lg tracking-widest font-medium">{currentDoc.title}</div>
 
-                        {/* TOC Toggle Button - Only show for markdown content */}
-                        {!currentDoc.component && tocItems.length > 0 && (
-                            <motion.button
-                                onClick={() => setTocOpen((prev: boolean) => !prev)}
-                                className="flex items-center gap-2 px-3 py-2 bg-theme-surface hover:bg-theme-hover text-theme-primary rounded-lg transition-colors text-sm font-medium shadow-sm border border-theme"
-                                aria-label="Open table of contents"
-                                id="toc-toggle-button"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <List className="w-4 h-4" />
-                                <span className="hidden sm:inline">Contents</span>
-                            </motion.button>
-                        )}
-                    </div>
-
-                    {currentDoc.tags && (
-                        <div className="flex flex-wrap gap-2 mt-2">
-                            {currentDoc.tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="px-2 py-1 bg-theme-active text-theme-accent text-xs rounded-md font-medium"
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    )}
+                    {/* <div className="flex flex-wrap gap-2 items-center justify-center">
+                                {((currentDoc.tags&&currentDoc.tags.length>0) ? currentDoc.tags : [currentDoc.type]).map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="px-2 py-[1px] bg-theme-active text-theme-accent text-xs rounded-md font-medium"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div> */}
                 </div>
+                {/* TOC Toggle Button - Only show for markdown content */}
+
+                <button
+                    disabled={!(!currentDoc.component && tocItems.length > 0)}
+                    onClick={() => setTocOpen((prev: boolean) => !prev)}
+                    className="flex items-center gap-2 p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
+                    aria-label="Open table of contents"
+                    id="toc-toggle-button"
+                    style={{ visibility: !currentDoc.component && tocItems.length > 0 ? "visible" : "hidden" }}
+                >
+                    <List className="w-5 h-5" />
+                </button>
             </div>
 
             {/* Scrollable Content with theme integration */}

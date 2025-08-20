@@ -8,7 +8,7 @@ import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, is
 import type { DocTool, TreeNode } from "./types/model";
 import appIndex from "./appIndex";
 import { convertToNavigationTree, findNodeByPath, generateTOC, pathToFilePath, buildDocPath } from "./utils/doc";
-import ThemeManager from "./ThemeManager";
+import ThemeManager from "./components/ThemeManager";
 import "./scrollbar.css"
 
 // Main App Content Component

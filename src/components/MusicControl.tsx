@@ -2,17 +2,13 @@ import { motion } from "framer-motion";
 import { MusicIcon, Palette } from "lucide-react";
 import React from "react";
 
-interface ThemeControlProps {
+interface MusicControlProps {
     currentTheme: { id: string; name: string };
-    themes: Record<string, { id: string; name: string }>;
-    themeDropdownOpen: boolean;
-    setThemeDropdownOpen: (open: boolean) => void;
     musicEnabled: boolean;
     setMusicEnabled: (enabled: boolean) => void;
-    onThemeSelect: (themeId: string) => void;
 }
 
-const ThemeControl: React.FC<ThemeControlProps> = ({ currentTheme, musicEnabled, setMusicEnabled }) => (
+const MusicControl: React.FC<MusicControlProps> = ({ currentTheme, musicEnabled, setMusicEnabled }) => (
     <div className="relative px-4 py-1">
         <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -69,4 +65,4 @@ const ThemeControl: React.FC<ThemeControlProps> = ({ currentTheme, musicEnabled,
     </div>
 );
 
-export default ThemeControl;
+export default MusicControl;

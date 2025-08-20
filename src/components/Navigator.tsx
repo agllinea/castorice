@@ -2,13 +2,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Search, Settings } from "lucide-react";
 import React, { useCallback, useEffect, useState } from "react";
 
-import { useTheme } from "../ThemeManager";
+import { useTheme } from "./ThemeManager";
 import { buildSearchableDocs, searchDocs } from "../utils/search";
 
 import type { NavigatorProps } from "../types/component";
 import { TreeNodeComponent } from "./TreeNode";
 import DocSearch from "./DocSearch";
-import ThemeControl from "./ThemeControl";
+import MusicControl from "./MusicControl";
 import type { SearchableDoc } from "../types/model";
 import ThemeSettings from "./Setting";
 
@@ -24,11 +24,10 @@ const Navigator: React.FC<NavigatorProps> = ({
     onCloseSidebar,
     onSidebarResize,
 }) => {
-    const { currentTheme, themes, setTheme, musicEnabled, setMusicEnabled } = useTheme();
+    const { currentTheme, musicEnabled, setMusicEnabled } = useTheme();
     const [isResizing, setIsResizing] = useState(false);
     const [startX, setStartX] = useState(0);
     const [startWidth, setStartWidth] = useState(sidebarWidth);
-    const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
 
     // Search state
     const [searchQuery, setSearchQuery] = useState<string>("");
@@ -91,9 +90,7 @@ const Navigator: React.FC<NavigatorProps> = ({
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
-                if (themeDropdownOpen) {
-                    setThemeDropdownOpen(false);
-                } else if (isThemeSettingsOpen) {
+                if (isThemeSettingsOpen) {
                     setIsThemeSettingsOpen(false);
                 } else if (isSearchModalOpen) {
                     setIsSearchModalOpen(false);
@@ -114,21 +111,7 @@ const Navigator: React.FC<NavigatorProps> = ({
 
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
-    }, [isSearchModalOpen, themeDropdownOpen, isThemeSettingsOpen]);
-
-    // Close theme dropdown when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            const target = event.target as Element;
-            const themeControls = target.closest("[data-theme-controls]");
-            if (!themeControls && themeDropdownOpen) {
-                setThemeDropdownOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [themeDropdownOpen]);
+    }, [isSearchModalOpen, isThemeSettingsOpen]);
 
     const handleMouseDown = useCallback(
         (e: React.MouseEvent) => {
@@ -215,12 +198,7 @@ const Navigator: React.FC<NavigatorProps> = ({
     const handleCloseThemeSettings = () => {
         setIsThemeSettingsOpen(false);
     };
-
-    const handleThemeSelect = (themeId: string) => {
-        setTheme(themeId);
-        setThemeDropdownOpen(false);
-    };
-
+    
     return (
         <>
             {/* Sidebar - Always rendered on mobile, positioned with transform */}
@@ -312,14 +290,10 @@ const Navigator: React.FC<NavigatorProps> = ({
                     className="absolute bottom-4 left-4 right-4 rounded-2xl backdrop-blur-md border border-theme/50 shadow-sm bg-theme-surface/80"
                     data-theme-controls
                 >
-                    <ThemeControl
+                    <MusicControl
                         currentTheme={currentTheme}
-                        themes={themes}
-                        themeDropdownOpen={themeDropdownOpen}
-                        setThemeDropdownOpen={setThemeDropdownOpen}
                         musicEnabled={musicEnabled}
                         setMusicEnabled={setMusicEnabled}
-                        onThemeSelect={handleThemeSelect}
                     />
                 </div>
 
