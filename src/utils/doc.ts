@@ -1,7 +1,7 @@
-import type { TOCItem, TreeNode } from "../types/model";
+import type { ToCItem, TreeNode } from "../types/model";
 
 // Generate table of contents from content
-export const generateTOC = (content: string): TOCItem[] => {
+export const generateTOC = (content: string): ToCItem[] => {
     const headings = content.match(/^#{1,3}\s+(.+)$/gm) || [];
     return headings.map((heading, index) => {
         const level = heading.match(/^#+/)?.[0].length || 1;

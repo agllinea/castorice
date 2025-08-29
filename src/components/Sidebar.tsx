@@ -1,18 +1,29 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, Search, Settings } from "lucide-react";
 import React, { useCallback, useEffect, useState } from "react";
 
-import { useTheme } from "./ThemeManager";
 import { buildSearchableDocs, searchDocs } from "../utils/search";
+import { useTheme } from "../theme/ThemeManager";
 
-import type { NavigatorProps } from "../types/component";
-import { TreeNodeComponent } from "./TreeNode";
-import DocSearch from "./DocSearch";
-import MusicControl from "./MusicControl";
-import type { SearchableDoc } from "../types/model";
-import ThemeSettings from "./Setting";
+import Navigator from "./widgets/Navigator";
+import MusicControl from "./widgets/MusicControl";
+import type { SearchItem, TreeNodeItem } from "../types/model";
+import SystemConfig from "./widgets/SystemConfig";
+import { IconButton } from "./bases/IconButton";
+import Spotlight from "./widgets/Spotlight";
 
-const Navigator: React.FC<NavigatorProps> = ({
+const Sidebar: React.FC<{
+    navigationTree: TreeNodeItem[];
+    currentDocId: string;
+    expandedNodes: string[];
+    isMobile: boolean;
+    sidebarOpen: boolean;
+    sidebarWidth: number;
+    onDocSelect: (docId: string) => void;
+    onToggleNode: (nodeId: string) => void;
+    onCloseSidebar: () => void;
+    onSidebarResize: (width: number) => void;
+}> = ({
     navigationTree,
     currentDocId,
     expandedNodes,
@@ -32,11 +43,11 @@ const Navigator: React.FC<NavigatorProps> = ({
     // Search state
     const [searchQuery, setSearchQuery] = useState<string>("");
     const [isSearchModalOpen, setIsSearchModalOpen] = useState<boolean>(false);
-    const [searchableDocs, setSearchableDocs] = useState<SearchableDoc[]>([]);
+    const [searchableDocs, setSearchableDocs] = useState<SearchItem[]>([]);
     const [loadedContent, setLoadedContent] = useState<Map<string, string>>(new Map());
 
     // Theme settings modal state
-    const [isThemeSettingsOpen, setIsThemeSettingsOpen] = useState<boolean>(false);
+    const [isSystemConfigOpen, setIsSystemConfigOpen] = useState<boolean>(false);
 
     // Sidebar width constraints
     const MIN_WIDTH = 200;
@@ -49,7 +60,7 @@ const Navigator: React.FC<NavigatorProps> = ({
     }, [navigationTree]);
 
     // Load content for markdown files when needed for better search
-    const loadContentForSearch = async (doc: SearchableDoc) => {
+    const loadContentForSearch = async (doc: SearchItem) => {
         if (doc.type === "tool" || loadedContent.has(doc.id)) {
             return;
         }
@@ -90,8 +101,8 @@ const Navigator: React.FC<NavigatorProps> = ({
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === "Escape") {
-                if (isThemeSettingsOpen) {
-                    setIsThemeSettingsOpen(false);
+                if (isSystemConfigOpen) {
+                    setIsSystemConfigOpen(false);
                 } else if (isSearchModalOpen) {
                     setIsSearchModalOpen(false);
                     setSearchQuery("");
@@ -105,13 +116,13 @@ const Navigator: React.FC<NavigatorProps> = ({
             // CMD/Ctrl + , to open theme settings (like many apps)
             if ((event.metaKey || event.ctrlKey) && event.key === ",") {
                 event.preventDefault();
-                setIsThemeSettingsOpen(true);
+                setIsSystemConfigOpen(true);
             }
         };
 
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
-    }, [isSearchModalOpen, isThemeSettingsOpen]);
+    }, [isSearchModalOpen, isSystemConfigOpen]);
 
     const handleMouseDown = useCallback(
         (e: React.MouseEvent) => {
@@ -191,78 +202,53 @@ const Navigator: React.FC<NavigatorProps> = ({
         setSearchQuery("");
     };
 
-    const handleThemeSettingsClick = () => {
-        setIsThemeSettingsOpen(true);
+    const handleSystemConfigClick = () => {
+        setIsSystemConfigOpen(true);
     };
 
-    const handleCloseThemeSettings = () => {
-        setIsThemeSettingsOpen(false);
+    const handleCloseSystemConfig = () => {
+        setIsSystemConfigOpen(false);
     };
-    
+
     return (
         <>
-            {/* Sidebar - Always rendered on mobile, positioned with transform */}
             <motion.div
                 className={`${isMobile ? "fixed inset-0 z-50" : "border-r relative"} bg-theme-surface border-theme`}
-                style={{
-                    ...(isMobile ? {} : { width: sidebarWidth }),
-                }}
+                style={{ ...(isMobile ? {} : { width: sidebarWidth }) }}
                 initial={isMobile ? { x: "-100%" } : false}
                 animate={isMobile ? { x: sidebarOpen ? 0 : "-100%" } : {}}
                 transition={
                     isMobile
-                        ? {
-                              type: "tween",
-                              duration: 0.35,
-                              ease: [0.25, 0.1, 0.25, 1], // Material Design easing
-                          }
+                        ? { type: "tween", duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }
                         : { type: "spring", damping: 30, stiffness: 300 }
                 }
             >
-                {/* Header Section with Title and Controls */}
                 <div className="backdrop-blur-sm border-b border-theme px-4 py-3 flex items-center gap-2 relative z-[80] h-16 shadow-sm bg-theme-surface">
-                    {isMobile && (
-                        <motion.button
-                            onClick={onCloseSidebar}
-                            className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
-                            aria-label="Close menu"
-                        >
-                            <Menu className="w-5 h-5" />
-                        </motion.button>
-                    )}
-                    {!isMobile && (
-                        <motion.button
+                    {isMobile ? (
+                        <IconButton onClick={onCloseSidebar} aria-label="Close menu" icon={<Menu />} />
+                    ) : (
+                        <IconButton
                             onClick={handleSearchClick}
-                            className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
                             aria-label="Search documentation"
                             title="Search (Ctrl+K)"
-                        >
-                            <Search className="w-5 h-5" />
-                        </motion.button>
+                            icon={<Search />}
+                        />
                     )}
-                    {/* Controls - Search and Theme Settings */}
                     <div className={`flex gap-1 ml-auto flex-1"`}>
-                        {/* Search button */}
                         {isMobile && (
-                            <motion.button
+                            <IconButton
                                 onClick={handleSearchClick}
-                                className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
+                                icon={<Search />}
                                 aria-label="Search documentation"
                                 title="Search (Ctrl+K)"
-                            >
-                                <Search className="w-5 h-5" />
-                            </motion.button>
+                            />
                         )}
-
-                        {/* Theme Settings button */}
-                        <motion.button
-                            onClick={handleThemeSettingsClick}
-                            className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
+                        <IconButton
+                            onClick={handleSystemConfigClick}
+                            icon={<Settings />}
                             aria-label="Theme settings"
                             title="Theme Settings (Ctrl+,)"
-                        >
-                            <Settings className="w-5 h-5" />
-                        </motion.button>
+                        />
                     </div>
                 </div>
 
@@ -270,9 +256,9 @@ const Navigator: React.FC<NavigatorProps> = ({
                     className="px-4 py-4 flex-1 overflow-y-auto"
                     style={{ height: "calc(100% - 56px)", paddingBottom: "80px" }}
                 >
-                    <nav className="space-y-2" role="navigation" aria-label="Documentation navigation">
+                    <nav role="navigation" aria-label="Documentation navigation">
                         {navigationTree.map((node) => (
-                            <TreeNodeComponent
+                            <Navigator
                                 key={node.id}
                                 node={node}
                                 currentDocId={currentDocId}
@@ -335,7 +321,7 @@ const Navigator: React.FC<NavigatorProps> = ({
             )}
 
             {/* Search Modal */}
-            <DocSearch
+            <Spotlight
                 isOpen={isSearchModalOpen}
                 query={searchQuery}
                 setQuery={setSearchQuery}
@@ -347,9 +333,9 @@ const Navigator: React.FC<NavigatorProps> = ({
             />
 
             {/* Theme Settings Modal */}
-            <ThemeSettings isOpen={isThemeSettingsOpen} onClose={handleCloseThemeSettings} isMobile={isMobile} />
+            <SystemConfig isOpen={isSystemConfigOpen} onClose={handleCloseSystemConfig} isMobile={isMobile} />
         </>
     );
 };
 
-export default Navigator;
+export default Sidebar;

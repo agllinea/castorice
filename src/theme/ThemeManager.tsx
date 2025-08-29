@@ -1,13 +1,50 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import BackgroundMusicPlayer from "./BackgroundMusicPlayer";
-import type { ThemeConfig, ThemeContextType } from "../types/model";
-import type { ThemeManagerProps } from "../types/component";
-import { DEFAULT_THEME, DEFAULT_SCROLLBAR_STYLE, THEMES, SCROLLBAR_STYLES } from "../configs/theme";
+import React, { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import BGM from "../components/bases/BGM";
+import { DEFAULT_THEME, DEFAULT_SCROLLBAR_STYLE, THEMES, SCROLLBAR_STYLES } from "./config";
 
-// Create context
+interface ThemeContextType {
+    currentTheme: ThemeConfig;
+    themes: Record<string, ThemeConfig>;
+    setTheme: (themeId: string) => void;
+    musicEnabled: boolean;
+    setMusicEnabled: (enabled: boolean) => void;
+    musicPlaying: boolean;
+    currentScrollbarStyle: ScrollbarStyle;
+    scrollbarStyles: ScrollbarStyle[];
+    setScrollbarStyle: (styleId: string) => void;
+}
+
+interface ScrollbarStyle {
+    id: string;
+    name: string;
+    description: string;
+    className: string;
+    preview: string;
+}
+
+interface ThemeConfig {
+    id: string;
+    name: string;
+    background: {
+        image: string;
+        overlay?: string;
+        position?: string;
+        size?: string;
+        repeat?: string;
+    };
+    music: {
+        path: string;
+        volume?: number;
+        fadeInDuration?: number;
+    };
+}
+
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DEFAULT_THEME }) => {
+const ThemeManager: React.FC<{ children: ReactNode; defaultTheme?: string }> = ({
+    children,
+    defaultTheme = DEFAULT_THEME,
+}) => {
     const [currentThemeId, setCurrentThemeId] = useState<string>(defaultTheme);
     const [musicEnabled, setMusicEnabled] = useState<boolean>(true);
     const [musicPlaying, setMusicPlaying] = useState<boolean>(false);
@@ -121,7 +158,7 @@ const ThemeManager: React.FC<ThemeManagerProps> = ({ children, defaultTheme = DE
 
     return (
         <ThemeContext.Provider value={contextValue}>
-            <BackgroundMusicPlayer
+            <BGM
                 musicPath={currentTheme.music.path}
                 isPlaying={musicEnabled}
                 volume={currentTheme.music.volume || 0.15}
@@ -142,5 +179,5 @@ export const useTheme = (): ThemeContextType => {
     return context;
 };
 
-export type { ThemeConfig };
+export type { ThemeConfig, ScrollbarStyle };
 export default ThemeManager;

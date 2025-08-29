@@ -1,8 +1,8 @@
-import type { TreeNode, SearchableDoc } from "../types/model";
+import type { TreeNode, SearchItem } from "../types/model";
 
 // Build searchable docs from navigation tree
-export const buildSearchableDocs = (nodes: TreeNode[], parentPath: string[] = []): SearchableDoc[] => {
-    const docs: SearchableDoc[] = [];
+export const buildSearchableDocs = (nodes: TreeNode[], parentPath: string[] = []): SearchItem[] => {
+    const docs: SearchItem[] = [];
 
     const processNode = (node: TreeNode, currentPath: string[]) => {
         const fullPath = [...currentPath, node.id];
@@ -41,7 +41,7 @@ export const buildSearchableDocs = (nodes: TreeNode[], parentPath: string[] = []
 };
 
 // Enhanced search utility with better matching
-export const searchDocs = (docs: SearchableDoc[], query: string): SearchableDoc[] => {
+export const searchDocs = (docs: SearchItem[], query: string): SearchItem[] => {
     if (!query) return [];
 
     const lowercaseQuery = query.toLowerCase();

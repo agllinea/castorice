@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import { FileText, List, Loader, Menu } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
@@ -6,10 +6,16 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 
-import type { ContentProps } from "../types/component";
-import { FloatingTOC } from "./FloatingTOC";
+import { TableOfContent } from "./widgets/TableOfContent";
+import type { DocItem, ToCItem } from "../types/model";
 
-const Content: React.FC<ContentProps> = ({ currentDoc, loading = false, isMobile, onSidebarToggle }) => {
+const Content: React.FC<{
+    currentDoc: DocItem | null;
+    tableOfContents: ToCItem[];
+    isMobile: boolean;
+    loading?: boolean;
+    onSidebarToggle?: () => void; // Callback for sidebar toggle
+}> = ({ currentDoc, loading = false, isMobile, onSidebarToggle }) => {
     const contentRef = useRef<HTMLElement>(null);
     const [tocOpen, setTocOpen] = useState(false);
     const [tocItems, setTocItems] = useState<
@@ -394,7 +400,7 @@ const Content: React.FC<ContentProps> = ({ currentDoc, loading = false, isMobile
 
             {/* Floating Table of Contents - Only for markdown content */}
             {!currentDoc.component && tocItems.length > 0 && (
-                <FloatingTOC items={tocItems} isOpen={tocOpen} onClose={() => setTocOpen(false)} />
+                <TableOfContent items={tocItems} isOpen={tocOpen} onClose={() => setTocOpen(false)} />
             )}
         </div>
     );

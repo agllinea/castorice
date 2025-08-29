@@ -1,4 +1,4 @@
-import type { ScrollbarStyle, ThemeConfig } from "../types/model";
+import type { ScrollbarStyle, ThemeConfig } from "./ThemeManager";
 
 // Available scrollbar styles
 export const SCROLLBAR_STYLES: ScrollbarStyle[] = [

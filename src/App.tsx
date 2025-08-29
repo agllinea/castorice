@@ -2,13 +2,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import Content from "./components/Content";
-import Navigator from "./components/Navigator";
+import Sidebar from "./components/Sidebar";
 import { decodeDocId, findDocPath, getDocIdFromPath, getExpandedNodesForPath, isValidPath, pathToUrl, urlToPath } from "./utils/routing";
 
-import type { DocTool, TreeNode } from "./types/model";
+import type { DocItem, TreeNodeItem } from "./types/model";
 import appIndex from "./appIndex";
 import { convertToNavigationTree, findNodeByPath, generateTOC, pathToFilePath, buildDocPath } from "./utils/doc";
-import ThemeManager from "./components/ThemeManager";
+import ThemeManager from "./theme/ThemeManager";
 import "./scrollbar.css"
 
 // Main App Content Component
@@ -20,7 +20,7 @@ const AppContent: React.FC = () => {
     const [sidebarWidth, setSidebarWidth] = useState<number>(384);
     const [expandedNodes, setExpandedNodes] = useState<string[]>([]);
     const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
-    const [currentDoc, setCurrentDoc] = useState<DocTool | null>(null);
+    const [currentDoc, setCurrentDoc] = useState<DocItem | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     // Convert appIndex to navigation tree
@@ -47,7 +47,7 @@ const AppContent: React.FC = () => {
             return;
         }
 
-        // If it's a component, create a DocTool entry
+        // If it's a component, create a DocItem entry
         if (currentNode.component) {
             setCurrentDoc({
                 id: currentNode.id,
@@ -173,10 +173,10 @@ const AppContent: React.FC = () => {
     };
 
     // Create mock docs for search functionality (you might want to build this dynamically)
-    const mockDocs: DocTool[] = useMemo(() => {
-        const docs: DocTool[] = [];
+    const mockDocs: DocItem[] = useMemo(() => {
+        const docs: DocItem[] = [];
 
-        const extractDocs = (nodes: TreeNode[], parentPath: string[] = []) => {
+        const extractDocs = (nodes: TreeNodeItem[], parentPath: string[] = []) => {
             nodes.forEach((node) => {
                 const currentPath = [...parentPath, node.id];
 
@@ -214,7 +214,7 @@ const AppContent: React.FC = () => {
         <div className="h-screen flex flex-col">
             <div className="flex flex-1 overflow-hidden">
                 {/* Navigator Component */}
-                <Navigator
+                <Sidebar
                     navigationTree={navigationTree}
                     currentDocId={currentDocId || ""}
                     expandedNodes={expandedNodes}
@@ -260,7 +260,7 @@ const DocumentRoute: React.FC = () => {
 const App: React.FC = () => {
     // Find first available document for default redirect
     const getFirstAvailableDoc = (): string => {
-        const findFirstLeaf = (nodes: TreeNode[]): string | null => {
+        const findFirstLeaf = (nodes: TreeNodeItem[]): string | null => {
             for (const node of nodes) {
                 if (node.component || node.id.endsWith(".md") || (!node.children && !node.component)) {
                     const docPath = buildDocPath(appIndex, node.id);
