@@ -1,7 +1,7 @@
-import type { TreeNode } from "./types/model";
+import type { TreeNodeItem } from "./types/model";
 import Counter from "./pages/example/basic tool/Counter";
 
-const appIndex : TreeNode[] = [
+const appIndex : TreeNodeItem[] = [
     {
         "id": "example",
         "children": [
