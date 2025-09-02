@@ -10,21 +10,22 @@
     /* purple-400 */
     --theme-accent: 196 181 253;
     /* purple-300 */
-    --theme-background: 248 250 252;
-    /* slate-50 */
-    --theme-surface: 255 255 255;
-    /* white */
-    --theme-text-primary: 30 41 59;
+    --theme-background: 15 23 42;
+    /* slate-900 */
+    --theme-surface: 30 41 59;
     /* slate-800 */
-    --theme-text-secondary: 100 116 139;
-    /* slate-500 */
-    --theme-border: 226 232 240;
-    /* slate-200 */
-    --theme-hover: 241 245 249;
-    /* slate-100 */
-    --theme-active: 237 233 254;
-    /* purple-100 */
+    --theme-text-primary: 248 250 252;
+    /* slate-50 */
+    --theme-text-secondary: 148 163 184;
+    /* slate-400 */
+    --theme-border: 51 65 85;
+    /* slate-700 */
+    --theme-hover: 51 65 85;
+    /* slate-700 */
+    --theme-active: 67 56 202;
+    /* indigo-700 (for active state with purple feel) */
 }
+
 
 /* Gold Theme */
 .theme-gold {

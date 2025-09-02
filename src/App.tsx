@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import Content from "./components/Content";
@@ -9,7 +9,7 @@ import type { DocItem, TreeNodeItem } from "./types/model";
 import appIndex from "./appIndex";
 import { convertToNavigationTree, findNodeByPath, generateTOC, pathToFilePath, buildDocPath } from "./utils/doc";
 import ThemeManager from "./theme/ThemeManager";
-import "./scrollbar.css"
+import "./scrollbar.css";
 
 // Main App Content Component
 const AppContent: React.FC = () => {
@@ -210,11 +210,31 @@ const AppContent: React.FC = () => {
         return docs;
     }, []);
 
+    const entry = useRef(null as HTMLVideoElement | null);
+    const [entryPlayed, setEntryPlayed] = useState(false);
+
     return (
         <div className="h-screen flex flex-col">
+            {/* <div className="absolute top-0 left-0 w-full h-full z-[1000] overflow-hidden">
+                <video
+                    ref={entry}
+                    className={`h-full object-cover ${entryPlayed && "opacity-0"} transition-opacity duration-500`}
+                    muted
+                    onClick={() => {
+                        entry.current?.play();
+                        setTimeout(() => {
+                            setEntryPlayed(true);
+                        }, 1900);
+                    }}
+                >
+                    <source src="/vdo1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+            </div> */}
+
             <div className="flex flex-1 overflow-hidden">
                 {/* Navigator Component */}
-                <Sidebar
+                {/* <Sidebar
                     navigationTree={navigationTree}
                     currentDocId={currentDocId || ""}
                     expandedNodes={expandedNodes}
@@ -225,7 +245,7 @@ const AppContent: React.FC = () => {
                     onToggleNode={toggleNode}
                     onCloseSidebar={handleSidebarClose}
                     onSidebarResize={handleSidebarResize}
-                />
+                /> */}
 
                 {/* Content Area */}
                 <Content

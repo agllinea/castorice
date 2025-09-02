@@ -1,0 +1,73 @@
+:root {
+    --c1: #dcbcfb;
+    --c2: #fbbcfb;
+}
+
+.zzz-button-group {
+    display: inline-flex;
+    border: 2px solid gray;
+    border-radius: 2rem;
+    gap: 3px;
+}
+
+.zzz-button {
+    position: relative;
+    flex-shrink: 0;
+    overflow: visible;
+    color: white;
+}
+
+
+
+.zzz-button .zzz-button-bg {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+}
+
+.zzz-button .zzz-button-bg-inner {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    animation: bgPulse 6s ease-in-out infinite;
+    will-change: background-color;
+    transform: skewX(-20deg);
+}
+
+.zzz-button:first-child .zzz-button-bg {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    overflow: hidden;
+    margin-right: -7px;
+    transform-origin: left;
+}
+
+.zzz-button:first-child .zzz-button-bg-inner {
+    transform: skewX(-20deg) translateX(-7px);
+}
+
+.zzz-button:last-child .zzz-button-bg {
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    overflow: hidden;
+    margin-left: -7px;
+    transform-origin: right;
+}
+
+.zzz-button:last-child .zzz-button-bg-inner {
+    transform: skewX(-20deg) translateX(7px);
+}
+
+@keyframes bgPulse {
+    0% {
+        background: var(--c1);
+    }
+
+    50% {
+        background: var(--c2);
+    }
+
+    100% {
+        background: var(--c1);
+    }
+}

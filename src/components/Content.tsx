@@ -1,5 +1,4 @@
-
-import { FileText, List, Loader, Menu } from "lucide-react";
+import { Brain, FileText, List, Loader, Menu, Music, Music2, Search, ToolCase } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -7,7 +6,11 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 
 import { TableOfContent } from "./widgets/TableOfContent";
+
 import type { DocItem, ToCItem } from "../types/model";
+import { motion } from "framer-motion";
+import { Button, ButtonGroup } from "./bases/Button";
+import { IconButton } from "./bases/IconButton";
 
 const Content: React.FC<{
     currentDoc: DocItem | null;
@@ -18,6 +21,8 @@ const Content: React.FC<{
 }> = ({ currentDoc, loading = false, isMobile, onSidebarToggle }) => {
     const contentRef = useRef<HTMLElement>(null);
     const [tocOpen, setTocOpen] = useState(false);
+
+    const [activeId, setActiveId] = useState<string>("");
     const [tocItems, setTocItems] = useState<
         Array<{
             id: string;
@@ -155,8 +160,8 @@ const Content: React.FC<{
     return (
         <div className="bg-theme-background flex-1 flex flex-col overflow-hidden relative">
             {/* Fixed Title Header with theme integration */}
-            <div className="bg-theme-surface/95 backdrop-blur-sm px-4 flex-shrink-0 sticky top-0 z-30 border-b border-theme h-16 shadow-sm flex justify-between gap-4 items-center">
-                <button
+            <div className="backdrop-blur-sm px-4 flex-shrink-0 sticky top-0 z-30 h-16 shadow-sm flex justify-end gap-4 items-center">
+                {/* <button
                     disabled={!isMobile}
                     onClick={onSidebarToggle}
                     className="p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary cursor-pointer"
@@ -164,12 +169,62 @@ const Content: React.FC<{
                     style={{ visibility: isMobile ? "visible" : "hidden" }}
                 >
                     <Menu className="w-5 h-5" />
-                </button>
-                {/* Document Title */}
-                <div className="text-center text-theme-secondary flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
-                    <div className="text-lg tracking-widest font-medium">{currentDoc.title}</div>
+                </button> */}
+                
+                <ButtonGroup>
+                    <Button
+                        isMobile={isMobile}
+                        icon={<FileText />}
+                        aria-label="Knowledge"
+                        onClick={() => setActiveId("knowledge")}
+                        active={activeId === "knowledge"}
+                    >
+                        Knowledge
+                    </Button>
+                    <Button
+                        isMobile={isMobile}
+                        icon={<Music />}
+                        aria-label="Music"
+                        onClick={() => setActiveId("music")}
+                        active={activeId === "music"}
+                    >
+                        Music
+                    </Button>
+                    <Button
+                        isMobile={isMobile}
+                        icon={<ToolCase />}
+                        aria-label="Toolkit"
+                        onClick={() => setActiveId("toolkit")}
+                        active={activeId === "toolkit"}
+                    >
+                        Toolkit
+                    </Button>
+                    <Button
+                        isMobile={isMobile}
+                        icon={<Brain />}
+                        aria-label="AI"
+                        onClick={() => setActiveId("ai")}
+                        active={activeId === "ai"}
+                    >
+                        AI
+                    </Button>
+                    <Button
+                        isMobile={isMobile}
+                        icon={<Music2 />}
+                        aria-label="Entertainment"
+                        onClick={() => setActiveId("entertainment")}
+                        active={activeId === "entertainment"}
+                    >
+                        Entertainment
+                    </Button>
+                    <div>666</div>
+                </ButtonGroup>
 
-                    {/* <div className="flex flex-wrap gap-2 items-center justify-center">
+                {/* Document Title */}
+                {/* <div className="text-center text-theme-secondary flex-1 overflow-hidden whitespace-nowrap text-ellipsis">
+                    <div className="text-lg tracking-widest font-medium">{currentDoc.title}</div> */}
+
+                {/* <div className="flex flex-wrap gap-2 items-center justify-center">
                                 {((currentDoc.tags&&currentDoc.tags.length>0) ? currentDoc.tags : [currentDoc.type]).map((tag) => (
                                     <span
                                         key={tag}
@@ -179,10 +234,10 @@ const Content: React.FC<{
                                     </span>
                                 ))}
                             </div> */}
-                </div>
+                {/* </div> */}
                 {/* TOC Toggle Button - Only show for markdown content */}
 
-                <button
+                {/* <button
                     disabled={!(!currentDoc.component && tocItems.length > 0)}
                     onClick={() => setTocOpen((prev: boolean) => !prev)}
                     className="flex items-center gap-2 p-2.5 hover:bg-theme-hover rounded-xl transition-all duration-200 flex-shrink-0 text-theme-secondary"
@@ -191,11 +246,11 @@ const Content: React.FC<{
                     style={{ visibility: !currentDoc.component && tocItems.length > 0 ? "visible" : "hidden" }}
                 >
                     <List className="w-5 h-5" />
-                </button>
+                </button> */}
             </div>
 
             {/* Scrollable Content with theme integration */}
-            <main className="toc-content flex-1 overflow-y-auto p-6 bg-gray-50" ref={contentRef}>
+            {/* <main className="toc-content flex-1 overflow-y-auto p-6 bg-gray-50" ref={contentRef}>
                 <article className="max-w-4xl mx-auto">
                     {currentDoc.component ? (
                         // Render React component
@@ -396,12 +451,12 @@ const Content: React.FC<{
                         </div>
                     )}
                 </article>
-            </main>
+            </main> */}
 
             {/* Floating Table of Contents - Only for markdown content */}
-            {!currentDoc.component && tocItems.length > 0 && (
+            {/* {!currentDoc.component && tocItems.length > 0 && (
                 <TableOfContent items={tocItems} isOpen={tocOpen} onClose={() => setTocOpen(false)} />
-            )}
+            )} */}
         </div>
     );
 };
