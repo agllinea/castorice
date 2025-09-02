@@ -170,7 +170,7 @@ const Content: React.FC<{
                 >
                     <Menu className="w-5 h-5" />
                 </button> */}
-                
+
                 <ButtonGroup>
                     <Button
                         isMobile={isMobile}
@@ -247,6 +247,120 @@ const Content: React.FC<{
                 >
                     <List className="w-5 h-5" />
                 </button> */}
+            </div>
+            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5  toc-content flex-1 overflow-y-auto p-6">
+                {[
+                    {
+                        cover: "/img/Castorice_Phone_Case.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Character_Castorice_Eidolon_6.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_01.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_02.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_03.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_04.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_05.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Castorice_Phone_Case.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Character_Castorice_Eidolon_6.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_01.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_02.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_03.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_04.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                    {
+                        cover: "/img/Sticker_Castorice_05.png",
+                        title: "想吃遐蝶的无菌小脚",
+                    },
+                ].map((item, index) => (
+                    <motion.div
+                        className="mb-4 rounded-[2rem] rounded-bl-none border-[6px] border-gray-700 overflow-hidden shadow-lg cursor-pointer relative"
+                        whileHover="hover"
+                        whileTap="tap"
+                        variants={{
+                            hover: { borderColor: "rgb(196 181 253)" },
+                            tap: { borderColor: "rgb(196 181 253)" },
+                        }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {/* Cover image container with hover scale effect */}
+                        <div className="relative overflow-hidden">
+                            {/* Inner shadow overlay for smooth image edges */}
+                            <div
+                                className="absolute inset-0 shadow-inner pointer-events-none z-10"
+                                style={{ boxShadow: "inset 0 0 20px rgba(0, 0, 0, 0.3)" }}
+                            ></div>
+
+                            {/* Cover image with hover scale and rotation triggered by parent */}
+                            <motion.img
+                                src={item.cover}
+                                className="sm:w-full sm:h-full object-cover h-32 w-full"
+                                initial={{ scale: 1.1 }}
+                                variants={{
+                                    hover: { scale: 1.2, rotate: 1 },
+                                    tap: { scale: 1.2, rotate: 1 },
+                                }}
+                                transition={{ duration: 0.3, ease: "easeOut" }}
+                            />
+                        </div>
+
+                        {/* Title panel with backdrop blur */}
+                        <div className="py-2 px-4 text-white backdrop-blur-md bg-black/40 shadow-lg absolute bottom-0 w-full">
+                            <div className="font-bold text-lg mb-1 drop-shadow-sm">{item.title}</div>
+
+                            {/* Tags container - single line with overflow hidden */}
+                            <div className="flex gap-2 overflow-hidden">
+                                {["知识", "音乐"].map((tag) => (
+                                    <motion.span
+                                        key={tag}
+                                        className="px-2 py-0.5 text-xs border border-white/30 rounded-full text-white/90 whitespace-nowrap flex-shrink-0"
+                                        whileHover={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+                                        transition={{ duration: 0.2 }}
+                                    >
+                                        {tag}
+                                    </motion.span>
+                                ))}
+                            </div>
+                            <div className="preview text-sm mt-2 text-nowrap overflow-hidden text-ellipsis">
+                                所以有没有人知道这个世界上最美味的东西是什么？我跟你说，那就是遐蝶的无菌小脚，真的超级无敌好吃！
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
             </div>
 
             {/* Scrollable Content with theme integration */}
