@@ -19,7 +19,7 @@ const AppContent: React.FC = () => {
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
     const [sidebarWidth, setSidebarWidth] = useState<number>(384);
     const [expandedNodes, setExpandedNodes] = useState<string[]>([]);
-    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+    const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640);
     const [currentDoc, setCurrentDoc] = useState<DocItem | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
