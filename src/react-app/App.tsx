@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { Link, NavLink, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import "./App.css";
@@ -212,45 +212,32 @@ const scripts: ScriptEntry[] = [
   },
 ];
 
-const viewRoutes = [
-  { to: "/", label: "蝶影舞台", sub: "沉浸式" },
-  { to: "/gallery", label: "折光画廊", sub: "卡片式" },
-  { to: "/archive", label: "月茧档案", sub: "编辑部" },
-];
-
 function ThemeButton({ theme, toggle }: { theme: string; toggle: () => void }) {
   return <button className="icon-button theme-button" onClick={toggle} aria-label="切换明暗主题"><span>{theme === "dark" ? "☼" : "☾"}</span><em>{theme === "dark" ? "浅色" : "深色"}</em></button>;
 }
 
-function Header({ theme, toggleTheme }: { theme: string; toggleTheme: () => void }) {
-  const location = useLocation();
-  const isShowcase = viewRoutes.some((route) => route.to === location.pathname);
+function MusicButton({ muted, toggle, character }: { muted: boolean; toggle: () => void; character: Character }) {
+  return <button
+    className={`music-toggle ${muted ? "is-muted" : "is-playing"}`}
+    onClick={toggle}
+    aria-label={muted ? `开启音乐：${character.track}` : `静音：${character.track}`}
+    aria-pressed={!muted}
+    title={muted ? "开启概念音乐" : `正在播放 · ${character.track}`}
+    style={{ "--music-accent": character.color } as React.CSSProperties}
+  >
+    <span className="music-disc" aria-hidden="true"><i>✦</i></span>
+    <span className="music-note" aria-hidden="true">♪</span>
+    <span className="music-waves" aria-hidden="true"><i /><i /><i /></span>
+    <span className="music-slash" aria-hidden="true" />
+    <em className="music-label">MUSIC</em>
+  </button>;
+}
+
+function Header({ theme, toggleTheme, muted, toggleMuted, character }: { theme: string; toggleTheme: () => void; muted: boolean; toggleMuted: () => void; character: Character }) {
   return <header className="site-header">
     <Link className="brand" to="/" aria-label="回到蝶影剧场首页"><span className="brand-mark">◇</span><span><strong>蝶影剧场</strong><small>MEMORIA · 13</small></span></Link>
-    <nav className="main-nav" aria-label="设计方案">
-      {viewRoutes.map((route) => <NavLink key={route.to} to={route.to} end={route.to === "/"} className={({ isActive }) => isActive || (!isShowcase && route.to === "/") ? "active" : ""}><span>{route.label}</span><small>{route.sub}</small></NavLink>)}
-    </nav>
-    <ThemeButton theme={theme} toggle={toggleTheme} />
+    <div className="header-actions"><ThemeButton theme={theme} toggle={toggleTheme} /><MusicButton muted={muted} toggle={toggleMuted} character={character} /></div>
   </header>;
-}
-
-function AudioDock({ character, isChanging }: { character: Character; isChanging: boolean }) {
-  return <div className={`audio-dock ${isChanging ? "is-changing" : ""}`} aria-live="polite">
-    <div className="disc"><span>✦</span></div>
-    <button className="play-button" aria-label="暂停概念音轨">Ⅱ</button>
-    <div className="track-meta"><small>NOW PLAYING · 概念音轨</small><strong>{character.track}</strong><span>{character.name} / {character.en}</span></div>
-    <div className="waveform" aria-hidden="true">{Array.from({ length: 28 }).map((_, i) => <i key={i} style={{ "--i": i } as React.CSSProperties} />)}</div>
-    <span className="track-time">01:24 / {character.duration}</span>
-  </div>;
-}
-
-function CharacterCard({ character, index, onPlay, variant = "default" }: { character: Character; index: number; onPlay: (character: Character) => void; variant?: string }) {
-  return <Link to={`/characters/${character.id}`} className={`character-card ${variant}`} style={{ "--accent": character.color } as React.CSSProperties} onClick={() => onPlay(character)}>
-    <span className="card-index">0{index + 1}</span>
-    <div className="card-image-wrap"><img src={character.image} alt={`${character.name}角色立绘`} /></div>
-    <div className="card-copy"><small>{character.epithet}</small><h3>{character.name}</h3><span>{character.en}</span></div>
-    <div className="card-arrow">↗</div>
-  </Link>;
 }
 
 function ScriptCard({ script, compact = false }: { script: ScriptEntry; compact?: boolean }) {
@@ -262,64 +249,36 @@ function ScriptCard({ script, compact = false }: { script: ScriptEntry; compact?
 }
 
 function HomeStage({ onPlay }: { onPlay: (character: Character) => void }) {
+  const [selected, setSelected] = useState(characters[0]);
+  const selectedIndex = characters.findIndex((character) => character.id === selected.id);
+  const selectCharacter = (character: Character) => {
+    setSelected(character);
+    onPlay(character);
+  };
   return <main className="stage-view">
-    <section className="stage-hero">
+    <section className="stage-hero" style={{ "--stage-accent": selected.color } as React.CSSProperties}>
       <div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
       <div className="butterfly-field" aria-hidden="true"><span>◇</span><span>◇</span><span>◇</span><span>◇</span><span>◇</span></div>
       <div className="hero-copy">
-        <div className="eyebrow"><span /> AMPHOREUS CHARACTER ARCHIVE · 03</div>
-        <p className="hero-kicker">她以死亡注释生命</p>
-        <h1><span>遐</span><span>蝶</span></h1>
-        <p className="hero-en">CASTORICE <i>—</i> SERVANT OF DEATH</p>
-        <p className="hero-description">一座为黄金裔留下的互动剧场。<br />让角色、光影与未被写下的故事再次相遇。</p>
-        <div className="hero-actions"><Link className="primary-action" to="/characters/castorice" onClick={() => onPlay(characters[0])}>进入角色档案 <span>↗</span></Link><a className="text-action" href="#characters">浏览全员 <span>↓</span></a></div>
+        <div className="eyebrow"><span /> AMPHOREUS CHARACTER ARCHIVE · 0{selectedIndex + 1}</div>
+        <p className="hero-kicker">{selected.quote}</p>
+        <h1 className={selected.name.length > 2 ? "long-name" : ""}>{Array.from(selected.name).map((letter, index) => <span key={`${selected.id}-${index}`}>{letter}</span>)}</h1>
+        <p className="hero-en">{selected.en} <i>—</i> {selected.epithet}</p>
+        <p className="hero-description">{selected.bio}</p>
+        <div className="hero-actions"><Link className="primary-action" to={`/characters/${selected.id}`} onClick={() => onPlay(selected)}>进入角色档案 <span>↗</span></Link><a className="text-action" href="#scripts">阅读剧本 <span>↓</span></a></div>
       </div>
-      <div className="hero-visual"><div className="halo" /><img src={characters[0].image} alt="遐蝶角色立绘" /><div className="vertical-type">LIFE · DEATH · MEMORY</div></div>
-      <div className="hero-counter"><span>01</span><i /><small>08</small></div>
+      <div className="hero-visual"><div className="halo" /><img key={selected.id} src={selected.image} alt={`${selected.name}角色立绘`} /><div className="vertical-type">{selected.city} · {selected.path} · {selected.element}</div></div>
+      <nav className="stage-character-nav" aria-label="切换封面角色">
+        <ol>{characters.map((character, index) => <li key={character.id}><button className={selected.id === character.id ? "active" : ""} onClick={() => selectCharacter(character)} aria-pressed={selected.id === character.id}><span>0{index + 1}</span><strong>{character.name}</strong><small>{character.en}</small></button></li>)}</ol>
+      </nav>
+      <div className="hero-counter"><span>0{selectedIndex + 1}</span><i /><small>08</small></div>
       <div className="scroll-cue">SCROLL TO DESCEND <span>↓</span></div>
     </section>
 
-    <section className="character-section" id="characters">
-      <div className="section-heading"><div><small>CHAPTER 01</small><h2>黄金裔 · 角色图鉴</h2></div><p>选择角色，将同步载入<br />其专属概念音轨与视觉色谱。</p></div>
-      <div className="character-grid">{characters.map((character, i) => <CharacterCard key={character.id} character={character} index={i} onPlay={onPlay} />)}</div>
-    </section>
-
-    <section className="scripts-section">
-      <div className="section-heading"><div><small>CHAPTER 02</small><h2>未完的逐火篇章</h2></div><p>以 Markdown 保存的原创示例剧本，<br />在阅读页中实时转换为排版内容。</p></div>
+    <section className="scripts-section" id="scripts">
+      <div className="section-heading"><div><small>CHAPTER 01</small><h2>未完的逐火篇章</h2></div><p>以 Markdown 保存的原创示例剧本，<br />在阅读页中实时转换为排版内容。</p></div>
       <div className="scripts-grid">{scripts.map((script) => <ScriptCard key={script.id} script={script} />)}</div>
     </section>
-    <Footer />
-  </main>;
-}
-
-function GalleryView({ onPlay }: { onPlay: (character: Character) => void }) {
-  return <main className="gallery-view">
-    <section className="gallery-intro">
-      <div><span className="eyebrow">CONCEPT B · PRISM GALLERY</span><h1>把命运折成<br /><em>八束光。</em></h1></div>
-      <p>更轻、更像一本动态画册。角色以错落的海报卡片展开，适合把视觉素材放在第一位。</p>
-      <div className="gallery-stamp">08<br /><small>PORTRAITS</small></div>
-    </section>
-    <section className="masonry-characters">{characters.map((character, i) => <CharacterCard key={character.id} character={character} index={i} onPlay={onPlay} variant={`gallery-card card-${i + 1}`} />)}</section>
-    <section className="gallery-scripts"><div className="gallery-script-heading"><small>INTERMISSION</small><h2>阅读发生在<br />两束光之间。</h2></div><div>{scripts.map((script) => <ScriptCard key={script.id} script={script} compact />)}</div></section>
-    <Footer />
-  </main>;
-}
-
-function ArchiveView({ onPlay }: { onPlay: (character: Character) => void }) {
-  const [selected, setSelected] = useState(characters[0]);
-  const select = (character: Character) => { setSelected(character); onPlay(character); };
-  return <main className="archive-view" style={{ "--archive-accent": selected.color } as React.CSSProperties}>
-    <section className="archive-hero">
-      <div className="archive-rail">
-        <div className="archive-heading"><small>CONCEPT C / CHRYSOS INDEX</small><h1>月茧<br />档案</h1><p>一套冷静、信息密度更高的编辑部排版。适合内容持续增加后的长期维护。</p></div>
-        <ol>{characters.map((character, i) => <li key={character.id}><button className={selected.id === character.id ? "active" : ""} onClick={() => select(character)}><span>0{i + 1}</span><strong>{character.name}</strong><small>{character.en}</small></button></li>)}</ol>
-      </div>
-      <div className="archive-feature">
-        <div className="archive-image"><span className="archive-cross cross-a" /><span className="archive-cross cross-b" /><div className="archive-sun" /><img key={selected.id} src={selected.image} alt={`${selected.name}角色立绘`} /></div>
-        <div className="archive-detail"><div className="archive-label">CURRENT RECORD <span>● LIVE</span></div><h2>{selected.name}</h2><p className="archive-en">{selected.en}</p><blockquote>“{selected.quote}”</blockquote><div className="archive-facts"><span><small>所属</small>{selected.city}</span><span><small>命途</small>{selected.path}</span><span><small>属性</small>{selected.element}</span></div><Link className="archive-open" to={`/characters/${selected.id}`}>打开完整记录 <span>→</span></Link></div>
-      </div>
-    </section>
-    <section className="archive-scripts"><div className="archive-section-title"><span>02</span><h2>叙事记录</h2><small>NARRATIVE LOGS / MARKDOWN</small></div>{scripts.map((script) => <ScriptCard key={script.id} script={script} compact />)}</section>
     <Footer />
   </main>;
 }
@@ -366,13 +325,13 @@ function Footer() {
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("castorice-theme") || "dark");
   const [activeCharacter, setActiveCharacter] = useState(characters[0]);
-  const [isChanging, setIsChanging] = useState(false);
+  const [muted, setMuted] = useState(() => localStorage.getItem("castorice-muted") === "true");
   const location = useLocation();
   useEffect(() => { document.documentElement.dataset.theme = theme; localStorage.setItem("castorice-theme", theme); }, [theme]);
+  useEffect(() => { localStorage.setItem("castorice-muted", String(muted)); }, [muted]);
   useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [location.pathname]);
-  const onPlay = (character: Character) => { if (character.id === activeCharacter.id) return; setIsChanging(true); setActiveCharacter(character); window.setTimeout(() => setIsChanging(false), 700); };
-  const hideDock = useMemo(() => location.pathname.startsWith("/scripts/"), [location.pathname]);
-  return <div id="top" className="app-shell"><Header theme={theme} toggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")} /><Routes><Route path="/" element={<HomeStage onPlay={onPlay} />} /><Route path="/gallery" element={<GalleryView onPlay={onPlay} />} /><Route path="/archive" element={<ArchiveView onPlay={onPlay} />} /><Route path="/characters/:id" element={<CharacterDetail onPlay={onPlay} />} /><Route path="/scripts/:id" element={<ScriptPage />} /><Route path="*" element={<HomeStage onPlay={onPlay} />} /></Routes>{!hideDock && <AudioDock character={activeCharacter} isChanging={isChanging} />}</div>;
+  const onPlay = (character: Character) => { if (character.id !== activeCharacter.id) setActiveCharacter(character); };
+  return <div id="top" className="app-shell"><Header theme={theme} toggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")} muted={muted} toggleMuted={() => setMuted((value) => !value)} character={activeCharacter} /><Routes><Route path="/" element={<HomeStage onPlay={onPlay} />} /><Route path="/characters/:id" element={<CharacterDetail onPlay={onPlay} />} /><Route path="/scripts/:id" element={<ScriptPage />} /><Route path="*" element={<HomeStage onPlay={onPlay} />} /></Routes></div>;
 }
 
 export default App;
