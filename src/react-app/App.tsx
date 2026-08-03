@@ -248,14 +248,107 @@ function ScriptCard({ script, compact = false }: { script: ScriptEntry; compact?
   </Link>;
 }
 
+function CharacterArchiveContent({ character, index, onSelect }: { character: Character; index: number; onSelect: (character: Character) => void }) {
+  const previous = characters[(index - 1 + characters.length) % characters.length];
+  const next = characters[(index + 1) % characters.length];
+  const chapters = [
+    {
+      id: "origin",
+      index: "01",
+      label: "起源记录",
+      title: `自${character.city}而来的无名书简`,
+      paragraphs: [
+        `${character.name}的记录始于一页没有日期的纸。档案员只能从纸面残留的${character.accent}色微光，以及反复出现的地名“${character.city}”，推断它曾被带着穿过漫长的夜。纸页边缘没有烧灼，也没有风化，像是时间在触碰它之前迟疑了一瞬。`,
+        `${character.bio} 这段被写进公开档案的文字并不完整。在更早的抄本中，她的名字旁还留有数处被刻意擦除的注脚：一次没有见证者的告别、一条通往旧城的路，以及一项至今无人愿意再次执行的约定。`,
+      ],
+    },
+    {
+      id: "journey",
+      index: "02",
+      label: "行旅纪要",
+      title: "在逐火道路上留下的四个坐标",
+      paragraphs: [
+        `第一处坐标位于城门之外。守卫声称${character.name}从未经过那里，但当天所有计时器都慢了七秒。第二处坐标是一座废弃驿站，桌上留下半杯尚有余温的水，以及用${character.element}刻出的细小记号。`,
+        `第三处坐标没有地点，只有一句转述：“${character.quote}” 记录者将它归入命途“${character.path}”的观测样本，却始终无法解释，为何每位读到这句话的人都会想起不同的故乡。第四处坐标仍然空白——档案部认为，它应当留给旅程最终抵达的地方。`,
+      ],
+    },
+    {
+      id: "memory",
+      index: "03",
+      label: "记忆侧写",
+      title: "她与众人之间，隔着一只蝶的距离",
+      paragraphs: [
+        `熟悉${character.name}的人很少用“${character.epithet}”称呼她。那是史书需要的名字，不是同行者会说出口的名字。对他们而言，她更像一段安静的间奏：不争夺叙述的中心，却会记住每个人在故事边缘遗落的细节。`,
+        `档案中保存着三种彼此矛盾的评价。有人说她冷静得近乎残酷，有人说她比任何人都更珍惜短暂的生命，还有人坚持自己从未真正见过她。三份证词都被判定为真实，因为记忆从来不是一面平整的镜子。`,
+      ],
+    },
+    {
+      id: "observation",
+      index: "04",
+      label: "观测附录",
+      title: "关于未完成命运的最后一页",
+      paragraphs: [
+        `观测编号 0${index + 1} 的结论仍处于开放状态。已确认的项目只有三项：${character.path}的轨迹仍在延伸，${character.element}反应会在她靠近时变得稳定，而那些被认为已经终结的故事，偶尔会在她身后重新出现一行文字。`,
+        `因此，本档案没有使用“结案”印章。最后一页只压着一枚透明书签，上面写着：如果${character.name}再次回到${character.city}，请不要询问她带回了什么。先为她留一盏灯，再让故事自己决定从哪里继续。`,
+      ],
+    },
+  ];
+
+  return <section className="character-record" id="character-record" style={{ "--record-accent": character.color } as React.CSSProperties}>
+    <header className="record-intro">
+      <div><small>MEMORIA / EXPANDED RECORD</small><h2>角色详细档案</h2></div>
+      <p>以下内容为非官方概念文本，用于展示长篇角色资料、章节导航与单页阅读结构。</p>
+      <div className="record-facts"><span><small>PATH</small>{character.path}</span><span><small>TYPE</small>{character.element}</span><span><small>ORIGIN</small>{character.city}</span><span><small>KEYWORD</small>{character.tags.join(" · ")}</span></div>
+    </header>
+    <div className="record-reading-layout">
+      <aside className="record-toc">
+        <small>CONTENTS / 目录</small>
+        <ol>{chapters.map((chapter) => <li key={chapter.id}><a href={`#record-${character.id}-${chapter.id}`}><span>{chapter.index}</span>{chapter.label}</a></li>)}</ol>
+        <blockquote>“{character.quote}”</blockquote>
+      </aside>
+      <article className="record-chapters">
+        {chapters.map((chapter) => <section key={chapter.id} id={`record-${character.id}-${chapter.id}`}>
+          <div className="record-chapter-number">{chapter.index}</div>
+          <div><small>{chapter.label} / {character.en}</small><h3>{chapter.title}</h3>{chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</div>
+        </section>)}
+      </article>
+    </div>
+    <nav className="record-pagination" aria-label="切换相邻角色">
+      <button onClick={() => onSelect(previous)}><small>← PREVIOUS RECORD</small><strong>{previous.name}</strong><span>{previous.en} · {previous.epithet}</span></button>
+      <button onClick={() => onSelect(next)}><small>NEXT RECORD →</small><strong>{next.name}</strong><span>{next.en} · {next.epithet}</span></button>
+    </nav>
+    <Footer />
+  </section>;
+}
+
 function HomeStage({ onPlay }: { onPlay: (character: Character) => void }) {
   const [selected, setSelected] = useState(characters[0]);
+  const [detailOpen, setDetailOpen] = useState(false);
   const selectedIndex = characters.findIndex((character) => character.id === selected.id);
   const selectCharacter = (character: Character) => {
     setSelected(character);
     onPlay(character);
   };
-  return <main className="stage-view">
+  const selectFromRecord = (character: Character) => {
+    selectCharacter(character);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const openDetail = () => {
+    onPlay(selected);
+    setDetailOpen(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const closeDetail = () => {
+    setDetailOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  useEffect(() => {
+    if (!detailOpen) return;
+    const handleEscape = (event: KeyboardEvent) => { if (event.key === "Escape") closeDetail(); };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [detailOpen]);
+  return <main className={`stage-view ${detailOpen ? "is-detail-open" : ""}`}>
     <section className="stage-hero" style={{ "--stage-accent": selected.color } as React.CSSProperties}>
       <div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" />
       <div className="butterfly-field" aria-hidden="true"><span>◇</span><span>◇</span><span>◇</span><span>◇</span><span>◇</span></div>
@@ -265,21 +358,24 @@ function HomeStage({ onPlay }: { onPlay: (character: Character) => void }) {
         <h1 className={selected.name.length > 2 ? "long-name" : ""}>{Array.from(selected.name).map((letter, index) => <span key={`${selected.id}-${index}`}>{letter}</span>)}</h1>
         <p className="hero-en">{selected.en} <i>—</i> {selected.epithet}</p>
         <p className="hero-description">{selected.bio}</p>
-        <div className="hero-actions"><Link className="primary-action" to={`/characters/${selected.id}`} onClick={() => onPlay(selected)}>进入角色档案 <span>↗</span></Link><a className="text-action" href="#scripts">阅读剧本 <span>↓</span></a></div>
+        <div className="hero-actions" aria-hidden={detailOpen}><button className="primary-action" onClick={openDetail} tabIndex={detailOpen ? -1 : 0}>进入角色档案 <span>↗</span></button><a className="text-action" href="#scripts" tabIndex={detailOpen ? -1 : 0}>阅读剧本 <span>↓</span></a></div>
+        <button className="record-close" onClick={closeDetail} tabIndex={detailOpen ? 0 : -1} aria-hidden={!detailOpen}><span>←</span> 收起详细档案 <small>ESC</small></button>
       </div>
       <div className="hero-visual"><div className="halo" /><img key={selected.id} src={selected.image} alt={`${selected.name}角色立绘`} /><div className="vertical-type">{selected.city} · {selected.path} · {selected.element}</div></div>
-      <nav className="stage-character-nav" aria-label="切换封面角色">
-        <ol>{characters.map((character, index) => <li key={character.id}><button className={selected.id === character.id ? "active" : ""} onClick={() => selectCharacter(character)} aria-pressed={selected.id === character.id}><span>0{index + 1}</span><strong>{character.name}</strong><small>{character.en}</small></button></li>)}</ol>
+      <nav className="stage-character-nav" aria-label="切换封面角色" aria-hidden={detailOpen}>
+        <ol>{characters.map((character, index) => <li key={character.id}><button className={selected.id === character.id ? "active" : ""} onClick={() => selectCharacter(character)} aria-pressed={selected.id === character.id} tabIndex={detailOpen ? -1 : 0}><span>0{index + 1}</span><strong>{character.name}</strong><small>{character.en}</small></button></li>)}</ol>
       </nav>
       <div className="hero-counter"><span>0{selectedIndex + 1}</span><i /><small>08</small></div>
       <div className="scroll-cue">SCROLL TO DESCEND <span>↓</span></div>
     </section>
 
-    <section className="scripts-section" id="scripts">
-      <div className="section-heading"><div><small>CHAPTER 01</small><h2>未完的逐火篇章</h2></div><p>以 Markdown 保存的原创示例剧本，<br />在阅读页中实时转换为排版内容。</p></div>
-      <div className="scripts-grid">{scripts.map((script) => <ScriptCard key={script.id} script={script} />)}</div>
-    </section>
-    <Footer />
+    {detailOpen ? <CharacterArchiveContent character={selected} index={selectedIndex} onSelect={selectFromRecord} /> : <div className="stage-default-content">
+      <section className="scripts-section" id="scripts">
+        <div className="section-heading"><div><small>CHAPTER 01</small><h2>未完的逐火篇章</h2></div><p>以 Markdown 保存的原创示例剧本，<br />在阅读页中实时转换为排版内容。</p></div>
+        <div className="scripts-grid">{scripts.map((script) => <ScriptCard key={script.id} script={script} />)}</div>
+      </section>
+      <Footer />
+    </div>}
   </main>;
 }
 
