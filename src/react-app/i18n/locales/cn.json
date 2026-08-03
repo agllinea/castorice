@@ -1,0 +1,99 @@
+{
+  "common": {
+    "brand": "蝶影剧场",
+    "brandSubtitle": "MEMORIA · 13",
+    "homeAria": "回到蝶影剧场首页",
+    "lightTheme": "浅色",
+    "darkTheme": "深色",
+    "toggleTheme": "切换明暗主题",
+    "music": "音乐",
+    "enableMusic": "开启概念音乐",
+    "enableMusicTrack": "开启音乐：{{track}}",
+    "muteMusicTrack": "静音：{{track}}",
+    "nowPlaying": "正在播放 · {{track}}",
+    "back": "返回",
+    "close": "收起",
+    "previous": "上一个",
+    "next": "下一个"
+  },
+  "home": {
+    "archiveEyebrow": "AMPHOREUS CHARACTER ARCHIVE · {{index}}",
+    "enterArchive": "进入角色档案",
+    "readScripts": "阅读剧本",
+    "switchCoverAria": "切换封面角色",
+    "scrollCue": "SCROLL TO DESCEND",
+    "scriptsChapter": "CHAPTER 01",
+    "scriptsTitle": "未完的逐火篇章",
+    "scriptsDescription": "以 Markdown 保存的原创示例剧本，在阅读页中实时转换为排版内容。",
+    "selectCount": "SELECT / 08",
+    "portraitAlt": "{{name}}角色立绘"
+  },
+  "archive": {
+    "close": "收起详细档案",
+    "eyebrow": "CHRYSOS HEIR · RECORD {{index}}",
+    "expandedRecord": "MEMORIA / EXPANDED RECORD",
+    "detailTitle": "角色详细档案",
+    "conceptNotice": "以下内容为非官方概念文本，用于展示长篇角色资料、章节导航与单页阅读结构。",
+    "contents": "CONTENTS / 目录",
+    "path": "PATH / 命途",
+    "type": "TYPE / 属性",
+    "origin": "ORIGIN / 出身",
+    "keyword": "KEYWORD",
+    "previousRecord": "PREVIOUS RECORD",
+    "nextRecord": "NEXT RECORD",
+    "switchRecord": "SWITCH RECORD",
+    "switchCharacter": "切换角色",
+    "back": "返回",
+    "note": "ARCHIVE NOTE · 非官方概念设定集",
+    "storyTitle": "隔着一只蝶的距离，听见每个人的命运。",
+    "storyPlaceholder": "此页面用于展示角色详情的排版与动效结构。正式内容可以继续增加语音、技能、关系图谱和图集模块。",
+    "fullPortraitAlt": "{{name}}完整角色立绘",
+    "chapters": {
+      "origin": {
+        "label": "起源记录",
+        "title": "自{{city}}而来的无名书简",
+        "paragraph1": "{{name}}的记录始于一页没有日期的纸。档案员只能从纸面残留的{{accent}}色微光，以及反复出现的地名“{{city}}”，推断它曾被带着穿过漫长的夜。纸页边缘没有烧灼，也没有风化，像是时间在触碰它之前迟疑了一瞬。",
+        "paragraph2": "{{bio}} 这段被写进公开档案的文字并不完整。在更早的抄本中，她的名字旁还留有数处被刻意擦除的注脚：一次没有见证者的告别、一条通往旧城的路，以及一项至今无人愿意再次执行的约定。"
+      },
+      "journey": {
+        "label": "行旅纪要",
+        "title": "在逐火道路上留下的四个坐标",
+        "paragraph1": "第一处坐标位于城门之外。守卫声称{{name}}从未经过那里，但当天所有计时器都慢了七秒。第二处坐标是一座废弃驿站，桌上留下半杯尚有余温的水，以及用{{element}}刻出的细小记号。",
+        "paragraph2": "第三处坐标没有地点，只有一句转述：“{{quote}}” 记录者将它归入命途“{{path}}”的观测样本，却始终无法解释，为何每位读到这句话的人都会想起不同的故乡。第四处坐标仍然空白——档案部认为，它应当留给旅程最终抵达的地方。"
+      },
+      "memory": {
+        "label": "记忆侧写",
+        "title": "她与众人之间，隔着一只蝶的距离",
+        "paragraph1": "熟悉{{name}}的人很少用“{{epithet}}”称呼她。那是史书需要的名字，不是同行者会说出口的名字。对他们而言，她更像一段安静的间奏：不争夺叙述的中心，却会记住每个人在故事边缘遗落的细节。",
+        "paragraph2": "档案中保存着三种彼此矛盾的评价。有人说她冷静得近乎残酷，有人说她比任何人都更珍惜短暂的生命，还有人坚持自己从未真正见过她。三份证词都被判定为真实，因为记忆从来不是一面平整的镜子。"
+      },
+      "observation": {
+        "label": "观测附录",
+        "title": "关于未完成命运的最后一页",
+        "paragraph1": "观测编号 {{index}} 的结论仍处于开放状态。已确认的项目只有三项：{{path}}的轨迹仍在延伸，{{element}}反应会在她靠近时变得稳定，而那些被认为已经终结的故事，偶尔会在她身后重新出现一行文字。",
+        "paragraph2": "因此，本档案没有使用“结案”印章。最后一页只压着一枚透明书签，上面写着：如果{{name}}再次回到{{city}}，请不要询问她带回了什么。先为她留一盏灯，再让故事自己决定从哪里继续。"
+      }
+    }
+  },
+  "scripts": {
+    "read": "阅读剧本",
+    "castCount": "{{count}} 位角色",
+    "backToList": "返回剧本列表",
+    "contents": "CONTENTS / 目录",
+    "cast": "CAST / 登场角色",
+    "narrativeLog": "NARRATIVE LOG · {{index}}",
+    "markdownHtml": "MARKDOWN → HTML",
+    "previous": "PREVIOUS SCRIPT",
+    "next": "NEXT SCRIPT",
+    "episode": "EPISODE",
+    "backToArchive": "返回档案",
+    "continueReading": "继续阅读",
+    "currentCast": "本篇角色"
+  },
+  "footer": {
+    "subtitle": "MEMORIA OF AMPHOREUS",
+    "copyright": "非官方视觉概念站 · 角色版权归 HoYoverse 所有",
+    "notice": "本站文本为设计展示用途的原创示例",
+    "backToTop": "回到顶部"
+  }
+}

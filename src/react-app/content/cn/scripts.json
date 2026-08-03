@@ -1,0 +1,32 @@
+[
+  {
+    "id": "butterfly-by-the-river",
+    "index": "I",
+    "title": "冥河边的第一只蝶",
+    "subtitle": "遐蝶角色短篇 · 原创示例",
+    "duration": "约 8 分钟",
+    "cast": ["遐蝶", "白厄", "摆渡人"],
+    "excerpt": "在所有钟声停止以后，一只不该活着的蝴蝶落在了枯枝上。",
+    "markdownFile": "butterfly-by-the-river"
+  },
+  {
+    "id": "okhema-sleepless",
+    "index": "II",
+    "title": "奥赫玛，无眠之夜",
+    "subtitle": "群像对话 · 原创示例",
+    "duration": "约 12 分钟",
+    "cast": ["阿格莱雅", "缇宝", "万敌", "那刻夏"],
+    "excerpt": "当城中最后一盏灯也没有熄灭，所有人都知道黎明带来的不会只是太阳。",
+    "markdownFile": "okhema-sleepless"
+  },
+  {
+    "id": "thirteenth-seat",
+    "index": "III",
+    "title": "黄金裔的第十三席",
+    "subtitle": "档案悬疑篇 · 原创示例",
+    "duration": "约 10 分钟",
+    "cast": ["赛飞儿", "风堇", "？？？"],
+    "excerpt": "圆桌上有十二把椅子，可落在地面的影子，却清楚地数出了十三道。",
+    "markdownFile": "thirteenth-seat"
+  }
+]
