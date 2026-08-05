@@ -1,18 +1,22 @@
 import charactersCn from "./cn/characters.json";
 import scriptsCn from "./cn/scripts.json";
-import butterflyByTheRiverCn from "./cn/scripts/butterfly-by-the-river.md?raw";
-import okhemaSleeplessCn from "./cn/scripts/okhema-sleepless.md?raw";
-import thirteenthSeatCn from "./cn/scripts/thirteenth-seat.md?raw";
 import type { Character, ScriptEntry, ScriptMetadata } from "../types/content";
 
 export type ContentLocale = "cn";
 
+const markdownModulesCn = import.meta.glob("./cn/scripts/*.md", {
+  eager: true,
+  import: "default",
+  query: "?raw",
+}) as Record<string, string>;
+
+const markdownCn = Object.fromEntries(Object.entries(markdownModulesCn).map(([filePath, markdown]) => {
+  const fileName = filePath.split("/").pop()?.replace(/\.md$/, "") ?? filePath;
+  return [fileName, markdown];
+}));
+
 const markdownByLocale: Record<ContentLocale, Record<string, string>> = {
-  cn: {
-    "butterfly-by-the-river": butterflyByTheRiverCn,
-    "okhema-sleepless": okhemaSleeplessCn,
-    "thirteenth-seat": thirteenthSeatCn,
-  },
+  cn: markdownCn,
 };
 
 const contentByLocale: Record<ContentLocale, { characters: Character[]; scripts: ScriptMetadata[] }> = {

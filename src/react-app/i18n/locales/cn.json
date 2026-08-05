@@ -25,7 +25,7 @@
     "scriptsChapter": "CHAPTER 01",
     "scriptsTitle": "未完的逐火篇章",
     "scriptsDescription": "以 Markdown 保存的原创示例剧本，在阅读页中实时转换为排版内容。",
-    "selectCount": "SELECT / 08",
+    "selectCount": "SELECT / {{count}}",
     "portraitAlt": "{{name}}角色立绘"
   },
   "archive": {

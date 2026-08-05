@@ -11,14 +11,14 @@ function ThemeButton({ theme, toggle }: { theme: string; toggle: () => void }) {
   </button>;
 }
 
-function MusicButton({ muted, toggle, character }: { muted: boolean; toggle: () => void; character: Character }) {
+function MusicButton({ muted, playing, toggle, character }: { muted: boolean; playing: boolean; toggle: () => void; character: Character }) {
   const { t } = useI18n();
   return <button
-    className={`music-toggle ${muted ? "is-muted" : "is-playing"}`}
+    className={`music-toggle ${muted ? "is-muted" : playing ? "is-playing" : "is-idle"}`}
     onClick={toggle}
     aria-label={muted ? t("common.enableMusicTrack", { track: character.track }) : t("common.muteMusicTrack", { track: character.track })}
     aria-pressed={!muted}
-    title={muted ? t("common.enableMusic") : t("common.nowPlaying", { track: character.track })}
+    title={muted ? t("common.enableMusic") : playing ? t("common.nowPlaying", { track: character.track }) : character.track}
     style={{ "--music-accent": character.color } as React.CSSProperties}
   >
     <span className="music-album" aria-hidden="true">
@@ -29,10 +29,10 @@ function MusicButton({ muted, toggle, character }: { muted: boolean; toggle: () 
   </button>;
 }
 
-export function Header({ theme, toggleTheme, muted, toggleMuted, character }: { theme: string; toggleTheme: () => void; muted: boolean; toggleMuted: () => void; character: Character }) {
+export function Header({ theme, toggleTheme, muted, musicPlaying, toggleMuted, character }: { theme: string; toggleTheme: () => void; muted: boolean; musicPlaying: boolean; toggleMuted: () => void; character: Character }) {
   const { t } = useI18n();
   return <header className="site-header">
     <Link className="brand" to="/" aria-label={t("common.homeAria")}><span className="brand-mark">◇</span><span><strong>{t("common.brand")}</strong><small>{t("common.brandSubtitle")}</small></span></Link>
-    <div className="header-actions"><ThemeButton theme={theme} toggle={toggleTheme} /><MusicButton muted={muted} toggle={toggleMuted} character={character} /></div>
+    <div className="header-actions"><ThemeButton theme={theme} toggle={toggleTheme} /><MusicButton muted={muted} playing={musicPlaying} toggle={toggleMuted} character={character} /></div>
   </header>;
 }

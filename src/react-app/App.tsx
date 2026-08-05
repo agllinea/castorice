@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Header } from "./components/layout/Header";
 import { getContent, type ContentLocale } from "./content";
-import { CharacterDetailPage } from "./features/characters/CharacterDetailPage";
 import { HomeStage } from "./features/home/HomeStage";
-import { ScriptPage } from "./features/scripts/ScriptPage";
+import { useCharacterMusic } from "./hooks/useCharacterMusic";
 import { usePersistentState } from "./hooks/usePersistentState";
 import { useI18n } from "./i18n";
 import type { Character } from "./types/content";
@@ -17,21 +16,18 @@ function App() {
   const [muted, setMuted] = usePersistentState("castorice-muted", false, (value) => value === "true");
   const [activeCharacterId, setActiveCharacterId] = useState(characters[0].id);
   const activeCharacter = characters.find((character) => character.id === activeCharacterId) ?? characters[0];
-  const location = useLocation();
+
+  const musicPlaying = useCharacterMusic(activeCharacter.music, muted);
 
   useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
-  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [location.pathname]);
 
   const onPlay = (character: Character) => {
     if (character.id !== activeCharacterId) setActiveCharacterId(character.id);
   };
 
   return <div id="top" className="app-shell">
-    <Header theme={theme} toggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")} muted={muted} toggleMuted={() => setMuted((value) => !value)} character={activeCharacter} />
+    <Header theme={theme} toggleTheme={() => setTheme(theme === "dark" ? "light" : "dark")} muted={muted} musicPlaying={musicPlaying} toggleMuted={() => setMuted((value) => !value)} character={activeCharacter} />
     <Routes>
-      <Route path="/" element={<HomeStage characters={characters} scripts={scripts} onPlay={onPlay} />} />
-      <Route path="/characters/:id" element={<CharacterDetailPage characters={characters} onPlay={onPlay} />} />
-      <Route path="/scripts/:id" element={<ScriptPage scripts={scripts} />} />
       <Route path="*" element={<HomeStage characters={characters} scripts={scripts} onPlay={onPlay} />} />
     </Routes>
   </div>;
