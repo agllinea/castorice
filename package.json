@@ -39,8 +39,15 @@
 		"check": "tsc && vite build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "vite",
+		"fetch:sr": "node scripts/fetch-sr-mission.js",
+		"fetch:sr-history": "node scripts/fetch-sr-history.js",
+		"fetch:mission-index": "node scripts/fetch-mission-index.js",
+		"fetch:missions": "node scripts/fetch-all-missions.js",
+		"generate:missions": "node scripts/fetch-mission-index.js",
+		"generate:missions:legacy": "node scripts/generate-missions-index.js",
 		"lint": "eslint .",
-		"preview": "npm run build && vite preview"
+		"preview": "npm run build && vite preview",
+		"test:sr-parser": "node --test scripts/sr-wikitext-parser.test.js"
 	},
 	"type": "module"
 }
