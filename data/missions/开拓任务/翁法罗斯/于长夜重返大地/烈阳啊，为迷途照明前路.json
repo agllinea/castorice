@@ -611,7 +611,7 @@
     {
       "type": "dialogue",
       "speaker": "卡厄斯兰那",
-      "text": "开拓者，还有…丹恒。"
+      "text": "{{开拓者|搭档}}，还有…丹恒。"
     },
     {
       "type": "dialogue",
@@ -769,7 +769,7 @@
     {
       "type": "dialogue",
       "speaker": "白厄",
-      "text": "但我认识的人里，仍有一群「英雄」存在。"
+      "text": "但我认识的人里，仍有一群{{「英雄」|无名客}}存在。"
     },
     {
       "type": "dialogue",
@@ -789,7 +789,7 @@
     {
       "type": "dialogue",
       "speaker": "白厄",
-      "text": "它只为「负世」而燃烧。"
+      "text": "它只为{{「负世」|「开拓」}}而燃烧。"
     },
     {
       "type": "dialogue",
@@ -799,7 +799,7 @@
     {
       "type": "dialogue",
       "speaker": "白厄",
-      "text": "别让我等太久啊。丹恒…开拓者。"
+      "text": "别让我等太久啊。丹恒…{{开拓者|搭档}}。"
     },
     {
       "type": "dialogue",

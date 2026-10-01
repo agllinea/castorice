@@ -210,7 +210,7 @@
     {
       "type": "dialogue",
       "speaker": "记忆中的丹恒",
-      "text": "开拓者…开拓者…！"
+      "text": "{{开拓者|伙伴}}…{{开拓者|伙伴}}…！"
     },
     {
       "type": "dialogue",
@@ -245,7 +245,7 @@
     {
       "type": "dialogue",
       "speaker": "欧洛尼斯",
-      "text": "天父…你在看吗？"
+      "text": "{{天父|记忆}}…你在看吗？"
     },
     {
       "type": "dialogue",
@@ -260,7 +260,7 @@
     {
       "type": "dialogue",
       "speaker": "昔涟",
-      "text": "第一次，也是最后一次…我看见你啦，开拓者♪"
+      "text": "第一次，也是最后一次…我看见你啦，{{开拓者|伙伴}}♪"
     },
     {
       "type": "choice",
@@ -473,7 +473,7 @@
     {
       "type": "dialogue",
       "speaker": "黑天鹅",
-      "text": "万幸，她对「记忆」的理解出现了偏差。"
+      "text": "万幸，{{她|长夜月}}对「记忆」的理解出现了偏差。"
     },
     {
       "type": "dialogue",
@@ -561,7 +561,7 @@
     {
       "type": "dialogue",
       "speaker": "往昔的涟漪",
-      "text": "原来她一直站在我的身边，还这么美丽呀。"
+      "text": "原来{{她|我}}一直站在我的身边，还这么美丽呀。"
     },
     {
       "type": "choice",
@@ -636,7 +636,7 @@
     {
       "type": "dialogue",
       "speaker": "昔涟",
-      "text": "「真我」。"
+      "text": "{{「真我」|EGO}}。"
     },
     {
       "type": "section",
@@ -822,12 +822,12 @@
     {
       "type": "dialogue",
       "speaker": "往昔的涟漪",
-      "text": "回望的终点，「∞」最后的缺口……"
+      "text": "回望的终点，{{「∞」|翁法罗斯}}最后的缺口……"
     },
     {
       "type": "dialogue",
       "speaker": "往昔的涟漪",
-      "text": "就是我们共同的故乡呀。"
+      "text": "就是我们共同的{{故乡|哀丽秘榭}}呀。"
     },
     {
       "type": "dialogue",
@@ -852,7 +852,7 @@
     {
       "type": "dialogue",
       "speaker": "往昔的涟漪",
-      "text": "「∞」最后的缺口就会闭合；翁法罗斯的因果循环，将永远锚定在银河中。"
+      "text": "{{「∞」|翁法罗斯}}最后的缺口就会闭合；翁法罗斯的因果循环，将永远锚定在银河中。"
     },
     {
       "type": "dialogue",
@@ -1073,7 +1073,7 @@
     {
       "type": "dialogue",
       "speaker": "昔涟",
-      "text": "愿岁月的长河逆流而行，将未来的风景送至眼前。在那无人记得的永恒之地，「开拓」的神话将要开篇……"
+      "text": "愿岁月的长河逆流而行，将未来的风景送至眼前。在那无人记得的永恒之地，{{「开拓」的神话|逐火之旅}}将要开篇……"
     },
     {
       "type": "choice",
@@ -1177,7 +1177,7 @@
     {
       "type": "dialogue",
       "speaker": "昔涟",
-      "text": "昔涟；开拓者……"
+      "text": "昔涟；{{开拓者|和你}}……"
     },
     {
       "type": "dialogue",
@@ -1266,7 +1266,7 @@
     {
       "type": "dialogue",
       "speaker": "昔涟",
-      "text": "当「记忆」随风逝去，「爱」也会留下种子，变成「哀怜」……"
+      "text": "当「记忆」随风逝去，{{「爱」|德谬歌}}也会留下种子，变成{{「哀怜」|Philia093}}……"
     },
     {
       "type": "dialogue",
@@ -1427,7 +1427,7 @@
     {
       "type": "dialogue",
       "speaker": "开拓者",
-      "text": "…翁法罗斯的哀悼月，大地上的所有争斗都会止息；哀悼月的第十一个日夜，逝者将离别，生者将相拥，雪花将落下，篝火将升起，照亮每一颗哀怜的心。"
+      "text": "…翁法罗斯的{{哀悼月|十一月}}，大地上的所有争斗都会止息；哀悼月的第十一个日夜，逝者将离别，生者将相拥，雪花将落下，篝火将升起，照亮每一颗哀怜的心。"
     },
     {
       "type": "dialogue",
@@ -1561,7 +1561,7 @@
     },
     {
       "type": "fold",
-      "title": "动画短片：[https://www.bilibili.com/video/BV14G1kB5Evp?p=1 「你好，世界」]",
+      "title": "动画短片：[「你好，世界」](https://www.bilibili.com/video/BV14G1kB5Evp?p=1)",
       "collapsed": false,
       "content": [
         {
@@ -1661,7 +1661,7 @@
         {
           "type": "narration",
           "tone": "灰",
-          "text": "（以下为[https://www.bilibili.com/video/BV1XG2FBTEHK 《昔涟》]歌词内容）"
+          "text": "（以下为[《昔涟》](https://www.bilibili.com/video/BV1XG2FBTEHK)歌词内容）"
         },
         {
           "type": "text",
@@ -2051,7 +2051,7 @@
         {
           "type": "dialogue",
           "speaker": "波提欧",
-          "text": "喵的…看在你救了开拓者和丹恒的份上，滚吧。"
+          "text": "喵的…看在你救了{{开拓者|好兄弟}}和丹恒的份上，滚吧。"
         },
         {
           "type": "dialogue",
@@ -2167,7 +2167,7 @@
         {
           "type": "dialogue",
           "speaker": "姬子",
-          "text": "尽管卡厄斯兰那如今已不存于世，但开拓者仍能触及他的一簇记忆。"
+          "text": "尽管卡厄斯兰那如今已不存于世，但{{开拓者|那孩子}}仍能触及他的一簇记忆。"
         },
         {
           "type": "dialogue",

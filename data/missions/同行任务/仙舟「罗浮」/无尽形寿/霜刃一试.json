@@ -634,7 +634,7 @@
     {
       "type": "dialogue",
       "speaker": "云骑军队长",
-      "text": "你？可我没接到景元将军的饬令……"
+      "text": "你？可我没接到景元将军的{{饬|chì}}令……"
     },
     {
       "type": "dialogue",

@@ -304,7 +304,7 @@
       "content": [
         {
           "type": "fold",
-          "title": "[https://www.bilibili.com/video/BV1wc411y7ve 小视频]",
+          "title": "[小视频](https://www.bilibili.com/video/BV1wc411y7ve)",
           "collapsed": true,
           "content": [
             {
@@ -579,7 +579,7 @@
     },
     {
       "type": "fold",
-      "title": "[https://www.bilibili.com/video/BV1wc411y7ve?t=27.7 过场动画]",
+      "title": "[过场动画](https://www.bilibili.com/video/BV1wc411y7ve?t=27.7)",
       "collapsed": false,
       "content": [
         {
@@ -739,7 +739,7 @@
     {
       "type": "dialogue",
       "speaker": "真理医生",
-      "text": "开拓者先生/女士，告诉我——最后一次见到那具人偶时，你做了什么？"
+      "text": "{{开拓者|这位}}先生/女士，告诉我——最后一次见到那具人偶时，你做了什么？"
     },
     {
       "type": "choice",
@@ -4022,7 +4022,7 @@
       "content": [
         {
           "type": "fold",
-          "title": "[https://www.bilibili.com/video/BV1wc411y7ve?t=85.2 含有大的的视频]",
+          "title": "[含有大的的视频](https://www.bilibili.com/video/BV1wc411y7ve?t=85.2)",
           "collapsed": true,
           "content": [
             {
@@ -5019,7 +5019,7 @@
             {
               "type": "dialogue",
               "speaker": "真理医生",
-              "text": "但在调查了网络浏览记录后，开拓者发现他们都是空间站黑网的意见领袖。"
+              "text": "但在调查了网络浏览记录后，{{开拓者|你}}发现他们都是空间站黑网的意见领袖。"
             },
             {
               "type": "dialogue",
@@ -5099,7 +5099,7 @@
             {
               "type": "dialogue",
               "speaker": "真理医生",
-              "text": "关于这一点，开拓者想必也已知晓。"
+              "text": "关于这一点，{{开拓者|你}}想必也已知晓。"
             },
             {
               "type": "dialogue",
@@ -5352,7 +5352,7 @@
             {
               "type": "dialogue",
               "speaker": "真理医生",
-              "text": "毫无疑问，黑塔委托开拓者寻找的奇物就是「相位灵火」的火种。"
+              "text": "毫无疑问，黑塔委托{{开拓者|你}}寻找的奇物就是「相位灵火」的火种。"
             },
             {
               "type": "dialogue",
@@ -6322,7 +6322,7 @@
     {
       "type": "dialogue",
       "speaker": "螺丝咕姆",
-      "text": "出于好奇。逻辑：我做了和你一样的决定：同行，观察。"
+      "text": "出于好奇。逻辑：我做了和你一样的决定：同{{行|xíng}}，观察。"
     },
     {
       "type": "dialogue",

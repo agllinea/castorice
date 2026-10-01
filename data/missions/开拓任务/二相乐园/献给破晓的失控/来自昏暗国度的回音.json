@@ -770,7 +770,7 @@
     {
       "type": "dialogue",
       "speaker": "不死途",
-      "text": "开拓者，把真珠送你的东西拿出来吧。"
+      "text": "{{开拓者|小姑娘/小子}}，把真珠送你的东西拿出来吧。"
     },
     {
       "type": "choice",
@@ -801,12 +801,12 @@
     {
       "type": "dialogue",
       "speaker": "？？？",
-      "text": "开拓者！"
+      "text": "{{开拓者|阿基维利}}！"
     },
     {
       "type": "dialogue",
       "speaker": "？？？",
-      "text": "开拓者！"
+      "text": "{{开拓者|阿基维利}}！"
     },
     {
       "type": "dialogue",
@@ -902,7 +902,7 @@
     {
       "type": "dialogue",
       "speaker": "？？？",
-      "text": "开拓者，往这边来。"
+      "text": "{{开拓者|阿基维利}}，往这边来。"
     },
     {
       "type": "divider"
@@ -981,7 +981,7 @@
     {
       "type": "dialogue",
       "speaker": "不死途",
-      "text": "开拓者，别再往前了。"
+      "text": "{{开拓者|小姑娘/小子}}，别再往前了。"
     },
     {
       "type": "dialogue",

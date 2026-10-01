@@ -2422,7 +2422,7 @@
     {
       "type": "dialogue",
       "speaker": "阮·梅",
-      "text": "会吧，根据记录，开拓者挺喜欢这个事件。"
+      "text": "会吧，根据记录，{{开拓者|他/她}}挺喜欢这个事件。"
     },
     {
       "type": "dialogue",
@@ -2537,7 +2537,7 @@
     {
       "type": "dialogue",
       "speaker": "阮·梅",
-      "text": "来吧，开拓者，我送你离开。"
+      "text": "来吧，{{开拓者|亲爱的}}，我送你离开。"
     },
     {
       "type": "dialogue",
@@ -2646,7 +2646,7 @@
     {
       "type": "dialogue",
       "speaker": "阮·梅",
-      "text": "开拓者，注意安全。如果你遇见实在解决不了的危险，就给个信号，我会不顾影响，亲自出面。"
+      "text": "{{开拓者|亲爱的}}，注意安全。如果你遇见实在解决不了的危险，就给个信号，我会不顾影响，亲自出面。"
     },
     {
       "type": "dialogue",
@@ -2683,7 +2683,7 @@
     },
     {
       "type": "fold",
-      "title": "[https://www.bilibili.com/video/BV1qc411C7N8 过场动画]",
+      "title": "[过场动画](https://www.bilibili.com/video/BV1qc411C7N8)",
       "collapsed": false,
       "content": [
         {
@@ -2784,7 +2784,7 @@
     {
       "type": "dialogue",
       "speaker": "炒冷饭机器人",
-      "text": "接待，嘶嘶，开拓者。请问需要查询什么？"
+      "text": "接待，嘶嘶，{{开拓者|访客}}。请问需要查询什么？"
     },
     {
       "type": "choice",
@@ -2832,7 +2832,7 @@
     {
       "type": "dialogue",
       "speaker": "炒冷饭机器人",
-      "text": "接待，嘶嘶，开拓者。请问有何需求？"
+      "text": "接待，嘶嘶，{{开拓者|访客}}。请问有何需求？"
     },
     {
       "type": "choice",
@@ -3574,7 +3574,7 @@
     },
     {
       "type": "fold",
-      "title": "[https://www.bilibili.com/video/BV1TT4y1s7ZF 过场动画]",
+      "title": "[过场动画](https://www.bilibili.com/video/BV1TT4y1s7ZF)",
       "collapsed": false,
       "content": [
         {

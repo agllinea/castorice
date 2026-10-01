@@ -363,7 +363,7 @@
     {
       "type": "dialogue",
       "speaker": "「巡猎」的记者",
-      "text": "前途迢递孱颜险，旌旆蔽天争冠冕！"
+      "text": "{{前途迢递孱颜险|qián tú tiáo dì chán yán xiǎn}}，{{旌旆蔽天争冠冕|jīng pèi bì tiān zhēng guān miǎn}}！"
     },
     {
       "type": "dialogue",
@@ -3162,7 +3162,7 @@
     {
       "type": "dialogue",
       "speaker": "广播",
-      "text": "恭喜开拓者和流萤获得本次热砂盛典的冠军！"
+      "text": "恭喜{{开拓者|银河球棒侠}}和流萤获得本次热砂盛典的冠军！"
     },
     {
       "type": "dialogue",

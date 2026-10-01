@@ -12,6 +12,9 @@
 		"publish": true
 	},
 	"dependencies": {
+		"@mantine/core": "^9.6.3",
+		"@mantine/hooks": "^9.6.3",
+		"@tabler/icons-react": "^3.48.0",
 		"hono": "4.11.1",
 		"react": "19.2.1",
 		"react-dom": "19.2.1"
@@ -39,10 +42,13 @@
 		"check": "tsc && vite build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "vite",
+		"editor": "vite --config editor/vite.config.ts --open",
+		"build:editor": "tsc -p editor/tsconfig.json && vite build --config editor/vite.config.ts",
 		"fetch:sr": "node scripts/fetch-sr-mission.js",
 		"fetch:sr-history": "node scripts/fetch-sr-history.js",
 		"fetch:mission-index": "node scripts/fetch-mission-index.js",
 		"fetch:missions": "node scripts/fetch-all-missions.js",
+		"migrate:screenplays": "node scripts/migrate-screenplays-v2.js",
 		"generate:missions": "node scripts/fetch-mission-index.js",
 		"generate:missions:legacy": "node scripts/generate-missions-index.js",
 		"lint": "eslint .",

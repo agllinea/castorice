@@ -329,7 +329,7 @@
     {
       "type": "dialogue",
       "speaker": "Saber",
-      "text": "圣剑，解放——「誓约与胜利之剑」——！"
+      "text": "圣剑，解放——{{「誓约与胜利之剑」|Excalibur}}——！"
     },
     {
       "type": "dialogue",
@@ -339,7 +339,7 @@
     {
       "type": "dialogue",
       "speaker": "白厄",
-      "text": "你的愿望，我也收下了——「夙愿骄阳」——！"
+      "text": "你的愿望，我也收下了——{{「夙愿骄阳」|Dawnmaker}}——！"
     },
     {
       "type": "dialogue",
@@ -349,7 +349,7 @@
     {
       "type": "dialogue",
       "speaker": "Lancer",
-      "text": "睁大眼睛看好了——「突穿死翔之枪」——！"
+      "text": "睁大眼睛看好了——{{「突穿死翔之枪」|Gáe Bolg}}——！"
     },
     {
       "type": "dialogue",
@@ -444,7 +444,7 @@
     {
       "type": "dialogue",
       "speaker": "远坂凛",
-      "text": "宣告令咒：开拓者，解放宝具——将所有不讲道理的规则统统打破吧！"
+      "text": "宣告令咒：{{开拓者|Trailblazer}}，解放宝具——将所有不讲道理的规则统统打破吧！"
     },
     {
       "type": "dialogue",
@@ -624,7 +624,7 @@
     {
       "type": "dialogue",
       "speaker": "吉尔伽美什",
-      "text": "「天地乖离开辟之星」。"
+      "text": "{{「天地乖离开辟之星」|Enuma Elish}}。"
     },
     {
       "type": "dialogue",
@@ -755,7 +755,7 @@
     {
       "type": "dialogue",
       "speaker": "？？？",
-      "text": "没办法。谁教这是个扎根想象的世界呢？"
+      "text": "没办法。谁教这是个扎根{{想象|幻造}}的世界呢？"
     },
     {
       "type": "dialogue",

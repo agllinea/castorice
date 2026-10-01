@@ -347,7 +347,7 @@
     {
       "type": "dialogue",
       "speaker": "三月七",
-      "text": "这次是…丹恒，开拓者？"
+      "text": "这次是…{{丹恒，开拓者|他们两}}？"
     },
     {
       "type": "divider"

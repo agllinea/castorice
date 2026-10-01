@@ -173,9 +173,17 @@ function templateToInline(template) {
     const [item = "", amount] = positional;
     return amount ? `${cleanInline(item)} × ${cleanInline(amount)}` : cleanInline(item);
   }
-  if (name === "注音") return cleanInline(positional[0] ?? "");
+  if (name === "注音") {
+    const base = cleanInline(positional[0] ?? "");
+    const annotation = cleanInline(positional[1] ?? "");
+    return annotation ? `{{${base}|${annotation}}}` : base;
+  }
   if (name === "黑幕") return cleanInline(positional[0] ?? "");
-  if (name === "ruby") return cleanInline(positional[0] ?? "");
+  if (name === "ruby") {
+    const base = cleanInline(positional[0] ?? "");
+    const annotation = cleanInline(positional[1] ?? "");
+    return annotation ? `{{${base}|${annotation}}}` : base;
+  }
   if (name === "梗") return cleanInline(positional[0] ?? "");
   if (named.内容) return cleanInline(named.内容);
   // 未适配的内联模板通常把正文放在第一个位置参数，后续参数是注释、样式或尺寸。
@@ -207,6 +215,16 @@ export function cleanInline(input) {
         const parts = splitTopLevel(balanced.raw.slice(2, -2), "|");
         output += parts.at(-1)?.trim() ?? "";
         index = balanced.end;
+        continue;
+      }
+    }
+    if (text[index] === "[") {
+      const externalLink = text.slice(index).match(/^\[(https?:\/\/[^\s\]]+)(?:\s+([^\]]+?))?\]/i);
+      if (externalLink) {
+        const url = decodeHtmlEntities(externalLink[1]);
+        const label = cleanInline(externalLink[2] ?? url);
+        output += `[${label}](${url})`;
+        index += externalLink[0].length;
         continue;
       }
     }

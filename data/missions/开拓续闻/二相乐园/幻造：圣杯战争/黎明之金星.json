@@ -638,7 +638,7 @@
     {
       "type": "dialogue",
       "speaker": "远坂凛",
-      "text": "那，再见了，我的Trailblazer——"
+      "text": "那，再见了，我的{{Trailblazer|开拓者}}——"
     },
     {
       "type": "choice",

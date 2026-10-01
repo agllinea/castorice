@@ -247,7 +247,7 @@
             {
               "type": "dialogue",
               "speaker": "翡翠",
-              "text": "艾普瑟隆的明珠，「星际和平娱乐」的总部。"
+              "text": "艾普瑟隆的明珠，{{「星际和平娱乐」|IPC-E}}的总部。"
             },
             {
               "type": "dialogue",
@@ -1190,7 +1190,7 @@
     {
       "type": "dialogue",
       "speaker": "黑天鹅",
-      "text": "就此别过了，开拓者。"
+      "text": "就此别过了，{{开拓者|小瞌睡虫}}。"
     },
     {
       "type": "choice",

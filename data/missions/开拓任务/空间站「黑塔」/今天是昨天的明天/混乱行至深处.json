@@ -77,7 +77,7 @@
   "content": [
     {
       "type": "fold",
-      "title": "开场动画[https://www.bilibili.com/video/BV1dv4y1A7gL?p=1 「一幕短剧」]",
+      "title": "开场动画[「一幕短剧」](https://www.bilibili.com/video/BV1dv4y1A7gL?p=1)",
       "collapsed": false,
       "content": [
         {
@@ -125,7 +125,7 @@
     {
       "type": "dialogue",
       "speaker": "卡芙卡",
-      "text": "艾利欧看见的未来是不会出错的。刚刚的爆炸是怎么回事，这也在他的「剧本」里吗？"
+      "text": "{{艾利欧|星核猎手}}看见的未来是不会出错的。刚刚的爆炸是怎么回事，这也在他的「剧本」里吗？"
     },
     {
       "type": "dialogue",
@@ -514,7 +514,7 @@
     {
       "type": "dialogue",
       "speaker": "卡芙卡",
-      "text": "「星核」就在那里？"
+      "text": "{{「星核」|万界之癌}}就在那里？"
     },
     {
       "type": "dialogue",
@@ -672,7 +672,7 @@
     {
       "type": "dialogue",
       "speaker": "卡芙卡",
-      "text": "「星核」在哪里？"
+      "text": "{{「星核」|万界之癌}}在哪里？"
     },
     {
       "type": "dialogue",
@@ -1202,7 +1202,7 @@
     {
       "type": "dialogue",
       "speaker": "银狼",
-      "text": "还要说多久？按照剧本，星穹列车的人就快到了，我们不该跟他们照上面。"
+      "text": "还要说多久？按照剧本，{{星穹列车|「开拓」的旅行者}}的人就快到了，我们不该跟他们照上面。"
     },
     {
       "type": "dialogue",

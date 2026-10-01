@@ -463,7 +463,7 @@
     {
       "type": "dialogue",
       "speaker": "白厄",
-      "text": "诚如神谕所示：「汝将肩负骄阳，直至灰白的黎明显著」——在你亲手谱写的史诗中，愿这名号能代我同行。"
+      "text": "诚如神谕所示：「{{汝|白厄}}将肩负骄阳，直至{{灰白的黎明|开拓者}}显著」——在你亲手谱写的史诗中，愿这名号能代我同行。"
     },
     {
       "type": "divider"
@@ -691,7 +691,7 @@
     },
     {
       "type": "fold",
-      "title": "动画短片：[https://www.bilibili.com/video/BV1twgSzhEo8?p=1 「听！狂欢在那神佑的山巅」]",
+      "title": "动画短片：[「听！狂欢在那神佑的山巅」](https://www.bilibili.com/video/BV1twgSzhEo8?p=1)",
       "collapsed": false,
       "content": [
         {

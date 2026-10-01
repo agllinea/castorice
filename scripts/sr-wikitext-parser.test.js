@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { parseStarRailMission } from "./sr-wikitext-parser.js";
+import { parseBlocks, parseStarRailMission } from "./sr-wikitext-parser.js";
 import { titleFromInput } from "./sr-bwiki-client.js";
 
 test("递归保留折叠、选项和选项内的嵌套选项", () => {
@@ -71,6 +71,24 @@ test("任务名称中的注释模板只保留显示文本", () => {
   const source = `{{任务|任务名称={{梗|显示名称|梗典故|很长的注释}}}}
 ==剧情内容==`;
   assert.equal(parseStarRailMission(source).mission.name, "显示名称");
+});
+
+test("完整保留注音模板的正文和注音", () => {
+  const source = `{{任务|任务名称=注音测试}}
+==剧情内容==
+*卡芙卡：{{注音|艾利欧|星核猎手}}看见的未来不会出错。
+*{{注音|？？？|流萤}}：你好。`;
+  const result = parseStarRailMission(source);
+  assert.equal(result.content[0].text, "{{艾利欧|星核猎手}}看见的未来不会出错。");
+  assert.equal(result.content[1].speaker, "{{？？？|流萤}}");
+});
+
+test("外部链接转换为 Markdown 链接", () => {
+  const source = `{{任务|任务名称=链接测试}}
+==剧情内容==
+{{折叠|标题=开场动画[https://www.bilibili.com/video/BV1test?p=1 「一幕短剧」]|内容=*旁白：内容}}`;
+  const result = parseStarRailMission(source);
+  assert.equal(result.content[0].title, "开场动画[「一幕短剧」](https://www.bilibili.com/video/BV1test?p=1)");
 });
 
 test("保留 tabber 的各个条件分支", () => {
@@ -145,4 +163,21 @@ test("提示模板分别保留正文和地点", () => {
     text: "提示正文",
     context: "任务地点",
   });
+});
+
+test("可直接解析用于导入的 BWiki 剧情片段", () => {
+  const content = parseBlocks(`*帕姆：要宣布一件事。
+{{剧情选项
+|选项1=我愿意。
+|剧情1=*三月七：好耶！
+|选项2=再想想。
+|剧情2={{剧情选项|选项1=还是愿意。|剧情1=*帕姆：欢迎！}}
+}}
+=== 宣誓 ===
+{{任务描述|愿此行，终抵群星。|观景车厢}}`);
+  assert.equal(content[0].type, "dialogue");
+  assert.equal(content[1].type, "choice");
+  assert.equal(content[1].options[1].content[0].type, "choice");
+  assert.equal(content[2].type, "section");
+  assert.deepEqual(content[3], { type: "objective-description", text: "愿此行，终抵群星。", location: "观景车厢" });
 });
