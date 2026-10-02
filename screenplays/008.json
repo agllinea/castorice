@@ -27,7 +27,7 @@
     "hidden": []
   },
   "createdAt": "2026-10-01T21:57:30.287Z",
-  "updatedAt": "2026-10-02T00:04:14.376Z",
+  "updatedAt": "2026-10-02T09:19:51.812Z",
   "blocks": [
     {
       "id": "c0205f0c-4cea-4f25-a596-92d49fab0069",
@@ -159,7 +159,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "三月七",
-        "text": "我们列车上这伙人啊，几天不睡都没问题，但一觉就要全睡回来。你啊，早晚也会掌握这技能的。好啦，大好时光别在走廊里耽搁了。"
+        "text": "我们列车上这伙人啊，几天不睡都没问题，但一觉就要全睡回来。"
+      }
+    },
+    {
+      "id": "3759ed67-f48b-4d79-a368-447e73ca5fb2",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 9
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "三月七",
+        "text": "你啊，早晚也会掌握这技能的。"
+      }
+    },
+    {
+      "id": "4a9e8517-9f7c-435b-8a30-0abbb14147c5",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 9
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "三月七",
+        "text": "好啦，大好时光别在走廊里耽搁了。"
       }
     },
     {
@@ -237,7 +263,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "帕姆",
-        "text": "首先，帕姆要感谢各位无名客成功解决了本站点的问题，让列车能继续在星轨上奔驰！"
+        "text": "首先，帕姆要感谢各位无名客成功解决了本站点的问题"
+      }
+    },
+    {
+      "id": "1ad92dfb-a67b-43f0-b0bf-b4628cc3182f",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 27
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "帕姆",
+        "text": "让列车能继续在星轨上奔驰！"
       }
     },
     {
@@ -1191,7 +1230,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "「星核猎手」，我见过你，不过是在公司的悬赏令上，那可是天文数字的赏金——而且不论死活。你知道自己的悬赏是多少吗？"
+        "text": "「星核猎手」，我见过你，不过是在公司的悬赏令上"
+      }
+    },
+    {
+      "id": "727fb8c1-bf74-43ac-bc68-982fa583ae2a",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 31
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "那可是天文数字的赏金——而且不论死活。"
+      }
+    },
+    {
+      "id": "dc622b57-8971-4d57-ada6-28e693873cca",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 31
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "你知道自己的悬赏是多少吗？"
       }
     },
     {
@@ -1204,7 +1269,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "不太关心。公司的悬赏令么，与其说恶名，倒不如说是盛赞。数字越大，赞美越盛。"
+        "text": "不太关心。"
+      }
+    },
+    {
+      "id": "168e9fa8-449c-42c9-8ae3-e0a239af6252",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 32
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "公司的悬赏令么，与其说恶名，倒不如说是盛赞。"
+      }
+    },
+    {
+      "id": "e5ad0ba4-4a4a-4e5a-8a63-8369996d6232",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 32
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "数字越大，赞美越盛。"
       }
     },
     {
@@ -1230,7 +1321,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "…如此说来，黑塔也盛赞过你们：「一个自称能看见命运的{{狂人|艾利欧}}，带着一群不要命的{{疯子|星核猎手}}，追逐宇宙中最危险的东西！」——黑塔可是很少夸人的喔。"
+        "text": "…如此说来，黑塔也盛赞过你们："
+      }
+    },
+    {
+      "id": "2e3c930e-ab9b-4e1e-aa6c-504020c119dd",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 34
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "「一个自称能看见命运的{{狂人|艾利欧}}，带着一群不要命的{{疯子|星核猎手}}，追逐宇宙中最危险的东西！」"
+      }
+    },
+    {
+      "id": "46eb342f-541d-4397-a219-ca12aacc7a93",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 34
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "——黑塔可是很少夸人的喔。"
       }
     },
     {
@@ -1243,7 +1360,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "「追逐宇宙中最危险的东西」吗？…在这点上，你们列车和我是同一类人吧。"
+        "text": "「追逐宇宙中最危险的东西」吗？"
+      }
+    },
+    {
+      "id": "7387e688-e161-4a96-98c9-5d70917a0fc5",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 35
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "…在这点上，你们列车和我是同一类人吧。"
       }
     },
     {
@@ -1256,7 +1386,46 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "你来错地方了，卡芙卡。我们不打算接受你的请求，也不打算和星核猎手扯上什么关系。很高兴和你聊天，也许哪天你愿意亲自登门拜访，届时我们可以再谈。"
+        "text": "你来错地方了，卡芙卡。"
+      }
+    },
+    {
+      "id": "3e71a0c9-3a3f-4af4-9659-cc6e70fb8f6d",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 36
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "我们不打算接受你的请求，也不打算和星核猎手扯上什么关系。"
+      }
+    },
+    {
+      "id": "c1e8bc59-2fe0-4416-bc9e-cd9403356006",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 36
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "很高兴和你聊天"
+      }
+    },
+    {
+      "id": "ef62ea94-5056-4e5c-8c94-a971351ea78a",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 36
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "也许哪天你愿意亲自登门拜访，届时我们可以再谈。"
       }
     },
     {
@@ -1295,7 +1464,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "唔，但你不知道的是：这艘仙舟现在离你们很近，是通过两次折跃就能抵达的距离。"
+        "text": "唔，但你不知道的是：这艘仙舟现在离你们很近"
+      }
+    },
+    {
+      "id": "6a6e0b89-526f-4f2c-a98c-0b7f95af74b9",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 39
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "是通过两次折跃就能抵达的距离。"
       }
     },
     {
@@ -1334,7 +1516,46 @@
       "node": {
         "type": "dialogue",
         "speaker": "瓦尔特",
-        "text": "星核猎手，你们在打什么主意…仙舟联盟可不像我们这么好说话。被「{{巡猎|岚}}」盯上，你们就不再是猎手，而是猎物了，联盟会追逐你们到宇宙尽头——"
+        "text": "星核猎手，你们在打什么主意…"
+      }
+    },
+    {
+      "id": "28a4d5be-b870-47fb-bf83-f97a31abeae9",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 42
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "瓦尔特",
+        "text": "仙舟联盟可不像我们这么好说话。"
+      }
+    },
+    {
+      "id": "f254e1d9-93b2-4e75-91d0-7954987f472c",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 42
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "瓦尔特",
+        "text": "被「{{巡猎|岚}}」盯上，你们就不再是猎手，而是猎物了"
+      }
+    },
+    {
+      "id": "32a4fceb-7141-4046-a9fc-c6dafe814226",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 42
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "瓦尔特",
+        "text": "联盟会追逐你们到宇宙尽头——"
       }
     },
     {
@@ -1360,7 +1581,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "…很简单，这颗星核与我们无关，但仙舟已经把罪责按在了星核猎手头上；"
+        "text": "…很简单，这颗星核与我们无关"
+      }
+    },
+    {
+      "id": "55558e6a-7c2d-476b-a776-d6b2b74946b8",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 44
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "但仙舟已经把罪责按在了星核猎手头上；"
       }
     },
     {
@@ -1373,7 +1607,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "我的同伴刃被云骑军带走了，我要把他带回来，解除这次的星核危机，洗脱我们的嫌疑。"
+        "text": "我的同伴刃被云骑军带走了，我要把他带回来"
+      }
+    },
+    {
+      "id": "9a0f1874-4d0d-4f23-80dd-d21e9d185057",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 45
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "解除这次的星核危机，洗脱我们的嫌疑。"
       }
     },
     {
@@ -1386,7 +1633,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "三月七",
-        "text": "与你们无关？谁信啊，哪有这么巧的事情，星核刚爆发你就出现了……"
+        "text": "与你们无关？"
+      }
+    },
+    {
+      "id": "cf9e9b53-28d0-41c0-8c3e-cafde71f55ad",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 46
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "三月七",
+        "text": "谁信啊，哪有这么巧的事情，星核刚爆发你就出现了……"
       }
     },
     {
@@ -1399,7 +1659,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "三月七",
-        "text": "再说，你和我们又没什么交情，星核猎手清不清白和咱们有什么关系~"
+        "text": "再说，你和我们又没什么交情"
+      }
+    },
+    {
+      "id": "a60475ae-7b2b-49e9-ad1e-f557b98b5d37",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 47
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "三月七",
+        "text": "星核猎手清不清白和咱们有什么关系~"
       }
     },
     {
@@ -1412,7 +1685,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "你们当然可以置身事外。趁现在星核还没污染这片空域，启动跃迁，你们就可以去下一个世界。但假以时日，这段星轨将再度被阻断。"
+        "text": "你们当然可以置身事外。"
+      }
+    },
+    {
+      "id": "1be7a895-f77d-4538-b1ab-35d343b01c95",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 50
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "趁现在星核还没污染这片空域，启动跃迁，你们就可以去下一个世界。"
+      }
+    },
+    {
+      "id": "834fd821-8a37-4005-bb0e-6c0fe7045235",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 50
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "但假以时日，这段星轨将再度被阻断。"
       }
     },
     {
@@ -1425,7 +1724,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "我可以告诉你们未来会如何：如果你们没有前往「罗浮」，星核最终将污染整艘仙舟，飞船上大约一半的住民将会丧生……"
+        "text": "我可以告诉你们未来会如何："
+      }
+    },
+    {
+      "id": "0621ee93-47e3-4e82-93bf-f106fbb9a902",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 51
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "如果你们没有前往「罗浮」，星核最终将污染整艘仙舟"
+      }
+    },
+    {
+      "id": "f42d920b-b35a-4f9b-bdce-74a64aab4d29",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 51
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "飞船上大约一半的住民将会丧生……"
       }
     },
     {
@@ -1490,7 +1815,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "卡芙卡",
-        "text": "虽然追求的目标截然不同，但群星的轨道终将彼此交汇。再见。"
+        "text": "虽然追求的目标截然不同，但群星的轨道终将彼此交汇。"
+      }
+    },
+    {
+      "id": "548491b3-3ae5-405c-bd09-2797b02738b7",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 56
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "卡芙卡",
+        "text": "再见。"
       }
     },
     {
@@ -1594,7 +1932,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "星核猎手声称一颗星核在仙舟「罗浮」上爆发了，而列车离它很近。如果我们前往罗浮，可能有机会拯救许多无辜者的生命。"
+        "text": "星核猎手声称一颗星核在仙舟「罗浮」上爆发了，而列车离它很近。"
+      }
+    },
+    {
+      "id": "405b7fbc-eb2b-450f-95c3-9fe34ec994b8",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 76
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "如果我们前往罗浮，可能有机会拯救许多无辜者的生命。"
       }
     },
     {
@@ -1607,7 +1958,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "…也有可能，我们只是被星核猎手利用，上当受骗了而已。瓦尔特和我都认为星核猎手没说实话，但也不能完全无视她的情报……"
+        "text": "…也有可能，我们只是被星核猎手利用，上当受骗了而已。"
+      }
+    },
+    {
+      "id": "371c3e91-d012-4f9d-967b-69764623df34",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 77
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "瓦尔特和我都认为星核猎手没说实话，但也不能完全无视她的情报……"
       }
     },
     {
@@ -1620,7 +1984,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "所以，是否转向前往仙舟，我们用民主投票的方式来决议：伸出手掌代表同意，不伸手代表反对。"
+        "text": "所以，是否转向前往仙舟，我们用民主投票的方式来决议："
+      }
+    },
+    {
+      "id": "cf31706e-2a40-4d31-bc1a-fbe17d131296",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 78
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "伸出手掌代表同意，不伸手代表反对。"
       }
     },
     {
@@ -1693,7 +2070,33 @@
       "node": {
         "type": "dialogue",
         "speaker": "三月七",
-        "text": "呃，冷静下来转念一想，万一那女人没撒谎，我们不去仙舟会有很多无辜者受害耶…现在不是任性的时候…嘻嘻。"
+        "text": "呃，冷静下来转念一想，万一那女人没撒谎"
+      }
+    },
+    {
+      "id": "8c128b32-b327-454a-912e-1cbba2c0f5f8",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 83
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "三月七",
+        "text": "我们不去仙舟会有很多无辜者受害耶…"
+      }
+    },
+    {
+      "id": "c13f243a-5a07-4aa9-9457-78beac214c52",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 83
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "三月七",
+        "text": "现在不是任性的时候…嘻嘻。"
       }
     },
     {
@@ -1745,7 +2148,20 @@
       "node": {
         "type": "dialogue",
         "speaker": "姬子",
-        "text": "那这次的「开拓之旅」就交给你啦，瓦尔特？看你摩拳擦掌很久了。要把开拓者和小三月照顾好喔。"
+        "text": "那这次的「开拓之旅」就交给你啦，瓦尔特？"
+      }
+    },
+    {
+      "id": "45c042a9-aa2d-4644-bf3e-ee372ad846a7",
+      "source": {
+        "mission": "旅进青霄，不速之邀",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/旅进青霄，不速之邀.json",
+        "contentIndex": 88
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "姬子",
+        "text": "看你摩拳擦掌很久了。要把开拓者和小三月照顾好喔。"
       }
     },
     {

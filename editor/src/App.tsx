@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ActionIcon, Badge, Button, Menu, Modal, NavLink, Paper, SegmentedControl, Select, Textarea, TextInput, Tooltip } from "@mantine/core";
-import { IconArrowLeft, IconCheck, IconChevronDown, IconChevronRight, IconCopy, IconFilePlus, IconGripVertical, IconMapPin, IconPlus, IconSearch, IconX } from "@tabler/icons-react";
+import { IconArrowLeft, IconCheck, IconChevronDown, IconChevronRight, IconCopy, IconFilePlus, IconGripVertical, IconListTree, IconMapPin, IconPlus, IconSearch, IconX } from "@tabler/icons-react";
 import "./App.css";
 
 type JsonNode = Record<string, unknown> & { type?: string };
@@ -47,6 +47,11 @@ type NodePath = Array<string | number>;
 interface ScriptNodeAddress {
 	blockId: string;
 	path: number[];
+}
+
+interface ScriptTitleEntry extends ScriptNodeAddress {
+	title: string;
+	depth: number;
 }
 
 type SearchMode = "gender" | "trailblazer-reference";
@@ -140,6 +145,38 @@ const newNodeTemplates: Record<string, JsonNode> = {
 
 function clone<T>(value: T): T {
 	return JSON.parse(JSON.stringify(value)) as T;
+}
+
+function collectScriptTitles(blocks: ScriptBlock[]) {
+	const entries: ScriptTitleEntry[] = [];
+	const visit = (blockId: string, node: JsonNode, path: number[]) => {
+		if (node.type === "section") entries.push({ blockId, path, title: String(node.title ?? "未命名标题"), depth: path.length });
+		if (Array.isArray(node.content)) (node.content as JsonNode[]).forEach((child, index) => visit(blockId, child, [...path, index]));
+	};
+	blocks.forEach((block) => visit(block.id, block.node, []));
+	return entries;
+}
+
+function scriptNodeDomId(address: ScriptNodeAddress) {
+	return `script-node-${address.blockId}-${address.path.length ? address.path.join("-") : "root"}`;
+}
+
+function scriptBlockSourceLabel(block: ScriptBlock, nodePath: number[]) {
+	if (!block.source) return "自定义内容";
+	const originalPath = block.source.contentPath?.length ? `.${block.source.contentPath.join(".")}` : "";
+	const currentPath = nodePath.length ? ` · 当前节点：${nodePath.join(".")}` : "";
+	return `任务：${block.source.mission} · 文件：data/${block.source.dataFile} · 原始位置：content[${block.source.contentIndex}]${originalPath}${currentPath}`;
+}
+
+function expandFoldsAlongPath(root: JsonNode, path: number[]): JsonNode {
+	if (!path.length) return root;
+	const content = Array.isArray(root.content) ? root.content as JsonNode[] : [];
+	const [index, ...rest] = path;
+	if (!content[index]) return root;
+	const child: JsonNode = expandFoldsAlongPath(content[index], rest);
+	const expandedRoot = root.type === "fold" && root.collapsed ? { ...root, collapsed: false } : root;
+	if (child === content[index]) return expandedRoot;
+	return { ...expandedRoot, content: content.map((item, itemIndex) => itemIndex === index ? child : item) };
 }
 
 function parseSrtEntries(source: string) {
@@ -802,7 +839,7 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 
 	if (isFold) {
 		const collapsed = Boolean(node.collapsed) && !containsActiveMatch;
-		return <article className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); event.dataTransfer.dropEffect = "move"; setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
+		return <article id={scriptNodeDomId(address)} className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); event.dataTransfer.dropEffect = "move"; setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
 			{dragHandle}
 			<div className={`read-node read-node-fold inline-edit-node ${collapsed ? "is-collapsed" : ""}`} data-depth={level - 1}>
 				<div className="read-node-heading">{editable ? <BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /> : <strong><HighlightedRichText text={String(node.title ?? "未命名折叠内容")} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开折叠内容" : "收起折叠内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
@@ -812,7 +849,7 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 	}
 
 	return (
-		<article className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
+		<article id={scriptNodeDomId(address)} className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
 			{dragHandle}
 			{editable ? <EditableNode node={node} onChange={(value) => onChange(path, value)} onDialogueCursor={(offset) => onDialogueCursor(address, offset)} /> : <ReadOnlyNode node={node} path={path} selected={new Set()} highlight={isActiveMatch && activeMatch ? activeMatch : undefined} onToggle={(_path, _descendants, modifiers) => onSelect(address, Boolean(modifiers?.shiftKey))} />}
 			{dialogueCopyActions}
@@ -847,6 +884,8 @@ function App() {
 	const [searchMode, setSearchMode] = useState<SearchMode | null>(null);
 	const [searchMatches, setSearchMatches] = useState<ScriptTextMatch[]>([]);
 	const [searchMatchIndex, setSearchMatchIndex] = useState(0);
+	const [editorFocusMode, setEditorFocusMode] = useState(false);
+	const [titleNavigatorOpen, setTitleNavigatorOpen] = useState(false);
 	const [dirty, setDirty] = useState(false);
 	const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
 	const [error, setError] = useState("");
@@ -859,12 +898,14 @@ function App() {
 	const cutBlocksRef = useRef<CutScriptBlock[]>([]);
 	const cutSelectionActionRef = useRef<() => boolean>(() => false);
 	const pasteSelectionActionRef = useRef<() => boolean>(() => false);
+	const splitDialogueActionRef = useRef<() => boolean>(() => false);
 	const selectionAnchor = useRef<string | null>(null);
 	const multiSelectionChanged = useRef(false);
 	const scriptSelectionAnchor = useRef<ScriptNodeAddress | null>(null);
 	const missions = useMemo(() => flattenMissions(index), [index]);
 	const missionLocations = useMemo(() => [...new Set(missions.map((mission) => mission.location))], [missions]);
 	const sourcePaths = useMemo(() => missionDocument ? collectNodePaths(missionDocument.content) : [], [missionDocument]);
+	const scriptTitles = useMemo(() => document ? collectScriptTitles(document.blocks) : [], [document]);
 	const filteredMissions = useMemo(() => {
 		const needle = missionFilter.trim().toLowerCase();
 		return missions.filter((mission) => {
@@ -994,6 +1035,10 @@ function App() {
 			if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
 				event.preventDefault(); void saveCurrentDocument(); return;
 			}
+			if (event.ctrlKey && event.key.toLowerCase() === "k") {
+				if (splitDialogueActionRef.current()) event.preventDefault();
+				return;
+			}
 			if ((event.target as HTMLElement | null)?.closest("input, textarea, [contenteditable='true']")) return;
 			if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "x") {
 				if (cutSelectionActionRef.current()) event.preventDefault();
@@ -1028,6 +1073,19 @@ function App() {
 		if (!dialogueCursor || !sameScriptAddress(dialogueCursor.address, address)) setDialogueCursor({ address, offset });
 	}
 	function exitMultiSelect() { setMultiSelectMode(false); setMultiSelected([]); multiSelectionChanged.current = false; scriptSelectionAnchor.current = null; }
+	function toggleEditorFocusMode() {
+		const next = !editorFocusMode;
+		setEditorFocusMode(next);
+		if (next) setTitleNavigatorOpen(true);
+	}
+	function navigateToScriptTitle(entry: ScriptTitleEntry) {
+		const block = document?.blocks.find((candidate) => candidate.id === entry.blockId);
+		if (!block) return;
+		const expanded = expandFoldsAlongPath(block.node, entry.path);
+		if (expanded !== block.node) updateBlockNode(block.id, [], expanded);
+		exitMultiSelect(); setDialogueCursor(null); setSelectedBlockId(entry.blockId); setSelectedNodePath(entry.path);
+		window.setTimeout(() => window.document.getElementById(scriptNodeDomId(entry))?.scrollIntoView({ block: "center", behavior: "smooth" }), 0);
+	}
 
 	async function openMission(mission: MissionRef) {
 		setSelectedMission(mission); setMissionDocument(null); setSelectedSource(new Set()); selectionAnchor.current = null; setError("");
@@ -1351,7 +1409,7 @@ function App() {
 	}
 	function splitSelectedDialogue() {
 		const latestCursor = dialogueCursorRef.current;
-		if (!selectedBlock || !selectedNode || selectedNode.type !== "dialogue" || !dialogueCursor || !latestCursor || latestCursor.address.blockId !== selectedBlock.id || !sameNumberPath(latestCursor.address.path, selectedNodePath)) return;
+		if (!selectedBlock || !selectedNode || selectedNode.type !== "dialogue" || !dialogueCursor || !latestCursor || latestCursor.address.blockId !== selectedBlock.id || !sameNumberPath(latestCursor.address.path, selectedNodePath)) return false;
 		const text = String(selectedNode.text ?? "");
 		const offset = Math.max(0, Math.min(latestCursor.offset, text.length));
 		const first = { ...selectedNode, text: text.slice(0, offset).replace(/[，\s]+$/u, "") };
@@ -1360,14 +1418,15 @@ function App() {
 		if (!selectedNodePath.length) {
 			const id = crypto.randomUUID();
 			mutateDocument((current) => { const blocks = [...current.blocks]; blocks[selectedBlockIndex] = { ...selectedBlock, node: first }; blocks.splice(selectedBlockIndex + 1, 0, { ...clone(selectedBlock), id, node: second }); return { ...current, blocks }; });
-			setSelectedBlockId(id); setSelectedNodePath([]); return;
+			setSelectedBlockId(id); setSelectedNodePath([]); return true;
 		}
 		const parentPath = selectedNodePath.slice(0, -1); const index = selectedNodePath.at(-1)!;
-		const parent = nestedNodeAtPath(selectedBlock.node, parentPath); if (!parent) return;
+		const parent = nestedNodeAtPath(selectedBlock.node, parentPath); if (!parent) return false;
 		const siblings = Array.isArray(parent.content) ? parent.content as JsonNode[] : [];
 		const next = [...siblings]; next.splice(index, 1, first, second);
 		updateBlockNode(selectedBlock.id, parentPath, { ...parent, content: next });
 		setSelectedNodePath([...parentPath, index + 1]);
+		return true;
 	}
 	function deleteSelectedNode() {
 		const deleteCount = activeScriptSelection.length;
@@ -1509,10 +1568,11 @@ function App() {
 	useEffect(() => {
 		cutSelectionActionRef.current = cutSelectedBlocks;
 		pasteSelectionActionRef.current = pasteCutBlocks;
+		splitDialogueActionRef.current = splitSelectedDialogue;
 	});
 
 	return (
-		<div className="app-shell">
+		<div className={`app-shell ${editorFocusMode ? "is-editor-focus" : ""}`}>
 			<Modal opened={importOpened} onClose={() => setImportOpened(false)} title="导入文本" centered size="lg" overlayProps={{ backgroundOpacity: 0.35, blur: 2 }}>
 				<div className="text-import-dialog">
 					<SegmentedControl fullWidth value={importMode} onChange={(value) => setImportMode(value as "plain" | "source" | "srt")} data={[{ value: "plain", label: "普通文本" }, { value: "source", label: "BWiki 源代码" }, { value: "srt", label: "SRT 字幕" }]} />
@@ -1520,7 +1580,7 @@ function App() {
 					{importMode === "plain" ? <><p>空行会自动忽略。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importScriptLines("narration")}>导入为叙述</Button><Button disabled={!importText.trim()} onClick={() => importScriptLines("dialogue")}>导入为对话</Button></div></> : importMode === "srt" ? <><p>自动移除字幕序号、时间轴和空行；每条字幕会成为一个 block。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importSrt("text")}>导入为文本</Button><Button disabled={!importText.trim()} onClick={() => importSrt("dialogue")}>导入为对话</Button></div></> : <><p>会识别对话、剧情选项、嵌套选项、标题、任务描述和常用文本模板。选项导入剧本后会自动拆成“开拓者”的对话及对应回应。</p><div className="text-import-actions"><Button loading={importLoading} disabled={!importText.trim()} onClick={() => void importWikitext()}>解析并导入</Button></div></>}
 				</div>
 			</Modal>
-			<Paper component="header" radius={0} shadow="xs" className="topbar"><div className="brand"><span className="brand-mark">C</span><div><h1>Castorice 剧本编辑器</h1><p>星穹铁道任务资料 · 本地工作台</p></div></div><div className={`save-indicator ${saveState}`} title="每 10 秒自动保存；按 Ctrl+S 可立即保存"><span />{!activeFile ? "未打开剧本" : saveState === "saving" ? "正在保存…" : saveState === "error" ? "保存失败" : dirty ? "等待自动保存" : "已保存到本地"}</div></Paper>
+			<Paper component="header" radius={0} shadow="xs" className="topbar"><div className="brand"><span className="brand-mark">C</span><div><h1>Castorice 剧本编辑器</h1><p>星穹铁道任务资料 · 本地工作台</p></div></div><div className="topbar-actions"><Button variant={editorFocusMode ? "filled" : "light"} size="compact-sm" onClick={toggleEditorFocusMode}>{editorFocusMode ? "退出全屏编辑" : "全屏编辑"}</Button><div className={`save-indicator ${saveState}`} title="每 10 秒自动保存；按 Ctrl+S 可立即保存"><span />{!activeFile ? "未打开剧本" : saveState === "saving" ? "正在保存…" : saveState === "error" ? "保存失败" : dirty ? "等待自动保存" : "已保存到本地"}</div></div></Paper>
 			{error ? <div className="error-banner"><span>{error}</span><Button variant="subtle" color="red" size="compact-xs" onClick={() => setError("")}>关闭</Button></div> : null}
 			<main className="workspace">
 				<Paper component="section" shadow="sm" radius="md" className="source-pane">
@@ -1545,32 +1605,46 @@ function App() {
 					</div>
 				</Paper>
 				<Paper component="section" shadow="sm" radius="md" className="script-pane">
-					{document ? <div className="script-editor">
+					{document ? <div className={`script-editor ${titleNavigatorOpen ? "has-title-navigator" : ""}`}>
+						{titleNavigatorOpen ? <aside className="script-title-navigator"><header><span>标题导航</span><strong>{document.id} {document.title || "未命名剧本"}</strong><small>{scriptTitles.length} 个标题</small></header><nav>{scriptTitles.length ? scriptTitles.map((entry) => <button key={`${entry.blockId}-${entry.path.join("-")}`} className={selectedBlockId === entry.blockId && sameNumberPath(selectedNodePath, entry.path) ? "is-active" : ""} style={{ paddingLeft: `${12 + Math.min(entry.depth, 4) * 12}px` }} onClick={() => navigateToScriptTitle(entry)} title={entry.title}>{entry.title}</button>) : <p>当前剧本中没有标题 block</p>}</nav></aside> : null}
+						<div className="script-editor-main">
 						<header className="script-header"><ActionIcon className="back-to-library" variant="subtle" color="gray" size="lg" aria-label="返回剧本列表" title="返回剧本列表" onClick={() => void closeScreenplay()}><IconArrowLeft size={19} /></ActionIcon><div className="script-title-fields"><div className="script-title-row"><strong>{document.id}</strong><BufferedInput className="title-input" placeholder="剧本标题" value={document.title} onValueChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} /></div><BufferedInput className="chapter-input" placeholder="篇章" value={document.chapter} onValueChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} /><div className="character-manager"><span>人物</span>{document.characters.visible.length ? document.characters.visible.map((character) => <button key={character} title="点击隐藏" onClick={() => setCharacterHidden(character, true)}>{character}</button>) : <em>未检测到对话人</em>}{document.characters.hidden.length ? <Menu position="bottom-start" shadow="md" withinPortal><Menu.Target><button className="hidden-character-trigger">隐藏 {document.characters.hidden.length}</button></Menu.Target><Menu.Dropdown>{document.characters.hidden.map((character) => <Menu.Item key={character} onClick={() => setCharacterHidden(character, false)}>{character} · 恢复显示</Menu.Item>)}</Menu.Dropdown></Menu> : null}</div></div><div className="file-actions"><span>{activeFile}</span><button className="danger-text" onClick={() => void deleteScreenplay()}>删除</button></div></header>
 						<div className={`block-toolbar ${multiSelectMode ? "is-multi-select" : ""}`}>
 							<div className="block-toolbar-actions toolbar-main-actions">
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("dialogue")}>添加对话</Button>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("narration")}>添加叙述</Button>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("section")}>添加标题</Button>
+								<Tooltip label={titleNavigatorOpen ? "关闭标题导航" : "打开标题导航"} withArrow><ActionIcon variant={titleNavigatorOpen ? "light" : "subtle"} color="blue" size="sm" aria-label={titleNavigatorOpen ? "关闭标题导航" : "打开标题导航"} aria-pressed={titleNavigatorOpen} onClick={() => setTitleNavigatorOpen((current) => !current)}><IconListTree size={16} /></ActionIcon></Tooltip>
+								<span className="toolbar-divider" aria-hidden="true" />
+								<span className="toolbar-group-label">添加</span>
+								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("dialogue")}>对话</Button>
+								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("narration")}>叙述</Button>
+								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("section")}>标题</Button>
+								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("divider")}>分割线</Button>
 								<Menu position="bottom-start" shadow="md" withinPortal>
 									<Menu.Target><Button variant="subtle" size="compact-sm">其他</Button></Menu.Target>
-									<Menu.Dropdown><Menu.Item onClick={() => insertScriptNode("text")}>添加文本</Menu.Item><Menu.Item onClick={() => insertScriptNode("note")}>添加注释</Menu.Item><Menu.Item onClick={() => insertScriptNode("divider")}>添加分隔线</Menu.Item></Menu.Dropdown>
+									<Menu.Dropdown><Menu.Item onClick={() => insertScriptNode("text")}>添加文本</Menu.Item><Menu.Item onClick={() => insertScriptNode("note")}>添加注释</Menu.Item></Menu.Dropdown>
 								</Menu>
+								<span className="toolbar-divider" aria-hidden="true" />
 								<Button variant="subtle" size="compact-sm" onClick={() => setImportOpened(true)}>导入</Button>
-								<Button variant="subtle" size="compact-sm" onClick={convertTrailblazerSpeakers}>开拓者→穹</Button>
-								<Button variant={searchMode === "gender" ? "light" : "subtle"} size="compact-sm" onClick={() => toggleScriptSearch("gender")}>性别优化</Button>
-								<Button variant={searchMode === "trailblazer-reference" ? "light" : "subtle"} size="compact-sm" onClick={() => toggleScriptSearch("trailblazer-reference")}>开拓者指代优化</Button>
+								<span className="toolbar-divider" aria-hidden="true" />
 								<Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={dissolveSelectedFold}>解散</Button>
 								<Button variant="subtle" size="compact-sm" disabled={!canFoldSelection} onClick={foldSelectedNodes}>折叠</Button>
-								<Tooltip label={activeScriptSelection.length > 1 ? `删除选中的 ${activeScriptSelection.length} 个 block` : "删除当前节点"} color="red" withArrow><Button variant="subtle" color="red" size="compact-sm" disabled={!activeScriptSelection.length} onClick={deleteSelectedNode}>删除</Button></Tooltip>
+								<span className="toolbar-divider" aria-hidden="true" />
 								<Tooltip label="仅能合并同级、相连且说话人相同的对话" withArrow><Button variant="subtle" size="compact-sm" disabled={!canMergeDialogues} onClick={mergeSelectedDialogues}>合并</Button></Tooltip>
-								<Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>分割</Button></Tooltip>
+								<Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段（Ctrl+K）" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>分割</Button></Tooltip>
+								<span className="toolbar-divider" aria-hidden="true" />
+								<Tooltip label={activeScriptSelection.length > 1 ? `删除选中的 ${activeScriptSelection.length} 个 block` : "删除当前节点"} color="red" withArrow><Button variant="subtle" color="red" size="compact-sm" disabled={!activeScriptSelection.length} onClick={deleteSelectedNode}>删除</Button></Tooltip>
+								<span className="toolbar-divider" aria-hidden="true" />
+								<Menu position="bottom-end" shadow="md" withinPortal>
+									<Menu.Target><Button variant={searchMode ? "light" : "subtle"} size="compact-sm">高级编辑</Button></Menu.Target>
+									<Menu.Dropdown><Menu.Item onClick={convertTrailblazerSpeakers}>主角说话人替换</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("gender")}>性别指代校对</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("trailblazer-reference")}>主角称谓检查</Menu.Item></Menu.Dropdown>
+								</Menu>
 							</div>
-							{multiSelectMode ? <div className="toolbar-selection multi-selection-status"><Badge variant="filled" color="blue" size="sm">多选</Badge><span>{multiSelected.length ? `已选择 ${multiSelected.length} 个同级 block` : "点击 block 开始选择"} · Esc 退出</span></div> : selectedNode ? <div className="toolbar-selection"><Badge variant="light" color="blue" size="sm">L{selectedNodePath.length + 1} · {nodeLabel(selectedNode)}</Badge><span><InlineRubyText text={nodeSummary(selectedNode) || "空节点"} /></span></div> : <span className="toolbar-hint">按住 Shift 进入多选</span>}
+							{multiSelectMode ? <div className="toolbar-selection multi-selection-status"><Badge variant="filled" color="blue" size="sm">多选</Badge><span>{multiSelected.length ? `已选择 ${multiSelected.length} 个同级 block` : "点击 block 开始选择"} · Esc 退出</span></div> : !selectedNode ? <span className="toolbar-hint">按住 Shift 进入多选</span> : null}
 						</div>
-						{searchMode ? <div className="script-search-bar"><strong>{searchMode === "gender" ? "性别优化" : "开拓者指代优化"}</strong><span className="script-search-term">{activeSearchMatch ? `“${activeSearchMatch.term}”` : "没有找到匹配内容"}</span><span className="script-search-count">{searchMatches.length ? `${normalizedSearchIndex + 1} / ${searchMatches.length}` : "0 / 0"}</span><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(-1)}>上一个</Button><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(1)}>下一个</Button>{searchMode === "gender" ? <Button size="compact-xs" disabled={!activeSearchMatch?.replacement} onClick={replaceCurrentGenderMatch}>替换为“{activeSearchMatch?.replacement ?? "—"}”</Button> : null}<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); }}>关闭</Button></div> : null}
+						{searchMode ? <div className="script-search-bar"><strong>{searchMode === "gender" ? "性别指代校对" : "主角称谓检查"}</strong><span className="script-search-term">{activeSearchMatch ? `“${activeSearchMatch.term}”` : "没有找到匹配内容"}</span><span className="script-search-count">{searchMatches.length ? `${normalizedSearchIndex + 1} / ${searchMatches.length}` : "0 / 0"}</span><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(-1)}>上一个</Button><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(1)}>下一个</Button>{searchMode === "gender" ? <Button size="compact-xs" disabled={!activeSearchMatch?.replacement} onClick={replaceCurrentGenderMatch}>替换为“{activeSearchMatch?.replacement ?? "—"}”</Button> : null}<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); }}>关闭</Button></div> : null}
 						<div className="script-blocks viewer-style">{document.blocks.length ? document.blocks.map((block) => <ScriptBlockView key={block.id} block={block} selectedAddresses={activeScriptSelection} editableAddress={editableAddress} activeMatch={activeSearchMatch} onSelect={handleScriptSelect} onChange={(path, node) => updateBlockNode(block.id, path, node)} onDrop={moveScriptNode} onDialogueCursor={recordDialogueCursor} />) : <div className="empty-script"><span>＋</span><h3>这个剧本还是空的</h3><p>从左侧加入任务内容，或在上方创建一个空白节点。</p></div>}</div>
-					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无显示人物"}</small><div className="screenplay-list-metrics"><span>{item.blockCount.toLocaleString()} 段</span><span>{item.characterCount.toLocaleString()} 字</span></div></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建”创建第一个剧本。</p></div>}</div></div>}
+						<footer className="script-status-bar">{multiSelectMode ? <><strong>多选</strong><span>已选择 {multiSelected.length} 个同级 block</span></> : selectedBlock && selectedNode ? <><strong>种类：{nodeLabel(selectedNode)}</strong><span className="script-status-source">来源：{scriptBlockSourceLabel(selectedBlock, selectedNodePath)}</span></> : <span>未选择 block</span>}</footer>
+						</div>
+					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无显示人物"}</small><div className="screenplay-list-metrics"><span>{item.characterCount.toLocaleString()} 字</span></div></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建”创建第一个剧本。</p></div>}</div></div>}
 				</Paper>
 			</main>
 		</div>
