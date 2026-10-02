@@ -40,6 +40,8 @@ interface ScriptBlock {
 	node: JsonNode;
 }
 
+type CutScriptBlock = Omit<ScriptBlock, "id">;
+
 type NodePath = Array<string | number>;
 
 interface ScriptNodeAddress {
@@ -86,6 +88,7 @@ interface ScreenplaySummary {
 	chapter: string;
 	characters: string[];
 	blockCount: number;
+	characterCount: number;
 	updatedAt: string;
 	invalid?: boolean;
 }
@@ -137,6 +140,21 @@ const newNodeTemplates: Record<string, JsonNode> = {
 
 function clone<T>(value: T): T {
 	return JSON.parse(JSON.stringify(value)) as T;
+}
+
+function parseSrtEntries(source: string) {
+	return source
+		.replace(/^\uFEFF/u, "")
+		.trim()
+		.split(/\r?\n\s*\r?\n/u)
+		.map((entry) => {
+			const lines = entry.split(/\r?\n/u).map((line) => line.trim());
+			if (/^\d+$/u.test(lines[0] ?? "")) lines.shift();
+			const timelineIndex = lines.findIndex((line) => /^\d{1,2}:\d{2}:\d{2}[,.]\d{3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,.]\d{3}/u.test(line));
+			if (timelineIndex >= 0) lines.splice(0, timelineIndex + 1);
+			return lines.filter(Boolean).join("\n").trim();
+		})
+		.filter(Boolean);
 }
 
 function findRubyMarkerEnd(text: string, start: number) {
@@ -592,6 +610,56 @@ function SourceCard({ node, path, selected, onToggle }: { node: JsonNode; path: 
 	);
 }
 
+type BufferedInputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, "value" | "defaultValue" | "onChange"> & {
+	value: string;
+	onValueChange: (value: string) => void;
+};
+
+type BufferedTextareaProps = Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "defaultValue" | "onChange"> & {
+	value: string;
+	onValueChange: (value: string) => void;
+};
+
+function useBufferedText(value: string, onValueChange: (value: string) => void) {
+	const [draft, setDraft] = useState(value);
+	const focused = useRef(false);
+	const committed = useRef(value);
+	const timer = useRef<number | null>(null);
+
+	useEffect(() => () => {
+		if (timer.current !== null) window.clearTimeout(timer.current);
+	}, []);
+
+	const commit = (next: string) => {
+		if (timer.current !== null) window.clearTimeout(timer.current);
+		timer.current = null;
+		if (next === committed.current) return;
+		committed.current = next;
+		onValueChange(next);
+	};
+
+	const change = (next: string) => {
+		setDraft(next);
+		if (timer.current !== null) window.clearTimeout(timer.current);
+		timer.current = window.setTimeout(() => commit(next), 180);
+	};
+
+	const focus = () => { focused.current = true; };
+	const blur = (next: string) => { focused.current = false; commit(next); };
+
+	return { draft, change, commit, focus, blur };
+}
+
+function BufferedInput({ value, onValueChange, onFocus, onBlur, onKeyDown, ...props }: BufferedInputProps) {
+	const buffered = useBufferedText(value, onValueChange);
+	return <input {...props} value={buffered.draft} onChange={(event) => buffered.change(event.target.value)} onFocus={(event) => { buffered.focus(); onFocus?.(event); }} onBlur={(event) => { buffered.blur(event.currentTarget.value); onBlur?.(event); }} onKeyDown={(event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") buffered.commit(event.currentTarget.value); onKeyDown?.(event); }} />;
+}
+
+function BufferedTextarea({ value, onValueChange, onFocus, onBlur, onKeyDown, ...props }: BufferedTextareaProps) {
+	const buffered = useBufferedText(value, onValueChange);
+	return <textarea {...props} value={buffered.draft} onChange={(event) => buffered.change(event.target.value)} onFocus={(event) => { buffered.focus(); onFocus?.(event); }} onBlur={(event) => { buffered.blur(event.currentTarget.value); onBlur?.(event); }} onKeyDown={(event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") buffered.commit(event.currentTarget.value); onKeyDown?.(event); }} />;
+}
+
 function EditableNode({ node, onChange, onDialogueCursor, depth = 0 }: { node: JsonNode; onChange: (node: JsonNode) => void; onDialogueCursor?: (offset: number) => void; depth?: number }) {
 	const type = String(node.type ?? "text");
 	const content = Array.isArray(node.content) ? node.content as JsonNode[] : [];
@@ -601,20 +669,20 @@ function EditableNode({ node, onChange, onDialogueCursor, depth = 0 }: { node: J
 	const stop = (event: React.MouseEvent | React.PointerEvent) => event.stopPropagation();
 
 	if (type === "fold") {
-		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><input className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={stop} onClick={stop} onChange={(event) => set("title", event.target.value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><button onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</button><button onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</button></div></div></div>;
+		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><button onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</button><button onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</button></div></div></div>;
 	}
 
 	if (type === "tabs") {
-		return <div className="read-node read-node-tabs inline-edit-node" data-depth={depth}><div className="read-node-heading"><strong>{tabs.length} 个条件分支</strong></div><div className="read-choice-list">{tabs.map((tab, tabIndex) => { const children = Array.isArray(tab.content) ? tab.content as JsonNode[] : []; const updateTab = (value: JsonNode) => set("tabs", tabs.map((item, index) => index === tabIndex ? value : item)); return <section className="read-choice-option tab-option" key={tabIndex}><header><span>{tabIndex + 1}</span><input className="inline-option-input" value={String(tab.title ?? "")} placeholder="分支标题" onPointerDown={stop} onClick={stop} onChange={(event) => updateTab({ ...tab, title: event.target.value })} /><em>{children.length} 段内容</em></header><div className="read-node-children">{children.map((child, childIndex) => <EditableNode key={childIndex} node={child} depth={depth + 1} onChange={(value) => updateTab({ ...tab, content: children.map((item, index) => index === childIndex ? value : item) })} />)}</div></section>; })}</div></div>;
+		return <div className="read-node read-node-tabs inline-edit-node" data-depth={depth}><div className="read-node-heading"><strong>{tabs.length} 个条件分支</strong></div><div className="read-choice-list">{tabs.map((tab, tabIndex) => { const children = Array.isArray(tab.content) ? tab.content as JsonNode[] : []; const updateTab = (value: JsonNode) => set("tabs", tabs.map((item, index) => index === tabIndex ? value : item)); return <section className="read-choice-option tab-option" key={tabIndex}><header><span>{tabIndex + 1}</span><BufferedInput className="inline-option-input" value={String(tab.title ?? "")} placeholder="分支标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => updateTab({ ...tab, title: value })} /><em>{children.length} 段内容</em></header><div className="read-node-children">{children.map((child, childIndex) => <EditableNode key={childIndex} node={child} depth={depth + 1} onChange={(value) => updateTab({ ...tab, content: children.map((item, index) => index === childIndex ? value : item) })} />)}</div></section>; })}</div></div>;
 	}
 
 	const hasChildren = content.length > 0;
 	const textualKey = typeof node.text === "string" ? "text" : typeof node.content === "string" ? "content" : null;
 	return <div className={`read-node read-node-${type || "unknown"} ${hasChildren ? "has-children" : "is-leaf"} inline-edit-node`} data-depth={depth} data-tone={typeof node.tone === "string" ? node.tone : undefined}>
 		<div className="read-node-line">
-			{type === "objective-description" ? <input className="inline-location-input" value={String(node.location ?? "")} placeholder="地点" onPointerDown={stop} onClick={stop} onChange={(event) => set("location", event.target.value)} /> : null}
-			{type === "dialogue" ? <input className="inline-speaker-input" style={{ width: `${Math.max(3, Array.from(String(node.speaker ?? "")).length)}em` }} value={String(node.speaker ?? "")} placeholder="说话人" onPointerDown={stop} onClick={stop} onChange={(event) => set("speaker", event.target.value)} /> : null}
-			{type === "section" ? <span className="read-text inline-title-wrap"><input className="inline-title-input" value={String(node.title ?? "")} placeholder="标题" onPointerDown={stop} onClick={stop} onChange={(event) => set("title", event.target.value)} /></span> : type === "message-thread-start" ? <div className="inline-thread-fields"><input value={String(node.title ?? "")} placeholder="联系人" onPointerDown={stop} onClick={stop} onChange={(event) => set("title", event.target.value)} /><input value={String(node.subtitle ?? "")} placeholder="签名" onPointerDown={stop} onClick={stop} onChange={(event) => set("subtitle", event.target.value)} /></div> : textualKey ? <textarea className="inline-textarea" rows={1} value={String(node[textualKey] ?? "")} placeholder="内容" onPointerDown={stop} onClick={(event) => { stop(event); if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onSelect={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onKeyUp={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onChange={(event) => { set(textualKey, event.target.value); if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} /> : type === "image" ? <input className="inline-text-input" value={String(node.file ?? "")} placeholder="图片文件" onPointerDown={stop} onClick={stop} onChange={(event) => set("file", event.target.value)} /> : <span className="read-text">{nodeSummary(node) || "—"}</span>}
+			{type === "objective-description" ? <BufferedInput className="inline-location-input" value={String(node.location ?? "")} placeholder="地点" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("location", value)} /> : null}
+			{type === "dialogue" ? <BufferedInput className="inline-speaker-input" style={{ width: `${Math.max(3, Array.from(String(node.speaker ?? "")).length)}em` }} value={String(node.speaker ?? "")} placeholder="说话人" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("speaker", value)} /> : null}
+			{type === "section" ? <span className="read-text inline-title-wrap"><BufferedInput className="inline-title-input" value={String(node.title ?? "")} placeholder="标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></span> : type === "message-thread-start" ? <div className="inline-thread-fields"><BufferedInput value={String(node.title ?? "")} placeholder="联系人" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /><BufferedInput value={String(node.subtitle ?? "")} placeholder="签名" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("subtitle", value)} /></div> : textualKey ? <BufferedTextarea className="inline-textarea" rows={1} value={String(node[textualKey] ?? "")} placeholder="内容" onPointerDown={stop} onClick={(event) => { stop(event); if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onSelect={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onKeyUp={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onValueChange={(value) => set(textualKey, value)} /> : type === "image" ? <BufferedInput className="inline-text-input" value={String(node.file ?? "")} placeholder="图片文件" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("file", value)} /> : <span className="read-text">{nodeSummary(node) || "—"}</span>}
 		</div>
 		{content.length ? <div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}</div> : null}
 	</div>;
@@ -737,7 +805,7 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 		return <article className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); event.dataTransfer.dropEffect = "move"; setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
 			{dragHandle}
 			<div className={`read-node read-node-fold inline-edit-node ${collapsed ? "is-collapsed" : ""}`} data-depth={level - 1}>
-				<div className="read-node-heading">{editable ? <input className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onChange={(event) => onChange(path, { ...node, title: event.target.value })} /> : <strong><HighlightedRichText text={String(node.title ?? "未命名折叠内容")} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开折叠内容" : "收起折叠内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
+				<div className="read-node-heading">{editable ? <BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /> : <strong><HighlightedRichText text={String(node.title ?? "未命名折叠内容")} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开折叠内容" : "收起折叠内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
 				{collapsed ? null : <div className="read-node-children">{content.map((child, index) => <ScriptHierarchyNode key={index} blockId={blockId} node={child} path={[...path, index]} level={level + 1} selectedAddresses={selectedAddresses} editableAddress={editableAddress} activeMatch={activeMatch} onSelect={onSelect} onChange={onChange} onDrop={onDrop} onDialogueCursor={onDialogueCursor} />)}</div>}
 			</div>
 		</article>;
@@ -774,7 +842,7 @@ function App() {
 	const [draggedScreenplay, setDraggedScreenplay] = useState<string | null>(null);
 	const [importOpened, setImportOpened] = useState(false);
 	const [importText, setImportText] = useState("");
-	const [importMode, setImportMode] = useState<"plain" | "source">("plain");
+	const [importMode, setImportMode] = useState<"plain" | "source" | "srt">("plain");
 	const [importLoading, setImportLoading] = useState(false);
 	const [searchMode, setSearchMode] = useState<SearchMode | null>(null);
 	const [searchMatches, setSearchMatches] = useState<ScriptTextMatch[]>([]);
@@ -786,7 +854,11 @@ function App() {
 	const documentRef = useRef<ScreenplayDocument | null>(null);
 	const activeFileRef = useRef("");
 	const dirtyRef = useRef(false);
-	const saveInFlight = useRef(false);
+	const savePromiseRef = useRef<Promise<boolean> | null>(null);
+	const dialogueCursorRef = useRef<{ address: ScriptNodeAddress; offset: number } | null>(null);
+	const cutBlocksRef = useRef<CutScriptBlock[]>([]);
+	const cutSelectionActionRef = useRef<() => boolean>(() => false);
+	const pasteSelectionActionRef = useRef<() => boolean>(() => false);
 	const selectionAnchor = useRef<string | null>(null);
 	const multiSelectionChanged = useRef(false);
 	const scriptSelectionAnchor = useRef<ScriptNodeAddress | null>(null);
@@ -836,27 +908,35 @@ function App() {
 	activeFileRef.current = activeFile;
 	dirtyRef.current = dirty;
 
-	const saveCurrentDocument = useCallback(async () => {
-		const current = documentRef.current;
+	const saveCurrentDocument = useCallback(async (): Promise<boolean> => {
+		if (savePromiseRef.current) await savePromiseRef.current;
+		const pending = documentRef.current;
 		const file = activeFileRef.current;
-		if (!current || !file || !dirtyRef.current || saveInFlight.current) return;
+		if (!pending || !file || !dirtyRef.current) return true;
+		const current = syncScreenplayCharacters(pending);
+		documentRef.current = current;
 		const capturedRevision = revision.current;
-		saveInFlight.current = true;
-		setSaveState("saving");
-		try {
-			const saved = await requestJson<ScreenplayDocument>(`/editor-api/screenplay?name=${encodeURIComponent(file)}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(current) });
-			if (revision.current === capturedRevision && activeFileRef.current === file) {
-				documentRef.current = saved; dirtyRef.current = false;
-				setDocument(saved); setDirty(false); setSaveState("saved");
-			} else if (activeFileRef.current === file) {
-				setSaveState("idle");
+		const task = (async () => {
+			setSaveState("saving");
+			try {
+				const saved = await requestJson<ScreenplayDocument>(`/editor-api/screenplay?name=${encodeURIComponent(file)}`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(current) });
+				if (revision.current === capturedRevision && activeFileRef.current === file) {
+					documentRef.current = saved; dirtyRef.current = false;
+					setDocument(saved); setDirty(false); setSaveState("saved");
+				} else if (activeFileRef.current === file) {
+					setSaveState("idle");
+				}
+				setScreenplays(await requestJson<ScreenplaySummary[]>("/editor-api/screenplays"));
+				return true;
+			} catch (reason) {
+				setError(reason instanceof Error ? reason.message : String(reason)); setSaveState("error");
+				return false;
 			}
-			setScreenplays(await requestJson<ScreenplaySummary[]>("/editor-api/screenplays"));
-		} catch (reason) {
-			setError(reason instanceof Error ? reason.message : String(reason)); setSaveState("error");
-		} finally {
-			saveInFlight.current = false;
-		}
+		})();
+		savePromiseRef.current = task;
+		const result = await task;
+		if (savePromiseRef.current === task) savePromiseRef.current = null;
+		return result;
 	}, []);
 
 	useEffect(() => {
@@ -867,6 +947,27 @@ function App() {
 		const timer = window.setInterval(() => void saveCurrentDocument(), AUTO_SAVE_INTERVAL_MS);
 		return () => window.clearInterval(timer);
 	}, [saveCurrentDocument]);
+
+	useEffect(() => {
+		if (!document?.blocks) return;
+		const timer = window.setTimeout(() => {
+			const current = documentRef.current;
+			if (!current) return;
+			const next = syncScreenplayCharacters(current);
+			const unchanged = next.characters.visible.length === current.characters.visible.length
+				&& next.characters.hidden.length === current.characters.hidden.length
+				&& next.characters.visible.every((character, index) => character === current.characters.visible[index])
+				&& next.characters.hidden.every((character, index) => character === current.characters.hidden[index]);
+			if (unchanged) return;
+			documentRef.current = next;
+			setDocument(next);
+			revision.current += 1;
+			dirtyRef.current = true;
+			setDirty(true);
+			setSaveState("idle");
+		}, 400);
+		return () => window.clearTimeout(timer);
+	}, [document?.blocks]);
 
 	useEffect(() => {
 		if (!activeSearchMatch) return;
@@ -882,19 +983,32 @@ function App() {
 
 	useEffect(() => {
 		function keyDown(event: KeyboardEvent) {
+			if (event.key === "Escape" && (multiSelectMode || selectedBlockId)) {
+				event.preventDefault();
+				const target = event.target as HTMLElement | null;
+				if (target?.matches("input, textarea, [contenteditable='true']")) target.blur();
+				setMultiSelectMode(false); setMultiSelected([]); multiSelectionChanged.current = false; scriptSelectionAnchor.current = null;
+				setSelectedBlockId(null); setSelectedNodePath([]); setDialogueCursor(null);
+				return;
+			}
 			if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
 				event.preventDefault(); void saveCurrentDocument(); return;
 			}
 			if ((event.target as HTMLElement | null)?.closest("input, textarea, [contenteditable='true']")) return;
+			if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "x") {
+				if (cutSelectionActionRef.current()) event.preventDefault();
+				return;
+			}
+			if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "v") {
+				if (pasteSelectionActionRef.current()) event.preventDefault();
+				return;
+			}
 			if (event.key === "Shift" && !multiSelectMode) {
 				multiSelectionChanged.current = false;
 				setMultiSelectMode(true);
 				const seed = selectedBlockId ? { blockId: selectedBlockId, path: selectedNodePath } : null;
 				setMultiSelected(seed ? [seed] : []);
 				scriptSelectionAnchor.current = seed;
-			}
-			if (event.key === "Escape" && multiSelectMode) {
-				setMultiSelectMode(false); setMultiSelected([]); multiSelectionChanged.current = false; scriptSelectionAnchor.current = null;
 			}
 		}
 		function keyUp(event: KeyboardEvent) {
@@ -908,7 +1022,11 @@ function App() {
 	}, [multiSelectMode, saveCurrentDocument, selectedBlockId, selectedNodePath]);
 
 	async function refreshScreenplays() { setScreenplays(await requestJson<ScreenplaySummary[]>("/editor-api/screenplays")); }
-	function mutateDocument(update: (current: ScreenplayDocument) => ScreenplayDocument) { setDocument((current) => { if (!current) return current; const next = syncScreenplayCharacters(update(current)); documentRef.current = next; return next; }); revision.current += 1; dirtyRef.current = true; setDirty(true); setSaveState("idle"); }
+	function mutateDocument(update: (current: ScreenplayDocument) => ScreenplayDocument) { setDocument((current) => { if (!current) return current; const next = update(current); documentRef.current = next; return next; }); revision.current += 1; dirtyRef.current = true; setDirty(true); setSaveState("idle"); }
+	function recordDialogueCursor(address: ScriptNodeAddress, offset: number) {
+		dialogueCursorRef.current = { address, offset };
+		if (!dialogueCursor || !sameScriptAddress(dialogueCursor.address, address)) setDialogueCursor({ address, offset });
+	}
 	function exitMultiSelect() { setMultiSelectMode(false); setMultiSelected([]); multiSelectionChanged.current = false; scriptSelectionAnchor.current = null; }
 
 	async function openMission(mission: MissionRef) {
@@ -923,7 +1041,7 @@ function App() {
 		try {
 			const payload = await requestJson<ScreenplayDocument & { description?: string }>(`/editor-api/screenplay?name=${encodeURIComponent(name)}`);
 			const normalized = normalizeScriptBlocks(Array.isArray(payload.blocks) ? payload.blocks : []);
-			const fileId = name.replace(/\.(?:md|json)$/iu, "");
+			const fileId = name.replace(/\.json$/iu, "");
 			const id = /^\d{3}$/u.test(payload.id) ? payload.id : /^\d{3}$/u.test(fileId) ? fileId : "";
 			const base: ScreenplayDocument = { ...payload, schemaVersion: 2, id, title: payload.title === id ? "" : String(payload.title ?? ""), chapter: String(payload.chapter ?? payload.description ?? ""), characters: payload.characters && Array.isArray(payload.characters.hidden) ? payload.characters : { visible: [], hidden: [] }, blocks: normalized.blocks };
 			const next = syncScreenplayCharacters(base);
@@ -933,14 +1051,17 @@ function App() {
 		catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); }
 	}
 
-	function closeScreenplay() {
-		if (dirty && !window.confirm("当前修改尚未写入磁盘，仍要返回剧本列表吗？")) return;
+	async function closeScreenplay() {
+		for (let attempt = 0; dirtyRef.current && attempt < 3; attempt += 1) {
+			if (!await saveCurrentDocument()) return;
+		}
+		if (dirtyRef.current) { setError("剧本仍有尚未保存的修改，请稍后重试"); return; }
 		exitMultiSelect(); setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); setActiveFile(""); setDocument(null); setSelectedBlockId(null); setSelectedNodePath([]); setDirty(false); setSaveState("idle");
 	}
 
 	async function createScreenplay() {
 		const nextNumber = screenplays.reduce((maximum, item) => Math.max(maximum, Number(item.id) || 0), 0) + 1;
-		const id = String(nextNumber).padStart(3, "0"); const name = `${id}.md`;
+		const id = String(nextNumber).padStart(3, "0"); const name = `${id}.json`;
 		const now = new Date().toISOString();
 		const fresh: ScreenplayDocument = { schemaVersion: 2, id, title: "", chapter: "", characters: { visible: [], hidden: [] }, createdAt: now, updatedAt: now, blocks: [] };
 		try {
@@ -1109,6 +1230,12 @@ function App() {
 		insertScriptNodes(lines.map((text) => type === "dialogue" ? { type, speaker: "？？？", text } : { type, text }));
 		setImportText(""); setImportOpened(false);
 	}
+	function importSrt(type: "text" | "dialogue") {
+		const entries = parseSrtEntries(importText);
+		if (!entries.length) { setError("没有从 SRT 中识别出可导入的字幕"); return; }
+		insertScriptNodes(entries.map((text) => type === "dialogue" ? { type, speaker: "？？？", text } : { type, text }));
+		setImportText(""); setImportOpened(false);
+	}
 	async function importWikitext() {
 		if (!importText.trim()) return;
 		setImportLoading(true); setError("");
@@ -1223,9 +1350,10 @@ function App() {
 		setSelectedBlockId(block.id); setSelectedNodePath([...parentPath, firstIndex]);
 	}
 	function splitSelectedDialogue() {
-		if (!selectedBlock || !selectedNode || selectedNode.type !== "dialogue" || !dialogueCursor || dialogueCursor.address.blockId !== selectedBlock.id || !sameNumberPath(dialogueCursor.address.path, selectedNodePath)) return;
+		const latestCursor = dialogueCursorRef.current;
+		if (!selectedBlock || !selectedNode || selectedNode.type !== "dialogue" || !dialogueCursor || !latestCursor || latestCursor.address.blockId !== selectedBlock.id || !sameNumberPath(latestCursor.address.path, selectedNodePath)) return;
 		const text = String(selectedNode.text ?? "");
-		const offset = Math.max(0, Math.min(dialogueCursor.offset, text.length));
+		const offset = Math.max(0, Math.min(latestCursor.offset, text.length));
 		const first = { ...selectedNode, text: text.slice(0, offset).replace(/[，\s]+$/u, "") };
 		const second = { ...clone(selectedNode), text: text.slice(offset).replace(/^[，\s]+/u, "") };
 		setDialogueCursor(null);
@@ -1242,6 +1370,9 @@ function App() {
 		setSelectedNodePath([...parentPath, index + 1]);
 	}
 	function deleteSelectedNode() {
+		const deleteCount = activeScriptSelection.length;
+		if (!deleteCount) return;
+		if (!window.confirm(deleteCount > 1 ? `确定删除选中的 ${deleteCount} 个 block 吗？` : "确定删除当前 block 吗？")) return;
 		if (activeScriptSelection.length > 1 && canFoldSelection && document) {
 			const selection = [...activeScriptSelection]; exitMultiSelect(); setDialogueCursor(null);
 			if (!selection[0].path.length) {
@@ -1268,6 +1399,69 @@ function App() {
 		const siblings = Array.isArray(parent.content) ? parent.content as JsonNode[] : [];
 		updateBlockNode(selectedBlock.id, parentPath, { ...parent, content: siblings.filter((_, childIndex) => childIndex !== index) });
 		setSelectedNodePath(parentPath);
+	}
+	function cutSelectedBlocks() {
+		if (!document || !activeScriptSelection.length) return false;
+		const selection = [...activeScriptSelection];
+		const isTopLevel = selection.every((address) => address.path.length === 0);
+		if (isTopLevel) {
+			const selectedIds = new Set(selection.map((address) => address.blockId));
+			const selectedBlocks = document.blocks.filter((block) => selectedIds.has(block.id));
+			if (!selectedBlocks.length) return false;
+			const firstIndex = document.blocks.findIndex((block) => selectedIds.has(block.id));
+			cutBlocksRef.current = selectedBlocks.map((block) => ({ ...(block.source ? { source: clone(block.source) } : {}), node: clone(block.node) }));
+			const remaining = document.blocks.filter((block) => !selectedIds.has(block.id));
+			mutateDocument((current) => ({ ...current, blocks: current.blocks.filter((block) => !selectedIds.has(block.id)) }));
+			exitMultiSelect(); setDialogueCursor(null);
+			const anchorIndex = remaining.length ? (firstIndex > 0 ? Math.min(firstIndex - 1, remaining.length - 1) : 0) : -1;
+			setSelectedBlockId(anchorIndex >= 0 ? remaining[anchorIndex].id : null); setSelectedNodePath([]);
+			return true;
+		}
+		const first = selection[0];
+		if (selection.some((address) => address.blockId !== first.blockId || !sameNumberPath(address.path.slice(0, -1), first.path.slice(0, -1)))) return false;
+		const block = document.blocks.find((candidate) => candidate.id === first.blockId); if (!block) return false;
+		const parentPath = first.path.slice(0, -1);
+		const parent = nestedNodeAtPath(block.node, parentPath); if (!parent) return false;
+		const siblings = Array.isArray(parent.content) ? parent.content as JsonNode[] : [];
+		const indexes = [...new Set(selection.map((address) => address.path.at(-1)!))].sort((left, right) => left - right);
+		const selectedIndexes = new Set(indexes);
+		cutBlocksRef.current = indexes.flatMap((index) => siblings[index] ? [{ node: clone(siblings[index]) }] : []);
+		if (!cutBlocksRef.current.length) return false;
+		const remaining = siblings.filter((_, index) => !selectedIndexes.has(index));
+		updateBlockNode(block.id, parentPath, { ...parent, content: remaining });
+		exitMultiSelect(); setDialogueCursor(null);
+		if (remaining.length) {
+			const anchorIndex = indexes[0] > 0 ? Math.min(indexes[0] - 1, remaining.length - 1) : 0;
+			setSelectedBlockId(block.id); setSelectedNodePath([...parentPath, anchorIndex]);
+		} else {
+			setSelectedBlockId(block.id); setSelectedNodePath(parentPath);
+		}
+		return true;
+	}
+	function pasteCutBlocks() {
+		if (!document || !selectedBlock || !selectedNode || !cutBlocksRef.current.length) return false;
+		const clipboard = cutBlocksRef.current.map((block) => clone(block));
+		exitMultiSelect(); setDialogueCursor(null);
+		if (!selectedNodePath.length) {
+			const inserted = clipboard.map((block) => ({ ...block, id: crypto.randomUUID() }));
+			mutateDocument((current) => {
+				const blocks = [...current.blocks];
+				const targetIndex = blocks.findIndex((block) => block.id === selectedBlock.id);
+				if (targetIndex < 0) return current;
+				blocks.splice(targetIndex + 1, 0, ...inserted);
+				return { ...current, blocks };
+			});
+			setSelectedBlockId(inserted.at(-1)!.id); setSelectedNodePath([]);
+			return true;
+		}
+		const parentPath = selectedNodePath.slice(0, -1); const targetIndex = selectedNodePath.at(-1)!;
+		const parent = nestedNodeAtPath(selectedBlock.node, parentPath); if (!parent) return false;
+		const siblings = Array.isArray(parent.content) ? parent.content as JsonNode[] : [];
+		const insertedNodes = clipboard.map((block) => clone(block.node));
+		const next = [...siblings]; next.splice(targetIndex + 1, 0, ...insertedNodes);
+		updateBlockNode(selectedBlock.id, parentPath, { ...parent, content: next });
+		setSelectedBlockId(selectedBlock.id); setSelectedNodePath([...parentPath, targetIndex + insertedNodes.length]);
+		return true;
 	}
 	function moveScriptNode(targetAddress: ScriptNodeAddress, draggedAddress: ScriptNodeAddress, nest: boolean) {
 		if (targetAddress.blockId === draggedAddress.blockId && (sameNumberPath(targetAddress.path, draggedAddress.path) || isNumberPathAncestor(draggedAddress.path, targetAddress.path))) return;
@@ -1312,13 +1506,18 @@ function App() {
 		setSelectedBlockId(targetAddress.blockId); setSelectedNodePath(targetAddress.path);
 	}
 
+	useEffect(() => {
+		cutSelectionActionRef.current = cutSelectedBlocks;
+		pasteSelectionActionRef.current = pasteCutBlocks;
+	});
+
 	return (
 		<div className="app-shell">
 			<Modal opened={importOpened} onClose={() => setImportOpened(false)} title="导入文本" centered size="lg" overlayProps={{ backgroundOpacity: 0.35, blur: 2 }}>
 				<div className="text-import-dialog">
-					<SegmentedControl fullWidth value={importMode} onChange={(value) => setImportMode(value as "plain" | "source")} data={[{ value: "plain", label: "普通文本" }, { value: "source", label: "BWiki 源代码" }]} />
-					<Textarea autoFocus minRows={12} maxRows={20} autosize placeholder={importMode === "plain" ? "在这里粘贴文本，每个非空行会成为一个 block……" : "粘贴以 *角色：台词、{{剧情选项}}、{{任务描述}} 等组成的 BWiki 源代码……"} value={importText} onChange={(event) => setImportText(event.target.value)} />
-					{importMode === "plain" ? <><p>空行会自动忽略。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importScriptLines("narration")}>导入为叙述</Button><Button disabled={!importText.trim()} onClick={() => importScriptLines("dialogue")}>导入为对话</Button></div></> : <><p>会识别对话、剧情选项、嵌套选项、标题、任务描述和常用文本模板。选项导入剧本后会自动拆成“开拓者”的对话及对应回应。</p><div className="text-import-actions"><Button loading={importLoading} disabled={!importText.trim()} onClick={() => void importWikitext()}>解析并导入</Button></div></>}
+					<SegmentedControl fullWidth value={importMode} onChange={(value) => setImportMode(value as "plain" | "source" | "srt")} data={[{ value: "plain", label: "普通文本" }, { value: "source", label: "BWiki 源代码" }, { value: "srt", label: "SRT 字幕" }]} />
+					<Textarea autoFocus minRows={12} maxRows={20} autosize placeholder={importMode === "plain" ? "在这里粘贴文本，每个非空行会成为一个 block……" : importMode === "srt" ? "粘贴包含序号、时间轴和字幕正文的 SRT 内容……" : "粘贴以 *角色：台词、{{剧情选项}}、{{任务描述}} 等组成的 BWiki 源代码……"} value={importText} onChange={(event) => setImportText(event.target.value)} />
+					{importMode === "plain" ? <><p>空行会自动忽略。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importScriptLines("narration")}>导入为叙述</Button><Button disabled={!importText.trim()} onClick={() => importScriptLines("dialogue")}>导入为对话</Button></div></> : importMode === "srt" ? <><p>自动移除字幕序号、时间轴和空行；每条字幕会成为一个 block。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importSrt("text")}>导入为文本</Button><Button disabled={!importText.trim()} onClick={() => importSrt("dialogue")}>导入为对话</Button></div></> : <><p>会识别对话、剧情选项、嵌套选项、标题、任务描述和常用文本模板。选项导入剧本后会自动拆成“开拓者”的对话及对应回应。</p><div className="text-import-actions"><Button loading={importLoading} disabled={!importText.trim()} onClick={() => void importWikitext()}>解析并导入</Button></div></>}
 				</div>
 			</Modal>
 			<Paper component="header" radius={0} shadow="xs" className="topbar"><div className="brand"><span className="brand-mark">C</span><div><h1>Castorice 剧本编辑器</h1><p>星穹铁道任务资料 · 本地工作台</p></div></div><div className={`save-indicator ${saveState}`} title="每 10 秒自动保存；按 Ctrl+S 可立即保存"><span />{!activeFile ? "未打开剧本" : saveState === "saving" ? "正在保存…" : saveState === "error" ? "保存失败" : dirty ? "等待自动保存" : "已保存到本地"}</div></Paper>
@@ -1347,7 +1546,7 @@ function App() {
 				</Paper>
 				<Paper component="section" shadow="sm" radius="md" className="script-pane">
 					{document ? <div className="script-editor">
-						<header className="script-header"><ActionIcon className="back-to-library" variant="subtle" color="gray" size="lg" aria-label="返回剧本列表" title="返回剧本列表" onClick={closeScreenplay}><IconArrowLeft size={19} /></ActionIcon><div className="script-title-fields"><div className="script-title-row"><strong>{document.id}</strong><input className="title-input" placeholder="剧本标题" value={document.title} onChange={(event) => mutateDocument((current) => ({ ...current, title: event.target.value }))} /></div><input className="chapter-input" placeholder="篇章" value={document.chapter} onChange={(event) => mutateDocument((current) => ({ ...current, chapter: event.target.value }))} /><div className="character-manager"><span>人物</span>{document.characters.visible.length ? document.characters.visible.map((character) => <button key={character} title="点击隐藏" onClick={() => setCharacterHidden(character, true)}>{character}</button>) : <em>未检测到对话人</em>}{document.characters.hidden.length ? <Menu position="bottom-start" shadow="md" withinPortal><Menu.Target><button className="hidden-character-trigger">隐藏 {document.characters.hidden.length}</button></Menu.Target><Menu.Dropdown>{document.characters.hidden.map((character) => <Menu.Item key={character} onClick={() => setCharacterHidden(character, false)}>{character} · 恢复显示</Menu.Item>)}</Menu.Dropdown></Menu> : null}</div></div><div className="file-actions"><span>{activeFile}</span><button className="danger-text" onClick={() => void deleteScreenplay()}>删除</button></div></header>
+						<header className="script-header"><ActionIcon className="back-to-library" variant="subtle" color="gray" size="lg" aria-label="返回剧本列表" title="返回剧本列表" onClick={() => void closeScreenplay()}><IconArrowLeft size={19} /></ActionIcon><div className="script-title-fields"><div className="script-title-row"><strong>{document.id}</strong><BufferedInput className="title-input" placeholder="剧本标题" value={document.title} onValueChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} /></div><BufferedInput className="chapter-input" placeholder="篇章" value={document.chapter} onValueChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} /><div className="character-manager"><span>人物</span>{document.characters.visible.length ? document.characters.visible.map((character) => <button key={character} title="点击隐藏" onClick={() => setCharacterHidden(character, true)}>{character}</button>) : <em>未检测到对话人</em>}{document.characters.hidden.length ? <Menu position="bottom-start" shadow="md" withinPortal><Menu.Target><button className="hidden-character-trigger">隐藏 {document.characters.hidden.length}</button></Menu.Target><Menu.Dropdown>{document.characters.hidden.map((character) => <Menu.Item key={character} onClick={() => setCharacterHidden(character, false)}>{character} · 恢复显示</Menu.Item>)}</Menu.Dropdown></Menu> : null}</div></div><div className="file-actions"><span>{activeFile}</span><button className="danger-text" onClick={() => void deleteScreenplay()}>删除</button></div></header>
 						<div className={`block-toolbar ${multiSelectMode ? "is-multi-select" : ""}`}>
 							<div className="block-toolbar-actions toolbar-main-actions">
 								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("dialogue")}>添加对话</Button>
@@ -1370,8 +1569,8 @@ function App() {
 							{multiSelectMode ? <div className="toolbar-selection multi-selection-status"><Badge variant="filled" color="blue" size="sm">多选</Badge><span>{multiSelected.length ? `已选择 ${multiSelected.length} 个同级 block` : "点击 block 开始选择"} · Esc 退出</span></div> : selectedNode ? <div className="toolbar-selection"><Badge variant="light" color="blue" size="sm">L{selectedNodePath.length + 1} · {nodeLabel(selectedNode)}</Badge><span><InlineRubyText text={nodeSummary(selectedNode) || "空节点"} /></span></div> : <span className="toolbar-hint">按住 Shift 进入多选</span>}
 						</div>
 						{searchMode ? <div className="script-search-bar"><strong>{searchMode === "gender" ? "性别优化" : "开拓者指代优化"}</strong><span className="script-search-term">{activeSearchMatch ? `“${activeSearchMatch.term}”` : "没有找到匹配内容"}</span><span className="script-search-count">{searchMatches.length ? `${normalizedSearchIndex + 1} / ${searchMatches.length}` : "0 / 0"}</span><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(-1)}>上一个</Button><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(1)}>下一个</Button>{searchMode === "gender" ? <Button size="compact-xs" disabled={!activeSearchMatch?.replacement} onClick={replaceCurrentGenderMatch}>替换为“{activeSearchMatch?.replacement ?? "—"}”</Button> : null}<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); }}>关闭</Button></div> : null}
-						<div className="script-blocks viewer-style">{document.blocks.length ? document.blocks.map((block) => <ScriptBlockView key={block.id} block={block} selectedAddresses={activeScriptSelection} editableAddress={editableAddress} activeMatch={activeSearchMatch} onSelect={handleScriptSelect} onChange={(path, node) => updateBlockNode(block.id, path, node)} onDrop={moveScriptNode} onDialogueCursor={(address, offset) => setDialogueCursor({ address, offset })} />) : <div className="empty-script"><span>＋</span><h3>这个剧本还是空的</h3><p>从左侧加入任务内容，或在上方创建一个空白节点。</p></div>}</div>
-					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无显示人物"}</small></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建”创建第一个剧本。</p></div>}</div></div>}
+						<div className="script-blocks viewer-style">{document.blocks.length ? document.blocks.map((block) => <ScriptBlockView key={block.id} block={block} selectedAddresses={activeScriptSelection} editableAddress={editableAddress} activeMatch={activeSearchMatch} onSelect={handleScriptSelect} onChange={(path, node) => updateBlockNode(block.id, path, node)} onDrop={moveScriptNode} onDialogueCursor={recordDialogueCursor} />) : <div className="empty-script"><span>＋</span><h3>这个剧本还是空的</h3><p>从左侧加入任务内容，或在上方创建一个空白节点。</p></div>}</div>
+					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无显示人物"}</small><div className="screenplay-list-metrics"><span>{item.blockCount.toLocaleString()} 段</span><span>{item.characterCount.toLocaleString()} 字</span></div></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建”创建第一个剧本。</p></div>}</div></div>}
 				</Paper>
 			</main>
 		</div>

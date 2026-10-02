@@ -12,7 +12,7 @@
 npm run editor
 ```
 
-Vite 会启动本地服务并自动打开浏览器。编辑器只允许读取 `data/missions`，用户创建的剧本则实时保存到 `screenplays`，两者不会互相覆盖。
+Vite 会启动本地服务并自动打开浏览器。编辑器只允许读取 `data/missions`，用户创建的剧本以 JSON 文件保存到 `screenplays`，两者不会互相覆盖。
 
 编辑器支持：
 

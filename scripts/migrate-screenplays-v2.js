@@ -62,13 +62,13 @@ async function main() {
       characters: { visible: speakers.filter((speaker) => !previousHidden.has(speaker)), hidden },
     };
     delete migrated.description;
-    await fs.writeFile(path.join(stagingRoot, `${id}.md`), `${JSON.stringify(migrated, null, 2)}\n`, "utf8");
+    await fs.writeFile(path.join(stagingRoot, `${id}.json`), `${JSON.stringify(migrated, null, 2)}\n`, "utf8");
   }
 
   for (const name of names) await fs.unlink(path.join(root, name));
   for (let index = 0; index < names.length; index += 1) {
     const id = String(index + 1).padStart(3, "0");
-    await fs.rename(path.join(stagingRoot, `${id}.md`), path.join(root, `${id}.md`));
+    await fs.rename(path.join(stagingRoot, `${id}.json`), path.join(root, `${id}.json`));
   }
   await fs.rm(stagingRoot, { recursive: true });
   console.log(`已迁移 ${names.length} 个剧本；备份：${path.relative(process.cwd(), backupRoot)}`);

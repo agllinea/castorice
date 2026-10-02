@@ -19,7 +19,7 @@ function sendJson(response: ServerResponse, status: number, value: unknown) {
 
 function screenplayPath(name: string) {
 	const normalized = name.trim();
-	if (!normalized || path.basename(normalized) !== normalized || !/^[^\\/:*?"<>|]+\.(?:md|json)$/iu.test(normalized)) {
+	if (!normalized || path.basename(normalized) !== normalized || !/^[^\\/:*?"<>|]+\.json$/iu.test(normalized)) {
 		throw new Error("剧本文件名无效");
 	}
 	return path.join(screenplayRoot, normalized);
@@ -28,6 +28,32 @@ function screenplayPath(name: string) {
 function screenplayId(document: JsonRecord, fileName: string) {
 	const value = typeof document.id === "string" ? document.id : path.basename(fileName, path.extname(fileName));
 	return /^\d{3}$/u.test(value) ? value : "";
+}
+
+function visibleTextLength(value: string) {
+	const visible = value
+		.replace(/\{\{([^{}|]+)\|[^{}]+\}\}/gu, "$1")
+		.replace(/\[([^\]]+)\]\([^)]+\)/gu, "$1")
+		.replace(/\s/gu, "");
+	return Array.from(visible).length;
+}
+
+function screenplayCharacterCount(blocks: unknown[]) {
+	let count = 0;
+	const visit = (value: unknown) => {
+		if (!value || typeof value !== "object") return;
+		const node = value as JsonRecord;
+		for (const field of ["text", "title", "subtitle", "location", "note"]) {
+			if (typeof node[field] === "string") count += visibleTextLength(node[field]);
+		}
+		if (typeof node.content === "string") count += visibleTextLength(node.content);
+		for (const field of ["content", "options", "tabs"]) {
+			if (Array.isArray(node[field])) node[field].forEach(visit);
+		}
+		if (node.node && typeof node.node === "object") visit(node.node);
+	};
+	blocks.forEach(visit);
+	return count;
 }
 
 function missionPath(relativePath: string) {
@@ -56,7 +82,7 @@ async function listScreenplays() {
 	const entries = await fs.readdir(screenplayRoot, { withFileTypes: true });
 	const items = await Promise.all(
 		entries
-			.filter((entry) => entry.isFile() && /\.(?:md|json)$/iu.test(entry.name))
+			.filter((entry) => entry.isFile() && /\.json$/iu.test(entry.name))
 			.map(async (entry) => {
 				const fullPath = path.join(screenplayRoot, entry.name);
 				const [text, stat] = await Promise.all([
@@ -66,13 +92,15 @@ async function listScreenplays() {
 				try {
 					const document = JSON.parse(text) as JsonRecord;
 					const characters = document.characters && typeof document.characters === "object" ? document.characters as JsonRecord : {};
+					const blocks = Array.isArray(document.blocks) ? document.blocks : [];
 					return {
 						name: entry.name,
 						id: screenplayId(document, entry.name),
 						title: typeof document.title === "string" ? document.title : entry.name,
 						chapter: typeof document.chapter === "string" ? document.chapter : typeof document.description === "string" ? document.description : "",
 						characters: Array.isArray(characters.visible) ? characters.visible.filter((value): value is string => typeof value === "string") : [],
-						blockCount: Array.isArray(document.blocks) ? document.blocks.length : 0,
+						blockCount: blocks.length,
+						characterCount: screenplayCharacterCount(blocks),
 						updatedAt:
 							typeof document.updatedAt === "string"
 								? document.updatedAt
@@ -86,6 +114,7 @@ async function listScreenplays() {
 						chapter: "",
 						characters: [],
 						blockCount: 0,
+						characterCount: 0,
 						updatedAt: stat.mtime.toISOString(),
 						invalid: true,
 					};
@@ -96,7 +125,7 @@ async function listScreenplays() {
 }
 
 async function reorderScreenplays(order: string[]) {
-	const current = (await fs.readdir(screenplayRoot, { withFileTypes: true })).filter((entry) => entry.isFile() && /\.(?:md|json)$/iu.test(entry.name)).map((entry) => entry.name);
+	const current = (await fs.readdir(screenplayRoot, { withFileTypes: true })).filter((entry) => entry.isFile() && /\.json$/iu.test(entry.name)).map((entry) => entry.name);
 	if (order.length !== current.length || new Set(order).size !== order.length || current.some((name) => !order.includes(name))) throw new Error("剧本顺序与磁盘文件不一致，请刷新后重试");
 	const documents = await Promise.all(order.map(async (name) => JSON.parse(await fs.readFile(screenplayPath(name), "utf8")) as JsonRecord));
 	const token = crypto.randomUUID();
@@ -109,12 +138,12 @@ async function reorderScreenplays(order: string[]) {
 		for (let index = 0; index < documents.length; index += 1) {
 			const id = String(index + 1).padStart(3, "0");
 			const saved = { ...documents[index], schemaVersion: 2, id, updatedAt: now };
-			await fs.writeFile(path.join(generatedRoot, `${id}.md`), `${JSON.stringify(saved, null, 2)}\n`, "utf8");
+			await fs.writeFile(path.join(generatedRoot, `${id}.json`), `${JSON.stringify(saved, null, 2)}\n`, "utf8");
 		}
 		for (const name of current) await fs.rename(screenplayPath(name), path.join(backupRoot, name));
 		for (let index = 0; index < documents.length; index += 1) {
 			const id = String(index + 1).padStart(3, "0");
-			await fs.rename(path.join(generatedRoot, `${id}.md`), path.join(screenplayRoot, `${id}.md`));
+			await fs.rename(path.join(generatedRoot, `${id}.json`), path.join(screenplayRoot, `${id}.json`));
 		}
 		await fs.rm(stagingRoot, { recursive: true, force: true });
 	} catch (error) {
