@@ -115,26 +115,26 @@ const AUTO_SAVE_INTERVAL_MS = 10_000;
 const nodeLabels: Record<string, string> = {
 	dialogue: "对话",
 	narration: "叙述",
-	section: "标题",
-	choice: "选项",
-	divider: "分隔",
-	fold: "折叠内容",
-	"message-thread": "短信块",
+	section: "章节标题",
+	choice: "剧情选项",
+	divider: "分隔线",
+	fold: "折叠组",
+	"message-thread": "短信会话",
 	"objective-description": "任务提示",
-	message: "短信",
+	message: "短信消息",
 	"message-thread-start": "短信开始",
 	"message-thread-end": "短信结束",
 	"message-system": "短信系统提示",
-	text: "文本",
-	notice: "提示",
-	note: "注释",
+	text: "普通文本",
+	notice: "提示文本",
+	note: "编辑注释",
 	image: "图片",
 	tabs: "条件分支",
-	spoiler: "剧透文本",
-	annotation: "标注",
+	spoiler: "隐藏文本",
+	annotation: "标注文本",
 	"list-item": "列表项",
-	event: "事件",
-	style: "样式",
+	event: "事件文本",
+	style: "样式文本",
 };
 
 const newNodeTemplates: Record<string, JsonNode> = {
@@ -173,7 +173,7 @@ function scriptNodeDomId(address: ScriptNodeAddress) {
 function scriptBlockSourceLabel(block: ScriptBlock, nodePath: number[]) {
 	if (!block.source) return "自定义内容";
 	const originalPath = block.source.contentPath?.length ? `.${block.source.contentPath.join(".")}` : "";
-	const currentPath = nodePath.length ? ` · 当前节点：${nodePath.join(".")}` : "";
+	const currentPath = nodePath.length ? ` · 当前层级：${nodePath.join(".")}` : "";
 	return `任务：${block.source.mission} · 文件：data/${block.source.dataFile} · 原始位置：content[${block.source.contentIndex}]${originalPath}${currentPath}`;
 }
 
@@ -328,7 +328,7 @@ async function requestJson<T>(url: string, init?: RequestInit): Promise<T> {
 }
 
 function nodeLabel(node: JsonNode) {
-	return nodeLabels[String(node.type ?? "")] ?? String(node.type ?? "未知节点");
+	return nodeLabels[String(node.type ?? "")] ?? String(node.type ?? "未知类型");
 }
 
 function missionAssetUrl(asset: unknown) {
@@ -821,7 +821,7 @@ function EditableNode({ node, onChange, onDialogueCursor, depth = 0 }: { node: J
 	const assetUrl = missionAssetUrl(node.asset);
 
 	if (type === "fold") {
-		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><button onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</button><button onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</button></div></div></div>;
+		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠组标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><button onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</button><button onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</button></div></div></div>;
 	}
 
 	if (type === "tabs") {
@@ -872,7 +872,7 @@ function NestedNodeList({ nodes, onChange }: { nodes: JsonNode[]; onChange: (nod
 					<summary>
 						<span>{String(childIndex + 1).padStart(2, "0")}</span>
 						<strong>{nodeLabel(child)}</strong>
-						<em>{nodeSummary(child) || "空节点"}</em>
+						<em>{nodeSummary(child) || "空内容"}</em>
 					</summary>
 					<div className="nested-node-actions">
 						<button disabled={childIndex === 0} onClick={() => move(childIndex, -1)}>上移</button>
@@ -910,7 +910,7 @@ function VisualNodeFields({ node, onChange }: { node: JsonNode; onChange: (node:
 			{type === "message" ? <><div className="field-row"><Field label="说话人" value={String(node.speaker ?? "")} onChange={(v) => set("speaker", v)} /><label className="field"><span>方向</span><select value={String(node.side ?? "left")} onChange={(event) => set("side", event.target.value)}><option value="left">对方</option><option value="right">开拓者</option></select></label></div><Field label="消息内容" value={String(node.text ?? node.content ?? "")} onChange={(v) => set("text", v)} multiline /></> : null}
 			{type === "image" ? <><Field label="文件" value={String(node.file ?? "")} onChange={(v) => set("file", v)} /><Field label="显示宽度" value={String(node.displayWidth ?? "")} onChange={(v) => set("displayWidth", v)} /></> : null}
 			{type === "annotation" ? <><Field label="分类" value={String(node.category ?? "")} onChange={(v) => set("category", v)} /><Field label="内容" value={String(node.text ?? "")} onChange={(v) => set("text", v)} multiline /><Field label="注释" value={String(node.note ?? "")} onChange={(v) => set("note", v)} multiline /></> : null}
-			{type === "fold" ? <><Field label="折叠标题" value={String(node.title ?? "")} onChange={(v) => set("title", v)} /><label className="toggle-field"><input type="checkbox" checked={Boolean(node.collapsed)} onChange={(event) => set("collapsed", event.target.checked)} /> 默认收起</label><NestedNodeList nodes={Array.isArray(node.content) ? node.content as JsonNode[] : []} onChange={(value) => set("content", value)} /></> : null}
+			{type === "fold" ? <><Field label="折叠组标题" value={String(node.title ?? "")} onChange={(v) => set("title", v)} /><label className="toggle-field"><input type="checkbox" checked={Boolean(node.collapsed)} onChange={(event) => set("collapsed", event.target.checked)} /> 默认收起</label><NestedNodeList nodes={Array.isArray(node.content) ? node.content as JsonNode[] : []} onChange={(value) => set("content", value)} /></> : null}
 			{type === "choice" ? <div className="nested-groups">
 				{(Array.isArray(node.options) ? node.options as JsonNode[] : []).map((option, optionIndex, options) => <section className="nested-group" key={optionIndex}><header><span>选项 {optionIndex + 1}</span><button onClick={() => set("options", options.filter((_, index) => index !== optionIndex))}>删除选项</button></header><Field label="选项文本" value={String(option.text ?? "")} onChange={(value) => set("options", options.map((item, index) => index === optionIndex ? { ...item, text: value } : item))} /><NestedNodeList nodes={Array.isArray(option.content) ? option.content as JsonNode[] : []} onChange={(value) => set("options", options.map((item, index) => index === optionIndex ? { ...item, content: value } : item))} /></section>)}
 				<button className="nested-group-add" onClick={() => { const options = Array.isArray(node.options) ? node.options as JsonNode[] : []; set("options", [...options, { id: options.length + 1, text: "新选项", content: [] }]); }}>＋ 添加选项</button>
@@ -948,7 +948,7 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 		event.stopPropagation(); event.dataTransfer.effectAllowed = "move";
 		event.dataTransfer.setData("application/x-castorice-block", JSON.stringify(address));
 	};
-	const dragHandle = <button type="button" className="block-drag-handle" draggable aria-label="拖动 block" title="拖动" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onDragStart={startDrag}><IconGripVertical size={15} /></button>;
+	const dragHandle = <button type="button" className="block-drag-handle" draggable aria-label="拖动内容块" title="拖动内容块" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onDragStart={startDrag}><IconGripVertical size={15} /></button>;
 	const dialogueText = node.type === "dialogue" ? String(node.text ?? "") : "";
 	const annotations = dialogueText ? collectRubyAnnotations(dialogueText) : [];
 	const dialogueCopyActions = node.type === "dialogue" ? <div className="dialogue-copy-actions" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()}>{annotations.length ? <ActionIcon className="annotation-copy-button" variant="subtle" color="gray" size="xs" aria-label="复制本段全部注音" title="复制全部注音" onClick={() => void copyToClipboard(annotations.join(" "))}><IconCopy size={11} /></ActionIcon> : null}<ActionIcon variant="subtle" color="gray" size="sm" aria-label="复制对话文本" title="复制对话文本" onClick={() => void copyToClipboard(plainRubyText(dialogueText))}><IconCopy size={14} /></ActionIcon></div> : null;
@@ -959,7 +959,7 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 		return <article id={scriptNodeDomId(address)} className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); event.dataTransfer.dropEffect = "move"; setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
 			{dragHandle}
 			<div className={`read-node ${isMessageThread ? "read-node-message-thread" : "read-node-fold"} inline-edit-node ${collapsed ? "is-collapsed" : ""}`} data-depth={level - 1}>
-				<div className="read-node-heading">{editable ? isMessageThread ? <div className="message-thread-heading-fields"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="短信标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /><BufferedInput className="inline-thread-subtitle-input" value={String(node.subtitle ?? "")} placeholder="副标题（可选）" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, subtitle: value })} /><BufferedInput className="inline-thread-owner-input" value={String(node.owner ?? "")} placeholder="手机持有者" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, owner: value, content: normalizeMessageThreadContent(content, value) })} /></div> : <BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /> : <div className="container-heading-copy"><strong><HighlightedRichText text={String(node.title ?? (isMessageThread ? "未命名短信" : "未命名折叠内容"))} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>{isMessageThread ? <small>{String(node.subtitle ?? "") || "无副标题"} · 手机持有者：{String(node.owner ?? "开拓者")}</small> : null}</div>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开内容" : "收起内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
+				<div className="read-node-heading">{editable ? isMessageThread ? <div className="message-thread-heading-fields"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="会话标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /><BufferedInput className="inline-thread-subtitle-input" value={String(node.subtitle ?? "")} placeholder="副标题（可选）" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, subtitle: value })} /><BufferedInput className="inline-thread-owner-input" value={String(node.owner ?? "")} placeholder="手机持有者" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, owner: value, content: normalizeMessageThreadContent(content, value) })} /></div> : <BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠组标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /> : <div className="container-heading-copy"><strong><HighlightedRichText text={String(node.title ?? (isMessageThread ? "未命名短信会话" : "未命名折叠组"))} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>{isMessageThread ? <small>{String(node.subtitle ?? "") || "无副标题"} · 手机持有者：{String(node.owner ?? "开拓者")}</small> : null}</div>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开内容" : "收起内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
 				{collapsed ? null : <div className="read-node-children">{content.map((child, index) => <ScriptHierarchyNode key={index} blockId={blockId} node={child} path={[...path, index]} level={level + 1} selectedAddresses={selectedAddresses} editableAddress={editableAddress} activeMatch={activeMatch} onSelect={onSelect} onChange={onChange} onDrop={onDrop} onDialogueCursor={onDialogueCursor} />)}</div>}
 			</div>
 		</article>;
@@ -1600,7 +1600,7 @@ function App() {
 	function deleteSelectedNode() {
 		const deleteCount = activeScriptSelection.length;
 		if (!deleteCount) return;
-		if (!window.confirm(deleteCount > 1 ? `确定删除选中的 ${deleteCount} 个 block 吗？` : "确定删除当前 block 吗？")) return;
+		if (!window.confirm(deleteCount > 1 ? `确定删除选中的 ${deleteCount} 个内容块吗？` : "确定删除当前内容块吗？")) return;
 		if (activeScriptSelection.length > 1 && canFoldSelection && document) {
 			const selection = [...activeScriptSelection]; exitMultiSelect(); setDialogueCursor(null);
 			if (!selection[0].path.length) {
@@ -1745,11 +1745,11 @@ function App() {
 
 	return (
 		<div className={`app-shell ${editorFocusMode ? "is-editor-focus" : ""}`}>
-			<Modal opened={importOpened} onClose={() => setImportOpened(false)} title="导入文本" centered size="lg" overlayProps={{ backgroundOpacity: 0.35, blur: 2 }}>
+			<Modal opened={importOpened} onClose={() => setImportOpened(false)} title="批量导入内容" centered size="lg" overlayProps={{ backgroundOpacity: 0.35, blur: 2 }}>
 				<div className="text-import-dialog">
-					<SegmentedControl fullWidth value={importMode} onChange={(value) => setImportMode(value as "plain" | "source" | "srt")} data={[{ value: "plain", label: "普通文本" }, { value: "source", label: "BWiki 源代码" }, { value: "srt", label: "SRT 字幕" }]} />
-					<Textarea autoFocus minRows={12} maxRows={20} autosize placeholder={importMode === "plain" ? "在这里粘贴文本，每个非空行会成为一个 block……" : importMode === "srt" ? "粘贴包含序号、时间轴和字幕正文的 SRT 内容……" : "粘贴以 *角色：台词、{{剧情选项}}、{{任务描述}} 等组成的 BWiki 源代码……"} value={importText} onChange={(event) => setImportText(event.target.value)} />
-					{importMode === "plain" ? <><p>空行会自动忽略。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importScriptLines("narration")}>导入为叙述</Button><Button disabled={!importText.trim()} onClick={() => importScriptLines("dialogue")}>导入为对话</Button></div></> : importMode === "srt" ? <><p>自动移除字幕序号、时间轴和空行；每条字幕会成为一个 block。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importSrt("text")}>导入为文本</Button><Button disabled={!importText.trim()} onClick={() => importSrt("dialogue")}>导入为对话</Button></div></> : <><p>会识别对话、剧情选项、嵌套选项、标题、任务描述和常用文本模板。选项导入剧本后会自动拆成“开拓者”的对话及对应回应。</p><div className="text-import-actions"><Button loading={importLoading} disabled={!importText.trim()} onClick={() => void importWikitext()}>解析并导入</Button></div></>}
+					<SegmentedControl fullWidth value={importMode} onChange={(value) => setImportMode(value as "plain" | "source" | "srt")} data={[{ value: "plain", label: "纯文本" }, { value: "source", label: "BWiki 源文" }, { value: "srt", label: "SRT 字幕" }]} />
+					<Textarea autoFocus minRows={12} maxRows={20} autosize placeholder={importMode === "plain" ? "在这里粘贴文本，每个非空行会生成一个内容块……" : importMode === "srt" ? "粘贴包含序号、时间轴和字幕正文的 SRT 内容……" : "粘贴以 *角色：台词、{{剧情选项}}、{{任务描述}} 等组成的 BWiki 源文……"} value={importText} onChange={(event) => setImportText(event.target.value)} />
+					{importMode === "plain" ? <><p>自动忽略空行；导入为对话时，说话人默认为“？？？”。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importScriptLines("narration")}>作为叙述导入</Button><Button disabled={!importText.trim()} onClick={() => importScriptLines("dialogue")}>作为对话导入</Button></div></> : importMode === "srt" ? <><p>自动移除字幕序号、时间轴和空行；每条字幕生成一个内容块。导入为对话时，说话人默认为“？？？”。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importSrt("text")}>作为文本导入</Button><Button disabled={!importText.trim()} onClick={() => importSrt("dialogue")}>作为对话导入</Button></div></> : <><p>自动识别对话、剧情选项、嵌套选项、章节标题、任务提示和常用文本模板。剧情选项会拆分为“开拓者”的对话及对应回应。</p><div className="text-import-actions"><Button loading={importLoading} disabled={!importText.trim()} onClick={() => void importWikitext()}>解析并导入</Button></div></>}
 				</div>
 			</Modal>
 			<Modal opened={imagePickerMode !== null} onClose={() => setImagePickerMode(null)} title={imagePickerMode === "replace" ? "更改图片" : "添加图片"} centered size="xl" overlayProps={{ backgroundOpacity: 0.35, blur: 2 }}>
@@ -1760,12 +1760,12 @@ function App() {
 					{!imageLoading && !filteredImageAssets.length ? <p className="image-picker-empty">没有匹配的已下载图片。</p> : null}
 				</div>
 			</Modal>
-			<Paper component="header" radius={0} shadow="xs" className="topbar"><div className="brand"><span className="brand-mark">C</span><div><h1>Castorice 剧本编辑器</h1><p>星穹铁道任务资料 · 本地工作台</p></div></div><div className="topbar-actions"><Button variant={editorFocusMode ? "filled" : "light"} size="compact-sm" onClick={toggleEditorFocusMode}>{editorFocusMode ? "退出全屏编辑" : "全屏编辑"}</Button><div className={`save-indicator ${saveState}`} title="每 10 秒自动保存；按 Ctrl+S 可立即保存"><span />{!activeFile ? "未打开剧本" : saveState === "saving" ? "正在保存…" : saveState === "error" ? "保存失败" : dirty ? "等待自动保存" : "已保存到本地"}</div></div></Paper>
+			<Paper component="header" radius={0} shadow="xs" className="topbar"><div className="brand"><span className="brand-mark">C</span><div><h1>Castorice 剧本编辑器</h1><p>星穹铁道任务素材 · 剧本编排工作台</p></div></div><div className="topbar-actions"><Button variant={editorFocusMode ? "filled" : "light"} size="compact-sm" onClick={toggleEditorFocusMode}>{editorFocusMode ? "退出专注模式" : "专注模式"}</Button><div className={`save-indicator ${saveState}`} title="每 10 秒自动保存；按 Ctrl+S 可立即保存"><span />{!activeFile ? "未打开剧本" : saveState === "saving" ? "正在保存…" : saveState === "error" ? "保存失败" : dirty ? "等待自动保存" : "已保存到本地"}</div></div></Paper>
 			{error ? <div className="error-banner"><span>{error}</span><Button variant="subtle" color="red" size="compact-xs" onClick={() => setError("")}>关闭</Button></div> : null}
 			<main className="workspace">
 				<Paper component="section" shadow="sm" radius="md" className="source-pane">
 					<aside className="mission-sidebar">
-						<div className="pane-heading"><div><span className="eyebrow">只读资料</span><h2>任务库</h2></div><Badge variant="light" color="blue" size="sm">{missions.length}</Badge></div>
+						<div className="pane-heading"><div><span className="eyebrow">只读素材</span><h2>任务资料库</h2></div><Badge variant="light" color="blue" size="sm">{missions.length}</Badge></div>
 						<TextInput className="library-search" size="xs" radius="md" leftSection={<IconSearch size={14} />} placeholder="搜索任务、系列或地点" value={missionFilter} onChange={(event) => setMissionFilter(event.target.value)} />
 						<Select className="library-location" size="xs" radius="md" leftSection={<IconMapPin size={14} />} aria-label="按地点筛选" value={locationFilter} allowDeselect={false} onChange={(value) => setLocationFilter(value ?? "")} data={[{ value: "", label: "所有地点" }, ...missionLocations.map((location) => ({ value: location, label: location }))]} />
 						<div className="mission-list">{missionGroups.length ? missionGroups.map((locationGroup) => <section className="mission-location" key={locationGroup.location}>
@@ -1778,58 +1778,58 @@ function App() {
 					</aside>
 					<div className="source-preview">
 						{selectedMission ? <>
-							<header className="preview-header"><div><span className="eyebrow">{selectedMission.category} / {selectedMission.location}</span><h2>{selectedMission.name}</h2><p>{selectedMission.series}</p></div><div className="preview-actions"><Button variant="light" color="gray" size="xs" leftSection={<IconFilePlus size={14} />} disabled={!document || selectedSource.size === 0} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "end")}>添加到剧本结尾 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button><Button size="xs" leftSection={<IconCheck size={14} />} disabled={!document || selectedSource.size === 0 || !selectedNode} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "below")}>添加到选块下方 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button></div></header>
-							<div className="selection-toolbar"><Button variant="subtle" size="compact-xs" onClick={() => { setSelectedSource(new Set(sourcePaths.map(pathKey))); selectionAnchor.current = null; }}>全选</Button><Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSelectedSource(new Set()); selectionAnchor.current = null; }}>清空</Button><small>Shift 连选 · 双击父项选择全部子项</small><Badge variant="light" color="gray" size="xs">{missionDocument ? `${sourcePaths.length} 个可选节点` : "正在读取…"}</Badge></div>
+							<header className="preview-header"><div><span className="eyebrow">{selectedMission.category} / {selectedMission.location}</span><h2>{selectedMission.name}</h2><p>{selectedMission.series}</p></div><div className="preview-actions"><Button variant="light" color="gray" size="xs" leftSection={<IconFilePlus size={14} />} disabled={!document || selectedSource.size === 0} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "end")}>追加到剧本 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button><Button size="xs" leftSection={<IconCheck size={14} />} disabled={!document || selectedSource.size === 0 || !selectedNode} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "below")}>插入到所选内容后 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button></div></header>
+							<div className="selection-toolbar"><Button variant="subtle" size="compact-xs" onClick={() => { setSelectedSource(new Set(sourcePaths.map(pathKey))); selectionAnchor.current = null; }}>全选内容</Button><Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSelectedSource(new Set()); selectionAnchor.current = null; }}>清除选择</Button><small>Shift 连选 · 双击容器选择全部子项</small><Badge variant="light" color="gray" size="xs">{missionDocument ? `${sourcePaths.length} 个可选内容块` : "正在读取…"}</Badge></div>
 							<div className="source-cards">{missionDocument?.content.map((node, nodeIndex) => <SourceCard key={nodeIndex} node={node} path={[nodeIndex]} selected={selectedSource} onToggle={toggleSource} />)}</div>
-						</> : <div className="empty-state"><span>←</span><h2>选择一个任务</h2><p>任务原始 JSON 始终保持只读。选择段落后，可复制到右侧剧本中独立修改。</p></div>}
+						</> : <div className="empty-state"><span>←</span><h2>选择一个任务</h2><p>任务资料保持只读；选择所需内容后，可加入右侧剧本并独立编辑。</p></div>}
 					</div>
 				</Paper>
 				<Paper component="section" shadow="sm" radius="md" className="script-pane">
 					{document ? <div className={`script-editor ${titleNavigatorOpen ? "has-title-navigator" : ""}`}>
-						{titleNavigatorOpen ? <aside className="script-title-navigator"><header><span>标题导航</span><strong>{document.id} {document.title || "未命名剧本"}</strong><small>{scriptTitles.length} 个标题</small></header><nav>{scriptTitles.length ? scriptTitles.map((entry) => <button key={`${entry.blockId}-${entry.path.join("-")}`} className={selectedBlockId === entry.blockId && sameNumberPath(selectedNodePath, entry.path) ? "is-active" : ""} style={{ paddingLeft: `${12 + Math.min(entry.depth, 4) * 12}px` }} onClick={() => navigateToScriptTitle(entry)} title={entry.title}>{entry.title}</button>) : <p>当前剧本中没有标题 block</p>}</nav></aside> : null}
+						{titleNavigatorOpen ? <aside className="script-title-navigator"><header><span>章节目录</span><strong>{document.id} {document.title || "未命名剧本"}</strong><small>{scriptTitles.length} 个章节标题</small></header><nav>{scriptTitles.length ? scriptTitles.map((entry) => <button key={`${entry.blockId}-${entry.path.join("-")}`} className={selectedBlockId === entry.blockId && sameNumberPath(selectedNodePath, entry.path) ? "is-active" : ""} style={{ paddingLeft: `${12 + Math.min(entry.depth, 4) * 12}px` }} onClick={() => navigateToScriptTitle(entry)} title={entry.title}>{entry.title}</button>) : <p>当前剧本没有章节标题</p>}</nav></aside> : null}
 						<div className="script-editor-main">
-						<header className="script-header"><ActionIcon className="back-to-library" variant="subtle" color="gray" size="lg" aria-label="返回剧本列表" title="返回剧本列表" onClick={() => void closeScreenplay()}><IconArrowLeft size={19} /></ActionIcon><div className="script-title-fields"><div className="script-title-row"><strong>{document.id}</strong><BufferedInput className="title-input" placeholder="剧本标题" value={document.title} onValueChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} /></div><BufferedInput className="chapter-input" placeholder="篇章" value={document.chapter} onValueChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} /><div className="character-manager"><span>人物</span>{document.characters.visible.length ? document.characters.visible.map((character) => <button key={character} title="点击隐藏" onClick={() => setCharacterHidden(character, true)}>{character}</button>) : <em>未检测到对话人</em>}{document.characters.hidden.length ? <Menu position="bottom-start" shadow="md" withinPortal><Menu.Target><button className="hidden-character-trigger">隐藏 {document.characters.hidden.length}</button></Menu.Target><Menu.Dropdown>{document.characters.hidden.map((character) => <Menu.Item key={character} onClick={() => setCharacterHidden(character, false)}>{character} · 恢复显示</Menu.Item>)}</Menu.Dropdown></Menu> : null}</div></div><div className="file-actions"><span>{activeFile}</span><button className="danger-text" onClick={() => void deleteScreenplay()}>删除</button></div></header>
+						<header className="script-header"><ActionIcon className="back-to-library" variant="subtle" color="gray" size="lg" aria-label="返回剧本列表" title="返回剧本列表" onClick={() => void closeScreenplay()}><IconArrowLeft size={19} /></ActionIcon><div className="script-title-fields"><div className="script-title-row"><strong>{document.id}</strong><BufferedInput className="title-input" placeholder="剧本标题" value={document.title} onValueChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} /></div><BufferedInput className="chapter-input" placeholder="所属篇章（可选）" value={document.chapter} onValueChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} /><div className="character-manager"><span>出场人物</span>{document.characters.visible.length ? document.characters.visible.map((character) => <button key={character} title="从人物列表中隐藏" onClick={() => setCharacterHidden(character, true)}>{character}</button>) : <em>未识别到对话角色</em>}{document.characters.hidden.length ? <Menu position="bottom-start" shadow="md" withinPortal><Menu.Target><button className="hidden-character-trigger">已隐藏 {document.characters.hidden.length}</button></Menu.Target><Menu.Dropdown>{document.characters.hidden.map((character) => <Menu.Item key={character} onClick={() => setCharacterHidden(character, false)}>{character} · 恢复显示</Menu.Item>)}</Menu.Dropdown></Menu> : null}</div></div><div className="file-actions"><span>{activeFile}</span><button className="danger-text" onClick={() => void deleteScreenplay()}>删除剧本</button></div></header>
 						<div className={`block-toolbar ${multiSelectMode ? "is-multi-select" : ""}`}>
 							<div className="block-toolbar-actions toolbar-main-actions">
-								<Tooltip label={titleNavigatorOpen ? "关闭标题导航" : "打开标题导航"} withArrow><ActionIcon variant={titleNavigatorOpen ? "light" : "subtle"} color="blue" size="sm" aria-label={titleNavigatorOpen ? "关闭标题导航" : "打开标题导航"} aria-pressed={titleNavigatorOpen} onClick={() => setTitleNavigatorOpen((current) => !current)}><IconListTree size={16} /></ActionIcon></Tooltip>
+								<Tooltip label={titleNavigatorOpen ? "关闭章节目录" : "打开章节目录"} withArrow><ActionIcon variant={titleNavigatorOpen ? "light" : "subtle"} color="blue" size="sm" aria-label={titleNavigatorOpen ? "关闭章节目录" : "打开章节目录"} aria-pressed={titleNavigatorOpen} onClick={() => setTitleNavigatorOpen((current) => !current)}><IconListTree size={16} /></ActionIcon></Tooltip>
 								<span className="toolbar-divider" aria-hidden="true" />
-								<span className="toolbar-group-label">添加</span>
+								<span className="toolbar-group-label">插入</span>
 								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("dialogue")}>对话</Button>
 								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("narration")}>叙述</Button>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("section")}>标题</Button>
+								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("section")}>章节标题</Button>
 								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("divider")}>分割线</Button>
 								<Menu position="bottom-start" shadow="md" withinPortal>
-									<Menu.Target><Button variant="subtle" size="compact-sm">其他</Button></Menu.Target>
-									<Menu.Dropdown><Menu.Item onClick={() => insertScriptNode("text")}>添加文本</Menu.Item><Menu.Item onClick={() => insertScriptNode("note")}>添加注释</Menu.Item></Menu.Dropdown>
+									<Menu.Target><Button variant="subtle" size="compact-sm">更多</Button></Menu.Target>
+									<Menu.Dropdown><Menu.Item onClick={() => insertScriptNode("text")}>普通文本</Menu.Item><Menu.Item onClick={() => insertScriptNode("note")}>编辑注释</Menu.Item></Menu.Dropdown>
 								</Menu>
 								<span className="toolbar-divider" aria-hidden="true" />
-								<Button variant="subtle" size="compact-sm" onClick={() => setImportOpened(true)}>导入</Button>
+								<Button variant="subtle" size="compact-sm" onClick={() => setImportOpened(true)}>批量导入</Button>
 								<span className="toolbar-divider" aria-hidden="true" />
 								<span className="toolbar-group-label">图片</span>
-								<Button variant="subtle" size="compact-sm" onClick={() => void openImagePicker("add")}>添加图片</Button>
-								<Button variant="subtle" size="compact-sm" disabled={multiSelectMode || selectedNode?.type !== "image"} onClick={() => void openImagePicker("replace")}>更改图片</Button>
+								<Button variant="subtle" size="compact-sm" onClick={() => void openImagePicker("add")}>插入图片</Button>
+								<Button variant="subtle" size="compact-sm" disabled={multiSelectMode || selectedNode?.type !== "image"} onClick={() => void openImagePicker("replace")}>替换图片</Button>
 								<span className="toolbar-divider" aria-hidden="true" />
-								<Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || (selectedNode?.type !== "fold" && selectedNode?.type !== "message-thread")} onClick={dissolveSelectedFold}>解散</Button>
-								<Button variant="subtle" size="compact-sm" disabled={!canFoldSelection} onClick={foldSelectedNodes}>折叠</Button>
-								<Tooltip label="把折叠块转换为带副标题与手机持有者的短信会话" withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={convertSelectedFoldToMessageThread}>转换为短信</Button></Tooltip>
+								<Tooltip label="将折叠组拆回独立内容块" withArrow><Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || (selectedNode?.type !== "fold" && selectedNode?.type !== "message-thread")} onClick={dissolveSelectedFold}>拆散内容组</Button></Tooltip>
+								<Tooltip label="将选中的相邻内容组成可折叠区域" withArrow><Button variant="subtle" size="compact-sm" disabled={!canFoldSelection} onClick={foldSelectedNodes}>创建折叠组</Button></Tooltip>
+								<Tooltip label="将折叠组转换为带副标题和手机持有者的短信会话" withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={convertSelectedFoldToMessageThread}>转为短信会话</Button></Tooltip>
 								<span className="toolbar-divider" aria-hidden="true" />
-								<Tooltip label="仅能合并同级、相连且说话人相同的对话" withArrow><Button variant="subtle" size="compact-sm" disabled={!canMergeDialogues} onClick={mergeSelectedDialogues}>合并</Button></Tooltip>
-								<Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段（Ctrl+K）" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>分割</Button></Tooltip>
+								<Tooltip label="仅能合并同级、相连且说话人相同的对话" withArrow><Button variant="subtle" size="compact-sm" disabled={!canMergeDialogues} onClick={mergeSelectedDialogues}>合并对话</Button></Tooltip>
+								<Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段（Ctrl+K）" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>拆分对话</Button></Tooltip>
 								<span className="toolbar-divider" aria-hidden="true" />
-								<Tooltip label={activeScriptSelection.length > 1 ? `删除选中的 ${activeScriptSelection.length} 个 block` : "删除当前节点"} color="red" withArrow><Button variant="subtle" color="red" size="compact-sm" disabled={!activeScriptSelection.length} onClick={deleteSelectedNode}>删除</Button></Tooltip>
+								<Tooltip label={activeScriptSelection.length > 1 ? `删除选中的 ${activeScriptSelection.length} 个内容块` : "删除当前内容块"} color="red" withArrow><Button variant="subtle" color="red" size="compact-sm" disabled={!activeScriptSelection.length} onClick={deleteSelectedNode}>删除</Button></Tooltip>
 								<span className="toolbar-divider" aria-hidden="true" />
 								<Menu position="bottom-end" shadow="md" withinPortal>
-									<Menu.Target><Button variant={searchMode ? "light" : "subtle"} size="compact-sm">高级编辑</Button></Menu.Target>
-									<Menu.Dropdown><Menu.Item onClick={convertTrailblazerSpeakers}>主角说话人替换</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("gender")}>性别指代校对</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("trailblazer-reference")}>主角称谓检查</Menu.Item></Menu.Dropdown>
+									<Menu.Target><Button variant={searchMode ? "light" : "subtle"} size="compact-sm">批量工具</Button></Menu.Target>
+									<Menu.Dropdown><Menu.Item onClick={convertTrailblazerSpeakers}>统一主角名为“穹”</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("gender")}>检查性别指代</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("trailblazer-reference")}>查找主角称谓</Menu.Item></Menu.Dropdown>
 								</Menu>
 							</div>
-							{multiSelectMode ? <div className="toolbar-selection multi-selection-status"><Badge variant="filled" color="blue" size="sm">多选</Badge><span>{multiSelected.length ? `已选择 ${multiSelected.length} 个同级 block` : "点击 block 开始选择"} · Esc 退出</span></div> : !selectedNode ? <span className="toolbar-hint">按住 Shift 进入多选</span> : null}
+							{multiSelectMode ? <div className="toolbar-selection multi-selection-status"><Badge variant="filled" color="blue" size="sm">多选</Badge><span>{multiSelected.length ? `已选择 ${multiSelected.length} 个同级内容块` : "点击内容块开始选择"} · Esc 退出</span></div> : !selectedNode ? <span className="toolbar-hint">按住 Shift 进入多选</span> : null}
 						</div>
-						{searchMode ? <div className="script-search-bar"><strong>{searchMode === "gender" ? "性别指代校对" : "主角称谓检查"}</strong><span className="script-search-term">{activeSearchMatch ? `“${activeSearchMatch.term}”` : "没有找到匹配内容"}</span><span className="script-search-count">{searchMatches.length ? `${normalizedSearchIndex + 1} / ${searchMatches.length}` : "0 / 0"}</span><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(-1)}>上一个</Button><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(1)}>下一个</Button>{searchMode === "gender" ? <Button size="compact-xs" disabled={!activeSearchMatch?.replacement} onClick={replaceCurrentGenderMatch}>替换为“{activeSearchMatch?.replacement ?? "—"}”</Button> : null}<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); }}>关闭</Button></div> : null}
-						<div className="script-blocks viewer-style">{document.blocks.length ? document.blocks.map((block) => <ScriptBlockView key={block.id} block={block} selectedAddresses={activeScriptSelection} editableAddress={editableAddress} activeMatch={activeSearchMatch} onSelect={handleScriptSelect} onChange={(path, node) => updateBlockNode(block.id, path, node)} onDrop={moveScriptNode} onDialogueCursor={recordDialogueCursor} />) : <div className="empty-script"><span>＋</span><h3>这个剧本还是空的</h3><p>从左侧加入任务内容，或在上方创建一个空白节点。</p></div>}</div>
-						<footer className="script-status-bar">{multiSelectMode ? <><strong>多选</strong><span>已选择 {multiSelected.length} 个同级 block</span></> : selectedBlock && selectedNode ? <><strong>种类：{nodeLabel(selectedNode)}</strong><span className="script-status-source">来源：{scriptBlockSourceLabel(selectedBlock, selectedNodePath)}</span><Button className="script-status-source-button" variant="subtle" size="compact-xs" disabled={!selectedSourceMission} onClick={() => void openSelectedBlockSource()}>打开来源任务</Button></> : <span>未选择 block</span>}</footer>
+						{searchMode ? <div className="script-search-bar"><strong>{searchMode === "gender" ? "性别指代检查" : "主角称谓查找"}</strong><span className="script-search-term">{activeSearchMatch ? `“${activeSearchMatch.term}”` : "没有找到匹配内容"}</span><span className="script-search-count">{searchMatches.length ? `${normalizedSearchIndex + 1} / ${searchMatches.length}` : "0 / 0"}</span><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(-1)}>上一个</Button><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(1)}>下一个</Button>{searchMode === "gender" ? <Button size="compact-xs" disabled={!activeSearchMatch?.replacement} onClick={replaceCurrentGenderMatch}>替换为“{activeSearchMatch?.replacement ?? "—"}”</Button> : null}<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); }}>关闭</Button></div> : null}
+						<div className="script-blocks viewer-style">{document.blocks.length ? document.blocks.map((block) => <ScriptBlockView key={block.id} block={block} selectedAddresses={activeScriptSelection} editableAddress={editableAddress} activeMatch={activeSearchMatch} onSelect={handleScriptSelect} onChange={(path, node) => updateBlockNode(block.id, path, node)} onDrop={moveScriptNode} onDialogueCursor={recordDialogueCursor} />) : <div className="empty-script"><span>＋</span><h3>这个剧本还是空的</h3><p>从左侧加入任务内容，或通过上方工具栏插入内容。</p></div>}</div>
+						<footer className="script-status-bar">{multiSelectMode ? <><strong>多选模式</strong><span>已选择 {multiSelected.length} 个同级内容块</span></> : selectedBlock && selectedNode ? <><strong>类型：{nodeLabel(selectedNode)}</strong><span className="script-status-source">来源：{scriptBlockSourceLabel(selectedBlock, selectedNodePath)}</span><Button className="script-status-source-button" variant="subtle" size="compact-xs" disabled={!selectedSourceMission} onClick={() => void openSelectedBlockSource()}>转到来源任务</Button></> : <span>未选择内容</span>}</footer>
 						</div>
-					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无显示人物"}</small><div className="screenplay-list-metrics"><span>{item.characterCount.toLocaleString()} 字</span></div></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建”创建第一个剧本。</p></div>}</div></div>}
+					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本库</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建剧本</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无出场人物"}</small><div className="screenplay-list-metrics"><span>{item.characterCount.toLocaleString()} 字</span></div></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建剧本”开始创作。</p></div>}</div></div>}
 				</Paper>
 			</main>
 		</div>
