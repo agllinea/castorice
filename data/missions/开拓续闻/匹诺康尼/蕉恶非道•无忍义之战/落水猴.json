@@ -117,77 +117,78 @@
       "text": "收到丹恒的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "丹恒",
-      "subtitle": "智库相关找我"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "你在匹诺康尼？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "波提欧",
-      "contentType": "text",
-      "text": "看见我在前台的留言了？"
-    },
-    {
-      "type": "message-system",
-      "text": "消息发送失败。"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "波提欧",
-      "contentType": "text",
-      "text": "？"
-    },
-    {
-      "type": "message-system",
-      "text": "_消息发送失败。"
-    },
-    {
-      "type": "message-system",
-      "text": "——以上是历史消息——"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "遇到了自称巡海游侠的人，需要你确认下身份"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "波提欧",
-      "contentType": "text",
-      "text": "宝贝的"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "波提欧",
-      "contentType": "text",
-      "text": "信号可算恢复了，这鬼地方"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "波提欧",
-      "contentType": "text",
-      "text": "你们见到乱破了？"
-    },
-    {
-      "type": "message-system",
-      "text": "消息发送失败。"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "智库相关找我",
+      "owner": "波提欧",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "你在匹诺康尼？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "波提欧",
+          "contentType": "text",
+          "text": "看见我在前台的留言了？"
+        },
+        {
+          "type": "message-system",
+          "text": "消息发送失败。"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "波提欧",
+          "contentType": "text",
+          "text": "？"
+        },
+        {
+          "type": "message-system",
+          "text": "_消息发送失败。"
+        },
+        {
+          "type": "message-system",
+          "text": "——以上是历史消息——"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "遇到了自称巡海游侠的人，需要你确认下身份"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "波提欧",
+          "contentType": "text",
+          "text": "宝贝的"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "波提欧",
+          "contentType": "text",
+          "text": "信号可算恢复了，这鬼地方"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "波提欧",
+          "contentType": "text",
+          "text": "你们见到乱破了？"
+        },
+        {
+          "type": "message-system",
+          "text": "消息发送失败。"
+        }
+      ]
     },
     {
       "type": "divider"

@@ -1059,8 +1059,11 @@
       "text": "你们似乎找到了什么…"
     },
     {
-      "type": "text",
-      "text": "250px"
+      "type": "image",
+      "file": "开拓任务-已故去的必如雪崩再来-CG.png",
+      "displayWidth": "250px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-已故去的必如雪崩再来-CG.png"
     },
     {
       "type": "dialogue",

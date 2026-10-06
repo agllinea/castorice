@@ -3045,163 +3045,164 @@
       "location": "二相乐园-坠星的摇篮"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "二相村通网",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "赞美吧，欢呼吧，我搞定了！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "狼说：要有通信！于是二相乐园恢复通网了！"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "你可算来了。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你真是来得及时啊！"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "狼尊，想你了。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我就说嘛，这种关键时刻怎么能少得了你。"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message-system",
-      "text": "【银狼将丹恒、星期日、三月七、瓦尔特、真珠、刃拉入了群聊】"
-    },
-    {
-      "type": "message-system",
-      "text": "【银狼将姬子拉入了群聊】"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "列车已经救援姬子女士脱困，正在往你方向赶来。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "开拓者，再坚持一会儿，我们这就来和你会合！"
-    },
-    {
-      "type": "message-system",
-      "text": "【银狼将隆介拉入了群聊】"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "隆介",
-      "contentType": "text",
-      "text": "……？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "【视频截图：姬子脱困】"
-    },
-    {
-      "type": "fold",
-      "title": "【视频截图：姬子脱困】",
+      "subtitle": "",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {
-          "type": "dialogue",
-          "speaker": "三月七",
-          "text": "姬子姐就在那儿！"
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "赞美吧，欢呼吧，我搞定了！"
         },
         {
-          "type": "dialogue",
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "狼说：要有通信！于是二相乐园恢复通网了！"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "你可算来了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你真是来得及时啊！"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "狼尊，想你了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我就说嘛，这种关键时刻怎么能少得了你。"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "message-system",
+          "text": "【银狼将丹恒、星期日、三月七、瓦尔特、真珠、刃拉入了群聊】"
+        },
+        {
+          "type": "message-system",
+          "text": "【银狼将姬子拉入了群聊】"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "列车已经救援姬子女士脱困，正在往你方向赶来。"
+        },
+        {
+          "type": "message",
+          "side": "left",
           "speaker": "姬子",
-          "text": "诸位，我看见你们了！"
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "@隆介 混球，看到了吗？你的计划破产了！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "顺带告诉你一声，我把你的乐园养老保险账户注销了。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "隆介",
-      "contentType": "text",
-      "text": "……"
-    },
-    {
-      "type": "message-system",
-      "text": "【银狼将隆介踢出了群聊】"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "太好了！",
-          "content": []
+          "contentType": "text",
+          "text": "开拓者，再坚持一会儿，我们这就来和你会合！"
         },
         {
-          "id": 2,
-          "text": "朋友们，我来打头阵！",
-          "content": []
+          "type": "message-system",
+          "text": "【银狼将隆介拉入了群聊】"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "隆介",
+          "contentType": "text",
+          "text": "……？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "【视频截图：姬子脱困】"
+        },
+        {
+          "type": "fold",
+          "title": "【视频截图：姬子脱困】",
+          "collapsed": false,
+          "content": [
+            {
+              "type": "dialogue",
+              "speaker": "三月七",
+              "text": "姬子姐就在那儿！"
+            },
+            {
+              "type": "dialogue",
+              "speaker": "姬子",
+              "text": "诸位，我看见你们了！"
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "@隆介 混球，看到了吗？你的计划破产了！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "顺带告诉你一声，我把你的乐园养老保险账户注销了。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "隆介",
+          "contentType": "text",
+          "text": "……"
+        },
+        {
+          "type": "message-system",
+          "text": "【银狼将隆介踢出了群聊】"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "太好了！",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "朋友们，我来打头阵！",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我已经迫不及待准备和你们一起痛揍混蛋老骰了！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我已经迫不及待准备和你们一起痛揍混蛋老骰了！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -5139,189 +5140,190 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "？？？",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "哈喽，主角"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "如果你收到这条定时短信，说明我的计划一定又又又出现了意外"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "当然，也不排除，你已经被星核炸上天，此时此刻，看到这条信息的是未来的我"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "但我猜，你的手机应该没这么好的质量"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "归寂？是你？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "哈喽，主角"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "如果你收到这条定时短信，说明我的计划一定又又又出现了意外"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "当然，也不排除，你已经被星核炸上天，此时此刻，看到这条信息的是未来的我"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "但我猜，你的手机应该没这么好的质量"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "归寂？怎么又是你？"
+              "id": 1,
+              "text": "归寂？是你？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "归寂？怎么又是你？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "别想了，你被打败了！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你的计划落空了，我们把你打败了！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "别想了，你被打败了！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你的计划落空了，我们把你打败了！"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message-system",
-      "text": "【您联络的对象为空号，消息发送失败】"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "老实说，我并不抗拒这个剧情发展"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "相反，我很期待你们的胜利"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "这或许能证明我是错的"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "前提是，你们能通关这场游戏"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "无论赢的是谁，祂都会醒过来，把咱们一口吞掉"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message-system",
+          "text": "【您联络的对象为空号，消息发送失败】"
+        },
         {
-          "id": 1,
-          "text": "为什么要这么做？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "老实说，我并不抗拒这个剧情发展"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "相反，我很期待你们的胜利"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "这或许能证明我是错的"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "前提是，你们能通关这场游戏"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "无论赢的是谁，祂都会醒过来，把咱们一口吞掉"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "虽然你收不到信息，但…为什么要这么做？"
+              "id": 1,
+              "text": "为什么要这么做？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "虽然你收不到信息，但…为什么要这么做？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你知道我想问什么",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你一定猜得到我想问什么"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你知道我想问什么",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你一定猜得到我想问什么"
-            }
-          ]
+          "type": "message-system",
+          "text": "【您联络的对象为空号，消息发送失败】"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "哎呀…为什么要这么做呢？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "既然阿哈躲在幕后，对世界的腐烂不管不问，那就由我代而为之，向宇宙发起挑战"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "而现在，新的挑战名为：打败复苏的「贪饕」"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "是一位英雄自毁灭中诞生，历经挑战、将真正的欢愉带回世间"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "还是野兽完成复仇，让欢愉在沦落至疯狂前迎来有尊严的灭亡"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "主角，你能为这个笑话，撰写更好的结局吗？"
         }
       ]
-    },
-    {
-      "type": "message-system",
-      "text": "【您联络的对象为空号，消息发送失败】"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "哎呀…为什么要这么做呢？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "既然阿哈躲在幕后，对世界的腐烂不管不问，那就由我代而为之，向宇宙发起挑战"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "而现在，新的挑战名为：打败复苏的「贪饕」"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "是一位英雄自毁灭中诞生，历经挑战、将真正的欢愉带回世间"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "还是野兽完成复仇，让欢愉在沦落至疯狂前迎来有尊严的灭亡"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "主角，你能为这个笑话，撰写更好的结局吗？"
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

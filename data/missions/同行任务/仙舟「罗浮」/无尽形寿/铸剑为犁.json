@@ -125,215 +125,220 @@
       "text": "收到云璃的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "云璃",
-      "subtitle": "(´・ω・`)打吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "看到三月七了吗？她没有按时来练剑"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "(´・ω・`)打吗？",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "为啥不直接发给她？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "看到三月七了吗？她没有按时来练剑"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你有给她发信息吗？我也没见着她"
+              "id": 1,
+              "text": "为啥不直接发给她？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你有给她发信息吗？我也没见着她"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "云璃",
+                  "contentType": "text",
+                  "text": "她不回消息"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "云璃",
-              "contentType": "text",
-              "text": "她不回消息"
+              "id": 2,
+              "text": "我正打算找她…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我正打算去找她，换句话说，我也还没见着她"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "云璃",
+                  "contentType": "text",
+                  "text": "哦"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "三月七是谁？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "三月七？我们这儿从来没有一个叫三月七的人啊？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "云璃",
+                  "contentType": "text",
+                  "text": "帮她逃课是吧？老铁还挺沉的，要不要你代她学一节？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "云璃",
+                  "contentType": "sticker",
+                  "sticker": "17-04",
+                  "file": "聊天表情-17-04.png",
+                  "asset": "assets/sr-images/聊天表情-17-04.png"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "免了！我没看见她"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "sticker",
+                  "sticker": "07-04",
+                  "file": "聊天表情-07-04.png",
+                  "asset": "assets/sr-images/聊天表情-07-04.png"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我正打算找她…",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "唉，找不着三月七，我只能找她的监护人"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "就是你"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我正打算去找她，换句话说，我也还没见着她"
+              "id": 1,
+              "text": "我不是她的监护人",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "首先声明一点，我不是三月的监护人"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你可以去找杨叔和姬子小姐，再不济，还可以找丹恒"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "云璃",
+                  "contentType": "text",
+                  "text": "人名太多了，记不住"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "云璃",
-              "contentType": "text",
-              "text": "哦"
+              "id": 2,
+              "text": "找家长可没什么用",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "孩子不努力，找家长也没用呀"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "再说了，三月她什么时候把我的话听进去过"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "云璃",
+                  "contentType": "text",
+                  "text": "确实，爷爷一般会把来告状的人统统赶出去…"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 3,
-          "text": "三月七是谁？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "三月七？我们这儿从来没有一个叫三月七的人啊？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "云璃",
-              "contentType": "text",
-              "text": "帮她逃课是吧？老铁还挺沉的，要不要你代她学一节？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "云璃",
-              "contentType": "text",
-              "text": "17-04"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "免了！我没看见她"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "07-04"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "唉，我也是受命指导她学剑"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "她逃得了课，我逃不了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "开拓者，你家孩子这情况，咱们得聊聊"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "这样，你来找我，我在金人巷口"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "云璃",
+          "contentType": "text",
+          "text": "等你"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "唉，找不着三月七，我只能找她的监护人"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "就是你"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "我不是她的监护人",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "首先声明一点，我不是三月的监护人"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你可以去找杨叔和姬子小姐，再不济，还可以找丹恒"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "云璃",
-              "contentType": "text",
-              "text": "人名太多了，记不住"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "找家长可没什么用",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "孩子不努力，找家长也没用呀"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "再说了，三月她什么时候把我的话听进去过"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "云璃",
-              "contentType": "text",
-              "text": "确实，爷爷一般会把来告状的人统统赶出去…"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "唉，我也是受命指导她学剑"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "她逃得了课，我逃不了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "开拓者，你家孩子这情况，咱们得聊聊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "这样，你来找我，我在金人巷口"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "云璃",
-      "contentType": "text",
-      "text": "等你"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2336,82 +2341,83 @@
       "text": "打开与公输师傅的聊天窗口"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "公输师傅",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "公输师傅，有件事想跟您招呼一声"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "怀炎将军将一柄叫做孤云的剑赠给了罗浮"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "你放心吧！怀炎将军嘱托过了。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "对了，老夫听学徒们说一个小姑娘提着剑就闯进了工造司。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "那是怀炎将军孙女吧，到底是为了找老夫聊天还是打劫？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "她和我约好了，在确认情况前，不会对孤云出手。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "什么？！她还要偷剑？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "真是吓煞我也！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "纯美骑士方才将宝剑护送至工造司，现已保管在武库中，绝无半点差池。你放心吧。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "公输师傅",
-      "contentType": "text",
-      "text": "等有空了，老夫倒要听听那小妮子亲口讲讲为何偷剑！"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "公输师傅，有件事想跟您招呼一声"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "怀炎将军将一柄叫做孤云的剑赠给了罗浮"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "你放心吧！怀炎将军嘱托过了。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "对了，老夫听学徒们说一个小姑娘提着剑就闯进了工造司。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "那是怀炎将军孙女吧，到底是为了找老夫聊天还是打劫？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "她和我约好了，在确认情况前，不会对孤云出手。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "什么？！她还要偷剑？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "真是吓煞我也！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "纯美骑士方才将宝剑护送至工造司，现已保管在武库中，绝无半点差池。你放心吧。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "公输师傅",
+          "contentType": "text",
+          "text": "等有空了，老夫倒要听听那小妮子亲口讲讲为何偷剑！"
+        }
+      ]
     },
     {
       "type": "divider"
@@ -2486,160 +2492,161 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "大毫",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "开拓者在吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "能否请你配合一下我们的工作，来工造司跑一趟？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "怎么了？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "开拓者在吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "能否请你配合一下我们的工作，来工造司跑一趟？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "发生什么事了？"
+              "id": 1,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "发生什么事了？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "长话短说，工造司昨天收到了一柄怀炎将军赠出的宝剑，但今天察看时，却发现剑不翼而飞了。"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "长话短说，工造司昨天收到了一柄怀炎将军赠出的宝剑，但今天察看时，却发现剑不翼而飞了。"
+              "id": 2,
+              "text": "剑出问题了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "该不会是那把剑出了什么问题吧？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "好家伙，我还一个字没说呢，你怎么全知道了？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "是了，工造司报告说昨日收到了一柄怀炎将军赠出的宝剑，但今天察看时，却发现剑不翼而飞了。"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "剑出问题了？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "该不会是那把剑出了什么问题吧？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "好家伙，我还一个字没说呢，你怎么全知道了？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "是了，工造司报告说昨日收到了一柄怀炎将军赠出的宝剑，但今天察看时，却发现剑不翼而飞了。"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "总之，地衡司正式立案调查，对相关人等进行例行问讯。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "总之，地衡司正式立案调查，对相关人等进行例行问讯。"
+        },
         {
-          "id": 1,
-          "text": "你觉得我有嫌疑？",
-          "content": [
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "所以我成嫌疑人了吗？"
+              "id": 1,
+              "text": "你觉得我有嫌疑？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "所以我成嫌疑人了吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "嗐，大兄弟/小妹妹，一次例行问话而已。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "不过，你昨天参与了司辰宫的赠剑仪式，还有匠人目击你在工造司出现过。"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "嗐，大兄弟/小妹妹，一次例行问话而已。"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "不过，你昨天参与了司辰宫的赠剑仪式，还有匠人目击你在工造司出现过。"
+              "id": 2,
+              "text": "我昨天特意叮嘱了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "昨天还叮嘱公输师傅，让他好好保管，他知道吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "他就是报案人。"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我昨天特意叮嘱了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "昨天还叮嘱公输师傅，让他好好保管，他知道吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "他就是报案人。"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "总之呢，只要是昨天参与过赠剑仪式，且没有明确不在场证明的，都有嫌疑。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "匠人们还提到昨天有个小姑娘提剑闯进工造司，她的嫌疑最大。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "闲话不说了，我在工造司等你。"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "总之呢，只要是昨天参与过赠剑仪式，且没有明确不在场证明的，都有嫌疑。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "匠人们还提到昨天有个小姑娘提剑闯进工造司，她的嫌疑最大。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "闲话不说了，我在工造司等你。"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

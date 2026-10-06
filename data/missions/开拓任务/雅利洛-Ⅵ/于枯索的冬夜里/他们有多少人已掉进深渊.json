@@ -503,103 +503,106 @@
       "location": ""
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "image",
-      "image": "短信-星穹列车一家人-遗器.png"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "拿到了奇怪的东西…"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "遗器。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "遗器"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "遗器"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "遗器"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "谢谢"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "那遗器究竟是什么呢！？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "一种数据流的聚合物，普遍认为它与星核和裂界化现象有关"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "裂界侵蚀的物体，其数据被裂界保存后再次构造，就是所谓的遗器"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "谢谢"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "那遗器究竟是什么呢！？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "…你可以去问问黑塔，她是遗器研究领域的专家"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "image",
+          "image": "短信-星穹列车一家人-遗器.png",
+          "file": "短信-星穹列车一家人-遗器.png",
+          "asset": "assets/sr-images/短信-星穹列车一家人-遗器.png"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "拿到了奇怪的东西…"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "遗器。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "遗器"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "遗器"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "遗器"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "谢谢"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "那遗器究竟是什么呢！？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "一种数据流的聚合物，普遍认为它与星核和裂界化现象有关"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "裂界侵蚀的物体，其数据被裂界保存后再次构造，就是所谓的遗器"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "谢谢"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "那遗器究竟是什么呢！？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "…你可以去问问黑塔，她是遗器研究领域的专家"
+        }
+      ]
     },
     {
       "type": "fold",

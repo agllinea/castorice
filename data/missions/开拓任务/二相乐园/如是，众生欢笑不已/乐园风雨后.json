@@ -218,7 +218,8 @@
       "type": "image",
       "file": "开拓任务-乐园风雨后CG1.png",
       "displayWidth": "810px",
-      "fullWidth": "1440px"
+      "fullWidth": "1440px",
+      "asset": "assets/sr-images/开拓任务-乐园风雨后CG1.png"
     },
     {
       "type": "dialogue",
@@ -657,58 +658,59 @@
       "text": "记得早点回来。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "？？？",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "绯英",
-      "contentType": "text",
-      "text": "愿力的海潮平息了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "绯英",
-      "contentType": "text",
-      "text": "我没有看错，你又完成了承诺"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "绯英",
-      "contentType": "text",
-      "text": "现在，轮到我向你求助了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "绯英",
-      "contentType": "text",
-      "text": "我们在绘世学院的上学路上见面吧？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "好，等我。",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "绯英",
+          "contentType": "text",
+          "text": "愿力的海潮平息了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "绯英",
+          "contentType": "text",
+          "text": "我没有看错，你又完成了承诺"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "绯英",
+          "contentType": "text",
+          "text": "现在，轮到我向你求助了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "绯英",
+          "contentType": "text",
+          "text": "我们在绘世学院的上学路上见面吧？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "好，等我。",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "等我。"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "等我。"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"
@@ -1046,7 +1048,8 @@
       "type": "image",
       "file": "开拓任务-乐园风雨后CG2.png",
       "displayWidth": "810px",
-      "fullWidth": "1440px"
+      "fullWidth": "1440px",
+      "asset": "assets/sr-images/开拓任务-乐园风雨后CG2.png"
     },
     {
       "type": "dialogue",

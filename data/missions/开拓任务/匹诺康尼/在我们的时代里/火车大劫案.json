@@ -196,7 +196,8 @@
       "type": "image",
       "file": "开拓任务-火车大劫案-结盟玉兆.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-火车大劫案-结盟玉兆.png"
     },
     {
       "type": "dialogue",

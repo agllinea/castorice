@@ -261,70 +261,71 @@
       "text": "你收到了列车组的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "看来是时候回一趟现实了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "来我的房间集合吧"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "遇到了一点麻烦…",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "看来是时候回一趟现实了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "来我的房间集合吧"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "遇到了一点麻烦…",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "遇到了一点麻烦…"
+        },
+        {
+          "type": "message-system",
+          "text": "（信息发送失败）"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "咦…",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "咦…"
+        },
+        {
+          "type": "message-system",
+          "text": "（信息发送失败）"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "遇到了一点麻烦…"
-    },
-    {
-      "type": "message-system",
-      "text": "（信息发送失败）"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "咦…",
-          "content": []
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "咦…"
-    },
-    {
-      "type": "message-system",
-      "text": "（信息发送失败）"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

@@ -258,72 +258,73 @@
       ]
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "青雀",
-      "subtitle": "工作可以，别耽误我打牌"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你那边情况还好吗？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "先不要进太卜司，那儿可能有危险"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "青雀",
-      "contentType": "text",
-      "text": "？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "青雀",
-      "contentType": "text",
-      "text": "你多心了，我当时看见这么个情况，就左转出门发帖了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "青雀",
-      "contentType": "text",
-      "text": "所以是出什么事了，为什么大家看着都有点消极怠工的意思？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "青雀，你一定要看住门，别让任何人进入太卜司，也别让任何人出去"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "注意安全，我们马上赶到"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "青雀",
-      "contentType": "text",
-      "text": "明白，这下我真成掌门人了",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "工作可以，别耽误我打牌",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你那边情况还好吗？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "先不要进太卜司，那儿可能有危险"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "青雀",
+          "contentType": "text",
+          "text": "？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "青雀",
+          "contentType": "text",
+          "text": "你多心了，我当时看见这么个情况，就左转出门发帖了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "青雀",
+          "contentType": "text",
+          "text": "所以是出什么事了，为什么大家看着都有点消极怠工的意思？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "青雀，你一定要看住门，别让任何人进入太卜司，也别让任何人出去"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "注意安全，我们马上赶到"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "青雀",
+          "contentType": "text",
+          "text": "明白，这下我真成掌门人了",
+          "acknowledged": true
+        }
+      ]
     }
   ],
   "warnings": []

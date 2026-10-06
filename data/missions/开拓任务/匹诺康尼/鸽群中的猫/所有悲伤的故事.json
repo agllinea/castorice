@@ -152,7 +152,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-CG.png"
     },
     {
       "type": "dialogue",
@@ -795,7 +796,8 @@
       "type": "image",
       "file": "基石-催讨黄玉.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/基石-催讨黄玉.png"
     },
     {
       "type": "dialogue",
@@ -826,7 +828,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-基石回想.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-基石回想.png"
     },
     {
       "type": "dialogue",
@@ -842,7 +845,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-回想2.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-回想2.png"
     },
     {
       "type": "dialogue",
@@ -863,7 +867,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-回想3.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-回想3.png"
     },
     {
       "type": "dialogue",
@@ -909,7 +914,8 @@
       "type": "image",
       "file": "基石-典贷翡翠.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/基石-典贷翡翠.png"
     },
     {
       "type": "dialogue",
@@ -950,7 +956,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-基石回想.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-基石回想.png"
     },
     {
       "type": "dialogue",
@@ -991,7 +998,8 @@
       "type": "image",
       "file": "基石-诡弈砂金.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/基石-诡弈砂金.png"
     },
     {
       "type": "dialogue",
@@ -1270,7 +1278,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-镣铐.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-镣铐.png"
     },
     {
       "type": "dialogue",
@@ -1281,7 +1290,8 @@
       "type": "image",
       "file": "开拓任务-人间天堂-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-人间天堂-CG.png"
     },
     {
       "type": "dialogue",
@@ -1420,7 +1430,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-护身符.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-护身符.png"
     },
     {
       "type": "dialogue",
@@ -1431,7 +1442,8 @@
       "type": "image",
       "file": "开拓任务-双重赔偿-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-双重赔偿-CG.png"
     },
     {
       "type": "dialogue",
@@ -2130,7 +2142,8 @@
       "type": "image",
       "file": "开拓任务-所有悲伤的故事-CG2.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-所有悲伤的故事-CG2.png"
     },
     {
       "type": "dialogue",

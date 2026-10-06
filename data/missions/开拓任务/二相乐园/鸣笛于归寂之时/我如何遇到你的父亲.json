@@ -1119,7 +1119,8 @@
       "type": "image",
       "file": "开拓任务-我如何遇到你的父亲CG1.png",
       "displayWidth": "810px",
-      "fullWidth": "1440px"
+      "fullWidth": "1440px",
+      "asset": "assets/sr-images/开拓任务-我如何遇到你的父亲CG1.png"
     },
     {
       "type": "dialogue",

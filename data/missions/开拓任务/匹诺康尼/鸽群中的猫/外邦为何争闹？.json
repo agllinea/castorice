@@ -1947,72 +1947,73 @@
       "text": "此行验证了不少先前的猜想，值得我们再仔细消化下。开拓者，给瓦尔特发条消息，问问他那边情况如何吧。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "询问瓦尔特状况。",
-          "content": []
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "询问瓦尔特状况。",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "瓦尔特先生，我们这边调查告一段落"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你那边进展如何？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "小有收获。我和巡海游侠一致认为，家族可能隐瞒了极其重要的信息。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "我们现在正在前往朝露公馆。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "是那个黄泉吗？砂金不是说她很危险……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "我确认过了，她站在我们这边。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "不必担心。请大家稍作等候，一旦有发现，我会及时同步。"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "瓦尔特先生，我们这边调查告一段落"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你那边进展如何？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "小有收获。我和巡海游侠一致认为，家族可能隐瞒了极其重要的信息。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "我们现在正在前往朝露公馆。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "是那个黄泉吗？砂金不是说她很危险……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "我确认过了，她站在我们这边。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "不必担心。请大家稍作等候，一旦有发现，我会及时同步。"
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

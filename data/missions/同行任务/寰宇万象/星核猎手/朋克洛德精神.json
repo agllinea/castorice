@@ -99,8 +99,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：阿兰\n佩佩紧急联系人",
+      "type": "message-thread",
+      "title": "阿兰",
+      "subtitle": "佩佩紧急联系人",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {
@@ -3869,8 +3871,11 @@
       "text": "你清除了涂鸦，看着墙上的图案慢慢溶解、消失…至此，便是结束了。"
     },
     {
-      "type": "text",
-      "text": "600px"
+      "type": "image",
+      "file": "同行任务-朋克洛德精神-CG.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-朋克洛德精神-CG.png"
     },
     {
       "type": "dialogue",

@@ -1338,201 +1338,202 @@
       ]
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "捉鬼小队",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "好累啊",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "素裳小姐太厉害了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "我感觉那位彦卿少年也没有施展全力",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "像是经历过很多次战斗才锻炼出的定力",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "不懂你们习武之人的事情",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "我好困啊，小桂子，你先说账号的事吧",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "收到了好多粉丝寄来的礼物",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "好耶",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "好耶",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "好累啊",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "素裳小姐太厉害了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "我感觉那位彦卿少年也没有施展全力",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "像是经历过很多次战斗才锻炼出的定力",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "不懂你们习武之人的事情",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "我好困啊，小桂子，你先说账号的事吧",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "收到了好多粉丝寄来的礼物",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
           "text": "好耶",
-          "content": [
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "好耶",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "好耶"
+              "id": 1,
+              "text": "好耶",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "好耶"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "我偏要歪楼",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我偏要在这里歪楼"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "然后我再来"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "好耶"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我偏要歪楼",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我偏要在这里歪楼"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "然后我再来"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "好耶"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "素裳，你的好耶呢？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "？？？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "@素裳",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "素裳小姐累坏了，也许现在已经睡着了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "懂了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "此番美景，只有我们三个共赏了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "共赏"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "锵锵！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "分享链接",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "素裳，你的好耶呢？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "？？？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "@素裳",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "素裳小姐累坏了，也许现在已经睡着了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "懂了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "此番美景，只有我们三个共赏了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "共赏"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "锵锵！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "分享链接",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

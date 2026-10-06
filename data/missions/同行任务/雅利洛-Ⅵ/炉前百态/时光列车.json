@@ -79,8 +79,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：希露瓦\n缺觉，缺灵感",
+      "type": "message-thread",
+      "title": "希露瓦",
+      "subtitle": "缺觉，缺灵感",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {
@@ -663,8 +665,10 @@
               "text": "（发个短信给姬子小姐吧……）"
             },
             {
-              "type": "fold",
-              "title": "短信：姬子\n可以不喝水，但不能没咖啡",
+              "type": "message-thread",
+              "title": "姬子",
+              "subtitle": "可以不喝水，但不能没咖啡",
+              "owner": "开拓者",
               "collapsed": true,
               "content": [
                 {
@@ -894,8 +898,10 @@
               "text": "（发个短信给瓦尔特先生吧……）"
             },
             {
-              "type": "fold",
-              "title": "短信：瓦尔特\n列车组各位，随时保持联系",
+              "type": "message-thread",
+              "title": "瓦尔特",
+              "subtitle": "列车组各位，随时保持联系",
+              "owner": "开拓者",
               "collapsed": true,
               "content": [
                 {
@@ -1112,8 +1118,10 @@
               "text": "（发个短信给帕姆吧……）"
             },
             {
-              "type": "fold",
-              "title": "短信：帕姆\n开拓奖励找我！以后会优化",
+              "type": "message-thread",
+              "title": "帕姆",
+              "subtitle": "开拓奖励找我！以后会优化",
+              "owner": "开拓者",
               "collapsed": true,
               "content": [
                 {
@@ -1418,8 +1426,10 @@
                   "type": "message",
                   "side": "left",
                   "speaker": "帕姆",
-                  "contentType": "text",
-                  "text": "07-02"
+                  "contentType": "sticker",
+                  "sticker": "07-02",
+                  "file": "聊天表情-07-02.png",
+                  "asset": "assets/sr-images/聊天表情-07-02.png"
                 }
               ]
             }

@@ -48,6 +48,7 @@
 		"fetch:sr-history": "node scripts/fetch-sr-history.js",
 		"fetch:mission-index": "node scripts/fetch-mission-index.js",
 		"fetch:missions": "node scripts/fetch-all-missions.js",
+		"sync:sr-images": "node scripts/sync-sr-images.js",
 		"migrate:screenplays": "node scripts/migrate-screenplays-v2.js",
 		"generate:missions": "node scripts/fetch-mission-index.js",
 		"generate:missions:legacy": "node scripts/generate-missions-index.js",

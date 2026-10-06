@@ -512,108 +512,109 @@
       "text": "要不干脆直接点，发消息问问她在哪吧？她看上去像是喜欢有话直说的类型。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "托帕、三月七、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "托帕小姐，你在忙吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "人工智能回复",
-      "contentType": "text",
-      "text": "您好，托帕总监在忙，暂时无法回复您的消息，请稍候。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "自动回复？她工作时间真的不回消息啊……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "人工智能回复",
-      "contentType": "text",
-      "text": "您好，托帕总监在忙，暂时无法回复您的消息，请稍候。",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "智能回复，告诉我…",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "托帕小姐，你在忙吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "人工智能回复",
+          "contentType": "text",
+          "text": "您好，托帕总监在忙，暂时无法回复您的消息，请稍候。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "自动回复？她工作时间真的不回消息啊……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "人工智能回复",
+          "contentType": "text",
+          "text": "您好，托帕总监在忙，暂时无法回复您的消息，请稍候。",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "能不能告诉我托帕去哪了"
+              "id": 1,
+              "text": "智能回复，告诉我…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "能不能告诉我托帕去哪了"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "别复读了！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "别复读了，快告诉我托帕去哪了"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "别复读了！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "别复读了，快告诉我托帕去哪了"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "人工智能回复",
+          "contentType": "text",
+          "text": "您好，正在为您查询托帕总监的行程。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "人工智能回复",
+          "contentType": "text",
+          "text": "托帕总监目前正在「雅利洛-Ⅵ」「贝洛伯格」「上层区」「历史文化博物馆」进行视察工作。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "这家伙还真挺智能的，谢啦！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "人工智能回复",
+          "contentType": "text",
+          "text": "您好，托帕总监在忙，暂时无法回复您的消息，请稍候。",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "人工智能回复",
-      "contentType": "text",
-      "text": "您好，正在为您查询托帕总监的行程。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "人工智能回复",
-      "contentType": "text",
-      "text": "托帕总监目前正在「雅利洛-Ⅵ」「贝洛伯格」「上层区」「历史文化博物馆」进行视察工作。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "这家伙还真挺智能的，谢啦！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "人工智能回复",
-      "contentType": "text",
-      "text": "您好，托帕总监在忙，暂时无法回复您的消息，请稍候。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -1108,122 +1109,123 @@
       "text": "…有人给你发消息了？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "希儿",
-      "subtitle": "有话直说！！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "开拓者，听说你回贝洛伯格了？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "有空的话回个消息，很急",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "发生什么了吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "一群奇怪的家伙突然跑来下层，把大矿区霸占了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "我问了布洛妮娅，她让我先不要跟那些家伙起冲突",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "有话直说！！",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "听她的，别惹他们",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "开拓者，听说你回贝洛伯格了？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "有空的话回个消息，很急",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "发生什么了吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "一群奇怪的家伙突然跑来下层，把大矿区霸占了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "我问了布洛妮娅，她让我先不要跟那些家伙起冲突",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "布洛妮娅说的对，最好别惹他们"
+              "id": 1,
+              "text": "听她的，别惹他们",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "布洛妮娅说的对，最好别惹他们"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "希儿",
+                  "contentType": "text",
+                  "text": "晚了，「地火」和铁卫已经跟他们起冲突了",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "希儿",
-              "contentType": "text",
-              "text": "晚了，「地火」和铁卫已经跟他们起冲突了",
-              "acknowledged": true
+              "id": 2,
+              "text": "必须反抗才行",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "不能任由他们欺负矿民，得拿起武器反抗"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "希儿",
+                  "contentType": "text",
+                  "text": "这倒不用提醒，「地火」和铁卫已经跟他们起冲突了",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "必须反抗才行",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "不能任由他们欺负矿民，得拿起武器反抗"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "希儿",
-              "contentType": "text",
-              "text": "这倒不用提醒，「地火」和铁卫已经跟他们起冲突了",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "但是那帮人的武器太先进了，花里胡哨的，威力还贼大，压根挡不住",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "我也是实在没办法了才想到给你发消息求救",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "挺住，我们这就过来"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "但是那帮人的武器太先进了，花里胡哨的，威力还贼大，压根挡不住",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "我也是实在没办法了才想到给你发消息求救",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "挺住，我们这就过来"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",
@@ -2278,124 +2280,125 @@
       "text": "…啊，有人给咱们发消息了！"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "布洛妮娅、开拓者、三月七、丹恒的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "三月，开拓者，你们现在在哪里？一切都好吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "布洛妮娅！我们现在在下层区",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "一帮公司的家伙占领了大矿区，我们和希儿刚把他们全都赶走",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "原来如此，你们和希儿在一起",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "没有受伤吧？情况还好吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "放心吧，这点程度我们还能应付得了！",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "没能说服托帕",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "三月，开拓者，你们现在在哪里？一切都好吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "布洛妮娅！我们现在在下层区",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "一帮公司的家伙占领了大矿区，我们和希儿刚把他们全都赶走",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "原来如此，你们和希儿在一起",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "没有受伤吧？情况还好吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "放心吧，这点程度我们还能应付得了！",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "抱歉，我们没能说服托帕"
+              "id": 1,
+              "text": "没能说服托帕",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "抱歉，我们没能说服托帕"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "布洛妮娅",
+                  "contentType": "text",
+                  "text": "不用道歉，开拓者！这本来就不是你们的责任",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "布洛妮娅",
-              "contentType": "text",
-              "text": "不用道歉，开拓者！这本来就不是你们的责任",
-              "acknowledged": true
+              "id": 2,
+              "text": "公司不会善罢甘休",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "公司恐怕不会就这么停手"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "布洛妮娅",
+                  "contentType": "text",
+                  "text": "我明白。辛苦你们去和托帕交涉了，这原本不该是你们的责任",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "公司不会善罢甘休",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "公司恐怕不会就这么停手"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "布洛妮娅",
-              "contentType": "text",
-              "text": "我明白。辛苦你们去和托帕交涉了，这原本不该是你们的责任",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "我这边的情况有些变化，消息里说不清楚",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "你们能回克里珀堡一趟吗？我需要两位的建议",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "我这边的情况有些变化，消息里说不清楚",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "你们能回克里珀堡一趟吗？我需要两位的建议",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

@@ -3200,8 +3200,11 @@
       "text": "史瓦罗向你播放资料…"
     },
     {
-      "type": "text",
-      "text": "600px"
+      "type": "image",
+      "file": "开拓任务-腐烂或燃烧-CG1.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-腐烂或燃烧-CG1.png"
     },
     {
       "type": "dialogue",
@@ -3254,8 +3257,11 @@
       "text": "13175号资料播放完毕。接下来播放：资料编号24830。"
     },
     {
-      "type": "text",
-      "text": "600px"
+      "type": "image",
+      "file": "开拓任务-腐烂或燃烧-CG2.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-腐烂或燃烧-CG2.png"
     },
     {
       "type": "dialogue",
@@ -3288,8 +3294,11 @@
       "text": "24830号资料播放完毕。接下来播放：资料编号57614。"
     },
     {
-      "type": "text",
-      "text": "600px"
+      "type": "image",
+      "file": "开拓任务-腐烂或燃烧-CG3.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-腐烂或燃烧-CG3.png"
     },
     {
       "type": "dialogue",

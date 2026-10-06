@@ -626,86 +626,87 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "阿格莱雅、遐蝶、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阿格莱雅",
-      "contentType": "text",
-      "text": "开拓者一行：\n树庭始末已悉，感戴诸位努力，非言语所能鸣谢。\n然而世局多故，圣城近日枝节横生，杂务缠身，未能亲迎，甚歉。\n况且舟车劳顿，休整为要。至于变故细节，明日再议可也。此嘱。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "收到。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "阿格莱雅",
+          "contentType": "text",
+          "text": "开拓者一行：\n树庭始末已悉，感戴诸位努力，非言语所能鸣谢。\n然而世局多故，圣城近日枝节横生，杂务缠身，未能亲迎，甚歉。\n况且舟车劳顿，休整为要。至于变故细节，明日再议可也。此嘱。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "111收到"
+              "id": 1,
+              "text": "收到。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "111收到"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你说话文绉绉的。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你说话怎么文绉绉的"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "遐蝶",
+                  "contentType": "text",
+                  "text": "……"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你说话文绉绉的。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你说话怎么文绉绉的"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "遐蝶",
-              "contentType": "text",
-              "text": "……"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "这个行文风格，应该是衣匠"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "衣匠，请转告阿格莱雅大人：已知悉，我们今日先行休息，祝安好"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阿格莱雅",
+          "contentType": "text",
+          "text": "遵命。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阿格莱雅",
+          "contentType": "text",
+          "text": "此处是一个【阿格莱雅思考表情包】"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "这个行文风格，应该是衣匠"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "衣匠，请转告阿格莱雅大人：已知悉，我们今日先行休息，祝安好"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阿格莱雅",
-      "contentType": "text",
-      "text": "遵命。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阿格莱雅",
-      "contentType": "text",
-      "text": "此处是一个【阿格莱雅思考表情包】"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

@@ -105,166 +105,167 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "大毫",
-      "subtitle": "慢些走，别丢下灵魂。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "开拓者，这是你的号码没错吧？我是地衡司公廨的执事官大毫。\n如您所知，最近罗浮上发生了一些…小变故。总而言之，有些事情希望您能帮忙"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "慢些走，别丢下灵魂。",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "但我不是仙舟人",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "开拓者，这是你的号码没错吧？我是地衡司公廨的执事官大毫。\n如您所知，最近罗浮上发生了一些…小变故。总而言之，有些事情希望您能帮忙"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "但我不是仙舟人，不方便插手公务"
+              "id": 1,
+              "text": "但我不是仙舟人",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "但我不是仙舟人，不方便插手公务"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "这更好啊！"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "这更好啊！"
+              "id": 2,
+              "text": "我帮得到你们吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我只是个化外民，可能帮不上忙……"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "这更好啊！"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "忙",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "忙"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "真的吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "不好意思，是我失言了。我的意思是说，如果您能百忙之中抽出时间来帮帮忙，地衡司公廨会非常感激，也会提供相应的报酬"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我帮得到你们吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "以下说的话，您可不要外传啊。\n出事以后，将军和太卜列了个单子，要求我们和天舶司根据单子上的时间地点排查出入的人，他们怀疑有人将某种「危险品」带上了罗浮……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "我们两司清查了一圈，对照仙舟内部的纪录，没找到什么可疑人士，所以就来找您了……"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我只是个化外民，可能帮不上忙……"
+              "id": 1,
+              "text": "我是可疑人士？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我是可疑人士？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "不是，我不是这个意思"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "这更好啊！"
+              "id": 2,
+              "text": "和我的关系是？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "呃…懂了，所以要我做什么？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 3,
-          "text": "忙",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "忙"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "真的吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "不好意思，是我失言了。我的意思是说，如果您能百忙之中抽出时间来帮帮忙，地衡司公廨会非常感激，也会提供相应的报酬"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "仙舟联盟没有加入星际和平公司的经济体，许多信息不与公司共享，比如通缉系统…如果混进了公司的通缉犯，我们是没办法第一时间发现的"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "向公司发函求证的程序费时费力，因此将军建议我们向星穹列车的各位寻求协助，筛查一下名单当中是否有可疑分子"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "方便的话，建议您多带几位同伴一起来，帮我们辨认一下"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "以下说的话，您可不要外传啊。\n出事以后，将军和太卜列了个单子，要求我们和天舶司根据单子上的时间地点排查出入的人，他们怀疑有人将某种「危险品」带上了罗浮……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "我们两司清查了一圈，对照仙舟内部的纪录，没找到什么可疑人士，所以就来找您了……"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "我是可疑人士？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我是可疑人士？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "不是，我不是这个意思"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "和我的关系是？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "呃…懂了，所以要我做什么？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "仙舟联盟没有加入星际和平公司的经济体，许多信息不与公司共享，比如通缉系统…如果混进了公司的通缉犯，我们是没办法第一时间发现的"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "向公司发函求证的程序费时费力，因此将军建议我们向星穹列车的各位寻求协助，筛查一下名单当中是否有可疑分子"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "方便的话，建议您多带几位同伴一起来，帮我们辨认一下"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -1055,8 +1056,11 @@
       "text": "罗刹穿过街道，走进了一个奇怪的角落。那里看起来很危险，但他似乎满不在乎，只拿着一把剑就踱步走了进去。"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-影像1.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-影像1.png"
     },
     {
       "type": "dialogue",
@@ -1064,8 +1068,11 @@
       "text": "罗刹从一家小客栈中走出来。身上没有携带什么繁重的行李。"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-影像2.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-影像2.png"
     },
     {
       "type": "dialogue",
@@ -1073,8 +1080,11 @@
       "text": "罗刹进入了三余书肆，不久后走了出来。他两手空空，大概什么也没有买。"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-影像3.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-影像3.png"
     },
     {
       "type": "dialogue",
@@ -1082,8 +1092,11 @@
       "text": "罗刹在长乐天的码头上眺望着风景，旁边立着一口棺材。可能是刚下星槎，也可能是在等星槎。走了一会儿，他将行李放在一边，靠在栏杆上观看码头下往来的星槎。"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-影像4.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-影像4.png"
     },
     {
       "type": "dialogue",
@@ -1221,8 +1234,11 @@
                       "text": "罗刹穿过街道，走进了一个奇怪的角落。那里看起来很危险，但他似乎满不在乎，只拿着一把剑就踱步走了进去。"
                     },
                     {
-                      "type": "text",
-                      "text": "center"
+                      "type": "image",
+                      "file": "同行任务-异邦骑士-影像1.png",
+                      "displayWidth": "600px",
+                      "align": "center",
+                      "asset": "assets/sr-images/同行任务-异邦骑士-影像1.png"
                     }
                   ]
                 },
@@ -1236,8 +1252,11 @@
                       "text": "罗刹从一家小客栈中走出来。身上没有携带什么繁重的行李。"
                     },
                     {
-                      "type": "text",
-                      "text": "center"
+                      "type": "image",
+                      "file": "同行任务-异邦骑士-影像2.png",
+                      "displayWidth": "600px",
+                      "align": "center",
+                      "asset": "assets/sr-images/同行任务-异邦骑士-影像2.png"
                     }
                   ]
                 },
@@ -1251,8 +1270,11 @@
                       "text": "罗刹进入了三余书肆，不久后走了出来。他两手空空，大概什么也没有买。"
                     },
                     {
-                      "type": "text",
-                      "text": "center"
+                      "type": "image",
+                      "file": "同行任务-异邦骑士-影像3.png",
+                      "displayWidth": "600px",
+                      "align": "center",
+                      "asset": "assets/sr-images/同行任务-异邦骑士-影像3.png"
                     }
                   ]
                 },
@@ -1266,8 +1288,11 @@
                       "text": "罗刹在长乐天的码头上眺望着风景，旁边立着一口棺材。可能是刚下星槎，也可能是在等星槎。走了一会儿，他将行李放在一边，靠在栏杆上观看码头下往来的星槎。"
                     },
                     {
-                      "type": "text",
-                      "text": "center"
+                      "type": "image",
+                      "file": "同行任务-异邦骑士-影像4.png",
+                      "displayWidth": "600px",
+                      "align": "center",
+                      "asset": "assets/sr-images/同行任务-异邦骑士-影像4.png"
                     }
                   ]
                 },
@@ -1399,8 +1424,11 @@
       "text": "嗯…只有这段影像里，有人从那扇拱门中出去，时间在罗刹进入空地的大约一个时辰后，但是并没有拍到罗刹……"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-CG.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-CG.png"
     },
     {
       "type": "dialogue",
@@ -2111,33 +2139,34 @@
       "text": "哎，那线索岂不是断掉了？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "净砚",
-      "subtitle": "没空、不行、做不到"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "净砚",
-      "contentType": "text",
-      "text": "各位有空吗？请抽空回一趟地衡司，我修复了部分影像，其中有那么一段，各位应该感兴趣"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "净砚小姐真是雪中送炭啊。太感谢了。我们马上就过去"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "净砚",
-      "contentType": "text",
-      "text": "好的，路上请小心，安全第一"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "没空、不行、做不到",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "净砚",
+          "contentType": "text",
+          "text": "各位有空吗？请抽空回一趟地衡司，我修复了部分影像，其中有那么一段，各位应该感兴趣"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "净砚小姐真是雪中送炭啊。太感谢了。我们马上就过去"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "净砚",
+          "contentType": "text",
+          "text": "好的，路上请小心，安全第一"
+        }
+      ]
     },
     {
       "type": "dialogue",
@@ -2847,8 +2876,11 @@
       "text": "他给我们哥俩的就是这个东西。"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-纸花.png",
+      "displayWidth": "250px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-纸花.png"
     },
     {
       "type": "dialogue",
@@ -3033,72 +3065,73 @@
       "title": "后续彩蛋"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "净砚",
-      "subtitle": "没空、不行、做不到"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "净砚",
-      "contentType": "text",
-      "text": "我之后又试着修复了一些机巧鸟中相关的影像资料，发现了一段关于罗刹的"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "净砚",
-      "contentType": "text",
-      "text": "我放在四方览镜那里了，几位有空时可以自行查看。不过，我还是倾向于认为罗刹先生与这一切无关"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "没空、不行、做不到",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "了解，谢谢你",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "了解，谢谢你"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "净砚",
-              "contentType": "text",
-              "text": "不用谢，这是我应该做的"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "净砚",
+          "contentType": "text",
+          "text": "我之后又试着修复了一些机巧鸟中相关的影像资料，发现了一段关于罗刹的"
         },
         {
-          "id": 2,
-          "text": "我们等一下就来",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "净砚",
+          "contentType": "text",
+          "text": "我放在四方览镜那里了，几位有空时可以自行查看。不过，我还是倾向于认为罗刹先生与这一切无关"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "知道了。我们等一下就来"
+              "id": 1,
+              "text": "了解，谢谢你",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "了解，谢谢你"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "净砚",
+                  "contentType": "text",
+                  "text": "不用谢，这是我应该做的"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "净砚",
-              "contentType": "text",
-              "text": "辛苦各位了"
+              "id": 2,
+              "text": "我们等一下就来",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "知道了。我们等一下就来"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "净砚",
+                  "contentType": "text",
+                  "text": "辛苦各位了"
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "narration",
@@ -3106,8 +3139,11 @@
       "text": "调查四方览镜…"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "同行任务-异邦骑士-CG2.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/同行任务-异邦骑士-CG2.png"
     },
     {
       "type": "dialogue",

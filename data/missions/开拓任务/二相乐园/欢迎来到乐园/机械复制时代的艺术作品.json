@@ -542,197 +542,198 @@
       "text": "三人随即返回会客室。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "姬子",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "听说有人闹事？",
-          "content": []
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "听说有人闹事？",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "大家情况如何？",
+              "content": []
+            }
+          ]
         },
         {
-          "id": 2,
-          "text": "大家情况如何？",
-          "content": []
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "@开拓者 @三月七 还好吗？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "听说你俩出了点状况"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "什么情况？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我俩没事，但逛街时遇上一个自称「火花」的家伙"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "她宣称要干掉我和开拓者，把列车组排除在幻月游戏外"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "那咱们可得加快行动啦"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "所以，你们做好决定了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我是有点想法，虽然不知道开拓者怎么想"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我对参与幻月游戏有兴趣"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我一直在想，如果赢了的话，我该用这权能做些什么，又或者我可以要求阿哈为我做些什么"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "有空我和大家详细聊聊"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "@开拓者 @三月七 还好吗？"
+        },
         {
-          "id": 1,
-          "text": "对了，丹恒那边怎么样？",
-          "content": []
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "听说你俩出了点状况"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "什么情况？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我俩没事，但逛街时遇上一个自称「火花」的家伙"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "她宣称要干掉我和开拓者，把列车组排除在幻月游戏外"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "那咱们可得加快行动啦"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "所以，你们做好决定了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我是有点想法，虽然不知道开拓者怎么想"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我对参与幻月游戏有兴趣"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我一直在想，如果赢了的话，我该用这权能做些什么，又或者我可以要求阿哈为我做些什么"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "有空我和大家详细聊聊"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "对了，丹恒那边怎么样？",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "丹恒那边怎么样？@丹恒"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "我联络上了仙舟特使，但他们也遇到了一些问题，想寻求帮助。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "我和星期日正在路上。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "如果有需要，记得联系我。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "好，姬子，接下来我们要做什么？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "我想拜托你们去「绘世学院」，我的母校"
+        },
+        {
+          "type": "message-system",
+          "text": "【绘世学院的位置】"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "这所学校里，有一位名叫啵啵娃的老师"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "她是我的朋友，保管着加入「幻月游戏」所需的面具"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "为避免夜长梦多，你们先找到她，接过面具"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "咱们这就走"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "我和瓦尔特会去和你们会合"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "丹恒那边怎么样？@丹恒"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "我联络上了仙舟特使，但他们也遇到了一些问题，想寻求帮助。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "我和星期日正在路上。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "如果有需要，记得联系我。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "好，姬子，接下来我们要做什么？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "我想拜托你们去「绘世学院」，我的母校"
-    },
-    {
-      "type": "message-system",
-      "text": "【绘世学院的位置】"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "这所学校里，有一位名叫啵啵娃的老师"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "她是我的朋友，保管着加入「幻月游戏」所需的面具"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "为避免夜长梦多，你们先找到她，接过面具"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "咱们这就走"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "我和瓦尔特会去和你们会合"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

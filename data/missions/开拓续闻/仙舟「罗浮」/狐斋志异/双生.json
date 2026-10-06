@@ -2173,253 +2173,254 @@
       "text": "捉鬼小队解散之后，聊天框开始闪动起来…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "捉鬼小队",
-      "subtitle": ""
-    },
-    {
-      "type": "message-system",
-      "text": "桂乃芬邀请你、素裳、藿藿加入了群聊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "在这里",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "来了来了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "…大家好",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "很高兴认识大家",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "大家好，我是新人开拓者，很高兴认识大家"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "藿藿",
-              "contentType": "text",
-              "text": "大家好，我是新人藿藿，很高兴认识大家",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "素裳",
-              "contentType": "text",
-              "text": "@开拓者 你别把藿藿带歪了",
-              "acknowledged": true
-            }
-          ]
+          "type": "message-system",
+          "text": "桂乃芬邀请你、素裳、藿藿加入了群聊"
         },
         {
-          "id": 2,
-          "text": "你们这是什么群啊",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你们这是什么群啊"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "这里是捉鬼一家人",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "在这里",
+          "acknowledged": true
         },
         {
-          "id": 3,
-          "text": "我要退群，我要退群",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "来了来了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "…大家好",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我要退群，我要退群"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "刚进来就要退群啊？我来帮你",
-              "acknowledged": true
-            },
-            {
-              "type": "message-system",
-              "text": "你已被管理员移出群聊"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
+              "id": 1,
+              "text": "很高兴认识大家",
+              "content": [
                 {
-                  "id": 1,
-                  "text": "？？？",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "？？？"
-                    }
-                  ]
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "大家好，我是新人开拓者，很高兴认识大家"
                 },
                 {
-                  "id": 2,
-                  "text": "快让我回去",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "快让我回去"
-                    }
-                  ]
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "藿藿",
+                  "contentType": "text",
+                  "text": "大家好，我是新人藿藿，很高兴认识大家",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "素裳",
+                  "contentType": "text",
+                  "text": "@开拓者 你别把藿藿带歪了",
+                  "acknowledged": true
                 }
               ]
             },
             {
-              "type": "message-system",
-              "text": "桂乃芬邀请你加入了群聊"
+              "id": 2,
+              "text": "你们这是什么群啊",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你们这是什么群啊"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "这里是捉鬼一家人",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "嘎嘎嘎嘎",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "不闹了，我们还是先说正事吧",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "今天大家已经很累了，所以我也不再耽误大家了，只说一件事！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我们今天的内容，有很多人围观转发评论，冲上了热榜",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "哦哦哦，不愧是小桂子",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "哦哦哦",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "哦哦哦",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "哦哦哦"
+              "id": 3,
+              "text": "我要退群，我要退群",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我要退群，我要退群"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "刚进来就要退群啊？我来帮你",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message-system",
+                  "text": "你已被管理员移出群聊"
+                },
+                {
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "？？？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "？？？"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 2,
+                      "text": "快让我回去",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "快让我回去"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "message-system",
+                  "text": "桂乃芬邀请你加入了群聊"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "嘎嘎嘎嘎",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "不闹了，我们还是先说正事吧",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "等下我就去确认",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "今天大家已经很累了，所以我也不再耽误大家了，只说一件事！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我们今天的内容，有很多人围观转发评论，冲上了热榜",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "哦哦哦，不愧是小桂子",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "哦哦哦",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我马上就去「罗浮杂俎」上看看"
+              "id": 1,
+              "text": "哦哦哦",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "哦哦哦"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "等下我就去确认",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我马上就去「罗浮杂俎」上看看"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "嗯嗯，大家记得都去看看",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "链接分享",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "嗯嗯，大家记得都去看看",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "链接分享",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

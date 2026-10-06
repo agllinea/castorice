@@ -57,129 +57,130 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "桂乃芬",
-      "subtitle": "不惹事不怕事、不咬打火机"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "家人，有空吗？跑绥园一趟可以不？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "不惹事不怕事、不咬打火机",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你身体还好吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "家人，有空吗？跑绥园一趟可以不？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "又跑去绥园干什么？对了，你身体没问题吗？"
+              "id": 1,
+              "text": "你身体还好吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "又跑去绥园干什么？对了，你身体没问题吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "谢谢家人担心啦！像我这样风里来雨里去讨生活的人，身子骨壮得很…",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "丹鼎司的医士给我做了检查，除去受了些惊吓和擦伤，一点事也没有！",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "谢谢家人担心啦！像我这样风里来雨里去讨生活的人，身子骨壮得很…",
-              "acknowledged": true
+              "id": 2,
+              "text": "你是本人吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "桂乃芬现在不是应该在医馆吗？小小岁阳，休想再让我上当！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "人与人之间还能不能有点基本的信任啦",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "丹鼎司的医士给我做了检查，除去受了些惊吓和擦伤，一点事也没有！",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "丹鼎司的医士给我做了检查，除去受了些惊吓和擦伤，一点事也没有！",
-              "acknowledged": true
+              "id": 3,
+              "text": "又去绥园？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "上回去绥园惹出来的麻烦还不嫌大吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "对不住，对不住，上一回是我惹出来的麻烦",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "不过这一回的事，确实少了家人不行啊",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你是本人吗？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "桂乃芬现在不是应该在医馆吗？小小岁阳，休想再让我上当！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "人与人之间还能不能有点基本的信任啦",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "丹鼎司的医士给我做了检查，除去受了些惊吓和擦伤，一点事也没有！",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "这回是来自寒鸦小姐发出邀请，召集咱们几个有关人士碰碰头",
+          "acknowledged": true
         },
         {
-          "id": 3,
-          "text": "又去绥园？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "上回去绥园惹出来的麻烦还不嫌大吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "对不住，对不住，上一回是我惹出来的麻烦",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "不过这一回的事，确实少了家人不行啊",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "好啦，快点来绥园吧，打字太麻烦了，咱们当面再细聊",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "这回是来自寒鸦小姐发出邀请，召集咱们几个有关人士碰碰头",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "好啦，快点来绥园吧，打字太麻烦了，咱们当面再细聊",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

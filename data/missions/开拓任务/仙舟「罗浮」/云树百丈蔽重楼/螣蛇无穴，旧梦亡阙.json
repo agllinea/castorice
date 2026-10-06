@@ -147,69 +147,72 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "开拓者",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "云骑军邀请我们一起行动"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你老家的丹炉可真够大的"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "image",
-      "image": "短信-丹恒-丹炉.png"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "丹恒",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "云骑军？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "云骑军邀请我们一起行动"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你老家的丹炉可真够大的"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "image",
+          "image": "短信-丹恒-丹炉.png",
+          "file": "短信-丹恒-丹炉.png",
+          "asset": "assets/sr-images/短信-丹恒-丹炉.png"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "你们和云骑军在一起做什么？"
+              "id": 1,
+              "text": "云骑军？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "你们和云骑军在一起做什么？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "太真丹室？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "你们在「太真丹室」那边做什么？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "太真丹室？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "你们在「太真丹室」那边做什么？"
-            }
-          ]
+          "type": "message-system",
+          "text": "信息发送失败"
         }
       ]
-    },
-    {
-      "type": "message-system",
-      "text": "信息发送失败"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

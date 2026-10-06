@@ -30,7 +30,7 @@
     "hidden": []
   },
   "createdAt": "2026-10-01T22:44:12.099Z",
-  "updatedAt": "2026-10-02T00:01:30.233Z",
+  "updatedAt": "2026-10-06T06:35:14.548Z",
   "blocks": [
     {
       "id": "d74b952e-fa9f-4371-8aa2-462aa4290832",
@@ -502,8 +502,8 @@
         ]
       },
       "node": {
-        "type": "fold",
-        "title": "短信：丹恒\n智库相关找我",
+        "type": "message-thread",
+        "title": "丹恒",
         "collapsed": false,
         "content": [
           {
@@ -535,7 +535,9 @@
             "type": "text",
             "text": "信息发送失败"
           }
-        ]
+        ],
+        "subtitle": "智库相关找我",
+        "owner": "开拓者"
       }
     },
     {
@@ -1007,8 +1009,8 @@
         "contentIndex": 34
       },
       "node": {
-        "type": "fold",
-        "title": "短信：星穹列车一家人",
+        "type": "message-thread",
+        "title": "星穹列车一家人",
         "collapsed": false,
         "content": [
           {
@@ -1035,7 +1037,9 @@
             "type": "text",
             "text": "信息发送失败"
           }
-        ]
+        ],
+        "subtitle": "",
+        "owner": "丹恒"
       }
     },
     {
@@ -2603,6 +2607,57 @@
       }
     },
     {
+      "id": "fd5c244b-46cf-49d3-a18e-93244a9d0bc4",
+      "source": {
+        "mission": "长乐新朋，青鸟候风",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/长乐新朋，青鸟候风.json",
+        "contentIndex": 2
+      },
+      "node": {
+        "type": "message-thread",
+        "title": "？？？",
+        "subtitle": "",
+        "owner": "开拓者",
+        "collapsed": false,
+        "content": [
+          {
+            "type": "message",
+            "side": "left",
+            "speaker": "？？？",
+            "contentType": "text",
+            "text": "各位好，太卜命我等你们",
+            "acknowledged": true
+          },
+          {
+            "type": "message",
+            "side": "left",
+            "speaker": "？？？",
+            "contentType": "text",
+            "text": "掐指一算，也该到了吧",
+            "acknowledged": true
+          },
+          {
+            "type": "message",
+            "side": "left",
+            "speaker": "？？？",
+            "contentType": "text",
+            "text": "眼下有紧要事抽不开身",
+            "acknowledged": true
+          },
+          {
+            "type": "message",
+            "side": "left",
+            "speaker": "？？？",
+            "contentType": "image",
+            "image": "短信-？？？-图片1.png",
+            "file": "短信-？？？-图片1.png",
+            "acknowledged": true,
+            "asset": "assets/sr-images/短信-？？？-图片1.png"
+          }
+        ]
+      }
+    },
+    {
       "id": "c9eb9e92-845d-4e48-847f-352bbf4dbaa5",
       "source": {
         "mission": "长乐新朋，青鸟候风",
@@ -4161,6 +4216,21 @@
       }
     },
     {
+      "id": "e685af5e-4e86-4177-9fa4-47ab6d7b85ca",
+      "source": {
+        "mission": "神木重萌，掣转天衡",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/神木重萌，掣转天衡.json",
+        "contentIndex": 24
+      },
+      "node": {
+        "type": "image",
+        "file": "开拓任务-神木重萌，掣转天衡-CG.png",
+        "displayWidth": "600px",
+        "align": "center",
+        "asset": "assets/sr-images/开拓任务-神木重萌，掣转天衡-CG.png"
+      }
+    },
+    {
       "source": {
         "mission": "诸天无安，迷途难返",
         "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/诸天无安，迷途难返.json",
@@ -5019,6 +5089,21 @@
         "text": "机巧也好、血肉也罢…都不过是有形之物。只要姑娘不介意我用的手段……"
       },
       "id": "a909744a-1768-4a4f-a8f8-3d885da0f058"
+    },
+    {
+      "id": "f7ef8026-4957-40d0-aa09-eddc4a114d46",
+      "source": {
+        "mission": "诸天无安，迷途难返",
+        "dataFile": "missions/开拓任务/仙舟「罗浮」/乘槎驭风仙窟游/诸天无安，迷途难返.json",
+        "contentIndex": 55
+      },
+      "node": {
+        "type": "image",
+        "file": "开拓任务-诸天无安，迷途难返-CG.png",
+        "displayWidth": "600px",
+        "align": "center",
+        "asset": "assets/sr-images/开拓任务-诸天无安，迷途难返-CG.png"
+      }
     },
     {
       "source": {

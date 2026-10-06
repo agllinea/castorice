@@ -88,148 +88,151 @@
       "location": "星穹列车-观景车厢"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "07-01"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "大家在吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "在！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "在。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "有个消息想跟大家分享一下"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "哇，什么消息？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "是好事吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "sticker",
+          "sticker": "07-01",
+          "file": "聊天表情-07-01.png",
+          "asset": "assets/sr-images/聊天表情-07-01.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "大家在吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "在！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "在。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "有个消息想跟大家分享一下"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "哇，什么消息？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "有什么好消息吗？"
+              "id": 1,
+              "text": "是好事吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "有什么好消息吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "姬子",
+                  "contentType": "text",
+                  "text": "呵呵，算是吧"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "太好啦！"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "姬子",
-              "contentType": "text",
-              "text": "呵呵，算是吧"
+              "id": 2,
+              "text": "不会是坏事吧…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "不会是坏消息吧…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "别啊，不要乌鸦嘴！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "姬子",
+                  "contentType": "text",
+                  "text": "呵呵，当然不是，放心吧"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "太好啦！"
+              "id": 3,
+              "text": "我最近好忙",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "最近有点忙"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "确实，我天天看他/她到处乱跑"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "…不会是要跳槽了吧？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "不会是坏事吧…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "不会是坏消息吧…"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "别啊，不要乌鸦嘴！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "姬子",
-              "contentType": "text",
-              "text": "呵呵，当然不是，放心吧"
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "我最近好忙",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "最近有点忙"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "确实，我天天看他/她到处乱跑"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "…不会是要跳槽了吧？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "那等大家有空的时候来集合吧，我和瓦尔特在观景车厢等着你们"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "那等大家有空的时候来集合吧，我和瓦尔特在观景车厢等着你们"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

@@ -81,8 +81,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：尤利安\n点此编辑个性签名这是啥",
+      "type": "message-thread",
+      "title": "尤利安",
+      "subtitle": "点此编辑个性签名这是啥",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {

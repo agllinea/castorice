@@ -244,146 +244,147 @@
       "text": "挑战结算日 指针塔内"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "大禽",
-      "subtitle": "看我最新视频！→视频链接"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "我的老伙计，钱还够花吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "不够花的话，就得花你自己的钱了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "先将第一个好消息放在这里"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "昨天「不要钱挑战」结束后，我们召回了小勤，确认了所有收入支出"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "尽管有一些消费颇为诡异…但是我们认为它并没有违反规则"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "看我最新视频！→视频链接",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "这算什么好消息？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "我的老伙计，钱还够花吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "不够花的话，就得花你自己的钱了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "先将第一个好消息放在这里"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "昨天「不要钱挑战」结束后，我们召回了小勤，确认了所有收入支出"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "尽管有一些消费颇为诡异…但是我们认为它并没有违反规则"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这算什么好消息，我花钱的时候都是遵守基本法的"
+              "id": 1,
+              "text": "这算什么好消息？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这算什么好消息，我花钱的时候都是遵守基本法的"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大禽",
+                  "contentType": "text",
+                  "text": "这不是怕你因为违反规则而挑战失败嘛"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "大禽",
-              "contentType": "text",
-              "text": "这不是怕你因为违反规则而挑战失败嘛"
+              "id": 2,
+              "text": "所以还有第二个？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "将第一个好消息放在这里…意思是还有第二个？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大禽",
+                  "contentType": "text",
+                  "text": "对不起，我们想要最真实的反应，现在只能透露这么多"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "所以还有第二个？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "地址发给你了，来指针塔来找我吧，我们把「不要钱挑战」的最后结算录完"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "将第一个好消息放在这里…意思是还有第二个？"
+              "id": 1,
+              "text": "来了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "来了来了，刚出门，在路上了"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "大禽",
-              "contentType": "text",
-              "text": "对不起，我们想要最真实的反应，现在只能透露这么多"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "地址发给你了，来指针塔来找我吧，我们把「不要钱挑战」的最后结算录完"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "来了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "来了来了，刚出门，在路上了"
+              "id": 2,
+              "text": "等我",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "等等我，我还要好一会"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "等我",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "等等我，我还要好一会"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "不用着急，顺带一提，砂金先生也在路上"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大禽",
+          "contentType": "text",
+          "text": "等你们来了一起挑战结算"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "不用着急，顺带一提，砂金先生也在路上"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大禽",
-      "contentType": "text",
-      "text": "等你们来了一起挑战结算"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

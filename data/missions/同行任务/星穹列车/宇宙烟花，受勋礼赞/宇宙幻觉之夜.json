@@ -105,144 +105,147 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "帕姆",
-      "subtitle": "开拓奖励找我！以后会优化"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "啊啊啊啊啊啊",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "开拓者，在吗！！！！",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "开拓奖励找我！以后会优化",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "怎么这么着急？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "啊啊啊啊啊啊",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "开拓者，在吗！！！！",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "发生什么大事了？"
+              "id": 1,
+              "text": "怎么这么着急？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "发生什么大事了？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "莫慌",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "悠着点，慢慢说？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "莫慌",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "悠着点，慢慢说？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "超级无敌紧急的事",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "帕姆都不敢想",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "列车时隔很久才会来一次的大扫除之日居然就要到了啊啊啊啊啊啊",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "……啊？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我懂了"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你想喊我回去一起做清洁"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "sticker",
+          "sticker": "07-04",
+          "file": "聊天表情-07-04.png",
+          "asset": "assets/sr-images/聊天表情-07-04.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "没有",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "不过如果开拓者乘客愿意帮忙帕姆也很欢迎！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "我们马上准备前往最近的洗车星",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "你什么时候有空回来看看帕",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "超级无敌紧急的事",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "帕姆都不敢想",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "列车时隔很久才会来一次的大扫除之日居然就要到了啊啊啊啊啊啊",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "……啊？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我懂了"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你想喊我回去一起做清洁"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "07-04"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "没有",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "不过如果开拓者乘客愿意帮忙帕姆也很欢迎！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "我们马上准备前往最近的洗车星",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "你什么时候有空回来看看帕",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -3540,200 +3543,201 @@
       "text": "你收到了一条短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "银枝、三月七、帕姆、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "开拓者，你们现在是否平安？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "我十分担心",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "？？？？？？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "等一下，先别急着关心我们"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "？？？？？？？？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "？？？？？？？？？？？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "啊啊啊",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "呜哇啊啊啊是银枝乘客帕",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "银枝！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "你果然还活着",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "你没事真的太好了啊啊啊",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "骑士在出战的一刻，就应怀有必胜信念",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "我与它酣战时，似有纯美光辉庇佑",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "接下来的事我便失去记忆",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "但真蛰虫似有口臭，它消化不良",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银枝",
-      "contentType": "text",
-      "text": "结束后，我用了很久好生擦拭我的铠甲",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你还活着真是太好了…",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "开拓者，你们现在是否平安？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "我十分担心",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "？？？？？？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "等一下，先别急着关心我们"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "？？？？？？？？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "？？？？？？？？？？？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "啊啊啊",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "呜哇啊啊啊是银枝乘客帕",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "银枝！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "你果然还活着",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "你没事真的太好了啊啊啊",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "骑士在出战的一刻，就应怀有必胜信念",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "我与它酣战时，似有纯美光辉庇佑",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "接下来的事我便失去记忆",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "但真蛰虫似有口臭，它消化不良",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银枝",
+          "contentType": "text",
+          "text": "结束后，我用了很久好生擦拭我的铠甲",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "真好啊……"
+              "id": 1,
+              "text": "你还活着真是太好了…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "真好啊……"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我这就要开始哭了"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我这就要开始哭了"
+              "id": 2,
+              "text": "我就知道你肯定没事…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "大家都特别着急……"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "姬子还联络了星际和平公司，准备在宇宙中搜寻你的下落"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我就知道你肯定没事…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "大家都特别着急……"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "姬子还联络了星际和平公司，准备在宇宙中搜寻你的下落"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "呜呜呜…",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "帕姆这就开列车去接你啊啊啊",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "呜呜呜…",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "帕姆这就开列车去接你啊啊啊",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "fold",

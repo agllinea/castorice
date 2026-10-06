@@ -826,7 +826,8 @@
       "type": "image",
       "file": "开拓任务-酒店关门之后-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-酒店关门之后-CG.png"
     },
     {
       "type": "dialogue",
@@ -1436,7 +1437,8 @@
       "type": "image",
       "file": "开拓任务-人间天堂-庸人的见地.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-人间天堂-庸人的见地.png"
     },
     {
       "type": "fold",

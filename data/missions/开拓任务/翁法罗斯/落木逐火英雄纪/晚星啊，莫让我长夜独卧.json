@@ -2253,134 +2253,135 @@
       "text": "嗯？有新消息。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "翁法罗斯迎宾组",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "两位，休息好了吗？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "满血复活了。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "两位，休息好了吗？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "准备好干一番大事了！"
+              "id": 1,
+              "text": "满血复活了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "准备好干一番大事了！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "白厄",
+                  "contentType": "text",
+                  "text": "不错啊，已经干劲十足了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "房间的条件很好，在这里休息很舒适。有什么事要找我们聊吗？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "白厄",
-              "contentType": "text",
-              "text": "不错啊，已经干劲十足了"
+              "id": 2,
+              "text": "没太休息好…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "睡眠质量有点差"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "白厄",
+                  "contentType": "text",
+                  "text": "这可不妙，是浴宫的环境不行吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "房间的条件无可挑剔，只是昨天稍微有些体力透支。有什么事要找我们聊吗？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "房间的条件很好，在这里休息很舒适。有什么事要找我们聊吗？"
+              "id": 3,
+              "text": "怎么是你…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "原来是你啊，我还以为…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "白厄",
+                  "contentType": "text",
+                  "text": "以为是谁？有人比我先来了一步吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "没什么，是有事情要找我们吗？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "没太休息好…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "睡眠质量有点差"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "白厄",
-              "contentType": "text",
-              "text": "这可不妙，是浴宫的环境不行吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "房间的条件无可挑剔，只是昨天稍微有些体力透支。有什么事要找我们聊吗？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "是好消息！"
         },
         {
-          "id": 3,
-          "text": "怎么是你…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "原来是你啊，我还以为…"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "白厄",
-              "contentType": "text",
-              "text": "以为是谁？有人比我先来了一步吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "没什么，是有事情要找我们吗？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "缇安老师找到了悬锋城的位置，快来云石天宫的黄金裔浴场集合吧，准备讨伐尼卡多利！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "啊，你们可以再休息一会，不着急"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "不那么着急"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "是好消息！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "缇安老师找到了悬锋城的位置，快来云石天宫的黄金裔浴场集合吧，准备讨伐尼卡多利！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "啊，你们可以再休息一会，不着急"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "不那么着急"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

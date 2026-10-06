@@ -114,85 +114,86 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "爱德华医生",
-      "subtitle": "无意识就是大他者的话语。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "爱德华医生",
-      "contentType": "text",
-      "text": "您好，开拓者先生/女士。方才有人向鄙店捐赠了一枚梦泡，经过精神波谱分析，猜测您会对这枚梦泡的内容感兴趣。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "无意识就是大他者的话语。",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "听起来有点可疑…",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "爱德华医生",
+          "contentType": "text",
+          "text": "您好，开拓者先生/女士。方才有人向鄙店捐赠了一枚梦泡，经过精神波谱分析，猜测您会对这枚梦泡的内容感兴趣。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "听起来有点可疑…"
+              "id": 1,
+              "text": "听起来有点可疑…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "听起来有点可疑…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "爱德华医生",
+                  "contentType": "text",
+                  "text": "请勿担心，鄙店的梦境全部经过严格检定，绝无暗藏危害的可能。"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "爱德华医生",
-              "contentType": "text",
-              "text": "请勿担心，鄙店的梦境全部经过严格检定，绝无暗藏危害的可能。"
+              "id": 2,
+              "text": "是谁捐赠给你的？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "是谁捐赠给你的？"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "你怎么知道我会感兴趣？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你怎么知道我会感兴趣？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "爱德华医生",
+                  "contentType": "text",
+                  "text": "这就是精神分析，先生/女士！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "是谁捐赠给你的？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "是谁捐赠给你的？"
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "你怎么知道我会感兴趣？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你怎么知道我会感兴趣？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "爱德华医生",
-              "contentType": "text",
-              "text": "这就是精神分析，先生/女士！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "爱德华医生",
+          "contentType": "text",
+          "text": "捐赠者是一位优雅的女士，署名是「黑天鹅」。若您时间允许，本店随时恭候莅临。"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "爱德华医生",
-      "contentType": "text",
-      "text": "捐赠者是一位优雅的女士，署名是「黑天鹅」。若您时间允许，本店随时恭候莅临。"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -4301,375 +4302,386 @@
       "text": "你收到了短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "？？？",
-      "subtitle": ""
-    },
-    {
-      "type": "message-system",
-      "text": "黑天鹅向你发起临时会话。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "开拓者，我想那枚梦泡你已经看过了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "放心，我只是想了解是否已经有其他人来找过你"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "黑天鹅？",
-          "content": [
+          "type": "message-system",
+          "text": "黑天鹅向你发起临时会话。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "开拓者，我想那枚梦泡你已经看过了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "放心，我只是想了解是否已经有其他人来找过你"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你是黑天鹅？"
+              "id": 1,
+              "text": "黑天鹅？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你是黑天鹅？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "嗯，是你熟悉的那位忆者。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "sticker",
+                  "sticker": "05-08",
+                  "file": "聊天表情-05-08.png",
+                  "asset": "assets/sr-images/聊天表情-05-08.png"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "嗯，是你熟悉的那位忆者。"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "05-08"
+              "id": 2,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "怎么了？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "怎么了？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "长话短说，那位名叫「花火」的愚者正在四处寻找那枚梦泡"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "我不清楚她的意图，但令她得手只会让局势更加混乱"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "开拓者，能帮我一个忙，去把梦泡取回来吗？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "怎么了？"
+              "id": 1,
+              "text": "当然！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "当然可以！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "知道你的态度我便放心了，我也会与你同去"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你怎么不自己去？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你怎么不自己去？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "没想到你居然会拒绝我…我自己去也不是不行"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "但我忘记那枚梦泡被放在哪了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "能再提醒我一下吗？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "在梦境贩售店",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "在梦境贩售店，爱德华医生手上"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你不记得了？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "嘿嘿"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "毕竟人家的记性比不上真正的「忆者」大人嘛"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "sticker",
+                  "sticker": "05-14",
+                  "file": "聊天表情-05-14.png",
+                  "asset": "assets/sr-images/聊天表情-05-14.png"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "哎呀，这么容易就拿到信息了，我还担心会露馅呢"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "已经被我偷了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "被我偷了塞在苏乐达瓶子里扔了"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "可能还漂在哪个垃圾桶的梦里吧"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "你这么喜欢垃圾桶吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "我就说嘛，垃圾桶王国多有趣啊，大家都不信"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "借用一下桑博的脸，还挺值"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "sticker",
+                  "sticker": "05-14",
+                  "file": "聊天表情-05-14.png",
+                  "asset": "assets/sr-images/聊天表情-05-14.png"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "忆者怎会遗忘记忆",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你很奇怪…忆者怎么会遗忘记忆？"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你真的是黑天鹅吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "嗯？被你发现啦？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "毕竟人家不是真正的「忆者」大人嘛"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "sticker",
+                  "sticker": "05-14",
+                  "file": "聊天表情-05-14.png",
+                  "asset": "assets/sr-images/聊天表情-05-14.png"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑天鹅",
+                  "contentType": "text",
+                  "text": "没想到这么快就被发现了，真没意思"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "恶作剧可是讲究有来有回的，瞧我跟那位忆者玩得多开心~"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "多学着点咯，小无名客"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "这只是个开始，下次再来找你玩"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "sticker",
+          "sticker": "05-08",
+          "file": "聊天表情-05-08.png",
+          "asset": "assets/sr-images/聊天表情-05-08.png"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "你放心大胆地来",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你放心大胆地来，下次还不知道是谁骗谁"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "求求你别再来了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "求求你别再来了！跟愚者扯上关系准没好事……"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "message-system",
+          "text": "消息发送失败。"
+        },
+        {
+          "type": "message-system",
+          "text": "该用户不存在。"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "长话短说，那位名叫「花火」的愚者正在四处寻找那枚梦泡"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "我不清楚她的意图，但令她得手只会让局势更加混乱"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "开拓者，能帮我一个忙，去把梦泡取回来吗？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "当然！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "当然可以！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "知道你的态度我便放心了，我也会与你同去"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "你怎么不自己去？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你怎么不自己去？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "没想到你居然会拒绝我…我自己去也不是不行"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "但我忘记那枚梦泡被放在哪了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "能再提醒我一下吗？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "在梦境贩售店",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "在梦境贩售店，爱德华医生手上"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你不记得了？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "嘿嘿"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "毕竟人家的记性比不上真正的「忆者」大人嘛"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "05-14"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "哎呀，这么容易就拿到信息了，我还担心会露馅呢"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "已经被我偷了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "被我偷了塞在苏乐达瓶子里扔了"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "可能还漂在哪个垃圾桶的梦里吧"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "你这么喜欢垃圾桶吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "我就说嘛，垃圾桶王国多有趣啊，大家都不信"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "借用一下桑博的脸，还挺值"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "05-14"
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "忆者怎会遗忘记忆",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你很奇怪…忆者怎么会遗忘记忆？"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你真的是黑天鹅吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "嗯？被你发现啦？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "毕竟人家不是真正的「忆者」大人嘛"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "05-14"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑天鹅",
-              "contentType": "text",
-              "text": "没想到这么快就被发现了，真没意思"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "恶作剧可是讲究有来有回的，瞧我跟那位忆者玩得多开心~"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "多学着点咯，小无名客"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "这只是个开始，下次再来找你玩"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "05-08"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "你放心大胆地来",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你放心大胆地来，下次还不知道是谁骗谁"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "求求你别再来了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "求求你别再来了！跟愚者扯上关系准没好事……"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message-system",
-      "text": "消息发送失败。"
-    },
-    {
-      "type": "message-system",
-      "text": "该用户不存在。"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"
@@ -4680,227 +4692,232 @@
       "text": "你再一次收到短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑天鹅",
-      "subtitle": "记忆是柔软的琥珀"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "开拓者，我想那枚梦泡你已见过了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "放心，我只是想了解是否已经有其他人来找过你"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "记忆是柔软的琥珀",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "发生什么了？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "开拓者，我想那枚梦泡你已见过了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "放心，我只是想了解是否已经有其他人来找过你"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "发生什么了？"
+              "id": 1,
+              "text": "发生什么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "发生什么了？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "这一幕似曾相识…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这一幕似曾相识…"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "这一幕似曾相识…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这一幕似曾相识…"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "你也许认识那位有趣的愚者小姐，花火。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "她最近热衷于假扮他人，开拓者有被她捉弄过吗？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "照这么说，你也可能是花火假扮的。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "很警惕的样子呀，你觉得我该展露什么，才能证明我是「我」？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "你也许认识那位有趣的愚者小姐，花火。"
+        },
         {
-          "id": 1,
-          "text": "独特的表达？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "她最近热衷于假扮他人，开拓者有被她捉弄过吗？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "照这么说，你也可能是花火假扮的。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "很警惕的样子呀，你觉得我该展露什么，才能证明我是「我」？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "一些独特的语言习惯，比如发短信加不加句号"
+              "id": 1,
+              "text": "独特的表达？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "一些独特的语言习惯，比如发短信加不加句号"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "独特的动作？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "一些独特的动作习惯，比如喜欢照镜子之类的"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "独特的动作？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "一些独特的动作习惯，比如喜欢照镜子之类的"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "但如果那位愚者小姐擅长观察，她也许能够完美模仿一个人的一切。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "我认为能将一个人与另一人区分开来的，只有「记忆」。其中点滴，是旁人无论如何也无法窃取和模仿的。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "就像我们在匹诺康尼的相遇，不是么？一片奇怪的梦境、几桩离奇的命案、同栈异梦的人们、隐于水面下的真相……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "07-01"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "还需要继续吗？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "但如果那位愚者小姐擅长观察，她也许能够完美模仿一个人的一切。"
+        },
         {
-          "id": 1,
-          "text": "足够了",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "我认为能将一个人与另一人区分开来的，只有「记忆」。其中点滴，是旁人无论如何也无法窃取和模仿的。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "就像我们在匹诺康尼的相遇，不是么？一片奇怪的梦境、几桩离奇的命案、同栈异梦的人们、隐于水面下的真相……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "sticker",
+          "sticker": "07-01",
+          "file": "聊天表情-07-01.png",
+          "asset": "assets/sr-images/聊天表情-07-01.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "还需要继续吗？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "应该足够了"
+              "id": 1,
+              "text": "足够了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "应该足够了"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "感觉还不够",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "感觉还不太够"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "感觉还不够",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "感觉还不太够"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "不能光是我说哦，按照你的逻辑，开拓者你也需要证明自己不是花火。"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "啊？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "sticker",
+          "sticker": "07-06",
+          "file": "聊天表情-07-06.png",
+          "asset": "assets/sr-images/聊天表情-07-06.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "开个玩笑。身为忆者，我自然知道屏幕对面的是谁。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "花火小姐的恶作剧并非全无好处，她能让我们重新审视此前所见，思考梦境的表象与真实。这也是我将这枚梦泡与你分享的原因。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑天鹅",
+          "contentType": "text",
+          "text": "好啦，看来她没有搞出什么大乱子，我就安心了。下次再聊吧~"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "不能光是我说哦，按照你的逻辑，开拓者你也需要证明自己不是花火。"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "啊？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "07-06"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "开个玩笑。身为忆者，我自然知道屏幕对面的是谁。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "花火小姐的恶作剧并非全无好处，她能让我们重新审视此前所见，思考梦境的表象与真实。这也是我将这枚梦泡与你分享的原因。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑天鹅",
-      "contentType": "text",
-      "text": "好啦，看来她没有搞出什么大乱子，我就安心了。下次再聊吧~"
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

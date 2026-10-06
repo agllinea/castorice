@@ -3678,115 +3678,116 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "星穹列车一家人",
-          "subtitle": ""
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "帕姆",
-          "contentType": "text",
-          "text": "各位，进入翁法罗斯的车厢依然处于失联状态"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "姬子",
-          "contentType": "text",
-          "text": "三月七的症状看上去也愈发恶劣了"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+          "subtitle": "",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "能看到我的消息吗？",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "帕姆",
+              "contentType": "text",
+              "text": "各位，进入翁法罗斯的车厢依然处于失联状态"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "姬子",
+              "contentType": "text",
+              "text": "三月七的症状看上去也愈发恶劣了"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "姬子！瓦尔特！看我看我！能看到我发的消息吗？！"
+                  "id": 1,
+                  "text": "能看到我的消息吗？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "姬子！瓦尔特！看我看我！能看到我发的消息吗？！"
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "世界要完蛋了！",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "姬子！瓦尔特！快来救我！翁法罗斯要完蛋了！"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "世界要完蛋了！",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "姬子！瓦尔特！快来救我！翁法罗斯要完蛋了！"
-                }
-              ]
+              "type": "message-system",
+              "text": "消息发送失败"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "姬子",
+              "contentType": "text",
+              "text": "瓦尔特，你那边情况怎么样？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "瓦尔特",
+              "contentType": "text",
+              "text": "进展还算顺利，黑塔邀请螺丝咕姆助阵，我们在禁闭舱段仔细聊了聊"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "瓦尔特",
+              "contentType": "text",
+              "text": "两位天才见多识广，现在离拨开翁法罗斯的迷雾又近了一步"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "瓦尔特",
+              "contentType": "text",
+              "text": "不过…有不少意料之外的信息，以短信恐怕难以陈述清楚"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "瓦尔特",
+              "contentType": "text",
+              "text": "我马上将会议记录以影像的形式传输给你"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "姬子",
+              "contentType": "text",
+              "text": "了解"
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "帮帮我，界域定锚，我也想去空间站看看会议记录"
+            },
+            {
+              "type": "message-system",
+              "text": "消息发送失败"
             }
           ]
-        },
-        {
-          "type": "message-system",
-          "text": "消息发送失败"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "姬子",
-          "contentType": "text",
-          "text": "瓦尔特，你那边情况怎么样？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "瓦尔特",
-          "contentType": "text",
-          "text": "进展还算顺利，黑塔邀请螺丝咕姆助阵，我们在禁闭舱段仔细聊了聊"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "瓦尔特",
-          "contentType": "text",
-          "text": "两位天才见多识广，现在离拨开翁法罗斯的迷雾又近了一步"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "瓦尔特",
-          "contentType": "text",
-          "text": "不过…有不少意料之外的信息，以短信恐怕难以陈述清楚"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "瓦尔特",
-          "contentType": "text",
-          "text": "我马上将会议记录以影像的形式传输给你"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "姬子",
-          "contentType": "text",
-          "text": "了解"
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "帮帮我，界域定锚，我也想去空间站看看会议记录"
-        },
-        {
-          "type": "message-system",
-          "text": "消息发送失败"
-        },
-        {
-          "type": "message-thread-end"
         },
         {
           "type": "divider"

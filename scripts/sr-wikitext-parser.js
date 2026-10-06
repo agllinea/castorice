@@ -191,6 +191,14 @@ function templateToInline(template) {
   return cleanInline(positional[0] ?? "");
 }
 
+function inlineImageReferences(value) {
+  return [...String(value ?? "").matchAll(/\[\[(?:File|文件):\s*([^|\]\n]+)((?:\|[^\]]*)*)\]\]/giu)].map((match) => {
+    const options = match[2].split("|").map((option) => option.trim()).filter(Boolean);
+    const width = options.find((option) => /^\d+px$/iu.test(option)) ?? "";
+    return { file: match[1].trim(), ...(width ? { displayWidth: width } : {}) };
+  });
+}
+
 export function cleanInline(input) {
   let text = String(input ?? "");
   text = text.replace(/<!--[\s\S]*?-->/g, "");
@@ -213,7 +221,7 @@ export function cleanInline(input) {
       const balanced = scanBalanced(text, index, "[[", "]]");
       if (balanced) {
         const parts = splitTopLevel(balanced.raw.slice(2, -2), "|");
-        output += parts.at(-1)?.trim() ?? "";
+        if (!/^(?:File|文件):/iu.test(parts[0]?.trim() ?? "")) output += parts.at(-1)?.trim() ?? "";
         index = balanced.end;
         continue;
       }
@@ -333,14 +341,50 @@ function choiceNode(template) {
   };
 }
 
+function splitMessageThreadTitle(value) {
+  const lines = String(value ?? "").split(/\n+/u).map((line) => line.trim()).filter(Boolean);
+  return {
+    title: (lines.shift() ?? "").replace(/^短信\s*[：:]\s*/u, "").trim(),
+    subtitle: lines.join(" "),
+  };
+}
+
+function findMessageOwner(nodes) {
+  for (const node of nodes) {
+    if (node?.type === "message" && node.side === "right" && node.speaker) return node.speaker;
+    if (Array.isArray(node?.content)) {
+      const owner = findMessageOwner(node.content);
+      if (owner) return owner;
+    }
+    if (Array.isArray(node?.options)) {
+      for (const option of node.options) {
+        const owner = findMessageOwner(Array.isArray(option.content) ? option.content : []);
+        if (owner) return owner;
+      }
+    }
+  }
+  return "";
+}
+
 function templateNode(template) {
   if (template.name === "剧情选项" || template.name === "短信选项") return choiceNode(template);
   if (template.name === "折叠" || template.name === "折叠框") {
+    const rawTitle = cleanInline(template.named.标题 ?? template.positional[0]);
+    const content = parseBlocks(template.named.内容 ?? template.positional[1] ?? "");
+    if (/^短信\s*[：:]/u.test(rawTitle) && findMessageOwner(content)) {
+      return {
+        type: "message-thread",
+        ...splitMessageThreadTitle(rawTitle),
+        owner: findMessageOwner(content) || "开拓者",
+        collapsed: (template.named.折叠 ?? "").trim() === "是",
+        content,
+      };
+    }
     return {
       type: "fold",
-      title: cleanInline(template.named.标题 ?? template.positional[0]),
+      title: rawTitle,
       collapsed: (template.named.折叠 ?? "").trim() === "是",
-      content: parseBlocks(template.named.内容 ?? template.positional[1] ?? ""),
+      content,
     };
   }
   if (template.name === "任务描述") {
@@ -351,10 +395,13 @@ function templateNode(template) {
     };
   }
   if (template.name === "颜色") {
+    const rawText = template.positional.at(-1) ?? "";
+    const images = inlineImageReferences(rawText);
     return {
       type: "narration",
       tone: cleanInline(template.positional[0]),
-      text: cleanInline(template.positional.at(-1)),
+      text: cleanInline(rawText),
+      ...(images.length ? { images } : {}),
     };
   }
   if (template.name === "提示") {
@@ -381,16 +428,20 @@ function templateNode(template) {
     const structuredContent = contentType === "文本" && /^\s*\{\{/.test(value ?? "")
       ? parseBlocks(value)
       : null;
+    const cleanedValue = cleanInline(value);
+    const normalizedContentType = contentType === "图片" ? "image" : contentType === "表情" ? "sticker" : "text";
     return {
       type: "message",
       side: side === "左" ? "left" : side === "右" ? "right" : cleanInline(side),
       speaker: cleanInline(speaker),
-      contentType: contentType === "图片" ? "image" : "text",
+      contentType: normalizedContentType,
       ...(contentType === "图片"
-        ? { image: cleanInline(value) }
+        ? { image: cleanedValue, file: cleanedValue }
+        : contentType === "表情"
+          ? { sticker: cleanedValue, file: `聊天表情-${cleanedValue}.png` }
         : structuredContent?.length
           ? { content: structuredContent }
-          : { text: cleanInline(value) }),
+          : { text: cleanedValue }),
       ...(acknowledged ? { acknowledged: cleanInline(acknowledged) === "是" } : {}),
     };
   }
@@ -452,6 +503,33 @@ function appendParagraph(nodes, lines) {
   lines.length = 0;
 }
 
+function groupMessageThreads(nodes) {
+  const grouped = [];
+  for (let index = 0; index < nodes.length; index += 1) {
+    const node = nodes[index];
+    if (node?.type !== "message-thread-start") {
+      grouped.push(node);
+      continue;
+    }
+    const endIndex = nodes.findIndex((candidate, candidateIndex) => candidateIndex > index && candidate?.type === "message-thread-end");
+    if (endIndex < 0) {
+      grouped.push(node);
+      continue;
+    }
+    const content = nodes.slice(index + 1, endIndex);
+    grouped.push({
+      type: "message-thread",
+      title: node.title ?? "",
+      subtitle: node.subtitle ?? "",
+      owner: findMessageOwner(content) || "开拓者",
+      collapsed: false,
+      content,
+    });
+    index = endIndex;
+  }
+  return grouped;
+}
+
 function tabberNode(content) {
   const parts = [];
   const marker = /^\s*\|-\|\s*(?:(.*?)=\s*)?$/gm;
@@ -493,6 +571,38 @@ export function parseBlocks(input) {
     const line = source.slice(position, lineEnd === -1 ? source.length : lineEnd);
     const trimmed = line.trim();
 
+    if (/^\s*<center>/iu.test(line)) {
+      const centerStart = source.indexOf("<center>", position);
+      const centerEnd = source.toLowerCase().indexOf("</center>", centerStart + 8);
+      if (centerStart >= 0 && centerEnd >= 0) {
+        const inner = source.slice(centerStart + 8, centerEnd).trim();
+        const templateStart = inner.indexOf("{{");
+        const balanced = templateStart >= 0 ? scanBalanced(inner, templateStart, "{{", "}}") : null;
+        if (balanced) {
+          const template = parseTemplate(balanced.raw);
+          if (template.name === "图片放大") {
+            appendParagraph(nodes, paragraph);
+            nodes.push(templateNode(template));
+            const caption = cleanInline(`${inner.slice(0, templateStart)} ${inner.slice(balanced.end)}`);
+            if (caption) nodes.push({ type: "text", text: caption });
+            position = centerEnd + "</center>".length;
+            if (source[position] === "\n") position += 1;
+            continue;
+          }
+        }
+      }
+    }
+
+    const fileImage = trimmed.match(/^(?:<center>\s*)?\[\[(?:File|文件):\s*([^|\]]+)((?:\|[^\]]*)*)\]\](?:\s*<\/center>)?$/iu);
+    if (fileImage) {
+      appendParagraph(nodes, paragraph);
+      const options = fileImage[2].split("|").map((value) => value.trim()).filter(Boolean);
+      const width = options.find((value) => /^\d+px$/iu.test(value)) ?? "";
+      nodes.push({ type: "image", file: cleanInline(fileImage[1]), ...(width ? { displayWidth: width } : {}), ...(options.includes("center") ? { align: "center" } : {}) });
+      position = next;
+      continue;
+    }
+
     const tabberMatch = trimmed.match(/^<(tabber|tabs)>$/i);
     if (tabberMatch) {
       const closingTag = `</${tabberMatch[1].toLowerCase()}>`;
@@ -512,6 +622,19 @@ export function parseBlocks(input) {
       if (balanced?.end === centeredTemplate[1].length) {
         appendParagraph(nodes, paragraph);
         nodes.push(templateNode(parseTemplate(balanced.raw)));
+        position = next;
+        continue;
+      }
+    }
+
+    const centeredImageWithCaption = trimmed.match(/^<center>\s*(\{\{图片放大[\s\S]*?\}\})\s*<br\s*\/?\s*>\s*([\s\S]*?)\s*<\/center>$/iu);
+    if (centeredImageWithCaption) {
+      const balanced = scanBalanced(centeredImageWithCaption[1], 0, "{{", "}}");
+      if (balanced?.end === centeredImageWithCaption[1].length) {
+        appendParagraph(nodes, paragraph);
+        nodes.push(templateNode(parseTemplate(balanced.raw)));
+        const caption = cleanInline(centeredImageWithCaption[2]);
+        if (caption) nodes.push({ type: "text", text: caption });
         position = next;
         continue;
       }
@@ -559,7 +682,7 @@ export function parseBlocks(input) {
   }
 
   appendParagraph(nodes, paragraph);
-  return nodes;
+  return groupMessageThreads(nodes);
 }
 
 export function parseStarRailMission(source, sourceMetadata = {}) {

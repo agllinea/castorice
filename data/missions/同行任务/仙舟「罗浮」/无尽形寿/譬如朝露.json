@@ -104,128 +104,129 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "大毫",
-      "subtitle": "慢些走，别丢下灵魂。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "开拓者你好，打搅了。在下有事又要打扰您了。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "什么事？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "您还记得之前在广场上击退了魔阴身，为龙女大人解了围的英勇事迹吧？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "慢些走，别丢下灵魂。",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "记得。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "开拓者你好，打搅了。在下有事又要打扰您了。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "什么事？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "您还记得之前在广场上击退了魔阴身，为龙女大人解了围的英勇事迹吧？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "没错，举手之劳而已"
+              "id": 1,
+              "text": "记得。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "没错，举手之劳而已"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "我记不清了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我记不太清了？是惹出什么麻烦了？还是…你们打算表彰好人好事呢？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "不不不，您不必恐慌，您的善举咱们至今没忘呢",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "关于龙女，我有事相求，想请您移步谈谈。",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "龙女大人？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "龙女？谁？不认识"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "看来您做过的好事太多，早已忘了。",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "不过见过龙女大人的，没一个会不对那孩子那龙角龙尾的异相印象深刻",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "大毫",
+                  "contentType": "text",
+                  "text": "唉，我所求之事解释起来颇费功夫。想请您移步聊一聊",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我记不清了。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我记不太清了？是惹出什么麻烦了？还是…你们打算表彰好人好事呢？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "不不不，您不必恐慌，您的善举咱们至今没忘呢",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "关于龙女，我有事相求，想请您移步谈谈。",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "龙女大人？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "龙女？谁？不认识"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "看来您做过的好事太多，早已忘了。",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "不过见过龙女大人的，没一个会不对那孩子那龙角龙尾的异相印象深刻",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "大毫",
-              "contentType": "text",
-              "text": "唉，我所求之事解释起来颇费功夫。想请您移步聊一聊",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "大毫",
+          "contentType": "text",
+          "text": "麻烦您抽空来地衡司一趟，我想和您当面详谈。",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "大毫",
-      "contentType": "text",
-      "text": "麻烦您抽空来地衡司一趟，我想和您当面详谈。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

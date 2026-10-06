@@ -1469,7 +1469,8 @@
       "type": "image",
       "file": "开拓任务-液态现代性的生成语法-CG1.png",
       "displayWidth": "810px",
-      "fullWidth": "1440px"
+      "fullWidth": "1440px",
+      "asset": "assets/sr-images/开拓任务-液态现代性的生成语法-CG1.png"
     },
     {
       "type": "dialogue",
@@ -1695,131 +1696,132 @@
       "text": "「满愿的样子——很奇怪——」"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "火花",
-      "subtitle": "聊天中断，小火花可就消失了哦"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "小灰毛"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "千万要当心"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "聊天中断，小火花可就消失了哦",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你可算来了",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "小灰毛"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "千万要当心"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你可算来了"
+              "id": 1,
+              "text": "你可算来了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你可算来了"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "差点忘了你",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "差点忘了你"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "差点忘了你",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "差点忘了你"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "有好消息吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "满愿的力量叫「幸福语法」"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "说着好听，但不过是煽动放大人们内心的渴望、操纵念头"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "坏消息是：这招在二相乐园最管用"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "有好消息吗？"
+        },
         {
-          "id": 1,
-          "text": "有好消息吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "满愿的力量叫「幸福语法」"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "说着好听，但不过是煽动放大人们内心的渴望、操纵念头"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "坏消息是：这招在二相乐园最管用"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "她的能力已经开始到处传播了"
+              "id": 1,
+              "text": "有好消息吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "她的能力已经开始到处传播了"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "晚了",
+              "content": []
             }
           ]
         },
         {
-          "id": 2,
-          "text": "晚了",
-          "content": []
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你只说了坏消息，那好消息呢？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "火花花刚成功杀出酒馆，复播在即！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "自求多福吧，回见"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你只说了坏消息，那好消息呢？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "火花花刚成功杀出酒馆，复播在即！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "自求多福吧，回见"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

@@ -1961,61 +1961,64 @@
       "text": "看，短信来了。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "遐蝶",
-      "subtitle": "在写了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "开拓者阁下，你和远坂小姐在一起吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "如果可以的话"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "晚些时候，我想烦请阁下在珠星大厦见面"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "有些话想对你说…"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "23-03"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "啊，是关于先前那场战斗"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "请务必赴约…！"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "在写了",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "开拓者阁下，你和远坂小姐在一起吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "如果可以的话"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "晚些时候，我想烦请阁下在珠星大厦见面"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "有些话想对你说…"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "sticker",
+          "sticker": "23-03",
+          "file": "聊天表情-23-03.png",
+          "asset": "assets/sr-images/聊天表情-23-03.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "啊，是关于先前那场战斗"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "请务必赴约…！"
+        }
+      ]
     },
     {
       "type": "section",

@@ -100,204 +100,205 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "三月七",
-      "subtitle": "今天也是三月七~"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开拓者，在吗",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "今天也是三月七~",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "不在",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开拓者，在吗",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "不在，我是帕姆"
+              "id": 1,
+              "text": "不在",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "不在，我是帕姆"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "我看你长得就像帕姆，别闹，有正事",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "我看你长得就像帕姆，别闹，有正事",
-              "acknowledged": true
+              "id": 2,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "在的，怎么了？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "怎么了？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "在的，怎么了？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我突然想起来哦，这次罗浮之旅，有一个东西让我特别在意",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "就是太卜司的那个「大衍穷观阵」",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "太卜用那东西问讯卡芙卡，甚至不用她开口，就能看到过去",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "所以我在想…这阵法是不是能用在我身上",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我突然想起来哦，这次罗浮之旅，有一个东西让我特别在意",
+          "acknowledged": true
+        },
         {
-          "id": 1,
-          "text": "在神策府怎么不说？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "就是太卜司的那个「大衍穷观阵」",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "太卜用那东西问讯卡芙卡，甚至不用她开口，就能看到过去",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "所以我在想…这阵法是不是能用在我身上",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "之前在神策府，你怎么不求她？"
+              "id": 1,
+              "text": "在神策府怎么不说？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "之前在神策府，你怎么不求她？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "值得去问问她…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "确实值得去问问，搞不好能探到你丢失的记忆"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "对对，当时在神策府我就想开口了，可是思来想去，心里有些不安",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "值得去问问她…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "确实值得去问问，搞不好能探到你丢失的记忆"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "对对，当时在神策府我就想开口了，可是思来想去，心里有些不安",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "罗浮刚经历了大麻烦，景元受了伤，需要太卜来主持大局",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "咱这点私人小事，说不出口哇",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "所以想着，等她没那么忙了，我们一起去太卜司求求她？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "没问题。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "没问题，我们太卜司见。"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "就知道你最好啦！",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "罗浮刚经历了大麻烦，景元受了伤，需要太卜来主持大局",
+          "acknowledged": true
         },
         {
-          "id": 2,
-          "text": "我也要跟着去吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "咱这点私人小事，说不出口哇",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "所以想着，等她没那么忙了，我们一起去太卜司求求她？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我也要跟着一起去吗？是这样的，不是怕麻烦哈，毕竟是你的私事…"
+              "id": 1,
+              "text": "没问题。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "没问题，我们太卜司见。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "就知道你最好啦！",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "我…我…我自己去求人家办事，会有些不好意思嘛！好啦，我们太卜司见吧。",
-              "acknowledged": true
+              "id": 2,
+              "text": "我也要跟着去吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我也要跟着一起去吗？是这样的，不是怕麻烦哈，毕竟是你的私事…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "我…我…我自己去求人家办事，会有些不好意思嘛！好啦，我们太卜司见吧。",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -3154,35 +3155,36 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "三月七",
-          "subtitle": "今天也是三月七~"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "三月七",
-          "contentType": "text",
-          "text": "开拓者！快来我房间！我发现了不得了的东西！",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "你发现了什么东西？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "三月七",
-          "contentType": "text",
-          "text": "来了你就知道了，快来！",
-          "acknowledged": true
-        },
-        {
-          "type": "message-thread-end"
+          "subtitle": "今天也是三月七~",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "三月七",
+              "contentType": "text",
+              "text": "开拓者！快来我房间！我发现了不得了的东西！",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "你发现了什么东西？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "三月七",
+              "contentType": "text",
+              "text": "来了你就知道了，快来！",
+              "acknowledged": true
+            }
+          ]
         },
         {
           "type": "narration",

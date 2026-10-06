@@ -651,195 +651,196 @@
       "text": "你收到了列车组的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开拓者"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "你还在梦境酒店吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开拓者"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开拓者"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "你们遇到什么状况了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "我们在忆域里分散了，不过开拓者有那位忆者随行"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我好急"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "救命"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "小三月，稍安勿躁"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "需要我下车么？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "暂时不用"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "好。如果需要，及时告诉我。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "现实中的白日梦酒店很平静，没有任何事发生。"
-    },
-    {
-      "type": "message-system",
-      "text": "——以上是历史消息——"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "我好了。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开拓者"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "你还在梦境酒店吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开拓者"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开拓者"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "你们遇到什么状况了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "我们在忆域里分散了，不过开拓者有那位忆者随行"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我好急"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "救命"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "小三月，稍安勿躁"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "需要我下车么？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "暂时不用"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "好。如果需要，及时告诉我。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "现实中的白日梦酒店很平静，没有任何事发生。"
+        },
+        {
+          "type": "message-system",
+          "text": "——以上是历史消息——"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我这边调查结束了"
+              "id": 1,
+              "text": "我好了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我这边调查结束了"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "在哪集合？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "在哪集合？"
+              "id": 2,
+              "text": "你们在哪？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我这边调查结束了"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "去哪里找你们？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你们在哪？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我这边调查结束了"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "去哪里找你们？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开拓者！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "开拓者，你安全就好"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "那女人没干什么坏事吧？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "流萤小姐的事…我很遗憾"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "家族封锁了现场，我们正在和代表交涉，快结束了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "稍后在钟表小子雕像附近见面吧"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开拓者！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "开拓者，你安全就好"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "那女人没干什么坏事吧？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "流萤小姐的事…我很遗憾"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "家族封锁了现场，我们正在和代表交涉，快结束了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "稍后在钟表小子雕像附近见面吧"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -916,7 +917,8 @@
       "type": "image",
       "file": "开拓任务-天鹅绒里的恶魔-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-天鹅绒里的恶魔-CG.png"
     },
     {
       "type": "dialogue",
@@ -1540,160 +1542,161 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "砂金",
-      "subtitle": ""
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "列车组同意合作",
-          "content": []
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我们答应你的合作请求"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "不错不错，回复比预想中快嘛"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "这下我们就是一根绳上的蚂蚱了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "合作愉快，送点小礼讨个好彩头"
-    },
-    {
-      "type": "message-system",
-      "text": "已收到转账：100000信用点"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "多谢老板。",
-          "content": [
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "好好好"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "老板大气，谢谢谢谢"
+              "id": 1,
+              "text": "列车组同意合作",
+              "content": []
             }
           ]
         },
         {
-          "id": 2,
-          "text": "理性消费。",
-          "content": [
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我们答应你的合作请求"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "不错不错，回复比预想中快嘛"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "这下我们就是一根绳上的蚂蚱了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "合作愉快，送点小礼讨个好彩头"
+        },
+        {
+          "type": "message-system",
+          "text": "已收到转账：100000信用点"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "哥，理性消费"
+              "id": 1,
+              "text": "多谢老板。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "好好好"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "老板大气，谢谢谢谢"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这次我就先收下了，下不为例"
+              "id": 2,
+              "text": "理性消费。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "哥，理性消费"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这次我就先收下了，下不为例"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "就这？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "就这？"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "感觉一般，富哥再转我十万看看实力"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 3,
-          "text": "就这？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "就这？"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "感觉一般，富哥再转我十万看看实力"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "哟，手快打错了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "再给你补上点，开工大吉"
+        },
+        {
+          "type": "message-system",
+          "text": "已收到转账：100000信用点"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "和我想的一样，家族打算把知更鸟的事隐瞒到底，所以这案子，你知我知"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "但另一起…就要看他们对你们准备采取什么说辞了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "砂金",
+          "contentType": "text",
+          "text": "先失陪了，期待各位的精彩表现！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "哟，手快打错了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "再给你补上点，开工大吉"
-    },
-    {
-      "type": "message-system",
-      "text": "已收到转账：100000信用点"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "和我想的一样，家族打算把知更鸟的事隐瞒到底，所以这案子，你知我知"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "但另一起…就要看他们对你们准备采取什么说辞了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "砂金",
-      "contentType": "text",
-      "text": "先失陪了，期待各位的精彩表现！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

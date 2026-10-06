@@ -1094,8 +1094,10 @@
       ]
     },
     {
-      "type": "fold",
-      "title": "短信：星穹列车一家人",
+      "type": "message-thread",
+      "title": "星穹列车一家人",
+      "subtitle": "",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {
@@ -1566,8 +1568,10 @@
       "type": "divider"
     },
     {
-      "type": "fold",
-      "title": "短信：布洛妮娅、开拓者、三月七、丹恒的群聊",
+      "type": "message-thread",
+      "title": "布洛妮娅、开拓者、三月七、丹恒的群聊",
+      "subtitle": "",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {
@@ -1582,9 +1586,11 @@
           "type": "message",
           "side": "left",
           "speaker": "布洛妮娅",
-          "contentType": "text",
-          "text": "00-01",
-          "acknowledged": true
+          "contentType": "sticker",
+          "sticker": "00-01",
+          "file": "聊天表情-00-01.png",
+          "acknowledged": true,
+          "asset": "assets/sr-images/聊天表情-00-01.png"
         },
         {
           "type": "choice",
@@ -1736,9 +1742,11 @@
           "type": "message",
           "side": "left",
           "speaker": "布洛妮娅",
-          "contentType": "text",
-          "text": "00-02",
-          "acknowledged": true
+          "contentType": "sticker",
+          "sticker": "00-02",
+          "file": "聊天表情-00-02.png",
+          "acknowledged": true,
+          "asset": "assets/sr-images/聊天表情-00-02.png"
         }
       ]
     }

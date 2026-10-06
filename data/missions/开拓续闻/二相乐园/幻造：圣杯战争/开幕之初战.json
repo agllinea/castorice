@@ -3597,51 +3597,52 @@
       "text": "既然你都这么说了，那就如你所愿…且看我怎么搅得你们这些外宇宙人吃尽苦头！"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "不死途",
-      "subtitle": "接"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "不死途",
-      "contentType": "text",
-      "text": "好消息：经过老白一夜奋战，他"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "不死途",
-      "contentType": "text",
-      "text": "终于累晕了，我来转达"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "不死途",
-      "contentType": "text",
-      "text": "Caster主从现在就在海原市"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "不死途",
-      "contentType": "text",
-      "text": "朽叶的结论和我们一样，应该不会出错"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "不死途",
-      "contentType": "text",
-      "text": "远坂小姐已经先出发了，她说在车站等你"
-    },
-    {
-      "type": "message-system",
-      "text": "不死途发起了一则位置共享"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "接",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "不死途",
+          "contentType": "text",
+          "text": "好消息：经过老白一夜奋战，他"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "不死途",
+          "contentType": "text",
+          "text": "终于累晕了，我来转达"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "不死途",
+          "contentType": "text",
+          "text": "Caster主从现在就在海原市"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "不死途",
+          "contentType": "text",
+          "text": "朽叶的结论和我们一样，应该不会出错"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "不死途",
+          "contentType": "text",
+          "text": "远坂小姐已经先出发了，她说在车站等你"
+        },
+        {
+          "type": "message-system",
+          "text": "不死途发起了一则位置共享"
+        }
+      ]
     }
   ],
   "warnings": []

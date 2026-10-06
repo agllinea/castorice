@@ -473,8 +473,11 @@
       "text": "…你似乎又看见了什么…"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "开拓任务-躲得过初一躲不过十五-CG.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-躲得过初一躲不过十五-CG.png"
     },
     {
       "type": "dialogue",

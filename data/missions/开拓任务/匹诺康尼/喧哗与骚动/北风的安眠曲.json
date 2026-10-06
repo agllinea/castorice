@@ -395,7 +395,8 @@
       "type": "image",
       "file": "开拓任务-北风的安眠曲-信任的证明.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-北风的安眠曲-信任的证明.png"
     },
     {
       "type": "dialogue",
@@ -534,7 +535,8 @@
       "type": "image",
       "file": "开拓任务-北风的安眠曲-金垃圾.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-北风的安眠曲-金垃圾.png"
     },
     {
       "type": "dialogue",

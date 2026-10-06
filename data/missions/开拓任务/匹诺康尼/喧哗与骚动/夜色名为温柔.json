@@ -2877,7 +2877,8 @@
       "type": "image",
       "file": "开拓任务-夜色名为温柔-拼图碎片.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-夜色名为温柔-拼图碎片.png"
     },
     {
       "type": "narration",
@@ -3408,7 +3409,8 @@
                       "type": "image",
                       "file": "开拓任务-夜色名为温柔-CG2.png",
                       "displayWidth": "600px",
-                      "fullWidth": "1100px"
+                      "fullWidth": "1100px",
+                      "asset": "assets/sr-images/开拓任务-夜色名为温柔-CG2.png"
                     }
                   ]
                 },
@@ -3420,7 +3422,8 @@
                       "type": "image",
                       "file": "开拓任务-夜色名为温柔-CG1.png",
                       "displayWidth": "600px",
-                      "fullWidth": "1100px"
+                      "fullWidth": "1100px",
+                      "asset": "assets/sr-images/开拓任务-夜色名为温柔-CG1.png"
                     }
                   ]
                 }
@@ -3490,7 +3493,8 @@
                               "type": "image",
                               "file": "开拓任务-夜色名为温柔-CG2.png",
                               "displayWidth": "600px",
-                              "fullWidth": "1100px"
+                              "fullWidth": "1100px",
+                              "asset": "assets/sr-images/开拓任务-夜色名为温柔-CG2.png"
                             }
                           ]
                         },
@@ -3502,7 +3506,8 @@
                               "type": "image",
                               "file": "开拓任务-夜色名为温柔-CG1.png",
                               "displayWidth": "600px",
-                              "fullWidth": "1100px"
+                              "fullWidth": "1100px",
+                              "asset": "assets/sr-images/开拓任务-夜色名为温柔-CG1.png"
                             }
                           ]
                         }
@@ -3536,111 +3541,112 @@
       "text": "你收到了列车组的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message-system",
-      "text": "姬子邀请开拓者、三月七、瓦尔特加入群聊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "各位，玩得还开心吗"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开心是开心"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "但总觉得哪里不对…"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "有种不真实的感觉，怪怪的，说不上来"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "毕竟是在梦里",
-          "content": [
+          "type": "message-system",
+          "text": "姬子邀请开拓者、三月七、瓦尔特加入群聊"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "各位，玩得还开心吗"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开心是开心"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "但总觉得哪里不对…"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "有种不真实的感觉，怪怪的，说不上来"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "毕竟是在梦里"
+              "id": 1,
+              "text": "毕竟是在梦里",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "毕竟是在梦里"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "调查有些进展",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "调查有些进展"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "调查有些进展",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "调查有些进展"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我在拍卖会上遇见一个戴石膏头的男人，什么都没做就走了，好可疑"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "我也有些不太愉快的发现。情况复杂，最好能当面讲。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "我也是"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "看来是时候回一趟现实了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "来我的房间集合吧"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我在拍卖会上遇见一个戴石膏头的男人，什么都没做就走了，好可疑"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "我也有些不太愉快的发现。情况复杂，最好能当面讲。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "我也是"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "看来是时候回一趟现实了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "来我的房间集合吧"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

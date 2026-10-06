@@ -16,10 +16,11 @@
       "希露瓦",
       "娜塔莎",
       "奥列格",
+      "瓦尔特",
+      "开拓者",
       "史瓦罗",
       "克拉拉",
       "虎克",
-      "瓦尔特",
       "桑博"
     ],
     "hidden": [
@@ -31,7 +32,7 @@
     ]
   },
   "createdAt": "2026-10-01T05:25:40.612Z",
-  "updatedAt": "2026-10-01T21:32:37.049Z",
+  "updatedAt": "2026-10-06T06:30:04.382Z",
   "blocks": [
     {
       "id": "7e52b95e-a4a8-4992-88db-8211b74f7650",
@@ -3235,8 +3236,8 @@
         "contentIndex": 32
       },
       "node": {
-        "type": "fold",
-        "title": "短信：星穹列车一家人",
+        "type": "message-thread",
+        "title": "星穹列车一家人",
         "collapsed": false,
         "content": [
           {
@@ -3373,7 +3374,9 @@
             "text": "如果你心血来潮，想重新体验那些铭心刻骨的冒险历程，或许可以前往「余响」现象残留的地点试试运气。",
             "acknowledged": true
           }
-        ]
+        ],
+        "subtitle": "",
+        "owner": "开拓者"
       }
     },
     {
@@ -3675,7 +3678,7 @@
       }
     },
     {
-      "id": "4c341509-5922-481e-9c9e-5dd422ba1a4f",
+      "id": "3b53b16c-8997-4827-a5f6-350a71a50f1e",
       "source": {
         "mission": "时不我待，我的朋友",
         "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/时不我待，我的朋友.json",
@@ -3685,7 +3688,8 @@
         "type": "image",
         "file": "开拓任务-时不我待我的朋友-CG1.png",
         "displayWidth": "600px",
-        "fullWidth": "1200px"
+        "fullWidth": "1200px",
+        "asset": "assets/sr-images/开拓任务-时不我待我的朋友-CG1.png"
       }
     },
     {
@@ -4043,7 +4047,8 @@
         "type": "image",
         "file": "开拓任务-时不我待我的朋友-CG2.png",
         "displayWidth": "600px",
-        "fullWidth": "1200px"
+        "fullWidth": "1200px",
+        "asset": "assets/sr-images/开拓任务-时不我待我的朋友-CG2.png"
       }
     },
     {
@@ -4109,7 +4114,8 @@
         "type": "image",
         "file": "开拓任务-时不我待我的朋友-CG3.png",
         "displayWidth": "600px",
-        "fullWidth": "1200px"
+        "fullWidth": "1200px",
+        "asset": "assets/sr-images/开拓任务-时不我待我的朋友-CG3.png"
       }
     },
     {
@@ -4149,7 +4155,8 @@
         "type": "image",
         "file": "开拓任务-时不我待我的朋友-CG4.png",
         "displayWidth": "600px",
-        "fullWidth": "1200px"
+        "fullWidth": "1200px",
+        "asset": "assets/sr-images/开拓任务-时不我待我的朋友-CG4.png"
       }
     },
     {
@@ -4228,7 +4235,8 @@
         "type": "image",
         "file": "开拓任务-时不我待我的朋友-CG5.png",
         "displayWidth": "600px",
-        "fullWidth": "1200px"
+        "fullWidth": "1200px",
+        "asset": "assets/sr-images/开拓任务-时不我待我的朋友-CG5.png"
       }
     },
     {

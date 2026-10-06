@@ -87,8 +87,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：娜塔莎\n机械聚落巡诊，切勿跑空",
+      "type": "message-thread",
+      "title": "娜塔莎",
+      "subtitle": "机械聚落巡诊，切勿跑空",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {

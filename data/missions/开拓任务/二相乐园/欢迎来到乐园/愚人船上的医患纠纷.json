@@ -3372,134 +3372,139 @@
       "location": "二相乐园-「世界尽头」酒馆"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "幻太子",
-      "subtitle": "重要的人会注意到我，被看见是迟早的事"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "哔啵！前线记者发来第一手资料哩！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入学院-1.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "大事不妙！整个学校的学生，都开始发生某种奇怪的变化了！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "本狸觉得！自己也快要被感染哩！不能呼吸！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入学院-2.png"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "重要的人会注意到我，被看见是迟早的事",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "有什么特殊情况吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "哔啵！前线记者发来第一手资料哩！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入学院-1.png",
+          "file": "短信-幻太子-潜入学院-1.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入学院-1.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "大事不妙！整个学校的学生，都开始发生某种奇怪的变化了！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "本狸觉得！自己也快要被感染哩！不能呼吸！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入学院-2.png",
+          "file": "短信-幻太子-潜入学院-2.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入学院-2.png"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "有什么特殊情况吗？"
+              "id": 1,
+              "text": "有什么特殊情况吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "有什么特殊情况吗？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "有看到一个粉头发的学生吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "有看到一个粉头发的学生吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "幻太子",
+                  "contentType": "text",
+                  "text": "人类学生们头毛颜色太多啦，分不清你要找的是哪个哩，本狸会继续努力！"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "有看到一个戴眼镜的男老师吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "有看到一个戴眼镜的男老师吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "幻太子",
+                  "contentType": "text",
+                  "text": "没看见哩！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "有看到一个粉头发的学生吗？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "有看到一个粉头发的学生吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "幻太子",
-              "contentType": "text",
-              "text": "人类学生们头毛颜色太多啦，分不清你要找的是哪个哩，本狸会继续努力！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "有个事不太对劲！他们正在拆走学校里的海浪景画哩！"
         },
         {
-          "id": 3,
-          "text": "有看到一个戴眼镜的男老师吗？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "有看到一个戴眼镜的男老师吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "幻太子",
-              "contentType": "text",
-              "text": "没看见哩！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "哔哔，侦测到有人正在往本狸的方向移动！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "要记得我为本社做出的贡献啊，社长！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "下次再聊！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "有个事不太对劲！他们正在拆走学校里的海浪景画哩！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "哔哔，侦测到有人正在往本狸的方向移动！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "要记得我为本社做出的贡献啊，社长！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "下次再聊！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",
@@ -4014,206 +4019,217 @@
       "text": "别担心，我让老乔开了条进路。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "幻太子",
-      "subtitle": "重要的人会注意到我，被看见是迟早的事"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "哔啵！社长，又有情况哩！"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "重要的人会注意到我，被看见是迟早的事",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "干得好！",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "哔啵！社长，又有情况哩！"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "干得好！"
+              "id": 1,
+              "text": "干得好！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "干得好！"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "有什么新情报？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "有什么新情报？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "有什么新情报？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "有什么新情报？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "继坏女人指挥学生拆走海浪景画后，本狸密切追踪！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "哔哔——给我找到哩！他们存放的地方！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入被发现-1.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "这是其中一个！剩下几个我会再接再厉再找哩！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "狸了个大谱！那个女人似乎发现本狸行踪哩\n！要为社长捐躯哩！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入被发现-2.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入被发现-3.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入被发现-4.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "image",
-      "image": "短信-幻太子-潜入被发现-5.png"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "继坏女人指挥学生拆走海浪景画后，本狸密切追踪！"
+        },
         {
-          "id": 1,
-          "text": "狸猫？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "哔哔——给我找到哩！他们存放的地方！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入被发现-1.png",
+          "file": "短信-幻太子-潜入被发现-1.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入被发现-1.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "这是其中一个！剩下几个我会再接再厉再找哩！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "狸了个大谱！那个女人似乎发现本狸行踪哩\n！要为社长捐躯哩！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入被发现-2.png",
+          "file": "短信-幻太子-潜入被发现-2.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入被发现-2.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入被发现-3.png",
+          "file": "短信-幻太子-潜入被发现-3.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入被发现-3.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入被发现-4.png",
+          "file": "短信-幻太子-潜入被发现-4.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入被发现-4.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "image",
+          "image": "短信-幻太子-潜入被发现-5.png",
+          "file": "短信-幻太子-潜入被发现-5.png",
+          "asset": "assets/sr-images/短信-幻太子-潜入被发现-5.png"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "狸猫？"
+              "id": 1,
+              "text": "狸猫？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "狸猫？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "…你没事吧？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "…你没事吧？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "…你没事吧？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "…你没事吧？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "它当然会有事"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "竟然派出间谍潜入这儿，无名客，你还蛮有两把刷子的嘛"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "不过，你们是时间和胜算可都不多了"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "它当然会有事"
+        },
         {
-          "id": 1,
-          "text": "别嚣张！",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "竟然派出间谍潜入这儿，无名客，你还蛮有两把刷子的嘛"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "不过，你们是时间和胜算可都不多了"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "别嚣张！"
+              "id": 1,
+              "text": "别嚣张！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "别嚣张！"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "正赶来收拾你呢！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "正赶来收拾你呢！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "正赶来收拾你呢！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "正赶来收拾你呢！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "幻太子",
+          "contentType": "text",
+          "text": "加快脚步！可别让我等得太心焦喔~"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "幻太子",
-      "contentType": "text",
-      "text": "加快脚步！可别让我等得太心焦喔~"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

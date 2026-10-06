@@ -55,164 +55,165 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "捉鬼小队",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "不好了家人们，出大事了，藿藿失踪了！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "藿藿不见了？昨天离开前她有说过要去做什么吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "从昨天解散起，她似乎就有些不太对劲了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "@藿藿",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "@藿藿",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "不好了家人们，出大事了，藿藿失踪了！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "藿藿不见了？昨天离开前她有说过要去做什么吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "从昨天解散起，她似乎就有些不太对劲了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
           "text": "@藿藿",
-          "content": [
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "@藿藿",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "@藿藿"
+              "id": 1,
+              "text": "@藿藿",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "@藿藿"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "光在群里呼叫她没用，赶快联系寒鸦大人吧",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "光在群里呼叫她没用，赶快联系寒鸦大人吧",
-              "acknowledged": true
+              "id": 2,
+              "text": "要不问问寒鸦大人",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "也许寒鸦大人能找到她"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "要不问问寒鸦大人",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "也许寒鸦大人能找到她"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我们在老地方集合",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "捉鬼小队少了谁都不行",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我已经在网上发帖找人了！你们来了，我们再确认一下",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "马上就来",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "@藿藿",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "@藿藿"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "别@了，快来绥园",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我们在老地方集合",
+          "acknowledged": true
         },
         {
-          "id": 2,
-          "text": "这就来",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "捉鬼小队少了谁都不行",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我已经在网上发帖找人了！你们来了，我们再确认一下",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "马上就来",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我马上就过来"
+              "id": 1,
+              "text": "@藿藿",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "@藿藿"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "别@了，快来绥园",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "这就来",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我马上就过来"
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

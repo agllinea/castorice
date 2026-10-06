@@ -90,148 +90,149 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "丹恒",
-      "subtitle": "智库相关找我"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "开拓者，不知你这一阵子是否有时间？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "我有件事想邀你同行……",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "智库相关找我",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "怎么了？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "开拓者，不知你这一阵子是否有时间？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "我有件事想邀你同行……",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "邀请我？这么郑重？"
+              "id": 1,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "邀请我？这么郑重？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "我想见见罗浮持明一族如今的龙尊。",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "我想见见罗浮持明一族如今的龙尊。",
-              "acknowledged": true
+              "id": 2,
+              "text": "是想请做我保镖？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "该不会担心仙舟上有人对你不利，想请我当你的保镖吧？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "说笑了。我想见见罗浮持明一族如今的龙尊。",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "是想请做我保镖？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "该不会担心仙舟上有人对你不利，想请我当你的保镖吧？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "说笑了。我想见见罗浮持明一族如今的龙尊。",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "我想打听过去发生的一些旧事，好让自己更清楚接下来能做些什么，弥补前生之事。",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "那我就奉陪到底了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "好啊，需要我的话，我随时都在"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "多谢你。咱们在长乐天的若木亭相见。",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "我想打听过去发生的一些旧事，好让自己更清楚接下来能做些什么，弥补前生之事。",
+          "acknowledged": true
         },
         {
-          "id": 2,
-          "text": "一定需要我在场吗？",
-          "content": [
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "感觉这似乎是个正儿八经的外交场合啊，我一定得在场吗？"
+              "id": 1,
+              "text": "那我就奉陪到底了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "好啊，需要我的话，我随时都在"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "多谢你。咱们在长乐天的若木亭相见。",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "若只有我一个，我担心此事会横生枝节。",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "但有你在场就不同了，我听说你曾出手救过那位龙女，有你在，一切便好办多了。",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "我在长乐天的若木亭等你，到时候见。",
-              "acknowledged": true
+              "id": 2,
+              "text": "一定需要我在场吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "感觉这似乎是个正儿八经的外交场合啊，我一定得在场吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "若只有我一个，我担心此事会横生枝节。",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "但有你在场就不同了，我听说你曾出手救过那位龙女，有你在，一切便好办多了。",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "我在长乐天的若木亭等你，到时候见。",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

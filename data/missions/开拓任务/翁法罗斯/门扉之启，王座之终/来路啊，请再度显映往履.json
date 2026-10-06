@@ -3102,446 +3102,447 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "白厄",
-          "subtitle": "赞美太阳！"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "搭档，在吗？"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+          "subtitle": "赞美太阳！",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "在。",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "搭档，在吗？"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "在，怎么了？"
+                  "id": 1,
+                  "text": "在。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "在，怎么了？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "居然秒回！太感动了"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "居然秒回！太感动了"
+                  "id": 2,
+                  "text": "不在。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "在，在睡大觉"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "坏了"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哎，其实我也想休息的，但睡不着"
+                    }
+                  ]
+                },
+                {
+                  "id": 3,
+                  "text": "取决于好事还是坏事。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "是好事吗？是的话就在"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哈哈哈哈哈"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "放心，至少不是坏事"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "呃，大概吧"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "不在。",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "就是，最近发生了这么多嘛，有点想找你聊聊"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "试炼失败，树庭，万敌和悬锋人，还看了缇宝老师的记忆，这些"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "【小奇美拉-疲惫-表情包】"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "在，在睡大觉"
+                  "id": 1,
+                  "text": "还好我们都克服了。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "都是小事，咱们仨指定嘎嘎乱杀"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "（算上丹恒老师"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哈哈哈哈哈哈"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "必须的！"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "坏了"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哎，其实我也想休息的，但睡不着"
+                  "id": 2,
+                  "text": "该给我们发报酬了吧。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "哦？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "这是终于想起来要给兄弟/姐妹补偿了？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哈哈哈哈哈哈"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "会有的会有的，放心没忘"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 3,
-              "text": "取决于好事还是坏事。",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "不过，说出来你别笑啊"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "实话说，事情解决归解决，可看过缇宝老师的记忆之后，我反而越来越迷茫了"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "「惟有一人将觐见奇迹」，怎么想都不是好结果吧"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "为什么大家明知如此，却还是甘愿接受了成为半神的命运？"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "是好事吗？是的话就在"
+                  "id": 1,
+                  "text": "为了翁法罗斯的未来。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "当然是为了用半神的力量拯救世界"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "我猜的，毕竟成为半神获得的力量和代价根本不成正比"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "就是说嘛"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哈哈哈哈哈"
+                  "id": 2,
+                  "text": "为了获得权力和地位。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "呃，为了权力和地位？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "人嘛都这样，都想登上神坛高人一等的"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "这话倒是没说错"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "不过，成为半神获得的力量和代价显然不成正比吧？看阿格莱雅和缇宝老师就知道了"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "放心，至少不是坏事"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "呃，大概吧"
+                  "id": 3,
+                  "text": "为了…你？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "一个猜想，不一定对"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "他们说不定是在给你引路呢，救世主"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哈哈哈哈哈，说笑了说笑了"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "我的能力和决心还远远不够格，作为阿格莱雅的学徒，我能不给她捅娄子就谢天谢地了"
+                    }
+                  ]
                 }
               ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "哎…早知道就在万敌走之前跟他问清楚"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "现在倒好，全让他一个人潇洒完了！"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "【小奇美拉-疲惫-表情包】"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
+                {
+                  "id": 1,
+                  "text": "你得靠自己。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "别慌，干就完了"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "证明你自己，不靠别人也能搞定"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "【开拓者·记忆-记录-表情包】"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哈哈哈哈哈，你说得对"
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "原来是好胜心作祟。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "终于懂了，有人这是输不起了"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "【开拓者·记忆-记录-表情包】"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "白厄",
+                      "contentType": "text",
+                      "text": "哈哈哈哈哈，玩笑玩笑"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "感觉心里的结稍微解开一点了，受益良多，我再好好消化一下"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "多谢了搭档！翁法罗斯可就靠咱俩啦"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "哦咱们仨，还有丹恒老师！"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "白厄",
+              "contentType": "text",
+              "text": "【小奇美拉-求摸摸-表情包】"
             }
           ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "就是，最近发生了这么多嘛，有点想找你聊聊"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "试炼失败，树庭，万敌和悬锋人，还看了缇宝老师的记忆，这些"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "【小奇美拉-疲惫-表情包】"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "还好我们都克服了。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "都是小事，咱们仨指定嘎嘎乱杀"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "（算上丹恒老师"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哈哈哈哈哈哈"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "必须的！"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "该给我们发报酬了吧。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "哦？"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "这是终于想起来要给兄弟/姐妹补偿了？"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哈哈哈哈哈哈"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "会有的会有的，放心没忘"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "不过，说出来你别笑啊"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "实话说，事情解决归解决，可看过缇宝老师的记忆之后，我反而越来越迷茫了"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "「惟有一人将觐见奇迹」，怎么想都不是好结果吧"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "为什么大家明知如此，却还是甘愿接受了成为半神的命运？"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "为了翁法罗斯的未来。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "当然是为了用半神的力量拯救世界"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "我猜的，毕竟成为半神获得的力量和代价根本不成正比"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "就是说嘛"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "为了获得权力和地位。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "呃，为了权力和地位？"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "人嘛都这样，都想登上神坛高人一等的"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "这话倒是没说错"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "不过，成为半神获得的力量和代价显然不成正比吧？看阿格莱雅和缇宝老师就知道了"
-                }
-              ]
-            },
-            {
-              "id": 3,
-              "text": "为了…你？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "一个猜想，不一定对"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "他们说不定是在给你引路呢，救世主"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哈哈哈哈哈，说笑了说笑了"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "我的能力和决心还远远不够格，作为阿格莱雅的学徒，我能不给她捅娄子就谢天谢地了"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "哎…早知道就在万敌走之前跟他问清楚"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "现在倒好，全让他一个人潇洒完了！"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "【小奇美拉-疲惫-表情包】"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "你得靠自己。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "别慌，干就完了"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "证明你自己，不靠别人也能搞定"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "【开拓者·记忆-记录-表情包】"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哈哈哈哈哈，你说得对"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "原来是好胜心作祟。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "终于懂了，有人这是输不起了"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "【开拓者·记忆-记录-表情包】"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "白厄",
-                  "contentType": "text",
-                  "text": "哈哈哈哈哈，玩笑玩笑"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "感觉心里的结稍微解开一点了，受益良多，我再好好消化一下"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "多谢了搭档！翁法罗斯可就靠咱俩啦"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "哦咱们仨，还有丹恒老师！"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "白厄",
-          "contentType": "text",
-          "text": "【小奇美拉-求摸摸-表情包】"
-        },
-        {
-          "type": "message-thread-end"
         }
       ]
     }

@@ -351,153 +351,154 @@
       "text": "车到山前必有路。你们不必为难，到时候由我来应答就行。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "停云",
-      "subtitle": "有话好好说，不要吵架~"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "恩公，想请教一事"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "怎么了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "说来不敬，但我又十分好奇…"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "列车抵达仙舟，该不会只是为了帮助罗浮解决星核带来的麻烦吧？"
-    },
-    {
-      "type": "choice",
-      "presentation": "dialogue",
-      "options": [
+      "subtitle": "有话好好说，不要吵架~",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "是啊，为什么呢？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "恩公，想请教一事"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "怎么了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "说来不敬，但我又十分好奇…"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "列车抵达仙舟，该不会只是为了帮助罗浮解决星核带来的麻烦吧？"
+        },
+        {
+          "type": "choice",
+          "presentation": "dialogue",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "列车的来意这么难以理解吗？人就不能为了完成某些善举而行动？"
+              "id": 1,
+              "text": "是啊，为什么呢？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "列车的来意这么难以理解吗？人就不能为了完成某些善举而行动？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "总觉得你话里有话…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "列车的来意这么难以理解吗？人就不能为了完成某些善举而行动？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "总觉得你话里有话…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "列车的来意这么难以理解吗？人就不能为了完成某些善举而行动？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "毕竟不计得失不问报酬，甘冒风险为他人奔走的人，在横跨银河的危险旅途里已经比真空中的空气更稀有了呀"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "位高权重的仙舟大佬们乍听各位的来意，难免会觉得你们若不是为寻求长生，就是渴望星核…"
-    },
-    {
-      "type": "choice",
-      "presentation": "dialogue",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "毕竟不计得失不问报酬，甘冒风险为他人奔走的人，在横跨银河的危险旅途里已经比真空中的空气更稀有了呀"
+        },
         {
-          "id": 1,
-          "text": "寻求长生？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "位高权重的仙舟大佬们乍听各位的来意，难免会觉得你们若不是为寻求长生，就是渴望星核…"
+        },
+        {
+          "type": "choice",
+          "presentation": "dialogue",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "追求长生，在仙舟是绝对禁止的事情吧"
+              "id": 1,
+              "text": "寻求长生？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "追求长生，在仙舟是绝对禁止的事情吧"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "呀，仙舟作为长生种的家园，有无数来自星海各处的求药使们都想重演当年的旧事，找到仙舟人延续生命的秘密"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "呀，仙舟作为长生种的家园，有无数来自星海各处的求药使们都想重演当年的旧事，找到仙舟人延续生命的秘密"
+              "id": 2,
+              "text": "渴望星核？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "星核可是带来毁灭的种子，列车怎么会渴望星核？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "但银河里并不是所有人都这么认为。作为星神散布的种子，有人渴望铤而走险，从中获得力量"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "渴望星核？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "星核可是带来毁灭的种子，列车怎么会渴望星核？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "但银河里并不是所有人都这么认为。作为星神散布的种子，有人渴望铤而走险，从中获得力量"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "不知不觉说了么这么些话，小女子僭越了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "我绝对相信恩公的诚意，但位高权重的大人们却比我这样的小卒想得更多"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "所以，请务必小心行事…"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "不知不觉说了么这么些话，小女子僭越了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "我绝对相信恩公的诚意，但位高权重的大人们却比我这样的小卒想得更多"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "所以，请务必小心行事…"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -1874,8 +1875,10 @@
           "text": "（发短信给丹恒）",
           "content": [
             {
-              "type": "fold",
-              "title": "短信：丹恒\n智库相关找我",
+              "type": "message-thread",
+              "title": "丹恒",
+              "subtitle": "智库相关找我",
+              "owner": "开拓者",
               "collapsed": false,
               "content": [
                 {

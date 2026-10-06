@@ -1638,63 +1638,64 @@
       "text": "可别让她们担心了。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "三月七",
-      "subtitle": "今天也是三月七~"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "滴滴！你那边情况怎么样啦？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "三月！好消息！在田松口了！"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "今天也是三月七~",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "在田支持入画！",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "滴滴！你那边情况怎么样啦？"
         },
         {
-          "id": 2,
-          "text": "距离成功很近了！",
-          "content": []
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "三月！好消息！在田松口了！"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "在田支持入画！",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "距离成功很近了！",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "他表示愿意投「入画」一票"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "真的吗！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "太好了！我这就告诉虚照老师！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "他表示愿意投「入画」一票"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "真的吗！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "太好了！我这就告诉虚照老师！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

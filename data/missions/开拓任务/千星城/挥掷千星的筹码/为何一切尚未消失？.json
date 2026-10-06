@@ -1359,105 +1359,108 @@
       "location": "二相乐园-寂灭空飨妖都"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "火花",
-      "subtitle": "聊天中断，小火花可就消失了哦"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "image",
-      "image": "开拓任务-为何一切尚未消失-火花短信-世界尽头酒馆特制邀请函.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "【末日特供·限时狂欢！】厌倦了废墟与哀嚎？「世界尽头」酒馆临时避难权限（派对版）现已开放！末日烟火秀即将开场，不来喝一杯吗？持本码入场，享混乱秩序、无限畅饮（可能兑水）及生存几率微小提升！特邀嘉宾：全宇宙的倒霉蛋与你！席位有限，先到先疯！——派对主办方：火花、桑博"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "特制邀请函已送达，接好咯！"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "聊天中断，小火花可就消失了哦",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "这都什么时候了？",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "image",
+          "image": "开拓任务-为何一切尚未消失-火花短信-世界尽头酒馆特制邀请函.png",
+          "file": "开拓任务-为何一切尚未消失-火花短信-世界尽头酒馆特制邀请函.png",
+          "asset": "assets/sr-images/开拓任务-为何一切尚未消失-火花短信-世界尽头酒馆特制邀请函.png"
         },
         {
-          "id": 2,
-          "text": "我…我也要来吗？",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "【末日特供·限时狂欢！】厌倦了废墟与哀嚎？「世界尽头」酒馆临时避难权限（派对版）现已开放！末日烟火秀即将开场，不来喝一杯吗？持本码入场，享混乱秩序、无限畅饮（可能兑水）及生存几率微小提升！特邀嘉宾：全宇宙的倒霉蛋与你！席位有限，先到先疯！——派对主办方：火花、桑博"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "特制邀请函已送达，接好咯！"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "这都什么时候了？",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "我…我也要来吗？",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "都什么时候了，还搞这个…"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你又在打什么鬼主意？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "天地良心！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "看公司和你们无名客忙得脚不沾地、一副拯救世界的苦大仇深的模样"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "我和桑博也想来帮个忙"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "全民偶像火花花，怎么能放弃自己的粉丝们呢？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "越是世界末日，越要积极乐观起来啊！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "火花",
+          "contentType": "text",
+          "text": "瞧好了，小灰毛，让火花花来给你看看什么叫高效避难！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "都什么时候了，还搞这个…"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你又在打什么鬼主意？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "天地良心！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "看公司和你们无名客忙得脚不沾地、一副拯救世界的苦大仇深的模样"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "我和桑博也想来帮个忙"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "全民偶像火花花，怎么能放弃自己的粉丝们呢？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "越是世界末日，越要积极乐观起来啊！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "火花",
-      "contentType": "text",
-      "text": "瞧好了，小灰毛，让火花花来给你看看什么叫高效避难！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

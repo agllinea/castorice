@@ -773,121 +773,124 @@
       "text": "你收到了姬子发来的群消息…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "各位，移步晖长石号吧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "我这边马上收尾，稍后我们在艉部泳池集合"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "11"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "晚些时候见。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "马上来。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "各位，移步晖长石号吧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "我这边马上收尾，稍后我们在艉部泳池集合"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "11"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "晚些时候见。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我将带头冲锋！"
+              "id": 1,
+              "text": "马上来。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我将带头冲锋！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "话说回来，姬子姐在晖长石号上忙什么呀"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "话说回来，姬子姐在晖长石号上忙什么呀"
+              "id": 2,
+              "text": "姬子小姐在忙什么？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "话说，姬子小姐在忙什么呢"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "！我也想问"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "姬子小姐在忙什么？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "话说，姬子小姐在忙什么呢"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "！我也想问"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "sticker",
+          "sticker": "02-02",
+          "file": "聊天表情-02-02.png",
+          "asset": "assets/sr-images/聊天表情-02-02.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "暂时保密"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "别心急，等到开幕式就知道了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "欸——"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "狠狠期待了！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "02-02"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "暂时保密"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "别心急，等到开幕式就知道了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "欸——"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "狠狠期待了！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

@@ -941,7 +941,8 @@
       "type": "image",
       "file": "开拓任务-那些逐梦的年轻人-梦境护照.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-那些逐梦的年轻人-梦境护照.png"
     },
     {
       "type": "dialogue",
@@ -2283,7 +2284,14 @@
     {
       "type": "narration",
       "tone": "描述",
-      "text": "获得物品砂金的信物、贴纸50px黄泉"
+      "text": "获得物品砂金的信物、贴纸黄泉",
+      "images": [
+        {
+          "file": "梦境护照-黄泉.png",
+          "displayWidth": "50px",
+          "asset": "assets/sr-images/梦境护照-黄泉.png"
+        }
+      ]
     },
     {
       "type": "section",

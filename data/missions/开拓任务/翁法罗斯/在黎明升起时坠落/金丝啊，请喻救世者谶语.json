@@ -350,109 +350,110 @@
       "text": "…传信石版？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "紧急",
-      "subtitle": ""
-    },
-    {
-      "type": "message-system",
-      "text": "本次传信为系统自动发送"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "衣匠",
-      "contentType": "text",
-      "text": "全境公告：因不可抗力，万帷网将暂停服务"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "衣匠",
-      "contentType": "text",
-      "text": "请诸民静待家中，切莫惊惶"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "怎么回事？",
-          "content": [
+          "type": "message-system",
+          "text": "本次传信为系统自动发送"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "衣匠",
+          "contentType": "text",
+          "text": "全境公告：因不可抗力，万帷网将暂停服务"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "衣匠",
+          "contentType": "text",
+          "text": "请诸民静待家中，切莫惊惶"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "怎么回事？"
+              "id": 1,
+              "text": "怎么回事？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "怎么回事？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "？？？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "？？？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "？？？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "？？？"
-            }
-          ]
+          "type": "message-system",
+          "text": "消息发送失败"
+        },
+        {
+          "type": "message-system",
+          "text": "您不在通信服务区内，请稍后再试"
+        },
+        {
+          "type": "message-system",
+          "text": "——白名单策略已加载——"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "衣匠",
+          "contentType": "text",
+          "text": "局域金线启用中，仅供内部紧急通讯"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "衣匠",
+          "contentType": "text",
+          "text": "「金织」身故，请速回圣城"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "风堇",
+          "contentType": "text",
+          "text": "我知道这很难让人相信，但"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "风堇",
+          "contentType": "text",
+          "text": "请快些回来"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "我这就回赶"
         }
       ]
-    },
-    {
-      "type": "message-system",
-      "text": "消息发送失败"
-    },
-    {
-      "type": "message-system",
-      "text": "您不在通信服务区内，请稍后再试"
-    },
-    {
-      "type": "message-system",
-      "text": "——白名单策略已加载——"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "衣匠",
-      "contentType": "text",
-      "text": "局域金线启用中，仅供内部紧急通讯"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "衣匠",
-      "contentType": "text",
-      "text": "「金织」身故，请速回圣城"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "风堇",
-      "contentType": "text",
-      "text": "我知道这很难让人相信，但"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "风堇",
-      "contentType": "text",
-      "text": "请快些回来"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "我这就回赶"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

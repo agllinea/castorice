@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "title": "已故去的必如雪崩再来",
   "createdAt": "2026-10-01T04:27:05.576Z",
-  "updatedAt": "2026-10-01T21:29:06.303Z",
+  "updatedAt": "2026-10-06T06:31:04.383Z",
   "blocks": [
     {
       "id": "0f2df333-ffa5-43e6-9cf5-0d9111acb85c",
@@ -2352,6 +2352,21 @@
         "type": "narration",
         "tone": "描述",
         "text": "你们似乎找到了什么…"
+      }
+    },
+    {
+      "id": "02fd016b-3847-4af1-8c26-f4c9c75331c2",
+      "source": {
+        "mission": "已故去的必如雪崩再来",
+        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于枯索的冬夜里/已故去的必如雪崩再来.json",
+        "contentIndex": 154
+      },
+      "node": {
+        "type": "image",
+        "file": "开拓任务-已故去的必如雪崩再来-CG.png",
+        "displayWidth": "250px",
+        "align": "center",
+        "asset": "assets/sr-images/开拓任务-已故去的必如雪崩再来-CG.png"
       }
     },
     {

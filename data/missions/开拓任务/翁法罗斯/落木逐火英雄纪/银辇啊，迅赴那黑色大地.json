@@ -145,107 +145,108 @@
   },
   "content": [
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "喂喂"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "好久不见列车长「喂喂」起手！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "这一般代表着"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "要跃迁了对吧",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "喂喂"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "好久不见列车长「喂喂」起手！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "这一般代表着"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "要跃迁了，对吧？"
+              "id": 1,
+              "text": "要跃迁了对吧",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "要跃迁了，对吧？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "喂喂",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "喂喂"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "……"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "是要跃迁了啦！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "喂喂",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "喂喂"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "……"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "是要跃迁了啦！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "没错"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "关于目的地，这次有位乘客提供了特别的建议"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "按照惯例，在航线会议上讨论吧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "观景车厢集合！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "没错"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "关于目的地，这次有位乘客提供了特别的建议"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "按照惯例，在航线会议上讨论吧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "观景车厢集合！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "fold",
@@ -2615,55 +2616,56 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "姬子，我们已经顺利着陆在翁法罗斯地表了。看起来这里有文明存在。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "我饿了，帕姆",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "姬子，我们已经顺利着陆在翁法罗斯地表了。看起来这里有文明存在。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "车厢炸了！帕姆，快空投点吃的下来！"
+              "id": 1,
+              "text": "我饿了，帕姆",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "车厢炸了！帕姆，快空投点吃的下来！"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "永别了，朋友们",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "终于摆脱列车了！永别了，牢笼！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "永别了，朋友们",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "终于摆脱列车了！永别了，牢笼！"
-            }
-          ]
+          "type": "message-system",
+          "text": "消息发送失败。"
         }
       ]
-    },
-    {
-      "type": "message-system",
-      "text": "消息发送失败。"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

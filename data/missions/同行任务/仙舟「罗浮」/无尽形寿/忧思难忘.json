@@ -58,92 +58,93 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "梁沐",
-      "subtitle": "陪伴是最长情的告白"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "梁沐",
-      "contentType": "text",
-      "text": "那个，我是之前被你们治疗过的梁沐，有件事情想拜托你",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "陪伴是最长情的告白",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你是谁呀？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "梁沐",
+          "contentType": "text",
+          "text": "那个，我是之前被你们治疗过的梁沐，有件事情想拜托你",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你是谁？梁沐，我对这个名字没有什么印象"
+              "id": 1,
+              "text": "你是谁呀？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你是谁？梁沐，我对这个名字没有什么印象"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "梁沐",
+                  "contentType": "text",
+                  "text": "真是贵人多忘事，你和白露大人在流云渡里救治过我的嘛",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "梁沐",
-              "contentType": "text",
-              "text": "真是贵人多忘事，你和白露大人在流云渡里救治过我的嘛",
-              "acknowledged": true
+              "id": 2,
+              "text": "什么事情？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "什么事情？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "什么事情？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "什么事情？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "梁沐",
+          "contentType": "text",
+          "text": "托你们的福，我的病痊愈了。天舶司打算把我遣返回故乡…如今我不得不走了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "梁沐",
+          "contentType": "text",
+          "text": "半夏也不知怎么了，我根本联系不上她。所以，我给她留了些礼物还有一封信，想拜托你们转交了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "梁沐",
+          "contentType": "text",
+          "text": "我将包裹寄到了星槎海的「鹤运物流」那里，留的是你的收件方式，记得去取",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "梁沐",
+          "contentType": "text",
+          "text": "再见",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "梁沐",
-      "contentType": "text",
-      "text": "托你们的福，我的病痊愈了。天舶司打算把我遣返回故乡…如今我不得不走了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "梁沐",
-      "contentType": "text",
-      "text": "半夏也不知怎么了，我根本联系不上她。所以，我给她留了些礼物还有一封信，想拜托你们转交了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "梁沐",
-      "contentType": "text",
-      "text": "我将包裹寄到了星槎海的「鹤运物流」那里，留的是你的收件方式，记得去取",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "梁沐",
-      "contentType": "text",
-      "text": "再见",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -187,42 +188,43 @@
       "text": "（应该叫上白露一起打开这个包裹。）"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "白露",
-      "subtitle": "多喝热水少生气"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "小神医"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "有一件寄给半夏的包裹，希望能和你一起打开"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白露",
-      "contentType": "text",
-      "text": "嗯！我们在星槎海见面吧！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白露",
-      "contentType": "text",
-      "text": "半夏应该不会介意她的礼物被我们拆开的",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "多喝热水少生气",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "小神医"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "有一件寄给半夏的包裹，希望能和你一起打开"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白露",
+          "contentType": "text",
+          "text": "嗯！我们在星槎海见面吧！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白露",
+          "contentType": "text",
+          "text": "半夏应该不会介意她的礼物被我们拆开的",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "narration",

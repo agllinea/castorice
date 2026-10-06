@@ -1405,246 +1405,247 @@
       "text": "去吧，各位，一路小心。老夫在此祝你们顺利。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "停云",
-      "subtitle": "有话好好说，不要吵架~"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "说起来，恩公刚才瞧见了吧",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "那头玄鹿以足顿地时，从地下凭空生长出了枝蔓",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "dialogue",
-      "options": [
+      "subtitle": "有话好好说，不要吵架~",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "瞧见了",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "说起来，恩公刚才瞧见了吧",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "那头玄鹿以足顿地时，从地下凭空生长出了枝蔓",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "dialogue",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "那东西，想必就是…建木的根须吧？",
-              "acknowledged": true
+              "id": 1,
+              "text": "瞧见了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "那东西，想必就是…建木的根须吧？",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "枝梢？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "那东西，想必就是…建木的根须吧？",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "枝梢？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "「丰饶」的仙迹果然不同凡响",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "小女子游历星海，还是第一次见识到如此神异的东西",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "我瞧见这枝梢之上结成的果实金灿灿的，就像是仙舟神话中所提及的那般",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "据说在上古时代，仙舟的先民们正是得到了建木所赐的不死神实而转化成了长生种",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "小女子若是吃下这果实，不知能不能像仙舟人那般拥有无限的生命…",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "恩公，你对这样的机会难道不动心么？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "dialogue",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "那东西，想必就是…建木的根须吧？",
-              "acknowledged": true
+              "id": 1,
+              "text": "想法很危险…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "停云小姐，这样做岂不是违犯了仙舟禁令",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "哎呀",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "请恕停云方才无礼，小小试探了您一下",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "如停云所想，恩公真是个心诚意正的好孩子",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "吃下后就走不了了…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这果实一旦吃下，恐怕不是长命千岁，而是…不久就要被云骑正法了",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "恩公说得没错",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "不过，若是想办法瞒过云骑军的搜查",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "这样的机会似乎不容错过吧？",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "我当然很心动…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "那…停云小姐有没有…留一颗？",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "停云",
+                  "contentType": "text",
+                  "text": "我要说有，恩公会想和我分食吗？",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "不过恩公的心意，小女子已经明白了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "可惜玄鹿都化作飞灰了，建木的果实当然也没留下半点儿",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "这样的机会千载难逢，却转眼即逝",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "停云",
+          "contentType": "text",
+          "text": "就像生命本身一样…",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "「丰饶」的仙迹果然不同凡响",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "小女子游历星海，还是第一次见识到如此神异的东西",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "我瞧见这枝梢之上结成的果实金灿灿的，就像是仙舟神话中所提及的那般",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "据说在上古时代，仙舟的先民们正是得到了建木所赐的不死神实而转化成了长生种",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "小女子若是吃下这果实，不知能不能像仙舟人那般拥有无限的生命…",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "恩公，你对这样的机会难道不动心么？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "dialogue",
-      "options": [
-        {
-          "id": 1,
-          "text": "想法很危险…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "停云小姐，这样做岂不是违犯了仙舟禁令",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "哎呀",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "请恕停云方才无礼，小小试探了您一下",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "如停云所想，恩公真是个心诚意正的好孩子",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "吃下后就走不了了…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这果实一旦吃下，恐怕不是长命千岁，而是…不久就要被云骑正法了",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "恩公说得没错",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "不过，若是想办法瞒过云骑军的搜查",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "这样的机会似乎不容错过吧？",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "我当然很心动…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "那…停云小姐有没有…留一颗？",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "停云",
-              "contentType": "text",
-              "text": "我要说有，恩公会想和我分食吗？",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "不过恩公的心意，小女子已经明白了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "可惜玄鹿都化作飞灰了，建木的果实当然也没留下半点儿",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "这样的机会千载难逢，却转眼即逝",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "停云",
-      "contentType": "text",
-      "text": "就像生命本身一样…",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "fold",

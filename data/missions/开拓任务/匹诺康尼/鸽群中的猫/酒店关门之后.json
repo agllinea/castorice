@@ -1687,7 +1687,8 @@
       "type": "image",
       "file": "开拓任务-酒店关门之后-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-酒店关门之后-CG.png"
     },
     {
       "type": "section",

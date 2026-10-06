@@ -1126,44 +1126,45 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "？？？",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "您好，我是翡翠女士派出的外勤专员"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "我已经找到了关于目标行踪的重要情报"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "为了防止通讯关键词被抓取，请不要在对话中提及名字"
-    },
-    {
-      "type": "message-system",
-      "text": "【倒悬餐厅的位置】"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "关于目标的近况，我已有眉目，请尽快赶来和我会面"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "您好，我是翡翠女士派出的外勤专员"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "我已经找到了关于目标行踪的重要情报"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "为了防止通讯关键词被抓取，请不要在对话中提及名字"
+        },
+        {
+          "type": "message-system",
+          "text": "【倒悬餐厅的位置】"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "关于目标的近况，我已有眉目，请尽快赶来和我会面"
+        }
+      ]
     },
     {
       "type": "divider"
@@ -2189,56 +2190,57 @@
       "location": "千星城-千星城中心城区"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "三月七",
-      "subtitle": "今天也是三月七~"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "开拓者，大事不妙。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "今天也是三月七~",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "怎么了？",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "开拓者，大事不妙。"
         },
         {
-          "id": 2,
-          "text": "我就知道，事情不会顺利。",
-          "content": []
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "怎么了？",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "我就知道，事情不会顺利。",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "让我猜猜，又有什么「惊喜」发生了是吧？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我和虚照老师被包围了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "千星城的安保部队说我们扰乱治安，要拘捕我们"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "让我猜猜，又有什么「惊喜」发生了是吧？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我和虚照老师被包围了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "千星城的安保部队说我们扰乱治安，要拘捕我们"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2832,83 +2834,84 @@
       "title": "前往摆渡车站，购买去指针塔的车票，前往翡翠准备的办公室"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "AAA《狸狸周刊》需求批发",
-      "subtitle": "让《狸狸周刊》重新伟大！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "普狸策",
-      "contentType": "text",
-      "text": "浣熊大人！你在哪？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "普狸策",
-      "contentType": "text",
-      "text": "千星城好大，我带着一群狸猫们，都快转迷路哩"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "普狸策",
-      "contentType": "text",
-      "text": "浣熊大人在哪？我们该去哪里找你汇合哩？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "让《狸狸周刊》重新伟大！",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "去翡翠女士准备的落脚地吧",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "普狸策",
+          "contentType": "text",
+          "text": "浣熊大人！你在哪？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "普狸策",
+          "contentType": "text",
+          "text": "千星城好大，我带着一群狸猫们，都快转迷路哩"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "普狸策",
+          "contentType": "text",
+          "text": "浣熊大人在哪？我们该去哪里找你汇合哩？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "别急，翡翠女士给我们准备了一间新的办公室，就在指针塔"
+              "id": 1,
+              "text": "去翡翠女士准备的落脚地吧",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "别急，翡翠女士给我们准备了一间新的办公室，就在指针塔"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "去指针塔的新办公室吧",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "别急，翡翠女士给我们准备了一间新的办公室，就在指针塔"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "去指针塔的新办公室吧",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "别急，翡翠女士给我们准备了一间新的办公室，就在指针塔"
-            }
-          ]
+          "type": "message-system",
+          "text": "【指针塔办公室坐标】"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你们先去收拾一下吧，等会指针塔见"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "普狸策",
+          "contentType": "text",
+          "text": "收到收到！这就行动"
         }
       ]
-    },
-    {
-      "type": "message-system",
-      "text": "【指针塔办公室坐标】"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你们先去收拾一下吧，等会指针塔见"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "普狸策",
-      "contentType": "text",
-      "text": "收到收到！这就行动"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

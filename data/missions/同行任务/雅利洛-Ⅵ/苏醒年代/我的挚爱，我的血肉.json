@@ -2814,84 +2814,85 @@
       "text": "和奥列格聊完后，你收到了希儿的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "希儿",
-      "subtitle": "有话直说！！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "在吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "我找到卢卡了，他一个人往铆钉镇的方向去了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "要不要一起？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "有话直说！！",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "这就来。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "在吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "我找到卢卡了，他一个人往铆钉镇的方向去了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "要不要一起？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这就来。"
+              "id": 1,
+              "text": "这就来。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这就来。"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "还来得及吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "还来得及吗？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "还来得及吗？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "还来得及吗？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "跑步前进还来得及",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希儿",
+          "contentType": "text",
+          "text": "我在路口等你，快来",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "跑步前进还来得及",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希儿",
-      "contentType": "text",
-      "text": "我在路口等你，快来",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

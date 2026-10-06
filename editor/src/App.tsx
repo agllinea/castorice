@@ -103,6 +103,13 @@ interface BootstrapResponse {
 	screenplays: ScreenplaySummary[];
 }
 
+interface ImageAsset {
+	file: string;
+	asset: string;
+	mime: string;
+	bytes: number;
+}
+
 const AUTO_SAVE_INTERVAL_MS = 10_000;
 
 const nodeLabels: Record<string, string> = {
@@ -112,6 +119,7 @@ const nodeLabels: Record<string, string> = {
 	choice: "选项",
 	divider: "分隔",
 	fold: "折叠内容",
+	"message-thread": "短信块",
 	"objective-description": "任务提示",
 	message: "短信",
 	"message-thread-start": "短信开始",
@@ -141,6 +149,7 @@ const newNodeTemplates: Record<string, JsonNode> = {
 	divider: { type: "divider" },
 	note: { type: "note", text: "" },
 	text: { type: "text", text: "" },
+	image: { type: "image", file: "", asset: "" },
 };
 
 function clone<T>(value: T): T {
@@ -174,7 +183,7 @@ function expandFoldsAlongPath(root: JsonNode, path: number[]): JsonNode {
 	const [index, ...rest] = path;
 	if (!content[index]) return root;
 	const child: JsonNode = expandFoldsAlongPath(content[index], rest);
-	const expandedRoot = root.type === "fold" && root.collapsed ? { ...root, collapsed: false } : root;
+	const expandedRoot = (root.type === "fold" || root.type === "message-thread") && root.collapsed ? { ...root, collapsed: false } : root;
 	if (child === content[index]) return expandedRoot;
 	return { ...expandedRoot, content: content.map((item, itemIndex) => itemIndex === index ? child : item) };
 }
@@ -322,6 +331,17 @@ function nodeLabel(node: JsonNode) {
 	return nodeLabels[String(node.type ?? "")] ?? String(node.type ?? "未知节点");
 }
 
+function missionAssetUrl(asset: unknown) {
+	if (typeof asset !== "string" || !asset.startsWith("assets/")) return "";
+	return `/editor-assets/${asset.slice("assets/".length).split("/").map(encodeURIComponent).join("/")}`;
+}
+
+function imageDisplayStyle(displayWidth: unknown): React.CSSProperties {
+	return typeof displayWidth === "string" && displayWidth.trim()
+		? { width: displayWidth, maxWidth: "100%" }
+		: { maxWidth: "100%" };
+}
+
 function nodeSummary(node: JsonNode) {
 	if (typeof node.title === "string") return node.title;
 	if (typeof node.text === "string") return node.text;
@@ -329,19 +349,100 @@ function nodeSummary(node: JsonNode) {
 	if (node.type === "choice" && Array.isArray(node.options)) return `${node.options.length} 个选项`;
 	if (node.type === "tabs" && Array.isArray(node.tabs)) return `${node.tabs.length} 个条件分支`;
 	if (node.type === "fold" && Array.isArray(node.content)) return `${node.content.length} 段折叠内容`;
+	if (node.type === "message-thread" && Array.isArray(node.content)) return `${node.content.length} 条短信`;
 	if (typeof node.file === "string") return node.file;
 	return "";
 }
 
-function expandChoiceOption(option: JsonNode): JsonNode[] {
-	const playerLine: JsonNode = { type: "dialogue", speaker: "开拓者", text: String(option.text ?? "") };
+function expandChoiceOption(option: JsonNode, asMessage = false): JsonNode[] {
 	const replies = Array.isArray(option.content) ? (option.content as JsonNode[]).flatMap(expandDialogueChoices) : [];
+	if (asMessage) {
+		if (replies.length) return replies;
+		return [{ type: "message", side: "right", speaker: "开拓者", contentType: "text", text: String(option.text ?? "") }];
+	}
+	const playerLine: JsonNode = { type: "dialogue", speaker: "开拓者", text: String(option.text ?? "") };
 	return [playerLine, ...replies];
+}
+
+function messageThreadHeading(value: unknown) {
+	const lines = String(value ?? "").split(/\n+/u).map((line) => line.trim()).filter(Boolean);
+	return { title: (lines.shift() ?? "").replace(/^短信\s*[：:]\s*/u, "").trim(), subtitle: lines.join(" ") };
+}
+
+function findMessageOwner(nodes: JsonNode[]): string {
+	for (const node of nodes) {
+		if (node.type === "message" && node.side === "right" && typeof node.speaker === "string" && node.speaker) return node.speaker;
+		if (Array.isArray(node.content)) {
+			const owner = findMessageOwner(node.content as JsonNode[]);
+			if (owner) return owner;
+		}
+	}
+	return "";
+}
+
+function normalizeMessageThreadContent(nodes: JsonNode[], owner: string): JsonNode[] {
+	return nodes.map((node) => {
+		const next = clone(node);
+		if (next.type === "dialogue") {
+			return { type: "message", side: String(next.speaker ?? "") === owner ? "right" : "left", speaker: next.speaker, contentType: "text", text: next.text };
+		}
+		if (next.type === "message") next.side = String(next.speaker ?? "") === owner ? "right" : "left";
+		if (Array.isArray(next.content)) next.content = normalizeMessageThreadContent(next.content as JsonNode[], owner);
+		return next;
+	});
+}
+
+function toMessageThread(node: JsonNode): JsonNode {
+	const content = Array.isArray(node.content) ? node.content as JsonNode[] : [];
+	const heading = node.type === "message-thread"
+		? { title: String(node.title ?? ""), subtitle: String(node.subtitle ?? "") }
+		: messageThreadHeading(node.title);
+	const owner = String(node.owner ?? findMessageOwner(content) ?? "").trim() || "开拓者";
+	return { ...node, type: "message-thread", ...heading, owner, content: normalizeMessageThreadContent(content, owner) };
+}
+
+function normalizeMessageThreads(node: JsonNode): JsonNode {
+	if (node.type === "message-thread") return toMessageThread(node);
+	if (!Array.isArray(node.content)) return node;
+	let changed = false;
+	const content = (node.content as JsonNode[]).map((child) => {
+		const normalized = normalizeMessageThreads(child);
+		if (normalized !== child) changed = true;
+		return normalized;
+	});
+	return changed ? { ...node, content } : node;
+}
+
+function isMessageFold(node: JsonNode) {
+	if (node.type !== "fold" || !/^短信\s*[：:]/u.test(String(node.title ?? ""))) return false;
+	return Boolean(findMessageOwner(Array.isArray(node.content) ? node.content as JsonNode[] : []));
+}
+
+function groupLegacyMessageThreadNodes(nodes: JsonNode[]): JsonNode[] {
+	const normalized = nodes.map((node) => {
+		const next = clone(node);
+		if (Array.isArray(next.content)) next.content = groupLegacyMessageThreadNodes(next.content as JsonNode[]);
+		if (Array.isArray(next.options)) next.options = (next.options as JsonNode[]).map((option) => ({ ...option, ...(Array.isArray(option.content) ? { content: groupLegacyMessageThreadNodes(option.content as JsonNode[]) } : {}) }));
+		if (Array.isArray(next.tabs)) next.tabs = (next.tabs as JsonNode[]).map((tab) => ({ ...tab, ...(Array.isArray(tab.content) ? { content: groupLegacyMessageThreadNodes(tab.content as JsonNode[]) } : {}) }));
+		return next;
+	});
+	const grouped: JsonNode[] = [];
+	for (let index = 0; index < normalized.length; index += 1) {
+		const node = normalized[index];
+		if (node.type !== "message-thread-start") { grouped.push(node); continue; }
+		const endIndex = normalized.findIndex((candidate, candidateIndex) => candidateIndex > index && candidate.type === "message-thread-end");
+		if (endIndex < 0) { grouped.push(node); continue; }
+		const content = normalized.slice(index + 1, endIndex);
+		grouped.push(toMessageThread({ type: "message-thread", title: node.title, subtitle: node.subtitle, owner: findMessageOwner(content) || "开拓者", collapsed: false, content }));
+		index = endIndex;
+	}
+	return grouped;
 }
 
 function expandDialogueChoices(node: JsonNode): JsonNode[] {
 	if (node.type === "choice" && Array.isArray(node.options)) {
-		return (node.options as JsonNode[]).flatMap(expandChoiceOption);
+		const asMessage = node.presentation === "message" || (node.options as JsonNode[]).some((option) => findMessageOwner(Array.isArray(option.content) ? option.content as JsonNode[] : []));
+		return (node.options as JsonNode[]).flatMap((option) => expandChoiceOption(option, asMessage));
 	}
 	const next = clone(node);
 	if (Array.isArray(next.content)) next.content = (next.content as JsonNode[]).flatMap(expandDialogueChoices);
@@ -351,16 +452,26 @@ function expandDialogueChoices(node: JsonNode): JsonNode[] {
 			...(Array.isArray(tab.content) ? { content: (tab.content as JsonNode[]).flatMap(expandDialogueChoices) } : {}),
 		}));
 	}
-	return [next];
+	return [isMessageFold(next) || next.type === "message-thread" ? toMessageThread(next) : next];
 }
 
 function normalizeScriptBlocks(blocks: ScriptBlock[]) {
 	let changed = false;
-	const normalized = blocks.flatMap((block) => {
+	const expanded = blocks.flatMap((block) => {
 		const nodes = expandDialogueChoices(block.node);
 		if (nodes.length !== 1 || JSON.stringify(nodes[0]) !== JSON.stringify(block.node)) changed = true;
 		return nodes.map((node, index) => ({ ...block, id: index === 0 ? block.id : crypto.randomUUID(), node }));
 	});
+	const normalized: ScriptBlock[] = [];
+	for (let index = 0; index < expanded.length; index += 1) {
+		const block = expanded[index];
+		if (block.node.type !== "message-thread-start") { normalized.push(block); continue; }
+		const endIndex = expanded.findIndex((candidate, candidateIndex) => candidateIndex > index && candidate.node.type === "message-thread-end");
+		if (endIndex < 0) { normalized.push(block); continue; }
+		const content = expanded.slice(index + 1, endIndex).map((candidate) => candidate.node);
+		normalized.push({ ...block, node: toMessageThread({ type: "message-thread", title: block.node.title, subtitle: block.node.subtitle, owner: findMessageOwner(content) || "开拓者", collapsed: false, content }) });
+		changed = true; index = endIndex;
+	}
 	return { blocks: normalized, changed };
 }
 
@@ -368,7 +479,7 @@ function scanDialogueSpeakers(blocks: ScriptBlock[]) {
 	const speakers: string[] = [];
 	const seen = new Set<string>();
 	const visit = (node: JsonNode) => {
-		if (node.type === "dialogue" && typeof node.speaker === "string") {
+		if ((node.type === "dialogue" || node.type === "message") && typeof node.speaker === "string") {
 			const speaker = plainRubyText(node.speaker).trim();
 			if (speaker && !seen.has(speaker)) { seen.add(speaker); speakers.push(speaker); }
 		}
@@ -578,6 +689,8 @@ function ReadOnlyNode({ node, path, selected, onToggle, depth = 0, highlight }: 
 	const options = Array.isArray(node.options) ? node.options as JsonNode[] : [];
 	const tabs = Array.isArray(node.tabs) ? node.tabs as JsonNode[] : [];
 	const summary = nodeSummary(node);
+	const assetUrl = missionAssetUrl(node.asset);
+	const inlineImages: Array<Record<string, unknown> & { url: string }> = Array.isArray(node.images) ? (node.images as JsonNode[]).map((image) => ({ ...image, url: missionAssetUrl(image.asset) })).filter((image) => image.url) : [];
 	const summaryField: ScriptTextMatch["field"] | null = typeof node.title === "string" ? "title" : typeof node.text === "string" ? "text" : typeof node.content === "string" ? "content" : null;
 	const checked = selected.has(pathKey(path));
 	const allDescendants = descendantNodePaths(node, path);
@@ -587,10 +700,11 @@ function ReadOnlyNode({ node, path, selected, onToggle, depth = 0, highlight }: 
 	const clearTree = allDescendants.length ? (event: React.MouseEvent) => { event.stopPropagation(); onToggle(path, allDescendants, { forceDeselect: true }); } : undefined;
 	const clearButton = clearTree ? <ActionIcon className="clear-tree-button" variant="subtle" color="gray" size="xs" disabled={!treeHasSelection} aria-label={`清除${nodeLabel(node)}及全部子项的选择`} title="清除此块的全部选择" onClick={clearTree} onDoubleClick={(event) => event.stopPropagation()}><IconX size={13} /></ActionIcon> : null;
 
-	if (type === "fold") {
+	if (type === "fold" || type === "message-thread") {
+		const isMessageThread = type === "message-thread";
 		return (
-			<div className={`read-node read-node-fold ${foldCollapsed ? "is-collapsed" : ""} ${checked ? "is-selected" : ""}`} data-depth={depth}>
-				<div className="read-node-heading selectable-row" onClick={(event) => onToggle(path, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={selectTree}><strong><HighlightedRichText text={String(node.title ?? "未命名折叠内容")} highlight={highlight?.field === "title" ? highlight : undefined} /></strong><ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={foldCollapsed ? "展开折叠内容" : "收起折叠内容"} title={foldCollapsed ? "展开" : "收起"} aria-expanded={!foldCollapsed} onClick={(event) => { event.stopPropagation(); setFoldCollapsed((current) => !current); }} onDoubleClick={(event) => event.stopPropagation()}>{foldCollapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon>{clearButton}</div>
+			<div className={`read-node ${isMessageThread ? "read-node-message-thread" : "read-node-fold"} ${foldCollapsed ? "is-collapsed" : ""} ${checked ? "is-selected" : ""}`} data-depth={depth}>
+				<div className="read-node-heading selectable-row" onClick={(event) => onToggle(path, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={selectTree}><div className="container-heading-copy"><strong><HighlightedRichText text={String(node.title ?? (isMessageThread ? "未命名短信" : "未命名折叠内容"))} highlight={highlight?.field === "title" ? highlight : undefined} /></strong>{isMessageThread ? <small>{String(node.subtitle ?? "") || "无副标题"} · 手机持有者：{String(node.owner ?? "开拓者")}</small> : null}</div><ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={foldCollapsed ? "展开内容" : "收起内容"} title={foldCollapsed ? "展开" : "收起"} aria-expanded={!foldCollapsed} onClick={(event) => { event.stopPropagation(); setFoldCollapsed((current) => !current); }} onDoubleClick={(event) => event.stopPropagation()}>{foldCollapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon>{clearButton}</div>
 				{foldCollapsed ? null : <div className="read-node-children">{content.map((child, index) => <ReadOnlyNode key={index} node={child} path={[...path, "content", index]} selected={selected} onToggle={onToggle} depth={depth + 1} />)}</div>}
 			</div>
 		);
@@ -598,8 +712,7 @@ function ReadOnlyNode({ node, path, selected, onToggle, depth = 0, highlight }: 
 
 	if (type === "choice") {
 		return (
-			<div className={`read-node read-node-choice ${checked ? "is-selected" : ""}`} data-depth={depth}>
-				<div className="read-node-heading selectable-row" onClick={(event) => onToggle(path, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={selectTree}><strong>{options.length} 个分支</strong>{clearButton}</div>
+			<div className="read-node read-node-choice choice-branches-only" data-depth={depth}>
 				<div className="read-choice-list">
 					{options.map((option, optionIndex) => {
 						const optionChildren = Array.isArray(option.content) ? option.content as JsonNode[] : [];
@@ -610,7 +723,7 @@ function ReadOnlyNode({ node, path, selected, onToggle, depth = 0, highlight }: 
 						});
 						const optionChecked = selected.has(pathKey(optionPath));
 						const optionTreeSelected = optionChecked || optionDescendants.some((descendant) => selected.has(pathKey(descendant)));
-						return <section className={`read-choice-option ${optionChecked ? "is-selected" : ""}`} key={optionIndex}><header className="selectable-row" onClick={(event) => onToggle(optionPath, optionDescendants, { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={(event) => { event.stopPropagation(); onToggle(optionPath, optionDescendants, { forceSelect: true }); }}><span>{optionIndex + 1}</span><strong><InlineRubyText text={String(option.text ?? "未命名选项")} /></strong><ActionIcon className="clear-tree-button" variant="subtle" color="gray" size="xs" disabled={!optionTreeSelected} aria-label={`清除选项：${String(option.text ?? "未命名选项")}及全部回应的选择`} title="清除此分支的全部选择" onClick={(event) => { event.stopPropagation(); onToggle(optionPath, optionDescendants, { forceDeselect: true }); }} onDoubleClick={(event) => event.stopPropagation()}><IconX size={13} /></ActionIcon></header><div className="read-node-children">{optionChildren.map((child, childIndex) => <ReadOnlyNode key={childIndex} node={child} path={[...optionPath, "content", childIndex]} selected={selected} onToggle={onToggle} depth={depth + 1} />)}</div></section>;
+						return <section className={`read-choice-option ${optionChecked ? "is-selected" : ""}`} key={optionIndex}><header className="selectable-row" onClick={(event) => onToggle(optionPath, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={(event) => { event.stopPropagation(); onToggle(optionPath, optionDescendants, { forceSelect: true }); }}><span>{optionIndex + 1}</span><strong><InlineRubyText text={String(option.text ?? "未命名选项")} /></strong><ActionIcon className="clear-tree-button" variant="subtle" color="gray" size="xs" disabled={!optionTreeSelected} aria-label={`清除选项：${String(option.text ?? "未命名选项")}及全部回应的选择`} title="清除此分支的全部选择" onClick={(event) => { event.stopPropagation(); onToggle(optionPath, optionDescendants, { forceDeselect: true }); }} onDoubleClick={(event) => event.stopPropagation()}><IconX size={13} /></ActionIcon></header><div className="read-node-children">{optionChildren.map((child, childIndex) => <ReadOnlyNode key={childIndex} node={child} path={[...optionPath, "content", childIndex]} selected={selected} onToggle={onToggle} depth={depth + 1} />)}</div></section>;
 					})}
 				</div>
 			</div>
@@ -627,11 +740,12 @@ function ReadOnlyNode({ node, path, selected, onToggle, depth = 0, highlight }: 
 	}
 
 	return (
-		<div className={`read-node read-node-${type || "unknown"} ${hasChildren ? "has-children" : "is-leaf"} ${checked ? "is-selected" : ""}`} data-depth={depth} data-tone={typeof node.tone === "string" ? node.tone : undefined}>
+		<div className={`read-node read-node-${type || "unknown"} ${hasChildren ? "has-children" : "is-leaf"} ${checked ? "is-selected" : ""}`} data-depth={depth} data-side={typeof node.side === "string" ? node.side : undefined} data-tone={typeof node.tone === "string" ? node.tone : undefined}>
 			<div className="read-node-line selectable-row" onClick={(event) => onToggle(path, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={selectTree}>
 				{type === "objective-description" && typeof node.location === "string" && node.location ? <strong className="read-objective-location"><InlineRubyText text={node.location} /></strong> : null}
 				{typeof node.speaker === "string" && node.speaker ? <strong className="read-speaker"><InlineRubyText text={node.speaker} /></strong> : null}
-				<span className="read-text"><HighlightedRichText text={summary || "—"} highlight={summaryField && highlight?.field === summaryField ? highlight : undefined} /></span>
+				{inlineImages.length ? <span className="read-inline-media">{inlineImages.map((image, index) => <img key={`${String(image.file)}-${index}`} src={String(image.url)} alt={String(image.file ?? "剧情图片")} loading="lazy" style={imageDisplayStyle(image.displayWidth)} />)}</span> : null}
+				{assetUrl ? <span className={`read-media ${node.contentType === "sticker" ? "is-sticker" : ""}`}><img src={assetUrl} alt={String(node.file ?? node.image ?? "剧情图片")} loading="lazy" style={imageDisplayStyle(node.displayWidth)} /></span> : <span className="read-text"><HighlightedRichText text={summary || (inlineImages.length ? "" : "—")} highlight={summaryField && highlight?.field === summaryField ? highlight : undefined} /></span>}
 				{hasChildren ? clearButton : null}
 			</div>
 			{content.length ? <div className="read-node-children">{content.map((child, index) => <ReadOnlyNode key={index} node={child} path={[...path, "content", index]} selected={selected} onToggle={onToggle} depth={depth + 1} />)}</div> : null}
@@ -704,6 +818,7 @@ function EditableNode({ node, onChange, onDialogueCursor, depth = 0 }: { node: J
 	const set = (key: string, value: unknown) => onChange({ ...node, [key]: value });
 	const updateChild = (index: number, child: JsonNode) => set("content", content.map((item, itemIndex) => itemIndex === index ? child : item));
 	const stop = (event: React.MouseEvent | React.PointerEvent) => event.stopPropagation();
+	const assetUrl = missionAssetUrl(node.asset);
 
 	if (type === "fold") {
 		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><button onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</button><button onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</button></div></div></div>;
@@ -715,11 +830,11 @@ function EditableNode({ node, onChange, onDialogueCursor, depth = 0 }: { node: J
 
 	const hasChildren = content.length > 0;
 	const textualKey = typeof node.text === "string" ? "text" : typeof node.content === "string" ? "content" : null;
-	return <div className={`read-node read-node-${type || "unknown"} ${hasChildren ? "has-children" : "is-leaf"} inline-edit-node`} data-depth={depth} data-tone={typeof node.tone === "string" ? node.tone : undefined}>
+	return <div className={`read-node read-node-${type || "unknown"} ${hasChildren ? "has-children" : "is-leaf"} inline-edit-node`} data-depth={depth} data-side={typeof node.side === "string" ? node.side : undefined} data-tone={typeof node.tone === "string" ? node.tone : undefined}>
 		<div className="read-node-line">
 			{type === "objective-description" ? <BufferedInput className="inline-location-input" value={String(node.location ?? "")} placeholder="地点" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("location", value)} /> : null}
-			{type === "dialogue" ? <BufferedInput className="inline-speaker-input" style={{ width: `${Math.max(3, Array.from(String(node.speaker ?? "")).length)}em` }} value={String(node.speaker ?? "")} placeholder="说话人" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("speaker", value)} /> : null}
-			{type === "section" ? <span className="read-text inline-title-wrap"><BufferedInput className="inline-title-input" value={String(node.title ?? "")} placeholder="标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></span> : type === "message-thread-start" ? <div className="inline-thread-fields"><BufferedInput value={String(node.title ?? "")} placeholder="联系人" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /><BufferedInput value={String(node.subtitle ?? "")} placeholder="签名" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("subtitle", value)} /></div> : textualKey ? <BufferedTextarea className="inline-textarea" rows={1} value={String(node[textualKey] ?? "")} placeholder="内容" onPointerDown={stop} onClick={(event) => { stop(event); if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onSelect={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onKeyUp={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onValueChange={(value) => set(textualKey, value)} /> : type === "image" ? <BufferedInput className="inline-text-input" value={String(node.file ?? "")} placeholder="图片文件" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("file", value)} /> : <span className="read-text">{nodeSummary(node) || "—"}</span>}
+			{type === "dialogue" || type === "message" ? <BufferedInput className="inline-speaker-input" style={{ width: `${Math.max(3, Array.from(String(node.speaker ?? "")).length)}em` }} value={String(node.speaker ?? "")} placeholder="说话人" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("speaker", value)} /> : null}
+			{type === "section" ? <span className="read-text inline-title-wrap"><BufferedInput className="inline-title-input" value={String(node.title ?? "")} placeholder="标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></span> : type === "message-thread-start" ? <div className="inline-thread-fields"><BufferedInput value={String(node.title ?? "")} placeholder="联系人" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /><BufferedInput value={String(node.subtitle ?? "")} placeholder="签名" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("subtitle", value)} /></div> : textualKey ? <BufferedTextarea className="inline-textarea" rows={1} value={String(node[textualKey] ?? "")} placeholder="内容" onPointerDown={stop} onClick={(event) => { stop(event); if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onSelect={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onKeyUp={(event) => { if (type === "dialogue") onDialogueCursor?.(event.currentTarget.selectionStart); }} onValueChange={(value) => set(textualKey, value)} /> : type === "image" ? assetUrl ? <span className="read-media editable-image-preview"><img src={assetUrl} alt={String(node.file ?? "剧情图片")} loading="lazy" style={imageDisplayStyle(node.displayWidth)} /><small>{String(node.file ?? "")}</small></span> : <span className="read-text image-missing">请选择图片</span> : <span className="read-text">{nodeSummary(node) || "—"}</span>}
 		</div>
 		{content.length ? <div className="read-node-children">{content.map((child, index) => <EditableNode key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} />)}</div> : null}
 	</div>;
@@ -812,6 +927,8 @@ function VisualNodeFields({ node, onChange }: { node: JsonNode; onChange: (node:
 function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, editableAddress, activeMatch, onSelect, onChange, onDrop, onDialogueCursor }: { blockId: string; node: JsonNode; path: number[]; level: number; selectedAddresses: ScriptNodeAddress[]; editableAddress: ScriptNodeAddress | null; activeMatch: ScriptTextMatch | null; onSelect: (address: ScriptNodeAddress, shiftKey: boolean) => void; onChange: (path: number[], node: JsonNode) => void; onDrop: (target: ScriptNodeAddress, dragged: ScriptNodeAddress, nest: boolean) => void; onDialogueCursor: (address: ScriptNodeAddress, offset: number) => void }) {
 	const [dragOver, setDragOver] = useState(false);
 	const isFold = node.type === "fold";
+	const isMessageThread = node.type === "message-thread";
+	const isContainer = isFold || isMessageThread;
 	const address = { blockId, path };
 	const selected = selectedAddresses.some((candidate) => sameScriptAddress(candidate, address));
 	const editable = editableAddress ? sameScriptAddress(editableAddress, address) : false;
@@ -825,7 +942,7 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 	};
 	const handleDrop = (event: React.DragEvent) => {
 		event.preventDefault(); event.stopPropagation(); setDragOver(false);
-		try { onDrop(address, JSON.parse(event.dataTransfer.getData("application/x-castorice-block")) as ScriptNodeAddress, isFold); } catch { /* ignore foreign drags */ }
+		try { onDrop(address, JSON.parse(event.dataTransfer.getData("application/x-castorice-block")) as ScriptNodeAddress, isContainer); } catch { /* ignore foreign drags */ }
 	};
 	const startDrag = (event: React.DragEvent) => {
 		event.stopPropagation(); event.dataTransfer.effectAllowed = "move";
@@ -835,14 +952,14 @@ function ScriptHierarchyNode({ blockId, node, path, level, selectedAddresses, ed
 	const dialogueText = node.type === "dialogue" ? String(node.text ?? "") : "";
 	const annotations = dialogueText ? collectRubyAnnotations(dialogueText) : [];
 	const dialogueCopyActions = node.type === "dialogue" ? <div className="dialogue-copy-actions" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()}>{annotations.length ? <ActionIcon className="annotation-copy-button" variant="subtle" color="gray" size="xs" aria-label="复制本段全部注音" title="复制全部注音" onClick={() => void copyToClipboard(annotations.join(" "))}><IconCopy size={11} /></ActionIcon> : null}<ActionIcon variant="subtle" color="gray" size="sm" aria-label="复制对话文本" title="复制对话文本" onClick={() => void copyToClipboard(plainRubyText(dialogueText))}><IconCopy size={14} /></ActionIcon></div> : null;
-	const wrapperClass = `script-view-block script-level-${level} ${path.length ? "is-nested" : "is-root"} ${selected ? "is-selected" : ""} ${isActiveMatch ? "is-search-match" : ""} ${dragOver ? isFold ? "is-drop-target" : "is-insert-target" : ""}`;
+	const wrapperClass = `script-view-block script-level-${level} ${path.length ? "is-nested" : "is-root"} ${selected ? "is-selected" : ""} ${isActiveMatch ? "is-search-match" : ""} ${dragOver ? isContainer ? "is-drop-target" : "is-insert-target" : ""}`;
 
-	if (isFold) {
+	if (isContainer) {
 		const collapsed = Boolean(node.collapsed) && !containsActiveMatch;
 		return <article id={scriptNodeDomId(address)} className={wrapperClass} data-level={level} data-search-active={isActiveMatch || undefined} onClick={select} onDragOver={(event) => { event.preventDefault(); event.stopPropagation(); event.dataTransfer.dropEffect = "move"; setDragOver(true); }} onDragLeave={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) setDragOver(false); }} onDrop={handleDrop}>
 			{dragHandle}
-			<div className={`read-node read-node-fold inline-edit-node ${collapsed ? "is-collapsed" : ""}`} data-depth={level - 1}>
-				<div className="read-node-heading">{editable ? <BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /> : <strong><HighlightedRichText text={String(node.title ?? "未命名折叠内容")} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开折叠内容" : "收起折叠内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
+			<div className={`read-node ${isMessageThread ? "read-node-message-thread" : "read-node-fold"} inline-edit-node ${collapsed ? "is-collapsed" : ""}`} data-depth={level - 1}>
+				<div className="read-node-heading">{editable ? isMessageThread ? <div className="message-thread-heading-fields"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="短信标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /><BufferedInput className="inline-thread-subtitle-input" value={String(node.subtitle ?? "")} placeholder="副标题（可选）" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, subtitle: value })} /><BufferedInput className="inline-thread-owner-input" value={String(node.owner ?? "")} placeholder="手机持有者" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, owner: value, content: normalizeMessageThreadContent(content, value) })} /></div> : <BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠标题" onPointerDown={(event) => event.stopPropagation()} onClick={(event) => event.stopPropagation()} onValueChange={(value) => onChange(path, { ...node, title: value })} /> : <div className="container-heading-copy"><strong><HighlightedRichText text={String(node.title ?? (isMessageThread ? "未命名短信" : "未命名折叠内容"))} highlight={isActiveMatch && activeMatch?.field === "title" ? activeMatch : undefined} /></strong>{isMessageThread ? <small>{String(node.subtitle ?? "") || "无副标题"} · 手机持有者：{String(node.owner ?? "开拓者")}</small> : null}</div>}<ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={collapsed ? "展开内容" : "收起内容"} title={collapsed ? "展开" : "收起"} aria-expanded={!collapsed} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); onChange(path, { ...node, collapsed: !collapsed }); }}>{collapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon></div>
 				{collapsed ? null : <div className="read-node-children">{content.map((child, index) => <ScriptHierarchyNode key={index} blockId={blockId} node={child} path={[...path, index]} level={level + 1} selectedAddresses={selectedAddresses} editableAddress={editableAddress} activeMatch={activeMatch} onSelect={onSelect} onChange={onChange} onDrop={onDrop} onDialogueCursor={onDialogueCursor} />)}</div>}
 			</div>
 		</article>;
@@ -881,6 +998,10 @@ function App() {
 	const [importText, setImportText] = useState("");
 	const [importMode, setImportMode] = useState<"plain" | "source" | "srt">("plain");
 	const [importLoading, setImportLoading] = useState(false);
+	const [imagePickerMode, setImagePickerMode] = useState<"add" | "replace" | null>(null);
+	const [imageAssets, setImageAssets] = useState<ImageAsset[]>([]);
+	const [imageSearch, setImageSearch] = useState("");
+	const [imageLoading, setImageLoading] = useState(false);
 	const [searchMode, setSearchMode] = useState<SearchMode | null>(null);
 	const [searchMatches, setSearchMatches] = useState<ScriptTextMatch[]>([]);
 	const [searchMatchIndex, setSearchMatchIndex] = useState(0);
@@ -930,6 +1051,10 @@ function App() {
 	const selectedBlock = selectedBlockIndex >= 0 && document ? document.blocks[selectedBlockIndex] : null;
 	const selectedNode = selectedBlock ? nestedNodeAtPath(selectedBlock.node, selectedNodePath) : null;
 	const selectedSourceMission = selectedBlock?.source ? missions.find((mission) => mission.dataFile === selectedBlock.source?.dataFile) ?? null : null;
+	const filteredImageAssets = useMemo(() => {
+		const needle = imageSearch.trim().toLowerCase();
+		return needle ? imageAssets.filter((image) => image.file.toLowerCase().includes(needle)) : imageAssets;
+	}, [imageAssets, imageSearch]);
 	const activeScriptSelection = multiSelectMode ? multiSelected : selectedBlockId ? [{ blockId: selectedBlockId, path: selectedNodePath }] : [];
 	const editableAddress = !multiSelectMode && selectedBlockId ? { blockId: selectedBlockId, path: selectedNodePath } : null;
 	const canFoldSelection = activeScriptSelection.length > 1 && activeScriptSelection.every((address) => scriptSiblingGroup(address) === scriptSiblingGroup(activeScriptSelection[0]));
@@ -1090,7 +1215,10 @@ function App() {
 
 	async function openMission(mission: MissionRef) {
 		setSelectedMission(mission); setMissionDocument(null); setSelectedSource(new Set()); selectionAnchor.current = null; setError("");
-		try { setMissionDocument(await requestJson<MissionDocument>(`/editor-api/mission?path=${encodeURIComponent(mission.dataFile)}`)); }
+		try {
+			const loaded = await requestJson<MissionDocument>(`/editor-api/mission?path=${encodeURIComponent(mission.dataFile)}`);
+			setMissionDocument({ ...loaded, content: groupLegacyMessageThreadNodes(loaded.content) });
+		}
 		catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); }
 	}
 	async function openSelectedBlockSource() {
@@ -1206,37 +1334,22 @@ function App() {
 					const next = modifiers.additive ? new Set(current) : new Set<string>();
 					for (const rangePath of sourcePaths.slice(from, to + 1)) {
 						next.add(pathKey(rangePath));
-						const isOption = rangePath.length >= 3 && rangePath.at(-2) === "options" && typeof rangePath.at(-1) === "number";
-						if (isOption) {
-							sourcePaths.filter((candidate) => isAncestorPath(rangePath, candidate)).forEach((candidate) => next.add(pathKey(candidate)));
-						}
 					}
-					descendants.forEach((descendant) => next.add(pathKey(descendant)));
 					return next;
 				}
 			}
 			const next = new Set(current);
 			if (next.has(key)) {
 				next.delete(key);
-				descendants.forEach((descendant) => next.delete(pathKey(descendant)));
-				for (const selectedKey of next) {
-					const selectedPath = JSON.parse(selectedKey) as NodePath;
-					if (isAncestorPath(selectedPath, path)) next.delete(selectedKey);
-				}
 			} else {
-				for (const selectedKey of next) {
-					const selectedPath = JSON.parse(selectedKey) as NodePath;
-					if (isAncestorPath(selectedPath, path)) next.delete(selectedKey);
-				}
 				next.add(key);
-				descendants.forEach((descendant) => next.add(pathKey(descendant)));
 			}
 			return next;
 		});
 		if (!modifiers.shiftKey || !selectionAnchor.current) selectionAnchor.current = key;
 	}
 
-	function appendSource(paths: NodePath[]) {
+	function appendSource(paths: NodePath[], placement: "end" | "below") {
 		if (!document || !missionDocument || !selectedMission) return;
 		exitMultiSelect();
 		const pathsWithoutDuplicateChildren = paths.filter((path) => !paths.some((candidate) => isAncestorPath(candidate, path)));
@@ -1244,7 +1357,8 @@ function App() {
 			const node = nodeAtPath(missionDocument.content, path);
 			if (!node || typeof path[0] !== "number") return [];
 			const isChoiceOption = path.length >= 3 && path.at(-2) === "options" && typeof path.at(-1) === "number";
-			const expandedNodes = isChoiceOption ? expandChoiceOption(node) : expandDialogueChoices(node);
+			const optionIsMessage = isChoiceOption && Boolean(findMessageOwner(Array.isArray(node.content) ? node.content as JsonNode[] : []));
+			const expandedNodes = isChoiceOption ? expandChoiceOption(node, optionIsMessage) : expandDialogueChoices(node);
 			return expandedNodes.map((expandedNode) => ({
 				id: crypto.randomUUID(),
 				source: {
@@ -1256,7 +1370,32 @@ function App() {
 				node: expandedNode,
 			}));
 		});
-		mutateDocument((current) => ({ ...current, blocks: [...current.blocks, ...blocks] })); setSelectedSource(new Set()); selectionAnchor.current = null;
+		if (!blocks.length) return;
+		if (placement === "end") {
+			mutateDocument((current) => ({ ...current, blocks: [...current.blocks, ...blocks] }));
+			setSelectedBlockId(blocks.at(-1)!.id); setSelectedNodePath([]);
+		} else if (selectedBlock && selectedNode) {
+			if (!selectedNodePath.length) {
+				mutateDocument((current) => {
+					const next = [...current.blocks];
+					const index = next.findIndex((block) => block.id === selectedBlock.id);
+					if (index >= 0) next.splice(index + 1, 0, ...blocks);
+					return { ...current, blocks: next };
+				});
+				setSelectedBlockId(blocks.at(-1)!.id); setSelectedNodePath([]);
+			} else {
+				const parentPath = selectedNodePath.slice(0, -1);
+				const index = selectedNodePath.at(-1)!;
+				const parent = nestedNodeAtPath(selectedBlock.node, parentPath);
+				if (!parent) return;
+				const siblings = Array.isArray(parent.content) ? parent.content as JsonNode[] : [];
+				const insertedNodes = blocks.map((block) => block.node);
+				const next = [...siblings]; next.splice(index + 1, 0, ...insertedNodes);
+				updateBlockNode(selectedBlock.id, parentPath, { ...parent, content: next });
+				setSelectedBlockId(selectedBlock.id); setSelectedNodePath([...parentPath, index + insertedNodes.length]);
+			}
+		}
+		setSelectedSource(new Set()); selectionAnchor.current = null;
 	}
 
 	function insertScriptNodes(nodes: JsonNode[]) {
@@ -1268,7 +1407,7 @@ function App() {
 			mutateDocument((current) => ({ ...current, blocks: [...current.blocks, ...blocks] }));
 			setSelectedBlockId(blocks.at(-1)!.id); setSelectedNodePath([]); return;
 		}
-		if (selectedNode.type === "fold") {
+		if (selectedNode.type === "fold" || selectedNode.type === "message-thread") {
 			const content = Array.isArray(selectedNode.content) ? selectedNode.content as JsonNode[] : [];
 			updateBlockNode(selectedBlock.id, selectedNodePath, { ...selectedNode, content: [...content, ...templates] });
 			setSelectedNodePath([...selectedNodePath, content.length + templates.length - 1]); return;
@@ -1287,6 +1426,25 @@ function App() {
 	}
 	function insertScriptNode(type: string) {
 		insertScriptNodes([newNodeTemplates[type] ?? newNodeTemplates.text]);
+	}
+
+	async function openImagePicker(mode: "add" | "replace") {
+		if (mode === "replace" && selectedNode?.type !== "image") return;
+		setImagePickerMode(mode); setImageSearch("");
+		if (imageAssets.length) return;
+		setImageLoading(true);
+		try { setImageAssets(await requestJson<ImageAsset[]>("/editor-api/images")); }
+		catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); setImagePickerMode(null); }
+		finally { setImageLoading(false); }
+	}
+
+	function chooseImage(image: ImageAsset) {
+		if (imagePickerMode === "replace" && selectedBlock && selectedNode?.type === "image") {
+			updateBlockNode(selectedBlock.id, selectedNodePath, { ...selectedNode, file: image.file, asset: image.asset });
+		} else if (imagePickerMode === "add") {
+			insertScriptNodes([{ type: "image", file: image.file, asset: image.asset }]);
+		}
+		setImagePickerMode(null);
 	}
 	function importScriptLines(type: "narration" | "dialogue") {
 		const lines = importText.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
@@ -1314,7 +1472,7 @@ function App() {
 			setImportLoading(false);
 		}
 	}
-	function updateBlockNode(id: string, path: number[], node: JsonNode) { mutateDocument((current) => ({ ...current, blocks: current.blocks.map((block) => block.id === id ? { ...block, node: path.length ? updateNestedNode(block.node, path, () => node) : node } : block) })); }
+	function updateBlockNode(id: string, path: number[], node: JsonNode) { mutateDocument((current) => ({ ...current, blocks: current.blocks.map((block) => block.id === id ? { ...block, node: normalizeMessageThreads(path.length ? updateNestedNode(block.node, path, () => node) : node) } : block) })); }
 	function scriptAddressRange(from: ScriptNodeAddress, to: ScriptNodeAddress) {
 		if (!document || scriptSiblingGroup(from) !== scriptSiblingGroup(to)) return null;
 		if (!from.path.length && !to.path.length) {
@@ -1349,7 +1507,7 @@ function App() {
 		if (!shiftKey || !scriptSelectionAnchor.current || !range) scriptSelectionAnchor.current = address;
 	}
 	function dissolveSelectedFold() {
-		if (!selectedBlock || !selectedNode || selectedNode.type !== "fold" || activeScriptSelection.length !== 1) return;
+		if (!selectedBlock || !selectedNode || (selectedNode.type !== "fold" && selectedNode.type !== "message-thread") || activeScriptSelection.length !== 1) return;
 		const content = Array.isArray(selectedNode.content) ? selectedNode.content as JsonNode[] : [];
 		setDialogueCursor(null); exitMultiSelect();
 		if (!selectedNodePath.length) {
@@ -1363,6 +1521,11 @@ function App() {
 		const next = [...siblings]; next.splice(index, 1, ...content.map(clone));
 		updateBlockNode(selectedBlock.id, parentPath, { ...parent, content: next });
 		setSelectedNodePath(content.length ? [...parentPath, index] : parentPath);
+	}
+	function convertSelectedFoldToMessageThread() {
+		if (!selectedBlock || !selectedNode || selectedNode.type !== "fold" || activeScriptSelection.length !== 1) return;
+		setDialogueCursor(null); exitMultiSelect();
+		updateBlockNode(selectedBlock.id, selectedNodePath, toMessageThread(selectedNode));
 	}
 	function foldSelectedNodes() {
 		if (!canFoldSelection || !document) return;
@@ -1551,9 +1714,12 @@ function App() {
 			if (!targetBlock) return current;
 			const targetNode = nestedNodeAtPath(targetBlock.node, targetPath);
 			if (!targetNode) return current;
-			if (nest && targetNode.type === "fold") {
+			if (nest && (targetNode.type === "fold" || targetNode.type === "message-thread")) {
 				const targetContent = Array.isArray(targetNode.content) ? targetNode.content as JsonNode[] : [];
-				blocks = blocks.map((block) => block.id === targetBlock.id ? { ...block, node: updateNestedNode(block.node, targetPath, (node) => ({ ...node, content: [...targetContent, clone(draggedNode!)] })) } : block);
+				blocks = blocks.map((block) => block.id === targetBlock.id ? { ...block, node: updateNestedNode(block.node, targetPath, (node) => {
+					const updated = { ...node, content: [...targetContent, clone(draggedNode!)] };
+					return node.type === "message-thread" ? toMessageThread(updated) : updated;
+				}) } : block);
 				return { ...current, blocks };
 			}
 			if (!targetPath.length) {
@@ -1586,6 +1752,14 @@ function App() {
 					{importMode === "plain" ? <><p>空行会自动忽略。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importScriptLines("narration")}>导入为叙述</Button><Button disabled={!importText.trim()} onClick={() => importScriptLines("dialogue")}>导入为对话</Button></div></> : importMode === "srt" ? <><p>自动移除字幕序号、时间轴和空行；每条字幕会成为一个 block。导入的对话默认使用“？？？”作为说话人。</p><div className="text-import-actions"><Button variant="light" disabled={!importText.trim()} onClick={() => importSrt("text")}>导入为文本</Button><Button disabled={!importText.trim()} onClick={() => importSrt("dialogue")}>导入为对话</Button></div></> : <><p>会识别对话、剧情选项、嵌套选项、标题、任务描述和常用文本模板。选项导入剧本后会自动拆成“开拓者”的对话及对应回应。</p><div className="text-import-actions"><Button loading={importLoading} disabled={!importText.trim()} onClick={() => void importWikitext()}>解析并导入</Button></div></>}
 				</div>
 			</Modal>
+			<Modal opened={imagePickerMode !== null} onClose={() => setImagePickerMode(null)} title={imagePickerMode === "replace" ? "更改图片" : "添加图片"} centered size="xl" overlayProps={{ backgroundOpacity: 0.35, blur: 2 }}>
+				<div className="image-picker">
+					<TextInput placeholder="搜索已下载的图片" value={imageSearch} onChange={(event) => setImageSearch(event.currentTarget.value)} />
+					<div className="image-picker-summary">{imageLoading ? "正在读取图片…" : `${filteredImageAssets.length} / ${imageAssets.length} 张图片`}</div>
+					<div className="image-picker-grid">{filteredImageAssets.map((image) => <button type="button" key={image.asset} onClick={() => chooseImage(image)} title={image.file}><img src={missionAssetUrl(image.asset)} alt={image.file} loading="lazy" /><span>{image.file}</span></button>)}</div>
+					{!imageLoading && !filteredImageAssets.length ? <p className="image-picker-empty">没有匹配的已下载图片。</p> : null}
+				</div>
+			</Modal>
 			<Paper component="header" radius={0} shadow="xs" className="topbar"><div className="brand"><span className="brand-mark">C</span><div><h1>Castorice 剧本编辑器</h1><p>星穹铁道任务资料 · 本地工作台</p></div></div><div className="topbar-actions"><Button variant={editorFocusMode ? "filled" : "light"} size="compact-sm" onClick={toggleEditorFocusMode}>{editorFocusMode ? "退出全屏编辑" : "全屏编辑"}</Button><div className={`save-indicator ${saveState}`} title="每 10 秒自动保存；按 Ctrl+S 可立即保存"><span />{!activeFile ? "未打开剧本" : saveState === "saving" ? "正在保存…" : saveState === "error" ? "保存失败" : dirty ? "等待自动保存" : "已保存到本地"}</div></div></Paper>
 			{error ? <div className="error-banner"><span>{error}</span><Button variant="subtle" color="red" size="compact-xs" onClick={() => setError("")}>关闭</Button></div> : null}
 			<main className="workspace">
@@ -1604,7 +1778,7 @@ function App() {
 					</aside>
 					<div className="source-preview">
 						{selectedMission ? <>
-							<header className="preview-header"><div><span className="eyebrow">{selectedMission.category} / {selectedMission.location}</span><h2>{selectedMission.name}</h2><p>{selectedMission.series}</p></div><div className="preview-actions"><Button variant="light" color="gray" size="xs" leftSection={<IconFilePlus size={14} />} disabled={!document || !missionDocument} onClick={() => appendSource(missionDocument?.content.map((_, index) => [index] as NodePath) ?? [])}>整任务加入</Button><Button size="xs" leftSection={<IconCheck size={14} />} disabled={!document || selectedSource.size === 0} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))))}>加入所选 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button></div></header>
+							<header className="preview-header"><div><span className="eyebrow">{selectedMission.category} / {selectedMission.location}</span><h2>{selectedMission.name}</h2><p>{selectedMission.series}</p></div><div className="preview-actions"><Button variant="light" color="gray" size="xs" leftSection={<IconFilePlus size={14} />} disabled={!document || selectedSource.size === 0} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "end")}>添加到剧本结尾 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button><Button size="xs" leftSection={<IconCheck size={14} />} disabled={!document || selectedSource.size === 0 || !selectedNode} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "below")}>添加到选块下方 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button></div></header>
 							<div className="selection-toolbar"><Button variant="subtle" size="compact-xs" onClick={() => { setSelectedSource(new Set(sourcePaths.map(pathKey))); selectionAnchor.current = null; }}>全选</Button><Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSelectedSource(new Set()); selectionAnchor.current = null; }}>清空</Button><small>Shift 连选 · 双击父项选择全部子项</small><Badge variant="light" color="gray" size="xs">{missionDocument ? `${sourcePaths.length} 个可选节点` : "正在读取…"}</Badge></div>
 							<div className="source-cards">{missionDocument?.content.map((node, nodeIndex) => <SourceCard key={nodeIndex} node={node} path={[nodeIndex]} selected={selectedSource} onToggle={toggleSource} />)}</div>
 						</> : <div className="empty-state"><span>←</span><h2>选择一个任务</h2><p>任务原始 JSON 始终保持只读。选择段落后，可复制到右侧剧本中独立修改。</p></div>}
@@ -1631,8 +1805,13 @@ function App() {
 								<span className="toolbar-divider" aria-hidden="true" />
 								<Button variant="subtle" size="compact-sm" onClick={() => setImportOpened(true)}>导入</Button>
 								<span className="toolbar-divider" aria-hidden="true" />
-								<Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={dissolveSelectedFold}>解散</Button>
+								<span className="toolbar-group-label">图片</span>
+								<Button variant="subtle" size="compact-sm" onClick={() => void openImagePicker("add")}>添加图片</Button>
+								<Button variant="subtle" size="compact-sm" disabled={multiSelectMode || selectedNode?.type !== "image"} onClick={() => void openImagePicker("replace")}>更改图片</Button>
+								<span className="toolbar-divider" aria-hidden="true" />
+								<Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || (selectedNode?.type !== "fold" && selectedNode?.type !== "message-thread")} onClick={dissolveSelectedFold}>解散</Button>
 								<Button variant="subtle" size="compact-sm" disabled={!canFoldSelection} onClick={foldSelectedNodes}>折叠</Button>
+								<Tooltip label="把折叠块转换为带副标题与手机持有者的短信会话" withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={convertSelectedFoldToMessageThread}>转换为短信</Button></Tooltip>
 								<span className="toolbar-divider" aria-hidden="true" />
 								<Tooltip label="仅能合并同级、相连且说话人相同的对话" withArrow><Button variant="subtle" size="compact-sm" disabled={!canMergeDialogues} onClick={mergeSelectedDialogues}>合并</Button></Tooltip>
 								<Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段（Ctrl+K）" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>分割</Button></Tooltip>

@@ -84,44 +84,47 @@
       "location": "仙舟「罗浮」-长乐天"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "？？？",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "各位好，太卜命我等你们",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "掐指一算，也该到了吧",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "text",
-      "text": "眼下有紧要事抽不开身",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "？？？",
-      "contentType": "image",
-      "image": "短信-？？？-图片1.png",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "各位好，太卜命我等你们",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "掐指一算，也该到了吧",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "text",
+          "text": "眼下有紧要事抽不开身",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "？？？",
+          "contentType": "image",
+          "image": "短信-？？？-图片1.png",
+          "file": "短信-？？？-图片1.png",
+          "acknowledged": true,
+          "asset": "assets/sr-images/短信-？？？-图片1.png"
+        }
+      ]
     },
     {
       "type": "dialogue",

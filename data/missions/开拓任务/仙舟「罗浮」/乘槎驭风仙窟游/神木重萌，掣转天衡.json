@@ -419,8 +419,11 @@
       ]
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "开拓任务-神木重萌，掣转天衡-CG.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-神木重萌，掣转天衡-CG.png"
     },
     {
       "type": "dialogue",

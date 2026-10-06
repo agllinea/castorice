@@ -95,210 +95,215 @@
       "text": "…欸，手机响了？是群聊吗？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "布洛妮娅、开拓者、三月七、丹恒的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "00-01",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "列车组的各位，能看到我的消息吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你好呀，布洛妮娅",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "sticker",
+          "sticker": "00-01",
+          "file": "聊天表情-00-01.png",
+          "acknowledged": true,
+          "asset": "assets/sr-images/聊天表情-00-01.png"
         },
         {
-          "id": 2,
-          "text": "好久不见！",
-          "content": []
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "收到了"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "好久不见，布洛妮娅"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "布洛妮娅！我们可想死你啦",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "太好了，我还怕你们收不到消息呢",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "我知道你们很忙，所以尽量长话短说",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "我最近正在推动煦日节的筹备工作。煦日节是贝洛伯格的传统节日，之前受裂界和封锁令影响，常规的庆典活动已经停摆多年，贝洛伯格人已经很久没有感受过热烈的节日氛围了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "如果星穹列车的诸位有时间的话，我想邀请你们前来参加「煦日节」的庆典，见证一下贝洛伯格复兴计划的阶段性成果",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "列车组的各位，能看到我的消息吗？",
+          "acknowledged": true
+        },
         {
-          "id": 1,
-          "text": "一定来！",
-          "content": [
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我一定来！"
+              "id": 1,
+              "text": "你好呀，布洛妮娅",
+              "content": []
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "还有我！节日，庆典，这听着就像咱的主场！",
-              "acknowledged": true
+              "id": 2,
+              "text": "好久不见！",
+              "content": []
             }
           ]
         },
         {
-          "id": 2,
-          "text": "抱歉，下次一定",
-          "content": [
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "收到了"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "好久不见，布洛妮娅"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "布洛妮娅！我们可想死你啦",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "太好了，我还怕你们收不到消息呢",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "我知道你们很忙，所以尽量长话短说",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "我最近正在推动煦日节的筹备工作。煦日节是贝洛伯格的传统节日，之前受裂界和封锁令影响，常规的庆典活动已经停摆多年，贝洛伯格人已经很久没有感受过热烈的节日氛围了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "如果星穹列车的诸位有时间的话，我想邀请你们前来参加「煦日节」的庆典，见证一下贝洛伯格复兴计划的阶段性成果",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "不好意思，这次可能没空……"
+              "id": 1,
+              "text": "一定来！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我一定来！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "还有我！节日，庆典，这听着就像咱的主场！",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "@开拓者喂，别装啦，你不会是想窝在房间里搓你的手机屏幕吧！",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "放心，我们一定会来参加的！节日，庆典，这听着就像咱的主场！",
-              "acknowledged": true
+              "id": 2,
+              "text": "抱歉，下次一定",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "不好意思，这次可能没空……"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "@开拓者喂，别装啦，你不会是想窝在房间里搓你的手机屏幕吧！",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "放心，我们一定会来参加的！节日，庆典，这听着就像咱的主场！",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "你们能来就太好了，这里的大家都惦记着各位呢",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "@丹恒 在忙吗？我看他一直没在群里说话",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "他最近在闭关呢，估计早就把所有电子设备都关机了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我们去帮你问问",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "谢谢你，三月",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "那我期待着能在煦日节庆典上看到各位的身影",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "sticker",
+          "sticker": "00-02",
+          "file": "聊天表情-00-02.png",
+          "acknowledged": true,
+          "asset": "assets/sr-images/聊天表情-00-02.png"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "你们能来就太好了，这里的大家都惦记着各位呢",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "@丹恒 在忙吗？我看他一直没在群里说话",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "他最近在闭关呢，估计早就把所有电子设备都关机了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我们去帮你问问",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "谢谢你，三月",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "那我期待着能在煦日节庆典上看到各位的身影",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "00-02",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

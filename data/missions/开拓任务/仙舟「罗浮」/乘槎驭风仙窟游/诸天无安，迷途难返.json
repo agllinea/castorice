@@ -355,8 +355,11 @@
       "text": "不要紧，素裳姑娘——交给我吧。"
     },
     {
-      "type": "text",
-      "text": "center"
+      "type": "image",
+      "file": "开拓任务-诸天无安，迷途难返-CG.png",
+      "displayWidth": "600px",
+      "align": "center",
+      "asset": "assets/sr-images/开拓任务-诸天无安，迷途难返-CG.png"
     },
     {
       "type": "dialogue",

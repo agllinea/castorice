@@ -100,220 +100,221 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "夕葵",
-      "subtitle": "我，准时下班。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "开拓者？你现在是身在迴星港吗",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "我，准时下班。",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "是，我在迴星港",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "开拓者？你现在是身在迴星港吗",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "对的，我在迴星港，正好来这边办点事"
+              "id": 1,
+              "text": "是，我在迴星港",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "对的，我在迴星港，正好来这边办点事"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "夕葵",
+                  "contentType": "text",
+                  "text": "太好了",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "夕葵",
-              "contentType": "text",
-              "text": "太好了",
-              "acknowledged": true
+              "id": 2,
+              "text": "你怎么知道的！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你怎么知道的！夕葵小姐不会在跟踪我吧！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "夕葵",
+                  "contentType": "text",
+                  "text": "抱歉，现在不是开玩笑的时候",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你怎么知道的！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你怎么知道的！夕葵小姐不会在跟踪我吧！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "夕葵",
-              "contentType": "text",
-              "text": "抱歉，现在不是开玩笑的时候",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "我这边通过机巧鸟系统看到了你在附近",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "现在有个要紧事请你帮帮忙，非常紧急",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "半个时辰之前，长乐天上空的天穹出了故障，应该也是建木生发造成的阴阳相感",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "技术细节很复杂，这里不多说。总之是有一个片区出现了严重问题，眼看着就要爆炸",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "现在整个罗浮都还没从混乱中完全恢复，匀不出人手来抢险，好在天舶司有个文员，跳上一艘星槎就飞到了天穹上，进行了紧急抢险",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "但那艘星槎在抢险过程中也出了故障（可能也是阴阳相感的影响），在迴星港上空失联，推测是迫降或者坠毁了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "我已经迅速通知云骑来增援了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "但这种事故，晚一秒就是晚一些生还的可能，拜托你们先去找一下",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "我这边通过机巧鸟系统看到了你在附近",
+          "acknowledged": true
+        },
         {
-          "id": 1,
-          "text": "「你们」？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "现在有个要紧事请你帮帮忙，非常紧急",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "半个时辰之前，长乐天上空的天穹出了故障，应该也是建木生发造成的阴阳相感",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "技术细节很复杂，这里不多说。总之是有一个片区出现了严重问题，眼看着就要爆炸",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "现在整个罗浮都还没从混乱中完全恢复，匀不出人手来抢险，好在天舶司有个文员，跳上一艘星槎就飞到了天穹上，进行了紧急抢险",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "但那艘星槎在抢险过程中也出了故障（可能也是阴阳相感的影响），在迴星港上空失联，推测是迫降或者坠毁了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "我已经迅速通知云骑来增援了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "但这种事故，晚一秒就是晚一些生还的可能，拜托你们先去找一下",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "「你们」？还有谁也在这里吗？"
+              "id": 1,
+              "text": "「你们」？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "「你们」？还有谁也在这里吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "夕葵",
+                  "contentType": "text",
+                  "text": "嗯，瓦尔特先生也在这附近",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "夕葵",
+                  "contentType": "text",
+                  "text": "我也联系过他了",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "夕葵",
-              "contentType": "text",
-              "text": "嗯，瓦尔特先生也在这附近",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "夕葵",
-              "contentType": "text",
-              "text": "我也联系过他了",
-              "acknowledged": true
+              "id": 2,
+              "text": "坠毁在哪里？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这艘星槎坠毁在哪里？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "夕葵",
+                  "contentType": "text",
+                  "text": "我这里也还在搜索",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "夕葵",
+                  "contentType": "text",
+                  "text": "你的同伴，瓦尔特先生也在附近，我也联系过他了",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "坠毁在哪里？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这艘星槎坠毁在哪里？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "夕葵",
-              "contentType": "text",
-              "text": "我这里也还在搜索",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "夕葵",
-              "contentType": "text",
-              "text": "你的同伴，瓦尔特先生也在附近，我也联系过他了",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "总之，在迴星港找一个制高点，用机巧鸟找找看吧，拜托你们了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "另外…这位文员身份比较特殊",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "夕葵",
+          "contentType": "text",
+          "text": "恳请二位尽己所能保全她的性命",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "总之，在迴星港找一个制高点，用机巧鸟找找看吧，拜托你们了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "另外…这位文员身份比较特殊",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "夕葵",
-      "contentType": "text",
-      "text": "恳请二位尽己所能保全她的性命",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2208,132 +2209,133 @@
       "text": "你们离开神策府后收到了晴霓的短信…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "晴霓",
-      "subtitle": "瞬间横跨这辽阔的宇宙"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "开拓者，请问您在景元将军那边有什么收获吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "夕葵说妈妈有事不在，所以我现在回天舶司了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "如果有什么收获，能过来和我汇合吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "我想和天舶司的同事们尽可能打听一下…但又不知道怎么开口……",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "瞬间横跨这辽阔的宇宙",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你认识采翼吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "开拓者，请问您在景元将军那边有什么收获吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "夕葵说妈妈有事不在，所以我现在回天舶司了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "如果有什么收获，能过来和我汇合吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "我想和天舶司的同事们尽可能打听一下…但又不知道怎么开口……",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你认识采翼吗？据说是令堂以前最好的朋友"
+              "id": 1,
+              "text": "你认识采翼吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你认识采翼吗？据说是令堂以前最好的朋友"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "他提到采翼…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "景元提到了一个叫「采翼」的人，说你和她很熟悉"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "他提到采翼…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "景元提到了一个叫「采翼」的人，说你和她很熟悉"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "我其实隐约猜到，会有些关联",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "晴霓",
-      "contentType": "text",
-      "text": "短信里说不清，见面聊吧",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "稍后见",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "稍后见"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "……",
+          "acknowledged": true
         },
         {
-          "id": 2,
-          "text": "一会儿见",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "我其实隐约猜到，会有些关联",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "晴霓",
+          "contentType": "text",
+          "text": "短信里说不清，见面聊吧",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "一会儿见"
+              "id": 1,
+              "text": "稍后见",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "稍后见"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "一会儿见",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "一会儿见"
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

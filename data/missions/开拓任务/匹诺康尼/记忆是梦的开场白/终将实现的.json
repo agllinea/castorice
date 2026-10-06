@@ -1486,222 +1486,223 @@
               ]
             },
             {
-              "type": "message-thread-start",
+              "type": "message-thread",
               "title": "银狼",
-              "subtitle": "不会做游戏就不要做"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "她醒了"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
+              "subtitle": "不会做游戏就不要做",
+              "owner": "开拓者",
+              "collapsed": false,
+              "content": [
                 {
-                  "id": 1,
-                  "text": "她还好吗？",
-                  "content": [
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "她醒了"
+                },
+                {
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
                     {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "…她还好吗？"
+                      "id": 1,
+                      "text": "她还好吗？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "…她还好吗？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "……"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "她第一句话也是"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "问你还好不好"
+                        }
+                      ]
                     },
                     {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "……"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "她第一句话也是"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "问你还好不好"
+                      "id": 2,
+                      "text": "谁？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "谁？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "流萤"
+                        }
+                      ]
                     }
                   ]
                 },
                 {
-                  "id": 2,
-                  "text": "谁？",
-                  "content": [
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "暂时没事了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "卡芙卡带她回来的时候也这样"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "老是昏迷 机甲也开不了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "确实很麻烦"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "不过治得好 别急"
+                },
+                {
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
                     {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "谁？"
+                      "id": 1,
+                      "text": "我能和她聊聊吗？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "我能和她聊聊吗？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "先等她能操作机甲吧"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "恢复还要不少时间呢"
+                        }
+                      ]
                     },
                     {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "流萤"
+                      "id": 2,
+                      "text": "什么时候可以再见面？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "什么时候可以再见面？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "不知道 「剧本」没说"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "哦不对"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "说了 看不懂"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "要等到你「直面自己的时候」"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 3,
+                      "text": "恭喜",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "恭喜"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "……"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "行"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "我转告她"
+                        }
+                      ]
                     }
                   ]
                 }
               ]
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "暂时没事了"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "卡芙卡带她回来的时候也这样"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "老是昏迷 机甲也开不了"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "确实很麻烦"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "不过治得好 别急"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
-                {
-                  "id": 1,
-                  "text": "我能和她聊聊吗？",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "我能和她聊聊吗？"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "先等她能操作机甲吧"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "恢复还要不少时间呢"
-                    }
-                  ]
-                },
-                {
-                  "id": 2,
-                  "text": "什么时候可以再见面？",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "什么时候可以再见面？"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "不知道 「剧本」没说"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "哦不对"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "说了 看不懂"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "要等到你「直面自己的时候」"
-                    }
-                  ]
-                },
-                {
-                  "id": 3,
-                  "text": "恭喜",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "恭喜"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "……"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "行"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "我转告她"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "message-thread-end"
             }
           ]
         },
@@ -1867,222 +1868,223 @@
               ]
             },
             {
-              "type": "message-thread-start",
+              "type": "message-thread",
               "title": "银狼",
-              "subtitle": "不会做游戏就不要做"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "她醒了"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
+              "subtitle": "不会做游戏就不要做",
+              "owner": "开拓者",
+              "collapsed": false,
+              "content": [
                 {
-                  "id": 1,
-                  "text": "她还好吗？",
-                  "content": [
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "她醒了"
+                },
+                {
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
                     {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "…她还好吗？"
+                      "id": 1,
+                      "text": "她还好吗？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "…她还好吗？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "……"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "她第一句话也是"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "问你还好不好"
+                        }
+                      ]
                     },
                     {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "……"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "她第一句话也是"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "问你还好不好"
+                      "id": 2,
+                      "text": "谁？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "谁？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "流萤"
+                        }
+                      ]
                     }
                   ]
                 },
                 {
-                  "id": 2,
-                  "text": "谁？",
-                  "content": [
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "暂时没事了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "卡芙卡带她回来的时候也这样"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "老是昏迷 机甲也开不了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "确实很麻烦"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "银狼",
+                  "contentType": "text",
+                  "text": "不过治得好 别急"
+                },
+                {
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
                     {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "谁？"
+                      "id": 1,
+                      "text": "我能和她聊聊吗？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "我能和她聊聊吗？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "先等她能操作机甲吧"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "恢复还要不少时间呢"
+                        }
+                      ]
                     },
                     {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "流萤"
+                      "id": 2,
+                      "text": "什么时候可以再见面？",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "什么时候可以再见面？"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "不知道 「剧本」没说"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "哦不对"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "说了 看不懂"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "要等到你「直面自己的时候」"
+                        }
+                      ]
+                    },
+                    {
+                      "id": 3,
+                      "text": "恭喜",
+                      "content": [
+                        {
+                          "type": "message",
+                          "side": "right",
+                          "speaker": "开拓者",
+                          "contentType": "text",
+                          "text": "恭喜"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "……"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "行"
+                        },
+                        {
+                          "type": "message",
+                          "side": "left",
+                          "speaker": "银狼",
+                          "contentType": "text",
+                          "text": "我转告她"
+                        }
+                      ]
                     }
                   ]
                 }
               ]
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "暂时没事了"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "卡芙卡带她回来的时候也这样"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "老是昏迷 机甲也开不了"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "确实很麻烦"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "银狼",
-              "contentType": "text",
-              "text": "不过治得好 别急"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
-                {
-                  "id": 1,
-                  "text": "我能和她聊聊吗？",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "我能和她聊聊吗？"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "先等她能操作机甲吧"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "恢复还要不少时间呢"
-                    }
-                  ]
-                },
-                {
-                  "id": 2,
-                  "text": "什么时候可以再见面？",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "什么时候可以再见面？"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "不知道 「剧本」没说"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "哦不对"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "说了 看不懂"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "要等到你「直面自己的时候」"
-                    }
-                  ]
-                },
-                {
-                  "id": 3,
-                  "text": "恭喜",
-                  "content": [
-                    {
-                      "type": "message",
-                      "side": "right",
-                      "speaker": "开拓者",
-                      "contentType": "text",
-                      "text": "恭喜"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "……"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "行"
-                    },
-                    {
-                      "type": "message",
-                      "side": "left",
-                      "speaker": "银狼",
-                      "contentType": "text",
-                      "text": "我转告她"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "message-thread-end"
             }
           ]
         }

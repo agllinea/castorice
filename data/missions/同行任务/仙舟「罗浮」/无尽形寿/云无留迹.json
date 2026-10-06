@@ -2761,100 +2761,101 @@
       "text": "与在场三人告别后，你收到了列车组发来的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "丹恒，一切还好吧？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "听说你收到一封匿名信，我和开拓者都有些担心，来找你却发现你不在资料室。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "是不是星核猎手那个叫刃的扑克脸又找你麻烦了？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "丹恒",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "我没事…",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "丹恒，一切还好吧？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "听说你收到一封匿名信，我和开拓者都有些担心，来找你却发现你不在资料室。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "是不是星核猎手那个叫刃的扑克脸又找你麻烦了？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "不必担心，我只是暂时离开一会儿看看风景。",
-              "acknowledged": true
+              "id": 1,
+              "text": "我没事…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "不必担心，我只是暂时离开一会儿看看风景。",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "我见到了一些老朋友。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "不必担心，我只是去见了几个老朋友。",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "我把信扔了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "不必担心，我把信处理掉了。",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我见到了一些老朋友。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "不必担心，我只是去见了几个老朋友。",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "呼呼，那咱们就放心了。",
+          "acknowledged": true
         },
         {
-          "id": 3,
-          "text": "我把信扔了。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "不必担心，我把信处理掉了。",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "对了对了，记得早点回列车啊，姬子姐说，她给咱们泡了咖啡。",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "呼呼，那咱们就放心了。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "对了对了，记得早点回列车啊，姬子姐说，她给咱们泡了咖啡。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "fold",

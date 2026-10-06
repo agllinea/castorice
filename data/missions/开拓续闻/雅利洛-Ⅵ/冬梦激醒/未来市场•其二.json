@@ -1709,124 +1709,125 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "布洛妮娅、杰帕德、开拓者等人的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "在这里说吧，杰帕德",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "把你之前的报告也分享给列车组的各位",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "是，布洛妮娅大人",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "越详细越好。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "在这里说吧，杰帕德",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "把你之前的报告也分享给列车组的各位",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "是，布洛妮娅大人",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "越详细越好。"
+              "id": 1,
+              "text": "越详细越好。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "越详细越好。"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你们起冲突了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你们起冲突了？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你们起冲突了？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你们起冲突了？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "此前，大守护者命令我带领银鬃铁卫和自动机兵防线驻守在铆钉镇，阻止星际和平公司的渗透行为",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "防卫工作起初进展还算顺利，直到托帕本人出现。她似乎持有某种特殊的技术，在瞬间就夺取了我方所有机兵的控制权",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "托帕的目的地似乎是铆钉镇深处的某个区域——另外，史瓦罗不知为何也在和她一同行动",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "史瓦罗？！他又要和我们对着干了吗……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "布洛妮娅",
+          "contentType": "text",
+          "text": "希望不是，直觉告诉我这背后有其它原因…但现在还没法确定",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "至少现在我们知道该去哪找托帕了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "出发吧，三月，开拓者",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "此前，大守护者命令我带领银鬃铁卫和自动机兵防线驻守在铆钉镇，阻止星际和平公司的渗透行为",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "防卫工作起初进展还算顺利，直到托帕本人出现。她似乎持有某种特殊的技术，在瞬间就夺取了我方所有机兵的控制权",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "托帕的目的地似乎是铆钉镇深处的某个区域——另外，史瓦罗不知为何也在和她一同行动",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "史瓦罗？！他又要和我们对着干了吗……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "布洛妮娅",
-      "contentType": "text",
-      "text": "希望不是，直觉告诉我这背后有其它原因…但现在还没法确定",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "至少现在我们知道该去哪找托帕了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "出发吧，三月，开拓者",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "dialogue",

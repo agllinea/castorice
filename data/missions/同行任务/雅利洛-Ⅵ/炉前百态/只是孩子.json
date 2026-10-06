@@ -88,8 +88,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：杰帕德\n值勤回复较慢，请见谅",
+      "type": "message-thread",
+      "title": "杰帕德",
+      "subtitle": "值勤回复较慢，请见谅",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {

@@ -2683,79 +2683,80 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "缇宝、丹恒、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "缇宝",
-      "contentType": "text",
-      "text": "丹恒，开拓者！你们好呀"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "缇宝",
-      "contentType": "text",
-      "text": "在云石市集逛得如何啦？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "逛得差不多了",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "缇宝",
+          "contentType": "text",
+          "text": "丹恒，开拓者！你们好呀"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "缇宝",
+          "contentType": "text",
+          "text": "在云石市集逛得如何啦？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "已经逛得差不多了，还遇到了不少有意思的人和事"
+              "id": 1,
+              "text": "逛得差不多了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "已经逛得差不多了，还遇到了不少有意思的人和事"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "遇到了不少有趣的人",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "已经逛得差不多了，还遇到了不少有意思的人和事"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "遇到了不少有趣的人",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "已经逛得差不多了，还遇到了不少有意思的人和事"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "缇宝",
+          "contentType": "text",
+          "text": "那太好了！你们逛得开心就好"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "缇宝",
+          "contentType": "text",
+          "text": "浴场这里也已经完全恢复战前的热闹了，你们逛够了以后，就回云石天宫找我们吧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "缇宝",
+          "contentType": "text",
+          "text": "阿格莱雅给你们准备了一份大礼哦！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "缇宝",
-      "contentType": "text",
-      "text": "那太好了！你们逛得开心就好"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "缇宝",
-      "contentType": "text",
-      "text": "浴场这里也已经完全恢复战前的热闹了，你们逛够了以后，就回云石天宫找我们吧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "缇宝",
-      "contentType": "text",
-      "text": "阿格莱雅给你们准备了一份大礼哦！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2968,131 +2969,132 @@
       "text": "搞定——二位请看！"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "「粉霞天女」讨论组",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "如我刚才所说，粉霞天女无论如何都不像是翁法罗斯人"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "而且在那台留影石机里，还有许多翁法罗斯见不到的奇景：雪白的世界、不计其数的小型天舟、流光溢彩的高楼……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "「天外之界」是存在的！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "扎格列斯送我钱",
-      "contentType": "text",
-      "text": "粉色秀发、蓝色短衫，双目如同映着晚霞的大海……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "扎格列斯送我钱",
-      "contentType": "text",
-      "text": "这真的不是墨涅塔的人间化身吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "只愿做人台",
-      "contentType": "text",
-      "text": "阿格莱雅大人才是墨涅塔的代言人"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "什么乱七八糟的！我都说了，粉霞天女根本不是翁法罗斯人，她来自天外！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "第十三泰坦",
-      "contentType": "text",
-      "text": "我承认我看的野史很多，但「天舟之灾」可不是野史，而是确确实实发生过的悲剧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "第十三泰坦",
-      "contentType": "text",
-      "text": "没有人能在艾格勒的怒视下穿越天穹——说到底，天外之界存不存在还两说呢！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "法吉娜还在喝",
-      "contentType": "text",
-      "text": "粉霞天女存不存在也两说呢"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "只愿做人台",
-      "contentType": "text",
-      "text": "我手里还藏有阿格莱雅大人手作的华服三两件，愿以最美的衣裳为礼结识粉霞天女！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "我都说了是我亲眼所见！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "第十三泰坦",
-      "contentType": "text",
-      "text": "是吗？那我还亲眼见到尼卡多利和刻法勒握手言和呢"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "扎格列斯送我钱",
-      "contentType": "text",
-      "text": "探险家朋友，你在这里信口胡说，想必是被扎格列斯蛊惑了吧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "我坦诚相告，却换来你们这般态度…既然如此，我会用我的方式证明天外之界的存在！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "看好了，我将会飞向天外之界"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "天外探险家",
-      "contentType": "text",
-      "text": "即便赌上性命，也要找到粉霞天女，让你们这群家伙统统闭嘴！"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "如我刚才所说，粉霞天女无论如何都不像是翁法罗斯人"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "而且在那台留影石机里，还有许多翁法罗斯见不到的奇景：雪白的世界、不计其数的小型天舟、流光溢彩的高楼……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "「天外之界」是存在的！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "扎格列斯送我钱",
+          "contentType": "text",
+          "text": "粉色秀发、蓝色短衫，双目如同映着晚霞的大海……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "扎格列斯送我钱",
+          "contentType": "text",
+          "text": "这真的不是墨涅塔的人间化身吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "只愿做人台",
+          "contentType": "text",
+          "text": "阿格莱雅大人才是墨涅塔的代言人"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "什么乱七八糟的！我都说了，粉霞天女根本不是翁法罗斯人，她来自天外！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "第十三泰坦",
+          "contentType": "text",
+          "text": "我承认我看的野史很多，但「天舟之灾」可不是野史，而是确确实实发生过的悲剧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "第十三泰坦",
+          "contentType": "text",
+          "text": "没有人能在艾格勒的怒视下穿越天穹——说到底，天外之界存不存在还两说呢！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "法吉娜还在喝",
+          "contentType": "text",
+          "text": "粉霞天女存不存在也两说呢"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "只愿做人台",
+          "contentType": "text",
+          "text": "我手里还藏有阿格莱雅大人手作的华服三两件，愿以最美的衣裳为礼结识粉霞天女！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "我都说了是我亲眼所见！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "第十三泰坦",
+          "contentType": "text",
+          "text": "是吗？那我还亲眼见到尼卡多利和刻法勒握手言和呢"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "扎格列斯送我钱",
+          "contentType": "text",
+          "text": "探险家朋友，你在这里信口胡说，想必是被扎格列斯蛊惑了吧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "我坦诚相告，却换来你们这般态度…既然如此，我会用我的方式证明天外之界的存在！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "看好了，我将会飞向天外之界"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "天外探险家",
+          "contentType": "text",
+          "text": "即便赌上性命，也要找到粉霞天女，让你们这群家伙统统闭嘴！"
+        }
+      ]
     },
     {
       "type": "dialogue",

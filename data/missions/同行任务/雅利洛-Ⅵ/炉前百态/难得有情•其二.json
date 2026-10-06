@@ -83,94 +83,95 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "克拉拉",
-      "subtitle": "想和大家去野餐(>▽<)"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "克拉拉",
-      "contentType": "text",
-      "text": "我们之前捡到的小家伙，已经修好了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "克拉拉",
-      "contentType": "text",
-      "text": "大哥哥/大姐姐，有空时可以过来看看",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "克拉拉",
-      "contentType": "text",
-      "text": "(*´ω`*)",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "dialogue",
-      "options": [
+      "subtitle": "想和大家去野餐(>▽<)",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "好的，我马上到",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "克拉拉",
+          "contentType": "text",
+          "text": "我们之前捡到的小家伙，已经修好了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "克拉拉",
+          "contentType": "text",
+          "text": "大哥哥/大姐姐，有空时可以过来看看",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "克拉拉",
+          "contentType": "text",
+          "text": "(*´ω`*)",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "dialogue",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "好，我马上就到",
-              "acknowledged": true
+              "id": 1,
+              "text": "好的，我马上到",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "好，我马上就到",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "哦！我马上到！(☉д⊙)",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "哦！我马上到！(☉д⊙)",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "克拉拉",
+                  "contentType": "text",
+                  "text": "好的！",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "克拉拉",
+                  "contentType": "text",
+                  "text": "(☉д⊙)",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "哦！我马上到！(☉д⊙)",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "哦！我马上到！(☉д⊙)",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "克拉拉",
-              "contentType": "text",
-              "text": "好的！",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "克拉拉",
-              "contentType": "text",
-              "text": "(☉д⊙)",
-              "acknowledged": true
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "克拉拉",
+          "contentType": "text",
+          "text": "那克拉拉还是在史瓦罗先生这里等你！",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "克拉拉",
-      "contentType": "text",
-      "text": "那克拉拉还是在史瓦罗先生这里等你！",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2974,424 +2975,425 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "克拉拉",
-          "subtitle": "想和大家去野餐(>▽<)"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "大哥哥/大姐姐，你有空吗？",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "克拉拉，想聊聊关于帕斯卡的事……",
-          "acknowledged": true
-        },
-        {
-          "type": "choice",
-          "presentation": "dialogue",
-          "options": [
+          "subtitle": "想和大家去野餐(>▽<)",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "你还是很伤心吗…",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "大哥哥/大姐姐，你有空吗？",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "克拉拉，想聊聊关于帕斯卡的事……",
+              "acknowledged": true
+            },
+            {
+              "type": "choice",
+              "presentation": "dialogue",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
+                  "id": 1,
                   "text": "你还是很伤心吗…",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "没有…克拉拉已经冷静了",
-                  "acknowledged": true
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "好啊，想聊什么？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "好啊，想聊什么？",
-                  "acknowledged": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "其实，克拉拉之后想了很多",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "克拉拉想不明白——帕斯卡，它，到底是什么呢？",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "机器人们觉得帕斯卡是裂界生物",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "史瓦罗先生觉得帕斯卡是个普通的机器人",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "帕斯卡它…却不知道自己是什么",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "而克拉拉觉得，帕斯卡或许是人类也说不定",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "大哥哥/大姐姐觉得呢？",
-          "acknowledged": true
-        },
-        {
-          "type": "choice",
-          "presentation": "dialogue",
-          "options": [
-            {
-              "id": 1,
-              "text": "它是个机器人…",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "我觉得帕斯卡只是个机器人吧",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "大哥哥/大姐姐原来是这样认为的",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "从外观上来看，帕斯卡它确实只是个普通的机器人，不过……",
-                  "acknowledged": true
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "它是个裂界生物…",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "帕斯卡可能就是裂界生物吧",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "大哥哥/大姐姐原来是这样认为的",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "但，帕斯卡看起来只是个普通的小机器人吧？而且……",
-                  "acknowledged": true
-                }
-              ]
-            },
-            {
-              "id": 3,
-              "text": "它是人类…",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "帕斯卡就是活生生的人",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "大哥哥/大姐姐原来是这样认为的",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "克拉拉也这么认为，但是……",
-                  "acknowledged": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "裂界生物，机器人，人类",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "它们的区别，到底是什么呢？",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "有的裂界生物，也会像人类一样说话，像人类一样行动",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "而史瓦罗先生虽然看起来是机器人，但也可以像我们一样正常说话、正常思考，甚至也会表达「感情」",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "我们，究竟是通过什么来区分彼此的呢？",
-          "acknowledged": true
-        },
-        {
-          "type": "choice",
-          "presentation": "dialogue",
-          "options": [
-            {
-              "id": 1,
-              "text": "因为情感…",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "只有人类会对其它物种感同身受",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "原来是这样",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "那，或许…帕斯卡，还有史瓦罗先生……",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "大家，都是活生生的人类吧",
-                  "acknowledged": true
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "因为生理构造…",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "很简单，我们的生理构造完全不同",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "原来是这样",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "大概也只有这样…我们才能与其它事物划清界限",
-                  "acknowledged": true
-                }
-              ]
-            },
-            {
-              "id": 3,
-              "text": "我们没有区别…",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "人类与世间万物并无区别",
-                  "acknowledged": true
-                },
-                {
-                  "type": "choice",
-                  "presentation": "dialogue",
-                  "options": [
+                  "content": [
                     {
-                      "id": 1,
-                      "text": "（感性地解释）",
-                      "content": [
-                        {
-                          "type": "message",
-                          "side": "right",
-                          "speaker": "开拓者",
-                          "contentType": "text",
-                          "text": "我们诞生自同一个宇宙，也走向同样的死亡",
-                          "acknowledged": true
-                        }
-                      ]
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "你还是很伤心吗…",
+                      "acknowledged": true
                     },
                     {
-                      "id": 2,
-                      "text": "（理性地解释）",
-                      "content": [
-                        {
-                          "type": "message",
-                          "side": "right",
-                          "speaker": "开拓者",
-                          "contentType": "text",
-                          "text": "我们不过都是基本粒子构成的不同事象",
-                          "acknowledged": true
-                        }
-                      ]
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "没有…克拉拉已经冷静了",
+                      "acknowledged": true
                     }
                   ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "原来是这样",
-                  "acknowledged": true
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "克拉拉",
-                  "contentType": "text",
-                  "text": "虽然感觉很深奥，但克拉拉会试着去理解",
-                  "acknowledged": true
+                  "id": 2,
+                  "text": "好啊，想聊什么？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "好啊，想聊什么？",
+                      "acknowledged": true
+                    }
+                  ]
                 }
               ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "其实，克拉拉之后想了很多",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "克拉拉想不明白——帕斯卡，它，到底是什么呢？",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "机器人们觉得帕斯卡是裂界生物",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "史瓦罗先生觉得帕斯卡是个普通的机器人",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "帕斯卡它…却不知道自己是什么",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "而克拉拉觉得，帕斯卡或许是人类也说不定",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "大哥哥/大姐姐觉得呢？",
+              "acknowledged": true
+            },
+            {
+              "type": "choice",
+              "presentation": "dialogue",
+              "options": [
+                {
+                  "id": 1,
+                  "text": "它是个机器人…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "我觉得帕斯卡只是个机器人吧",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "大哥哥/大姐姐原来是这样认为的",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "从外观上来看，帕斯卡它确实只是个普通的机器人，不过……",
+                      "acknowledged": true
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "它是个裂界生物…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "帕斯卡可能就是裂界生物吧",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "大哥哥/大姐姐原来是这样认为的",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "但，帕斯卡看起来只是个普通的小机器人吧？而且……",
+                      "acknowledged": true
+                    }
+                  ]
+                },
+                {
+                  "id": 3,
+                  "text": "它是人类…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "帕斯卡就是活生生的人",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "大哥哥/大姐姐原来是这样认为的",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "克拉拉也这么认为，但是……",
+                      "acknowledged": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "裂界生物，机器人，人类",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "它们的区别，到底是什么呢？",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "有的裂界生物，也会像人类一样说话，像人类一样行动",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "而史瓦罗先生虽然看起来是机器人，但也可以像我们一样正常说话、正常思考，甚至也会表达「感情」",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "我们，究竟是通过什么来区分彼此的呢？",
+              "acknowledged": true
+            },
+            {
+              "type": "choice",
+              "presentation": "dialogue",
+              "options": [
+                {
+                  "id": 1,
+                  "text": "因为情感…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "只有人类会对其它物种感同身受",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "原来是这样",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "那，或许…帕斯卡，还有史瓦罗先生……",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "大家，都是活生生的人类吧",
+                      "acknowledged": true
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "因为生理构造…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "很简单，我们的生理构造完全不同",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "原来是这样",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "大概也只有这样…我们才能与其它事物划清界限",
+                      "acknowledged": true
+                    }
+                  ]
+                },
+                {
+                  "id": 3,
+                  "text": "我们没有区别…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "人类与世间万物并无区别",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "choice",
+                      "presentation": "dialogue",
+                      "options": [
+                        {
+                          "id": 1,
+                          "text": "（感性地解释）",
+                          "content": [
+                            {
+                              "type": "message",
+                              "side": "right",
+                              "speaker": "开拓者",
+                              "contentType": "text",
+                              "text": "我们诞生自同一个宇宙，也走向同样的死亡",
+                              "acknowledged": true
+                            }
+                          ]
+                        },
+                        {
+                          "id": 2,
+                          "text": "（理性地解释）",
+                          "content": [
+                            {
+                              "type": "message",
+                              "side": "right",
+                              "speaker": "开拓者",
+                              "contentType": "text",
+                              "text": "我们不过都是基本粒子构成的不同事象",
+                              "acknowledged": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "原来是这样",
+                      "acknowledged": true
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "克拉拉",
+                      "contentType": "text",
+                      "text": "虽然感觉很深奥，但克拉拉会试着去理解",
+                      "acknowledged": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "克拉拉好像没那么迷茫了",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "谢谢你，大哥哥/大姐姐…～",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "克拉拉",
+              "contentType": "text",
+              "text": "(*´ω`*)",
+              "acknowledged": true
             }
           ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "克拉拉好像没那么迷茫了",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "谢谢你，大哥哥/大姐姐…～",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "克拉拉",
-          "contentType": "text",
-          "text": "(*´ω`*)",
-          "acknowledged": true
-        },
-        {
-          "type": "message-thread-end"
         }
       ]
     }

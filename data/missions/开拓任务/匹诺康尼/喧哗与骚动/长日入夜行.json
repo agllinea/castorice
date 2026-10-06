@@ -98,114 +98,115 @@
       "location": "星穹列车-观景车厢"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "喂喂"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "喂喂"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "……"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "怎么了？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "喂喂"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "喂喂"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "……"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "怎么了？"
+              "id": 1,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "怎么了？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "喂喂。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "喂喂"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "瓦尔特",
+                  "contentType": "text",
+                  "text": "好了好了，先听听列车长想说什么吧。"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "喂喂。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "喂喂"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "瓦尔特",
-              "contentType": "text",
-              "text": "好了好了，先听听列车长想说什么吧。"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "是不是可以出发前往下一站了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "没错帕！跃迁装置已经校准好了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "不过出发前，列车长还有三件事要强调下"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "所以这次列车小会，帕姆也参加"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "好耶！那就老规矩"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "观景车厢集合咯~"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "是不是可以出发前往下一站了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "没错帕！跃迁装置已经校准好了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "不过出发前，列车长还有三件事要强调下"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "所以这次列车小会，帕姆也参加"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "好耶！那就老规矩"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "观景车厢集合咯~"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

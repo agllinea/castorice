@@ -777,40 +777,41 @@
       "text": "动身前…我想再和阿格莱雅大人确认一番。请稍等，开拓者阁下。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "遐蝶、阿格莱雅、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "遐蝶",
-      "contentType": "text",
-      "text": "阿格莱雅大人，我们已经做好了所有的准备工作，准备前往悬锋城的往世寻找破局之法了。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阿格莱雅",
-      "contentType": "text",
-      "text": "辛苦你们了。我这边也会稳定好城内的政局，做好与你们遥相呼应的准备。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阿格莱雅",
-      "contentType": "text",
-      "text": "无需束手束脚，按你的心意行动吧，蝶，我们都很信任你。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阿格莱雅",
-      "contentType": "text",
-      "text": "愿刻法勒明亮你我的双眸。"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "遐蝶",
+          "contentType": "text",
+          "text": "阿格莱雅大人，我们已经做好了所有的准备工作，准备前往悬锋城的往世寻找破局之法了。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阿格莱雅",
+          "contentType": "text",
+          "text": "辛苦你们了。我这边也会稳定好城内的政局，做好与你们遥相呼应的准备。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阿格莱雅",
+          "contentType": "text",
+          "text": "无需束手束脚，按你的心意行动吧，蝶，我们都很信任你。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阿格莱雅",
+          "contentType": "text",
+          "text": "愿刻法勒明亮你我的双眸。"
+        }
+      ]
     },
     {
       "type": "dialogue",

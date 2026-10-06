@@ -1609,8 +1609,10 @@
       "text": "艾丝妲已成为列车的访客，回到列车将有机会遇到艾丝妲"
     },
     {
-      "type": "fold",
-      "title": "短信：阿兰\n佩佩紧急联系人",
+      "type": "message-thread",
+      "title": "阿兰",
+      "subtitle": "佩佩紧急联系人",
+      "owner": "开拓者",
       "collapsed": true,
       "content": [
         {

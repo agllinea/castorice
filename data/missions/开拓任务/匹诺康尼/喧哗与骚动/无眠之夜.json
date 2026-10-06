@@ -324,121 +324,124 @@
       "text": "你收到了三月七的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "三月七",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "嘿"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "好厉害，梦里也可以发消息！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "你到了嘛"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "我到了。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "嘿"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "好厉害，梦里也可以发消息！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "你到了嘛"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我到了"
+              "id": 1,
+              "text": "我到了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我到了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "好耶"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "好耶"
+              "id": 2,
+              "text": "我没到。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "在路上了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "你又骗我:("
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我没到。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "在路上了"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "你又骗我:("
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "刚联系上姬子和杨叔，大家都去了不同的梦境"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "我在薄暮的时刻！准备去拍卖会看看"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "再会合也麻烦，不如先分头行动吧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "sticker",
+          "sticker": "01-14",
+          "file": "聊天表情-01-14.png",
+          "asset": "assets/sr-images/聊天表情-01-14.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "你在黄金的时刻？听说那里的「梦境贩售店」很出名"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "帮我打个卡呗，要是好玩，下一站就去你那儿！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "刚联系上姬子和杨叔，大家都去了不同的梦境"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "我在薄暮的时刻！准备去拍卖会看看"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "再会合也麻烦，不如先分头行动吧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "01-14"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "你在黄金的时刻？听说那里的「梦境贩售店」很出名"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "帮我打个卡呗，要是好玩，下一站就去你那儿！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -1098,7 +1101,19 @@
     {
       "type": "narration",
       "tone": "描述",
-      "text": "获得贴纸link=梦境护照梦境贩售店、link=梦境护照无名客的梦泡"
+      "text": "获得贴纸梦境贩售店、无名客的梦泡",
+      "images": [
+        {
+          "file": "梦境护照-梦境贩售店.png",
+          "displayWidth": "50px",
+          "asset": "assets/sr-images/梦境护照-梦境贩售店.png"
+        },
+        {
+          "file": "梦境护照-无名客的梦泡.png",
+          "displayWidth": "50px",
+          "asset": "assets/sr-images/梦境护照-无名客的梦泡.png"
+        }
+      ]
     },
     {
       "type": "section",

@@ -95,256 +95,257 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "杰帕德、希露瓦、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希露瓦",
-      "contentType": "text",
-      "text": "开拓者！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "在吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "在。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "希露瓦",
+          "contentType": "text",
+          "text": "开拓者！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "在吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "在啊"
+              "id": 1,
+              "text": "在。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "在啊"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "什么事？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "什么事？"
+              "id": 2,
+              "text": "不在。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "您好，您所呼叫的用户不在贝洛伯格服无"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "服务区"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "杰帕德",
+                  "contentType": "text",
+                  "text": "你不必这样……",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "这什么群？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "呃，怎么还拉了个群"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你们想做什么！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "不在。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "希露瓦",
+          "contentType": "text",
+          "text": "呃，估计你也猜到了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "我们想请你帮个忙",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "您好，您所呼叫的用户不在贝洛伯格服无"
+              "id": 1,
+              "text": "帮。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "行啊，你们说吧"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "服务区"
+              "id": 2,
+              "text": "不帮。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "您好，您所呼叫的用户暂时无法接替"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "接听"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "……"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "希露瓦",
+                  "contentType": "text",
+                  "text": "别闹嘛！这事真的很重要",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "杰帕德",
-              "contentType": "text",
-              "text": "你不必这样……",
-              "acknowledged": true
+              "id": 3,
+              "text": "帮什么忙？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "细说"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 3,
-          "text": "这什么群？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "能请你来一趟贝洛伯格大博物馆的整理间吗？我们可以在这里聊",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "呃，怎么还拉了个群"
+              "id": 1,
+              "text": "好，马上到。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "行，马上就来"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "希露瓦",
+                  "contentType": "text",
+                  "text": "不愧是你！那我们就在这里等你啦",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你们想做什么！"
+              "id": 2,
+              "text": "不能直接告诉我？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "什么事搞得这么神秘……"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "直接短信告诉我呗"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "希露瓦",
+                  "contentType": "text",
+                  "text": "嘿嘿，这就叫仪式感",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "杰帕德",
+                  "contentType": "text",
+                  "text": "…我们就在这边等你了",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希露瓦",
-      "contentType": "text",
-      "text": "呃，估计你也猜到了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "我们想请你帮个忙",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "帮。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "行啊，你们说吧"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "不帮。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "您好，您所呼叫的用户暂时无法接替"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "接听"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "……"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "希露瓦",
-              "contentType": "text",
-              "text": "别闹嘛！这事真的很重要",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "帮什么忙？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "细说"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "能请你来一趟贝洛伯格大博物馆的整理间吗？我们可以在这里聊",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "好，马上到。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "行，马上就来"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "希露瓦",
-              "contentType": "text",
-              "text": "不愧是你！那我们就在这里等你啦",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "不能直接告诉我？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "什么事搞得这么神秘……"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "直接短信告诉我呗"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "希露瓦",
-              "contentType": "text",
-              "text": "嘿嘿，这就叫仪式感",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "杰帕德",
-              "contentType": "text",
-              "text": "…我们就在这边等你了",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2457,65 +2458,66 @@
       "location": "雅利洛-Ⅵ-行政区"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "杰帕德、希露瓦、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希露瓦",
-      "contentType": "text",
-      "text": "嘿，开拓者！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "之前说的那件事，进展如何？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "基本搞定了"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你们在机械屋吗？我当面找你们说吧"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "短信可能说不清楚"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "希露瓦",
-      "contentType": "text",
-      "text": "哈哈，还挺巧～",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "杰帕德",
-      "contentType": "text",
-      "text": "那我们就在机械屋等你了",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希露瓦",
+          "contentType": "text",
+          "text": "嘿，开拓者！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "之前说的那件事，进展如何？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "基本搞定了"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你们在机械屋吗？我当面找你们说吧"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "短信可能说不清楚"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "希露瓦",
+          "contentType": "text",
+          "text": "哈哈，还挺巧～",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "杰帕德",
+          "contentType": "text",
+          "text": "那我们就在机械屋等你了",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "section",
@@ -2648,98 +2650,99 @@
       "location": "雅利洛-Ⅵ-行政区"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "玲可",
-      "subtitle": "您呼叫的用户不在服务区"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玲可",
-      "contentType": "text",
-      "text": "开拓者",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玲可",
-      "contentType": "text",
-      "text": "你那边，怎么样了",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "您呼叫的用户不在服务区",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "还有事没处理。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "玲可",
+          "contentType": "text",
+          "text": "开拓者",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玲可",
+          "contentType": "text",
+          "text": "你那边，怎么样了",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "还有点事没处理"
+              "id": 1,
+              "text": "还有事没处理。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "还有点事没处理"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "稍等一下"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "稍等一下"
+              "id": 2,
+              "text": "准备去会合了。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "在路上了在路上了"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "马上到"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "准备去会合了。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "在路上了在路上了"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "马上到"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "玲可",
+          "contentType": "text",
+          "text": "我现在在博物馆",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玲可",
+          "contentType": "text",
+          "text": "佩拉她也在这里……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玲可",
+          "contentType": "text",
+          "text": "如果你忙完了，就到这里来吧",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玲可",
-      "contentType": "text",
-      "text": "我现在在博物馆",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玲可",
-      "contentType": "text",
-      "text": "佩拉她也在这里……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玲可",
-      "contentType": "text",
-      "text": "如果你忙完了，就到这里来吧",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -3275,270 +3278,279 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "佩拉",
-          "subtitle": "情报提供请备注姓名"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "开拓者",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "怎么了？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "之前",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "在博物馆",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "你都听到了",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "对吧？",
-          "acknowledged": true
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+          "subtitle": "情报提供请备注姓名",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "听到了",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "开拓者",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "怎么了？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "之前",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "在博物馆",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "你都听到了",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "对吧？",
+              "acknowledged": true
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "确实"
+                  "id": 1,
+                  "text": "听到了",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "确实"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "对不住……"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "sticker",
+                      "sticker": "07-04",
+                      "file": "聊天表情-07-04.png",
+                      "asset": "assets/sr-images/聊天表情-07-04.png"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "佩拉",
+                      "contentType": "text",
+                      "text": "…我就知道",
+                      "acknowledged": true
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "对不住……"
+                  "id": 2,
+                  "text": "没听到",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "啊？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "没听到啊"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "sticker",
+                      "sticker": "07-06",
+                      "file": "聊天表情-07-06.png",
+                      "asset": "assets/sr-images/聊天表情-07-06.png"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "佩拉",
+                      "contentType": "text",
+                      "text": "…你这反应，肯定是听到了",
+                      "acknowledged": true
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "07-04"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "佩拉",
-                  "contentType": "text",
-                  "text": "…我就知道",
-                  "acknowledged": true
+                  "id": 3,
+                  "text": "听到什么？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "啊？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "听到什么"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "sticker",
+                      "sticker": "07-05",
+                      "file": "聊天表情-07-05.png",
+                      "asset": "assets/sr-images/聊天表情-07-05.png"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "佩拉",
+                      "contentType": "text",
+                      "text": "…还装傻",
+                      "acknowledged": true
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "没听到",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "啊？"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "没听到啊"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "07-06"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "佩拉",
-                  "contentType": "text",
-                  "text": "…你这反应，肯定是听到了",
-                  "acknowledged": true
-                }
-              ]
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "算了",
+              "acknowledged": true
             },
             {
-              "id": 3,
-              "text": "听到什么？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "啊？"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "听到什么"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "07-05"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "佩拉",
-                  "contentType": "text",
-                  "text": "…还装傻",
-                  "acknowledged": true
-                }
-              ]
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "其实没什么",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "……",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "那天露营，很开心",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "谢谢你们",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "客气什么"
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "有空再一起去玩吧"
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "也别忘了夜宵"
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "sticker",
+              "sticker": "07-01",
+              "file": "聊天表情-07-01.png",
+              "asset": "assets/sr-images/聊天表情-07-01.png"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "嗯",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "一言为定哦",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "至于夜宵嘛…今天先让我调整一下状态",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "佩拉",
+              "contentType": "text",
+              "text": "下次一定",
+              "acknowledged": true
             }
           ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "算了",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "其实没什么",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "……",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "那天露营，很开心",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "谢谢你们",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "客气什么"
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "有空再一起去玩吧"
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "也别忘了夜宵"
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "07-01"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "嗯",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "一言为定哦",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "至于夜宵嘛…今天先让我调整一下状态",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "佩拉",
-          "contentType": "text",
-          "text": "下次一定",
-          "acknowledged": true
-        },
-        {
-          "type": "message-thread-end"
         }
       ]
     }

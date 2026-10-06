@@ -489,26 +489,27 @@
               "text": "方便的话去见一下姬子，她说有事找你。"
             },
             {
-              "type": "message-thread-start",
+              "type": "message-thread",
               "title": "丹恒",
-              "subtitle": "智库相关找我"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "你好，我是丹恒。"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "记得去找姬子。"
-            },
-            {
-              "type": "message-thread-end"
+              "subtitle": "智库相关找我",
+              "owner": "开拓者",
+              "collapsed": false,
+              "content": [
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "你好，我是丹恒。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "记得去找姬子。"
+                }
+              ]
             }
           ]
         },
@@ -585,26 +586,27 @@
               "text": "好~我去忙啦，再见！"
             },
             {
-              "type": "message-thread-start",
+              "type": "message-thread",
               "title": "三月七",
-              "subtitle": "今天也是三月七~"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "唷吼，我是三月七:D"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "三月七",
-              "contentType": "text",
-              "text": "姬子姐有事找你，别忘啦"
-            },
-            {
-              "type": "message-thread-end"
+              "subtitle": "今天也是三月七~",
+              "owner": "开拓者",
+              "collapsed": false,
+              "content": [
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "唷吼，我是三月七:D"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "三月七",
+                  "contentType": "text",
+                  "text": "姬子姐有事找你，别忘啦"
+                }
+              ]
             }
           ]
         }
@@ -962,79 +964,80 @@
       "text": "决定好了就来找我。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔",
-      "subtitle": "此号停用 | 商务联系：艾丝妲"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "嘿，开拓者，我是黑塔，有好事找你"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "速来我的办公室！等你！"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "此号停用 | 商务联系：艾丝妲",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "可你就在我旁边啊",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "嘿，开拓者，我是黑塔，有好事找你"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "速来我的办公室！等你！"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "可你就在我旁边啊"
+              "id": 1,
+              "text": "可你就在我旁边啊",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "可你就在我旁边啊"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你直接说不就行了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你直接说不就行了"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你直接说不就行了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你直接说不就行了"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "[自动回复]您好，我现在有事不在，一会也不会和您联系"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "？ ？"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "[自动回复]您好，我现在有事不在，一会也不会和您联系"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "？ ？"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "narration",

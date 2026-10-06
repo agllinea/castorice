@@ -113,113 +113,114 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔",
-      "subtitle": "此号停用 | 商务联系：艾丝妲"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "告诉你个好消息"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "阮·梅来空间站了"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "此号停用 | 商务联系：艾丝妲",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "阮·梅？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "告诉你个好消息"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "阮·梅来空间站了"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "阮·梅？"
+              "id": 1,
+              "text": "阮·梅？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "阮·梅？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑塔",
+                  "contentType": "text",
+                  "text": "天才俱乐部#81阮·梅"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑塔",
-              "contentType": "text",
-              "text": "天才俱乐部#81阮·梅"
+              "id": 2,
+              "text": "好消息？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "为什么是好消息？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑塔",
+                  "contentType": "text",
+                  "text": "对我是好消息。"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "能见她吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我能见一见她吗？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "黑塔",
+                  "contentType": "text",
+                  "text": "你问她。"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "好消息？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "为什么是好消息？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑塔",
-              "contentType": "text",
-              "text": "对我是好消息。"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "我把她叫来的，螺丝咕姆也在，我们要谈点重要的事"
         },
         {
-          "id": 3,
-          "text": "能见她吗？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我能见一见她吗？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "黑塔",
-              "contentType": "text",
-              "text": "你问她。"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "有空回来一趟，给她做个自我介绍，好让她知道在测试模拟宇宙的是什么人"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "黑塔",
+          "contentType": "text",
+          "text": "记得对阮·梅保持尊敬，你能见到她的机会不多"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "我把她叫来的，螺丝咕姆也在，我们要谈点重要的事"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "有空回来一趟，给她做个自我介绍，好让她知道在测试模拟宇宙的是什么人"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "黑塔",
-      "contentType": "text",
-      "text": "记得对阮·梅保持尊敬，你能见到她的机会不多"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -358,202 +359,203 @@
       "text": "你被人艾丝妲拉入了一个群聊…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔纠察队",
-      "subtitle": ""
-    },
-    {
-      "type": "message-system",
-      "text": "「知名不具」邀请「脸接大招」进入群聊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知名不具",
-      "contentType": "text",
-      "text": "行了，人拉进来了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知名不具",
-      "contentType": "text",
-      "text": "说吧"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "刺激的消息来了"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "脸接大招",
-      "contentType": "text",
-      "text": "细说？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "别传出去"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "阮·梅要来空间站了！"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "脸接大招",
-      "contentType": "text",
-      "text": "…她不是已经到了吗"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "脸接大招",
-      "contentType": "text",
-      "text": "八卦速度不行啊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "好家伙，真有你的"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "但我们还在准备迎接仪式啊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "阮·梅不领情呗"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "听说她在天才里也是独来独往的那一类"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "那我们的工作都白费了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "不早说"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "黑塔对她也是睁一只眼闭一只眼"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "这就是大人物的待遇啊"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "脸接大招",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "没事",
-          "content": [
+          "type": "message-system",
+          "text": "「知名不具」邀请「脸接大招」进入群聊"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知名不具",
+          "contentType": "text",
+          "text": "行了，人拉进来了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知名不具",
+          "contentType": "text",
+          "text": "说吧"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "刺激的消息来了"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "脸接大招",
+          "contentType": "text",
+          "text": "细说？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "别传出去"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "阮·梅要来空间站了！"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "脸接大招",
+          "contentType": "text",
+          "text": "…她不是已经到了吗"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "脸接大招",
+          "contentType": "text",
+          "text": "八卦速度不行啊"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "好家伙，真有你的"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "但我们还在准备迎接仪式啊"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "阮·梅不领情呗"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "听说她在天才里也是独来独往的那一类"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "那我们的工作都白费了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "不早说"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "黑塔对她也是睁一只眼闭一只眼"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "这就是大人物的待遇啊"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "没事。早晚会有其他大人物来的"
+              "id": 1,
+              "text": "没事",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "没事。早晚会有其他大人物来的"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "比尔盖瓦",
+                  "contentType": "text",
+                  "text": "哼，那我等着了"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "比尔盖瓦",
-              "contentType": "text",
-              "text": "哼，那我等着了"
+              "id": 2,
+              "text": "别干活了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "这就是认真干活的下场"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "比尔盖瓦",
+                  "contentType": "text",
+                  "text": "人间清醒"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "别干活了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "这就是认真干活的下场"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "比尔盖瓦",
-              "contentType": "text",
-              "text": "人间清醒"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "据说这位阮·梅小姐性格也不怎么样"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "得了，有哪位天才是正常人？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "螺丝咕姆，行"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "好吧"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "据说这位阮·梅小姐性格也不怎么样"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "得了，有哪位天才是正常人？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "螺丝咕姆，行"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "好吧"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -1924,93 +1926,96 @@
       "text": "你收到了界种科科员的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "界种科科员",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "界种科科员",
-      "contentType": "image",
-      "image": "短信-界种科科员-造物收容马桶.png"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "界种科科员",
-      "contentType": "text",
-      "text": "你可以把那些小怪物丢进这里。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你是认真的吗？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "界种科科员",
+          "contentType": "image",
+          "image": "短信-界种科科员-造物收容马桶.png",
+          "file": "短信-界种科科员-造物收容马桶.png",
+          "asset": "assets/sr-images/短信-界种科科员-造物收容马桶.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "界种科科员",
+          "contentType": "text",
+          "text": "你可以把那些小怪物丢进这里。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "……"
+              "id": 1,
+              "text": "你是认真的吗？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "……"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你是认真的吗？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你是认真的吗？"
+              "id": 2,
+              "text": "我怀疑你在骗我。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "……"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "假的吧？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "界种科科员",
+                  "contentType": "text",
+                  "text": "真的，很认真。"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我怀疑你在骗我。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "……"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "假的吧？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "界种科科员",
-              "contentType": "text",
-              "text": "真的，很认真。"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "界种科科员",
+          "contentType": "text",
+          "text": "这是个单向通道，另一头连着收容舱。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "界种科科员",
+          "contentType": "text",
+          "text": "安全得很。"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "界种科科员",
-      "contentType": "text",
-      "text": "这是个单向通道，另一头连着收容舱。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "界种科科员",
-      "contentType": "text",
-      "text": "安全得很。"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -2114,40 +2119,41 @@
       "text": "你收到了阮·梅的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "阮·梅",
-      "subtitle": "新口味的糕点…哪里买？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "开拓者，进展如何？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "抱歉，打断你一下"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "先回来"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "有个突发状况要你出面"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "新口味的糕点…哪里买？",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "开拓者，进展如何？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "抱歉，打断你一下"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "先回来"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "有个突发状况要你出面"
+        }
+      ]
     },
     {
       "type": "section",
@@ -3953,7 +3959,8 @@
       "type": "image",
       "file": "开拓续闻-天才群星闪耀时-CG2.png",
       "displayWidth": "600px",
-      "fullWidth": "1200px"
+      "fullWidth": "1200px",
+      "asset": "assets/sr-images/开拓续闻-天才群星闪耀时-CG2.png"
     },
     {
       "type": "dialogue",
@@ -4164,220 +4171,223 @@
       "title": "后续短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "阮·梅",
-      "subtitle": "新口味的糕点…哪里买？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "那两只小生命最近过得如何？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "它们有学会和平共处吗？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "新口味的糕点…哪里买？",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "安置在空间站了",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "那两只小生命最近过得如何？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "它们有学会和平共处吗？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我把它们安置在空间站了"
+              "id": 1,
+              "text": "安置在空间站了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我把它们安置在空间站了"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我教导「芝士流心」学会谦卑，让「豆沙灰灰」积极面对人生"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "就知道你还关心它们"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我教导「芝士流心」学会谦卑，让「豆沙灰灰」积极面对人生"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "就知道你还关心它们"
+              "id": 2,
+              "text": "你果然还是关心它们",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "就知道你还关心它们"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "阮·梅",
+                  "contentType": "text",
+                  "text": "嗯，有一点。"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我把它们安置在空间站了"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我教导「芝士流心」学会谦卑，让「豆沙灰灰」积极面对人生"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你果然还是关心它们",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "就知道你还关心它们"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "阮·梅",
-              "contentType": "text",
-              "text": "嗯，有一点。"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我把它们安置在空间站了"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我教导「芝士流心」学会谦卑，让「豆沙灰灰」积极面对人生"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "谢谢你， 开拓者。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "谢谢你， 开拓者。"
+        },
         {
-          "id": 1,
-          "text": "不用谢",
-          "content": [
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "不用谢"
+              "id": 1,
+              "text": "不用谢",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "不用谢"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我什么时候会忘记你？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "阮·梅",
+                  "contentType": "text",
+                  "text": "会晚一点。"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我等着再与你经历新的故事"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我什么时候会忘记你？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "阮·梅",
-              "contentType": "text",
-              "text": "会晚一点。"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我等着再与你经历新的故事"
+              "id": 2,
+              "text": "…我什么时候会忘记你？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我什么时候会忘记你？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "阮·梅",
+                  "contentType": "text",
+                  "text": "会晚一点。"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我等着再与你经历新的故事"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "…我什么时候会忘记你？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "好，我答应你。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "以后，研究还会继续。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我什么时候会忘记你？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "阮·梅",
-              "contentType": "text",
-              "text": "会晚一点。"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我等着再与你经历新的故事"
+              "id": 1,
+              "text": "对了，关于石膏头…",
+              "content": []
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "好，我答应你。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "以后，研究还会继续。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+        },
         {
-          "id": 1,
-          "text": "对了，关于石膏头…",
-          "content": []
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "对了，那个石膏头"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "他是你的熟人吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "text",
+          "text": "……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "阮·梅",
+          "contentType": "sticker",
+          "sticker": "11-03",
+          "file": "聊天表情-11-03.png",
+          "asset": "assets/sr-images/聊天表情-11-03.png"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "对了，那个石膏头"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "他是你的熟人吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "阮·梅",
-      "contentType": "text",
-      "text": "11-03"
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

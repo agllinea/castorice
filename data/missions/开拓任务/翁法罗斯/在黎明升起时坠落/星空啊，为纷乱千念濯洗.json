@@ -172,149 +172,152 @@
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "赛飞儿",
-      "subtitle": "来财！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "灰子"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "上次去斯缇科西亚，都没时间找宝贝"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "亏麻了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "现在冥河退的差不多，我又来了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "水底！有！大宝箱！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "我用不来奇迹宝珠，又没法涉水"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "只能靠你的岁月权能了，快来"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "咱们可以三七分成"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "来财！",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你三我七？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "灰子"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "上次去斯缇科西亚，都没时间找宝贝"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "亏麻了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "现在冥河退的差不多，我又来了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "水底！有！大宝箱！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "我用不来奇迹宝珠，又没法涉水"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "只能靠你的岁月权能了，快来"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "text",
+          "text": "咱们可以三七分成"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你三我七？"
+              "id": 1,
+              "text": "你三我七？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你三我七？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赛飞儿",
+                  "contentType": "text",
+                  "text": "没错，你三我七"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赛飞儿",
+                  "contentType": "text",
+                  "text": "好啦，别在意细节，来了再聊"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "赛飞儿",
-              "contentType": "text",
-              "text": "没错，你三我七"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "赛飞儿",
-              "contentType": "text",
-              "text": "好啦，别在意细节，来了再聊"
+              "id": 2,
+              "text": "这就来。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "宝箱？马上到。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赛飞儿",
+                  "contentType": "text",
+                  "text": "快"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赛飞儿",
+                  "contentType": "text",
+                  "text": "快"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赛飞儿",
+                  "contentType": "text",
+                  "text": "快来"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "这就来。",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "宝箱？马上到。"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "赛飞儿",
-              "contentType": "text",
-              "text": "快"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "赛飞儿",
-              "contentType": "text",
-              "text": "快"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "赛飞儿",
-              "contentType": "text",
-              "text": "快来"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "赛飞儿",
+          "contentType": "sticker",
+          "sticker": "23-13",
+          "file": "聊天表情-23-13.png",
+          "asset": "assets/sr-images/聊天表情-23-13.png"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赛飞儿",
-      "contentType": "text",
-      "text": "23-13"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"
@@ -803,40 +806,41 @@
       "text": "…嗯？你的传信石版响了？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "白厄",
-      "subtitle": "赞美太阳！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "开拓者，休息得好吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "明晰时我来找过你，你好像还在睡，就没忍心打扰你"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "但眼下这个状态，我实在闲不下来"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "白厄",
-      "contentType": "text",
-      "text": "感觉是时候继续我们的特训了，一起去树庭吗？"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "赞美太阳！",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "开拓者，休息得好吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "明晰时我来找过你，你好像还在睡，就没忍心打扰你"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "但眼下这个状态，我实在闲不下来"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "白厄",
+          "contentType": "text",
+          "text": "感觉是时候继续我们的特训了，一起去树庭吗？"
+        }
+      ]
     },
     {
       "type": "divider"

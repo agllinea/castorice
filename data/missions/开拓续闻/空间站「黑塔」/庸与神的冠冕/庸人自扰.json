@@ -132,412 +132,413 @@
       "text": "你收到了群聊消息，有新人入群…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔纠察队",
-      "subtitle": ""
-    },
-    {
-      "type": "text",
-      "text": "「猹里猹气」邀请「毁人不倦」进入群聊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "欢迎新同志！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "[此处为一张佩佩的表情包]",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知名不具",
-      "contentType": "text",
-      "text": "给大佬递茶。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "[此处为一张呜呜伯的表情包]",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "群地位-1 。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "群地位-1 。",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "眼熟的剧情",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "这剧情有点眼熟。",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "知名不具",
-              "contentType": "text",
-              "text": "确实。",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "眼熟的ID",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "说起来…「猹里猹气」这ID略眼熟，莫非和「瓜田里猹」有什么关系？",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "猹里猹气",
-              "contentType": "text",
-              "text": "…居然知道我转生前的马甲，看来你小子没少冲浪啊。",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "好了好了，言归正传，现在这事儿咋整？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "追责！必须追责！",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "怎么了？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "你们在生什么气？",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "追什么责？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "追什么责？",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "原来你还不知道？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
+      "subtitle": "",
+      "owner": "脸接大招",
+      "collapsed": false,
       "content": [
         {
-          "type": "fold",
-          "title": "[小视频](https://www.bilibili.com/video/BV1wc411y7ve)",
-          "collapsed": true,
-          "content": [
-            {
-              "type": "dialogue",
-              "speaker": "播音员",
-              "text": "黑塔女士单推快讯——各位黑粉，晚上好！现在插播一条紧急新闻。"
-            },
-            {
-              "type": "dialogue",
-              "speaker": "播音员",
-              "text": "日前，伟大的天才俱乐部#83黑塔女士于空间站遭遇袭击后下落不明，截至目前，暂无组织声称对此事件负责。"
-            },
-            {
-              "type": "list-item",
-              "ordered": false,
-              "depth": 1,
-              "text": "播音员大批黑粉因此对管理层的工作疏漏与不作为，发出强烈抗议与严厉谴责。"
-            }
-          ]
-        }
-      ],
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "你看看，太岁头上动大土，都欺负到黑塔女士头上了！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "虽然但是，这些个空间站的管理确实也不像话。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "军团就算了，黑塔女士在自家地盘还能被袭击？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "这、这叫什么事儿嘛！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "唉，最恨的就是这群尸位素餐的蛀虫。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "但有一说一，军团风波后，空间站的复兴重建做得还是不错滴。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "也对。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "一码归一码，难道他们问题还少吗？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "text",
+          "text": "「猹里猹气」邀请「毁人不倦」进入群聊"
+        },
         {
-          "id": 1,
-          "text": "味儿对了",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "欢迎新同志！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "[此处为一张佩佩的表情包]",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知名不具",
+          "contentType": "text",
+          "text": "给大佬递茶。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "[此处为一张呜呜伯的表情包]",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "群地位-1 。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "群地位-1 。",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "就是这个味儿！",
-              "acknowledged": true
+              "id": 1,
+              "text": "眼熟的剧情",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "这剧情有点眼熟。",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "知名不具",
+                  "contentType": "text",
+                  "text": "确实。",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "可重点不是黑塔的安危吗？",
-              "acknowledged": true
+              "id": 2,
+              "text": "眼熟的ID",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "说起来…「猹里猹气」这ID略眼熟，莫非和「瓜田里猹」有什么关系？",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "猹里猹气",
+                  "contentType": "text",
+                  "text": "…居然知道我转生前的马甲，看来你小子没少冲浪啊。",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你好急啊",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "好了好了，言归正传，现在这事儿咋整？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "追责！必须追责！",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "你好急啊…",
-              "acknowledged": true
+              "id": 1,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "你们在生什么气？",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "重点不是黑塔的安危吗？",
-              "acknowledged": true
+              "id": 2,
+              "text": "追什么责？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "追什么责？",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 3,
-          "text": "你说得对！",
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "原来你还不知道？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
           "content": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
+              "type": "fold",
+              "title": "[小视频](https://www.bilibili.com/video/BV1wc411y7ve)",
+              "collapsed": true,
+              "content": [
+                {
+                  "type": "dialogue",
+                  "speaker": "播音员",
+                  "text": "黑塔女士单推快讯——各位黑粉，晚上好！现在插播一条紧急新闻。"
+                },
+                {
+                  "type": "dialogue",
+                  "speaker": "播音员",
+                  "text": "日前，伟大的天才俱乐部#83黑塔女士于空间站遭遇袭击后下落不明，截至目前，暂无组织声称对此事件负责。"
+                },
+                {
+                  "type": "list-item",
+                  "ordered": false,
+                  "depth": 1,
+                  "text": "播音员大批黑粉因此对管理层的工作疏漏与不作为，发出强烈抗议与严厉谴责。"
+                }
+              ]
+            }
+          ],
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "你看看，太岁头上动大土，都欺负到黑塔女士头上了！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "虽然但是，这些个空间站的管理确实也不像话。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "军团就算了，黑塔女士在自家地盘还能被袭击？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "这、这叫什么事儿嘛！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "唉，最恨的就是这群尸位素餐的蛀虫。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "但有一说一，军团风波后，空间站的复兴重建做得还是不错滴。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "也对。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "一码归一码，难道他们问题还少吗？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "味儿对了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "就是这个味儿！",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "可重点不是黑塔的安危吗？",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你好急啊",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "你好急啊…",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "重点不是黑塔的安危吗？",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 3,
               "text": "你说得对！",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "知名不具",
-              "contentType": "text",
-              "text": "你也这么觉得？有趣，一会儿咱们小窗唠唠。",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "脸接大招",
-              "contentType": "text",
-              "text": "不用了…重点不是黑塔的安危吗？",
-              "acknowledged": true
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "你说得对！",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "知名不具",
+                  "contentType": "text",
+                  "text": "你也这么觉得？有趣，一会儿咱们小窗唠唠。",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "脸接大招",
+                  "contentType": "text",
+                  "text": "不用了…重点不是黑塔的安危吗？",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "咸吃萝卜淡操心，这不是艾丝妲该关心的？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "咱们监督的是结果好坏，至于怎么做，是他们要去考虑的事儿！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "歪归歪，理是这么个理。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "可太对了哥！猹里猹气，我的网络嘴替！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "脸接大招",
+          "contentType": "text",
+          "text": "……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "兄弟们，我们的目标是？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "没有蛀虫！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "很好，合格了。",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "咸吃萝卜淡操心，这不是艾丝妲该关心的？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "咱们监督的是结果好坏，至于怎么做，是他们要去考虑的事儿！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "歪归歪，理是这么个理。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "可太对了哥！猹里猹气，我的网络嘴替！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "脸接大招",
-      "contentType": "text",
-      "text": "……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "兄弟们，我们的目标是？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "没有蛀虫！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "很好，合格了。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -3970,106 +3971,107 @@
       "text": "你收到了一条短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔纠察队",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "来了来了来了！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "什么来了？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "大的要来了！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "我的天哪！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
       "content": [
         {
-          "type": "fold",
-          "title": "[含有大的的视频](https://www.bilibili.com/video/BV1wc411y7ve?t=85.2)",
-          "collapsed": true,
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "来了来了来了！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "什么来了？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "大的要来了！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "我的天哪！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
           "content": [
             {
-              "type": "dialogue",
-              "speaker": "播音员",
-              "text": "黑塔女士单推快讯——插播一条紧急新闻！插播一条紧急新闻！"
-            },
-            {
-              "type": "dialogue",
-              "speaker": "播音员",
-              "text": "黑塔女士遇袭一事终于有了下文！「泯灭帮」宣称对整起事件负责，并将采取下一步行动。协会对此表示强烈谴责……"
-            },
-            {
-              "type": "divider"
-            },
-            {
-              "type": "narration",
-              "tone": "描述",
-              "text": "紧急快讯被干扰了…"
-            },
-            {
-              "type": "dialogue",
-              "speaker": "？？？",
-              "text": "星间诸神离世异俗，无心顾及渺渺众生。"
-            },
-            {
-              "type": "dialogue",
-              "speaker": "？？？",
-              "text": "唯有负创的恩主，得令诸界沐浴「毁灭」的火光。"
-            },
-            {
-              "type": "dialogue",
-              "speaker": "？？？",
-              "text": "总有怯懦小人，妄图拒绝恩典、逃离赐伤。"
-            },
-            {
-              "type": "dialogue",
-              "speaker": "？？？",
-              "text": "逃吧，尽管逃吧——无论逃往何处，泯灭终将到访！"
+              "type": "fold",
+              "title": "[含有大的的视频](https://www.bilibili.com/video/BV1wc411y7ve?t=85.2)",
+              "collapsed": true,
+              "content": [
+                {
+                  "type": "dialogue",
+                  "speaker": "播音员",
+                  "text": "黑塔女士单推快讯——插播一条紧急新闻！插播一条紧急新闻！"
+                },
+                {
+                  "type": "dialogue",
+                  "speaker": "播音员",
+                  "text": "黑塔女士遇袭一事终于有了下文！「泯灭帮」宣称对整起事件负责，并将采取下一步行动。协会对此表示强烈谴责……"
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "narration",
+                  "tone": "描述",
+                  "text": "紧急快讯被干扰了…"
+                },
+                {
+                  "type": "dialogue",
+                  "speaker": "？？？",
+                  "text": "星间诸神离世异俗，无心顾及渺渺众生。"
+                },
+                {
+                  "type": "dialogue",
+                  "speaker": "？？？",
+                  "text": "唯有负创的恩主，得令诸界沐浴「毁灭」的火光。"
+                },
+                {
+                  "type": "dialogue",
+                  "speaker": "？？？",
+                  "text": "总有怯懦小人，妄图拒绝恩典、逃离赐伤。"
+                },
+                {
+                  "type": "dialogue",
+                  "speaker": "？？？",
+                  "text": "逃吧，尽管逃吧——无论逃往何处，泯灭终将到访！"
+                }
+              ]
             }
-          ]
+          ],
+          "acknowledged": true
         }
-      ],
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      ]
     },
     {
       "type": "divider"
@@ -4224,126 +4226,127 @@
       "text": "与帕梅拉发消息让你拿姬子照片换「瓜田里猹」消息的那个人"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "帕梅拉",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "好久不见。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "老规矩，姬子，一张照片切一个瓜，包甜。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "能赊账吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "别人不能，你可以谈。20点利息，赊账5次，多付一张。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "还得是您。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "那是，谈完价钱谈事情，说吧。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "帮我找找这群人之间的关联。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "哦？好东西。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "这失踪案传得沸沸扬扬，消息又封锁得紧，完整名单我都没有。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你也对管理层不满？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "哪能啊。我就一小职员，有鱼摸就好。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "那些个天天嚼上头舌根的主，要我看都是吃饱了撑的。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "擅自期待和擅自失望的都是一拨人，跟他们扯上关系，没好事。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你倒是活得通透。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "夸我也别想赖账啊。放心，有消息我就联系你。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "好久不见。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "老规矩，姬子，一张照片切一个瓜，包甜。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "能赊账吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "别人不能，你可以谈。20点利息，赊账5次，多付一张。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "还得是您。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "那是，谈完价钱谈事情，说吧。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "帮我找找这群人之间的关联。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "哦？好东西。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "这失踪案传得沸沸扬扬，消息又封锁得紧，完整名单我都没有。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你也对管理层不满？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "哪能啊。我就一小职员，有鱼摸就好。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "那些个天天嚼上头舌根的主，要我看都是吃饱了撑的。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "擅自期待和擅自失望的都是一拨人，跟他们扯上关系，没好事。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你倒是活得通透。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "夸我也别想赖账啊。放心，有消息我就联系你。",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "divider"
@@ -4418,87 +4421,88 @@
       "text": "向丹恒发消息"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "丹恒",
-      "subtitle": "智库相关找我"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我需要你的帮助。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "什么事？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "你知道「冥火大公」阿弗利特吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "泯灭帮？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "最好不要扯上关系。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "空间站遇上了麻烦，和他有关。"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "详情阿兰会跟你说。"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我想知道更多和他有关的事。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "明白了，等我消息。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "你自己多小心。情况有变，第一时间通知。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "智库相关找我",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我需要你的帮助。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "什么事？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "你知道「冥火大公」阿弗利特吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "泯灭帮？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "最好不要扯上关系。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "空间站遇上了麻烦，和他有关。"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "详情阿兰会跟你说。"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我想知道更多和他有关的事。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "明白了，等我消息。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "你自己多小心。情况有变，第一时间通知。",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "narration",
@@ -4613,96 +4617,97 @@
       "text": "你收到了帕梅拉的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "帕梅拉",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "我来了。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "有结果了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "有，但很微妙。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "说说看。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "这些受害者，身份各异，人际关系也确实没什么交集。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "但是……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "他们都在黑网上发表过针对管理层的过激言论，且拥护者很多。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "……什么？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "我知道这个结果会让人联想到很多事。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕梅拉",
-      "contentType": "text",
-      "text": "很遗憾，这就是事实。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "……辛苦了。"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "我来了。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "有结果了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "有，但很微妙。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "说说看。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "这些受害者，身份各异，人际关系也确实没什么交集。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "但是……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "他们都在黑网上发表过针对管理层的过激言论，且拥护者很多。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "……什么？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "我知道这个结果会让人联想到很多事。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕梅拉",
+          "contentType": "text",
+          "text": "很遗憾，这就是事实。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "……辛苦了。"
+        }
+      ]
     },
     {
       "type": "divider"
@@ -4747,128 +4752,129 @@
       "text": "你收到了丹恒的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "丹恒",
-      "subtitle": "智库相关找我"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "这个阿弗利特不简单。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "怎么说？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "陀斐特的火魔生性凶猛残暴，但阿弗利特却轻而易举地成为了一族领袖。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "在火魔中，他的火焰性质也属于特殊的那一类。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "什么意思？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "在不少永火官邸引发的恶性事件中，我发现了类似的目击报告：「暴徒自火焰中降临」。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "只是我的推测，阿弗利特的火焰，或许继承了某种和他起源有关的，燃烧之外的能力。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "具备类似性质的火焰，我听说过一种，因其不断在相位中穿梭而难以捕捉。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "有关它的资料并不多，唯有一笔「燃烧诸界，留下众多火焰后裔」引人注意。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "阿弗利特…也许就是其后裔之一。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "相位穿梭……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "大致就这些。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "关联记录数量有限，不知对你有没有帮助。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "足够了，谢谢。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "那就好。",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "智库相关找我",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "这个阿弗利特不简单。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "怎么说？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "陀斐特的火魔生性凶猛残暴，但阿弗利特却轻而易举地成为了一族领袖。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "在火魔中，他的火焰性质也属于特殊的那一类。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "什么意思？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "在不少永火官邸引发的恶性事件中，我发现了类似的目击报告：「暴徒自火焰中降临」。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "只是我的推测，阿弗利特的火焰，或许继承了某种和他起源有关的，燃烧之外的能力。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "具备类似性质的火焰，我听说过一种，因其不断在相位中穿梭而难以捕捉。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "有关它的资料并不多，唯有一笔「燃烧诸界，留下众多火焰后裔」引人注意。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "阿弗利特…也许就是其后裔之一。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "相位穿梭……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "大致就这些。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "关联记录数量有限，不知对你有没有帮助。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "足够了，谢谢。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "那就好。",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "narration",
@@ -5478,136 +5484,137 @@
       "text": "真理医生的话很快在群里应验…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔纠察队",
-      "subtitle": ""
-    },
-    {
-      "type": "text",
-      "text": "「猹里猹气」上传了【文档】失踪科员身份考"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "这是个啥？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "“失踪科员皆系空间站黑网意见领袖……”",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "好家伙，防卫科都不知道的东西，你小子消息倒是很灵通啊。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "咳，我这不也是刚从隔壁转的嘛。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "感觉有点强行啊，但如果这是真的……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "我闻到了阴谋的味道。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "自导自演一出失踪戏码，实则是为了铲除异己。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "啧啧，好手段呐。可惜正义虽迟但到，管理层必须下台！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "管理层必须下台！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "但如果真是这样的话，这个群岂不是危险了？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "猹里猹气",
-      "contentType": "text",
-      "text": "？",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "text",
+          "text": "「猹里猹气」上传了【文档】失踪科员身份考"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "这是个啥？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "“失踪科员皆系空间站黑网意见领袖……”",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "好家伙，防卫科都不知道的东西，你小子消息倒是很灵通啊。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "咳，我这不也是刚从隔壁转的嘛。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "感觉有点强行啊，但如果这是真的……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "我闻到了阴谋的味道。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "自导自演一出失踪戏码，实则是为了铲除异己。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "啧啧，好手段呐。可惜正义虽迟但到，管理层必须下台！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "管理层必须下台！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "但如果真是这样的话，这个群岂不是危险了？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "猹里猹气",
+          "contentType": "text",
+          "text": "？",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "divider"
@@ -6108,156 +6115,157 @@
       "text": "你收到了群聊消息…"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "黑塔纠察队",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "听说了吗",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "嗯",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "艾丝妲站长也被袭击了。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "这个冥火大公",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "其心可诛！其心可诛！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "古往今来都是攻心最可怕",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "确实，看来这个泯灭帮也不是传闻中那样打打杀杀不带脑子",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "要不是站长最后被救下来了，这口黑锅可就背定喽。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "这倒不一定，万一这也是她的自导自演呢",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "无证开飞船",
-      "contentType": "text",
-      "text": "一招苦肉计逆风翻盘",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "倒也不是没有道理……",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "可拉倒吧你，差不多得了。",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "仔细想想犯得着吗？为了几个只敢隔空打字的黑子这么兴师动众",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "玛氏机器人",
-      "contentType": "text",
-      "text": "确实",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "说起来之前那个叫得最起劲的猹里猹气呢",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "毁人不倦",
-      "contentType": "text",
-      "text": "对哦，他当时拉我进来的时候说得可义正词严了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "我看看",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "比尔盖瓦",
-      "contentType": "text",
-      "text": "嘶，这人不声不响地怎么就已经退了……",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "听说了吗",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "嗯",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "艾丝妲站长也被袭击了。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "这个冥火大公",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "其心可诛！其心可诛！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "古往今来都是攻心最可怕",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "确实，看来这个泯灭帮也不是传闻中那样打打杀杀不带脑子",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "要不是站长最后被救下来了，这口黑锅可就背定喽。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "这倒不一定，万一这也是她的自导自演呢",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "无证开飞船",
+          "contentType": "text",
+          "text": "一招苦肉计逆风翻盘",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "倒也不是没有道理……",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "可拉倒吧你，差不多得了。",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "仔细想想犯得着吗？为了几个只敢隔空打字的黑子这么兴师动众",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "玛氏机器人",
+          "contentType": "text",
+          "text": "确实",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "说起来之前那个叫得最起劲的猹里猹气呢",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "毁人不倦",
+          "contentType": "text",
+          "text": "对哦，他当时拉我进来的时候说得可义正词严了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "我看看",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "比尔盖瓦",
+          "contentType": "text",
+          "text": "嘶，这人不声不响地怎么就已经退了……",
+          "acknowledged": true
+        }
+      ]
     },
     {
       "type": "divider"
@@ -6472,134 +6480,135 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "黑塔",
-          "subtitle": "此号停用 | 商务联系：艾丝妲"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "事我听说了，干得不错",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "艾丝妲怎么样了？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "已经在干活了",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "我是说她的安全…"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "有我在，你还不放心？",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "有你在，我才不放心。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "那确实",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "可惜没能找到「相位灵火」。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "算了",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "就当阮·梅欠我一个人情",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "价值还更高",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "就这样吧",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "还得感谢拉帝奥先生。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "那是谁？",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "嗯？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "黑塔",
-          "contentType": "text",
-          "text": "嗯？",
-          "acknowledged": true
-        },
-        {
-          "type": "message-thread-end"
+          "subtitle": "此号停用 | 商务联系：艾丝妲",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "事我听说了，干得不错",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "艾丝妲怎么样了？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "已经在干活了",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "我是说她的安全…"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "有我在，你还不放心？",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "有你在，我才不放心。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "那确实",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "可惜没能找到「相位灵火」。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "算了",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "就当阮·梅欠我一个人情",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "价值还更高",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "就这样吧",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "还得感谢拉帝奥先生。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "那是谁？",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "嗯？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "黑塔",
+              "contentType": "text",
+              "text": "嗯？",
+              "acknowledged": true
+            }
+          ]
         }
       ]
     }

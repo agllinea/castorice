@@ -94,41 +94,44 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：艾丝妲\n不能再买了…",
+      "type": "message-thread",
+      "title": "艾丝妲",
+      "subtitle": "不能再买了…",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "",
-          "subtitle": ""
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "艾丝妲",
-          "contentType": "text",
-          "text": "开拓者，听说你回空间站了？",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "艾丝妲",
-          "contentType": "text",
-          "text": "有件事…也许只能找你商量了",
-          "acknowledged": true
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "艾丝妲",
-          "contentType": "text",
-          "text": "如果没有什么要紧事的话，可以麻烦你过来一趟吗？",
-          "acknowledged": true
-        },
-        {
-          "type": "message-thread-end"
+          "subtitle": "",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "艾丝妲",
+              "contentType": "text",
+              "text": "开拓者，听说你回空间站了？",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "艾丝妲",
+              "contentType": "text",
+              "text": "有件事…也许只能找你商量了",
+              "acknowledged": true
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "艾丝妲",
+              "contentType": "text",
+              "text": "如果没有什么要紧事的话，可以麻烦你过来一趟吗？",
+              "acknowledged": true
+            }
+          ]
         },
         {
           "type": "choice",

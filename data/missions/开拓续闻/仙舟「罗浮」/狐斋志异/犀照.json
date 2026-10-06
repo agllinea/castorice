@@ -1971,212 +1971,213 @@
       ]
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "捉鬼小队",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "要不藿藿先讲讲咱们今天的收获吧？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "今天我们封禁了岁阳犀焰，这都是要感谢各位的协助",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "顺带提一句，青雀小姐好帅～",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "确实",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "确实",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我先分享一件趣事吧",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "前段时间有人私信我，说我抄袭他探店视频，必须及时回复，否则将采取法律措施",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我说，我没有啊，那是我去年发布的作品",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "他说，抄袭跟时间无关，不管我什么时候制作了视频，无论是十年前，还是一百年前，都是我抄袭他",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "好倒霉啊…",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "要不藿藿先讲讲咱们今天的收获吧？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "今天我们封禁了岁阳犀焰，这都是要感谢各位的协助",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "顺带提一句，青雀小姐好帅～",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "确实",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
+          "text": "确实",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我先分享一件趣事吧",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "前段时间有人私信我，说我抄袭他探店视频，必须及时回复，否则将采取法律措施",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我说，我没有啊，那是我去年发布的作品",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "他说，抄袭跟时间无关，不管我什么时候制作了视频，无论是十年前，还是一百年前，都是我抄袭他",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你这不是被讹上了嘛，好倒霉啊…"
+              "id": 1,
+              "text": "好倒霉啊…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你这不是被讹上了嘛，好倒霉啊…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "倒霉什么呀，我根本就没放在心上",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "别忘了，咱们现在可是大博主了，是见过风雨的",
+                  "acknowledged": true
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "倒霉什么呀，我根本就没放在心上",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "别忘了，咱们现在可是大博主了，是见过风雨的",
-              "acknowledged": true
+              "id": 2,
+              "text": "小桂子你火了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "这说明小桂子你火了"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "我也是这么想的",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "小桂子你火了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "这说明小桂子你火了"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "我也是这么想的",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "大家快去看看咱们的粉丝数吧，我要飘了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "素裳",
-      "contentType": "text",
-      "text": "你已经飘了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "藿藿",
-      "contentType": "text",
-      "text": "你已经飘了",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "大家快去看看咱们的粉丝数吧，我要飘了",
+          "acknowledged": true
+        },
         {
-          "id": 1,
+          "type": "message",
+          "side": "left",
+          "speaker": "素裳",
+          "contentType": "text",
           "text": "你已经飘了",
-          "content": [
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "藿藿",
+          "contentType": "text",
+          "text": "你已经飘了",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你已经飘了"
+              "id": 1,
+              "text": "你已经飘了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你已经飘了"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "我也已经飘了",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我也已经飘了"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我也已经飘了",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我也已经飘了"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "记得看！",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "链接分享",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "记得看！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "链接分享",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "fold",

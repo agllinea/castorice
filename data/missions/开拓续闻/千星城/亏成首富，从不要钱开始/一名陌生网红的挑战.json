@@ -90,121 +90,126 @@
       "location": "千星城-千星城中心城区"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "知更鸟",
-      "subtitle": "让我们把翅膀借给彼此"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "15-02"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "开拓者，听说你最近也去了千星城？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "要不要见个面？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "让我们把翅膀借给彼此",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "见！",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "sticker",
+          "sticker": "15-02",
+          "file": "聊天表情-15-02.png",
+          "asset": "assets/sr-images/聊天表情-15-02.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "开拓者，听说你最近也去了千星城？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "要不要见个面？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "见！"
+              "id": 1,
+              "text": "见！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "见！"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "你也在吗？！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "「也」的意思是你也在？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "你也在吗？！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "「也」的意思是你也在？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "嗯嗯，我刚参加完开幕式彩排"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "离下个通告前还有点时间，在接驳码头快速碰个头？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "好的，不见不散"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "谁鸽就是周天鸽"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "我哥就是周天鸽"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "哈哈开个玩笑，绒绒号太萌了，我也买周边买得停不下来"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "text",
+          "text": "不见不散"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "知更鸟",
+          "contentType": "sticker",
+          "sticker": "12-16",
+          "file": "聊天表情-12-16.png",
+          "asset": "assets/sr-images/聊天表情-12-16.png"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "嗯嗯，我刚参加完开幕式彩排"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "离下个通告前还有点时间，在接驳码头快速碰个头？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "好的，不见不散"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "谁鸽就是周天鸽"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "我哥就是周天鸽"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "哈哈开个玩笑，绒绒号太萌了，我也买周边买得停不下来"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "不见不散"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "知更鸟",
-      "contentType": "text",
-      "text": "12-16"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",
@@ -222,123 +227,124 @@
       "text": "舒翁？那么巧，她也在千星城。"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "舒翁",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "舒翁",
-      "contentType": "text",
-      "text": "开拓者，我看到你了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "舒翁",
-      "contentType": "text",
-      "text": "小鸟应该也快到了"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "你怎么知道我在找她？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "舒翁",
+          "contentType": "text",
+          "text": "开拓者，我看到你了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "舒翁",
+          "contentType": "text",
+          "text": "小鸟应该也快到了"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你怎么知道我在找她？"
+              "id": 1,
+              "text": "你怎么知道我在找她？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你怎么知道我在找她？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "舒翁",
+                  "contentType": "text",
+                  "text": "没想到吧？我现在是她的临时「助理」，就在这儿等你呢"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "舒翁",
-              "contentType": "text",
-              "text": "没想到吧？我现在是她的临时「助理」，就在这儿等你呢"
+              "id": 2,
+              "text": "其实我在找的人是你…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "其实我在找的人是你…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "舒翁",
+                  "contentType": "text",
+                  "text": "不用解释啦。我现在是她的临时「助理」，是她告诉我你会来这里的"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "其实我在找的人是你…",
-          "content": [
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "其实我在找的人是你…"
+              "id": 1,
+              "text": "这儿人好多……",
+              "content": []
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "舒翁",
-              "contentType": "text",
-              "text": "不用解释啦。我现在是她的临时「助理」，是她告诉我你会来这里的"
+              "id": 2,
+              "text": "还能在这里见面吗？",
+              "content": []
             }
           ]
-        }
-      ]
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "这儿人好多……",
-          "content": []
         },
         {
-          "id": 2,
-          "text": "还能在这里见面吗？",
-          "content": []
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "人怎么会这么多…我们还方便在这里见面吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "舒翁",
+          "contentType": "text",
+          "text": "虽然她来参加开幕式是公开的通告，但今天的行程不知道怎么泄露了出去"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "舒翁",
+          "contentType": "text",
+          "text": "我给你发个地址，你等会在那等等我们？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "舒翁",
+          "contentType": "text",
+          "text": "我先接到她"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "舒翁",
+          "contentType": "text",
+          "text": "来了"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "人怎么会这么多…我们还方便在这里见面吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "舒翁",
-      "contentType": "text",
-      "text": "虽然她来参加开幕式是公开的通告，但今天的行程不知道怎么泄露了出去"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "舒翁",
-      "contentType": "text",
-      "text": "我给你发个地址，你等会在那等等我们？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "舒翁",
-      "contentType": "text",
-      "text": "我先接到她"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "舒翁",
-      "contentType": "text",
-      "text": "来了"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

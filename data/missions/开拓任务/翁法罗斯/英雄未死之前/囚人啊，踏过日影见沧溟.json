@@ -2722,136 +2722,137 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "昔涟",
-          "subtitle": "永恒属于每一刻"
-        },
-        {
-          "type": "message-system",
-          "text": "信号搜索中"
-        },
-        {
-          "type": "message-system",
-          "text": "信号连接不稳定"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "嗨，是我，想我了吗？"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+          "subtitle": "永恒属于每一刻",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "是有点，快回来吧",
-              "content": [
+              "type": "message-system",
+              "text": "信号搜索中"
+            },
+            {
+              "type": "message-system",
+              "text": "信号连接不稳定"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "嗨，是我，想我了吗？"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "是有点想你了，你在哪儿呀"
+                  "id": 1,
+                  "text": "是有点，快回来吧",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "是有点想你了，你在哪儿呀"
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "别开玩笑啦",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "别开玩笑啦，又不是永别"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "你在哪儿？什么时候回来？"
+                    }
+                  ]
+                },
+                {
+                  "id": 3,
+                  "text": "你藏哪了？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "我们完成使命了"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "你藏哪儿了？什么时候回来？"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "别开玩笑啦",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "别开玩笑啦，又不是永别"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "你在哪儿？什么时候回来？"
-                }
-              ]
+              "type": "message-system",
+              "text": "消息发送失败"
             },
             {
-              "id": 3,
-              "text": "你藏哪了？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "我们完成使命了"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "你藏哪儿了？什么时候回来？"
-                }
-              ]
+              "type": "message-system",
+              "text": "用户不在通信服务区内，请稍后再试"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "让我猜猜…你是不是以为人家藏起来了，想问人家躲在哪里呀？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "答案是——魔法技巧~"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "在我们出发之前，我就用妖精的魔法在哀丽秘榭埋下这则短信啦"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "因为人家一时半会儿还回不来哦，怕你孤单寂寞嘛"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "不过，在这哀丽秘榭，还存留着我们许多的回忆"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "昔涟",
+              "contentType": "text",
+              "text": "我给你留下了一封信，记得去祝祭庭院看看哦~"
             }
           ]
-        },
-        {
-          "type": "message-system",
-          "text": "消息发送失败"
-        },
-        {
-          "type": "message-system",
-          "text": "用户不在通信服务区内，请稍后再试"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "让我猜猜…你是不是以为人家藏起来了，想问人家躲在哪里呀？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "答案是——魔法技巧~"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "在我们出发之前，我就用妖精的魔法在哀丽秘榭埋下这则短信啦"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "因为人家一时半会儿还回不来哦，怕你孤单寂寞嘛"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "不过，在这哀丽秘榭，还存留着我们许多的回忆"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "昔涟",
-          "contentType": "text",
-          "text": "我给你留下了一封信，记得去祝祭庭院看看哦~"
-        },
-        {
-          "type": "message-thread-end"
         },
         {
           "type": "narration",

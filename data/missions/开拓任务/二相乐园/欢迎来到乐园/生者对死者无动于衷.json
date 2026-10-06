@@ -141,7 +141,8 @@
       "type": "image",
       "file": "开拓任务-生者对死者无动于衷-CG1.png",
       "displayWidth": "810px",
-      "fullWidth": "1800px"
+      "fullWidth": "1800px",
+      "asset": "assets/sr-images/开拓任务-生者对死者无动于衷-CG1.png"
     },
     {
       "type": "dialogue",

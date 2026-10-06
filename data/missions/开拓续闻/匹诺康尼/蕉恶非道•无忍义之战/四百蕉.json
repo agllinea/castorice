@@ -352,215 +352,226 @@
       "text": "被三月拉入校友群"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "折纸大学新蕉群",
-      "subtitle": ""
-    },
-    {
-      "type": "message-system",
-      "text": "赵相机邀请开拓者、丹恒加入群聊"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "赵相机",
-      "contentType": "text",
-      "text": "拉了两个新蕉！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "独爱蕉宝",
-      "contentType": "text",
-      "text": "欢迎！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "独爱蕉宝",
-      "contentType": "text",
-      "text": "19-07"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "恰丽卡",
-      "contentType": "text",
-      "text": "19-07"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "蕉开富贵",
-      "contentType": "text",
-      "text": "19-07"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "芭蕉花酱（努力版）",
-      "contentType": "text",
-      "text": "19-07"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "你们好。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "（也发个小猴表情包）",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你们好~"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "19-07"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "独爱蕉宝",
-              "contentType": "text",
-              "text": "原来你也喜欢睡蕉小猴！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "蕉开富贵",
-              "contentType": "text",
-              "text": "太好了"
-            }
-          ]
+          "type": "message-system",
+          "text": "赵相机邀请开拓者、丹恒加入群聊"
         },
         {
-          "id": 2,
-          "text": "（发个认真的自我介绍）",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "各位同学好，我叫开拓者，来自星穹列车的体验生。平时的爱好是玩以太战线，未婚，资产保密，还请各位多多关照。"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "独爱蕉宝",
-              "contentType": "text",
-              "text": "好认真的蕉！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "恰丽卡",
-              "contentType": "text",
-              "text": "请多关照——"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "蕉开富贵",
-              "contentType": "text",
-              "text": "请多关照，请多关照"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "芭蕉花酱（努力版）",
-              "contentType": "text",
-              "text": "大家别这么紧绷着蕉皮，放松点嘛！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "赵相机",
+          "contentType": "text",
+          "text": "拉了两个新蕉！"
         },
         {
-          "id": 3,
-          "text": "（发个「潮流」的自我介绍）",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "独爱蕉宝",
+          "contentType": "text",
+          "text": "欢迎！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "独爱蕉宝",
+          "contentType": "sticker",
+          "sticker": "19-07",
+          "file": "聊天表情-19-07.png",
+          "asset": "assets/sr-images/聊天表情-19-07.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "恰丽卡",
+          "contentType": "sticker",
+          "sticker": "19-07",
+          "file": "聊天表情-19-07.png",
+          "asset": "assets/sr-images/聊天表情-19-07.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "蕉开富贵",
+          "contentType": "sticker",
+          "sticker": "19-07",
+          "file": "聊天表情-19-07.png",
+          "asset": "assets/sr-images/聊天表情-19-07.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "芭蕉花酱（努力版）",
+          "contentType": "sticker",
+          "sticker": "19-07",
+          "file": "聊天表情-19-07.png",
+          "asset": "assets/sr-images/聊天表情-19-07.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "你们好。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "初次见面～☆*:.｡. o（≧▽≦）o .｡.:*☆——这里是开拓者，也可以叫我银·河·球·棒·侠（摆出炫酷的姿势）！是萌萌新生一枚捏，欢迎扩列，请大家多多指蕉~"
+              "id": 1,
+              "text": "（也发个小猴表情包）",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你们好~"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "sticker",
+                  "sticker": "19-07",
+                  "file": "聊天表情-19-07.png",
+                  "asset": "assets/sr-images/聊天表情-19-07.png"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "独爱蕉宝",
+                  "contentType": "text",
+                  "text": "原来你也喜欢睡蕉小猴！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "蕉开富贵",
+                  "contentType": "text",
+                  "text": "太好了"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "赵相机",
-              "contentType": "text",
-              "text": "？"
+              "id": 2,
+              "text": "（发个认真的自我介绍）",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "各位同学好，我叫开拓者，来自星穹列车的体验生。平时的爱好是玩以太战线，未婚，资产保密，还请各位多多关照。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "独爱蕉宝",
+                  "contentType": "text",
+                  "text": "好认真的蕉！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "恰丽卡",
+                  "contentType": "text",
+                  "text": "请多关照——"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "蕉开富贵",
+                  "contentType": "text",
+                  "text": "请多关照，请多关照"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "芭蕉花酱（努力版）",
+                  "contentType": "text",
+                  "text": "大家别这么紧绷着蕉皮，放松点嘛！"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "丹恒",
-              "contentType": "text",
-              "text": "…"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "独爱蕉宝",
-              "contentType": "text",
-              "text": "？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "恰丽卡",
-              "contentType": "text",
-              "text": "多多指蕉！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "蕉开富贵",
-              "contentType": "text",
-              "text": "幽默"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "芭蕉花酱（努力版）",
-              "contentType": "text",
-              "text": "哈哈哈哈哈哈"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "芭蕉花酱（努力版）",
-              "contentType": "text",
-              "text": "@赵相机 你朋友真逗"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "赵相机",
-              "contentType": "text",
-              "text": "跟他/她不熟！"
+              "id": 3,
+              "text": "（发个「潮流」的自我介绍）",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "初次见面～☆*:.｡. o（≧▽≦）o .｡.:*☆——这里是开拓者，也可以叫我银·河·球·棒·侠（摆出炫酷的姿势）！是萌萌新生一枚捏，欢迎扩列，请大家多多指蕉~"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赵相机",
+                  "contentType": "text",
+                  "text": "？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "丹恒",
+                  "contentType": "text",
+                  "text": "…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "独爱蕉宝",
+                  "contentType": "text",
+                  "text": "？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "恰丽卡",
+                  "contentType": "text",
+                  "text": "多多指蕉！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "蕉开富贵",
+                  "contentType": "text",
+                  "text": "幽默"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "芭蕉花酱（努力版）",
+                  "contentType": "text",
+                  "text": "哈哈哈哈哈哈"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "芭蕉花酱（努力版）",
+                  "contentType": "text",
+                  "text": "@赵相机 你朋友真逗"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "赵相机",
+                  "contentType": "text",
+                  "text": "跟他/她不熟！"
+                }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

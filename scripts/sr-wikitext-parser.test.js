@@ -56,15 +56,51 @@ test("将短信模板转换为消息和消息选项", () => {
 {{短信警告|信息发送失败}}
 {{角色对话|模板结束}}`;
   const result = parseStarRailMission(source);
-  assert.deepEqual(result.content.map((node) => node.type), [
-    "message-thread-start",
-    "message",
-    "choice",
-    "message-system",
-    "message-thread-end",
-  ]);
-  assert.equal(result.content[2].presentation, "message");
-  assert.equal(result.content[2].options[0].content[0].text, "在。");
+  assert.deepEqual(result.content.map((node) => node.type), ["message-thread"]);
+  assert.equal(result.content[0].title, "群聊");
+  assert.equal(result.content[0].subtitle, "副标题");
+  assert.equal(result.content[0].owner, "开拓者");
+  assert.deepEqual(result.content[0].content.map((node) => node.type), ["message", "choice", "message-system"]);
+  assert.equal(result.content[0].content[1].presentation, "message");
+  assert.equal(result.content[0].content[1].options[0].content[0].text, "在。");
+});
+
+test("将短信折叠识别为带标题、副标题和手机持有者的短信块", () => {
+  const source = `{{任务|任务名称=短信折叠测试}}
+==剧情内容==
+{{折叠|标题=短信：星穹列车一家人<br><small>任务结束后</small>|内容=
+{{角色对话|左|瓦尔特|文本|情况如何？|是}}
+{{剧情选项|选项1=我们很快就回来|剧情1={{角色对话|右|开拓者|文本|我们很快就回来}}}}
+}}`;
+  const thread = parseStarRailMission(source).content[0];
+  assert.equal(thread.type, "message-thread");
+  assert.equal(thread.title, "星穹列车一家人");
+  assert.equal(thread.subtitle, "任务结束后");
+  assert.equal(thread.owner, "开拓者");
+  assert.equal(thread.content[0].side, "left");
+  assert.equal(thread.content[1].options[0].content[0].side, "right");
+});
+
+test("保留普通图片、短信图片和短信表情的文件引用", () => {
+  const content = parseBlocks(`[[File:开拓任务-腐烂或燃烧-CG2.png|center|600px]]
+{{角色对话|左|布洛妮娅|图片|短信-测试图片.png|是}}
+{{角色对话|左|布洛妮娅|表情|00-01|是}}`);
+  assert.deepEqual(content[0], { type: "image", file: "开拓任务-腐烂或燃烧-CG2.png", displayWidth: "600px", align: "center" });
+  assert.equal(content[1].contentType, "image");
+  assert.equal(content[1].file, "短信-测试图片.png");
+  assert.equal(content[2].contentType, "sticker");
+  assert.equal(content[2].sticker, "00-01");
+  assert.equal(content[2].file, "聊天表情-00-01.png");
+});
+
+test("保留跨行居中图片及正文中的内联图片", () => {
+  const content = parseBlocks(`<center>{{图片放大|线索.png|500px|900px}}<br>
+似乎只要将雕像归位，就能开启大门……</center>
+:{{颜色|描述|获得贴纸[[file:贴纸.png|50px|link=图鉴]]贴纸名称}}`);
+  assert.deepEqual(content[0], { type: "image", file: "线索.png", displayWidth: "500px", fullWidth: "900px" });
+  assert.deepEqual(content[1], { type: "text", text: "似乎只要将雕像归位，就能开启大门……" });
+  assert.equal(content[2].text, "获得贴纸贴纸名称");
+  assert.deepEqual(content[2].images, [{ file: "贴纸.png", displayWidth: "50px" }]);
 });
 
 test("任务名称中的注释模板只保留显示文本", () => {

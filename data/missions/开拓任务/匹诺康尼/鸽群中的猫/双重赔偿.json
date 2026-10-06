@@ -175,7 +175,8 @@
       "type": "image",
       "file": "开拓任务-双重赔偿-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-双重赔偿-CG.png"
     },
     {
       "type": "dialogue",
@@ -597,8 +598,15 @@
               "collapsed": false,
               "content": [
                 {
+                  "type": "image",
+                  "file": "开拓任务-双重赔偿-隐夜鸫雕像的线索.png",
+                  "displayWidth": "500px",
+                  "fullWidth": "900px",
+                  "asset": "assets/sr-images/开拓任务-双重赔偿-隐夜鸫雕像的线索.png"
+                },
+                {
                   "type": "text",
-                  "text": "开拓任务-双重赔偿-隐夜鸫雕像的线索.png\n\n似乎只要将雕像归位，就能开启大门……"
+                  "text": "似乎只要将雕像归位，就能开启大门……"
                 }
               ]
             },
@@ -1986,7 +1994,8 @@
       "type": "image",
       "file": "基石-催讨黄玉.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/基石-催讨黄玉.png"
     },
     {
       "type": "dialogue",
@@ -2032,7 +2041,8 @@
       "type": "image",
       "file": "基石-典贷翡翠.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/基石-典贷翡翠.png"
     },
     {
       "type": "dialogue",
@@ -2188,7 +2198,8 @@
       "type": "image",
       "file": "开拓任务-双重赔偿-CG2.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-双重赔偿-CG2.png"
     },
     {
       "type": "dialogue",

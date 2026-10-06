@@ -27,7 +27,7 @@
     "hidden": []
   },
   "createdAt": "2026-10-01T21:57:30.287Z",
-  "updatedAt": "2026-10-02T09:19:51.812Z",
+  "updatedAt": "2026-10-06T05:16:06.651Z",
   "blocks": [
     {
       "id": "c0205f0c-4cea-4f25-a596-92d49fab0069",
@@ -355,7 +355,17 @@
           {
             "type": "dialogue",
             "speaker": "卡芙卡",
-            "text": "很抱歉打断了你们的聚会。但相信听完我的请求，你们会理解我的冒昧。我要请你们——"
+            "text": "很抱歉打断了你们的聚会。"
+          },
+          {
+            "type": "dialogue",
+            "speaker": "卡芙卡",
+            "text": "但相信听完我的请求，你们会理解我的冒昧。"
+          },
+          {
+            "type": "dialogue",
+            "speaker": "卡芙卡",
+            "text": "我要请你们——"
           },
           {
             "type": "dialogue",

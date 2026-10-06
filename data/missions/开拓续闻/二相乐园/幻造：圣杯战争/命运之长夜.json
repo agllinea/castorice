@@ -89,33 +89,34 @@
   },
   "content": [
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "远坂凛",
-      "subtitle": "回收宝石，随时可联！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "远坂凛",
-      "contentType": "text",
-      "text": "晨安，我的Trailblazer"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "远坂凛",
-      "contentType": "text",
-      "text": "这是一条留言：如果你醒了，请来绘世学院天台，我们最初相遇的地方会合"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "远坂凛",
-      "contentType": "text",
-      "text": "有惊喜"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "回收宝石，随时可联！",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "远坂凛",
+          "contentType": "text",
+          "text": "晨安，我的Trailblazer"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "远坂凛",
+          "contentType": "text",
+          "text": "这是一条留言：如果你醒了，请来绘世学院天台，我们最初相遇的地方会合"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "远坂凛",
+          "contentType": "text",
+          "text": "有惊喜"
+        }
+      ]
     },
     {
       "type": "section",

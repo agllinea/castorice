@@ -649,7 +649,8 @@
       "type": "image",
       "file": "花火的名片.png",
       "displayWidth": "500px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/花火的名片.png"
     },
     {
       "type": "dialogue",

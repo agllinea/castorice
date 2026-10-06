@@ -84,8 +84,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：克拉拉\n想和大家去野餐(>▽",
+      "type": "message-thread",
+      "title": "克拉拉",
+      "subtitle": "想和大家去野餐(>▽",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {

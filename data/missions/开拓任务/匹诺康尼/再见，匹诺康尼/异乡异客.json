@@ -1551,482 +1551,489 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "「短信」娃娃",
-          "subtitle": ""
-        },
-        {
-          "type": "message-system",
-          "text": "「短信」娃娃向你发起临时会话。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "爽"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "我爽了，你呢"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+          "subtitle": "",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "还有漏网之鱼？",
-              "content": [
+              "type": "message-system",
+              "text": "「短信」娃娃向你发起临时会话。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "爽"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "我爽了，你呢"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "？还有高手"
+                  "id": 1,
+                  "text": "还有漏网之鱼？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "？还有高手"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "来个坐标，我马上来拆弹"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "炸弹确实只有1000只，花火大人说话算话～"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "sticker",
+                      "sticker": "12-05",
+                      "file": "聊天表情-12-05.png",
+                      "asset": "assets/sr-images/聊天表情-12-05.png"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "我只是来替花火大人深情告白犯罪动机的，懂？"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "来个坐标，我马上来拆弹"
+                  "id": 2,
+                  "text": "求你别来骚扰我了。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "姐"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "别发消息了，我怕帕姆误会"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "惹我？那你算是踩到口香糖了，我会一直缠着你的！"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "sticker",
+                      "sticker": "12-06",
+                      "file": "聊天表情-12-06.png",
+                      "asset": "assets/sr-images/聊天表情-12-06.png"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "况且花火大人还没深情告白犯罪动机呢！你难道就不好奇吗？"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "炸弹确实只有1000只，花火大人说话算话～"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "12-05"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "我只是来替花火大人深情告白犯罪动机的，懂？"
+                  "id": 3,
+                  "text": "爽。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "烟花，爽！"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "可以！你已经上道了嘛～"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "那你想知道，花火大人为什么专门整这么一出吗？"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "sticker",
+                      "sticker": "12-07",
+                      "file": "聊天表情-12-07.png",
+                      "asset": "assets/sr-images/聊天表情-12-07.png"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "求你别来骚扰我了。",
-              "content": [
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "姐"
+                  "id": 1,
+                  "text": "展开讲讲。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "展开讲讲"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "别发消息了，我怕帕姆误会"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "惹我？那你算是踩到口香糖了，我会一直缠着你的！"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "12-06"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "况且花火大人还没深情告白犯罪动机呢！你难道就不好奇吗？"
+                  "id": 2,
+                  "text": "我没兴趣。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "我要下线了，改天吧"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "别下线求你了呜呜呜呜呜"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "开玩笑的～言归正传"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 3,
-              "text": "爽。",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "你还记得「三次死亡」吗？"
+            },
+            {
+              "type": "message",
+              "side": "right",
+              "speaker": "开拓者",
+              "contentType": "text",
+              "text": "这和你有什么关系？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "谁知道呢？我只能说有人出了大价钱，请花火大人来匹诺康尼当「导演」"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "似乎是打电动时认识的朋友。那人千叮咛万嘱咐，要花火大人务必把这「三次死亡」以最安全的方式实现"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "作为交换，那人把自己的「剧本」也分享给了花火大人"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "之后的事…小灰毛这么聪明，肯定能猜到咯"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "不过，花火大人也不是那种控制狂导演。她决定让演员自己来选择剧本的走向"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "突击检查！你有按下花火大人的「相互保证毁灭按钮」吗？"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "烟花，爽！"
+                  "id": 1,
+                  "text": "按了。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "按了，狂按"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "那恭喜你！是你亲手改写了这「第三次死亡」！"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "可以！你已经上道了嘛～"
+                  "id": 2,
+                  "text": "没按。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "太可疑了！我不会按的"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "哼哼，挺谨慎的嘛"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "但没关系～由于按下按钮的演员人数过半，「第三次死亡」还是如期上演啦！"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "那你想知道，花火大人为什么专门整这么一出吗？"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "12-07"
+                  "id": 3,
+                  "text": "按不到。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "我根本没收到按钮！"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "真的？那祝你下次能抢到门票"
+                    },
+                    {
+                      "type": "message",
+                      "side": "left",
+                      "speaker": "「短信」娃娃",
+                      "contentType": "text",
+                      "text": "但没关系～由于按下按钮的演员人数过半，「第三次死亡」还是如期上演啦！"
+                    }
+                  ]
                 }
               ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "她飞上高空，燃起匹诺康尼有史以来最璀璨的焰火，为美梦带来谢幕的礼花"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "而她本人也平安无事，可谓是最圆满的结局！"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "所以，祝贺你，小灰毛。毕竟做出了决定的是你，真正挽救了萤火虫女孩的也是你"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "这样花火大人也能如约拿到报酬啦~"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "哦"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "最后，为了庆祝小灰毛圆满杀青。花火大人决定再告诉你一个秘密"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
+                {
+                  "id": 1,
+                  "text": "是什么？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "那么，是什么呢"
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "有八卦？多来点。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "好好好，我先放一个耳朵在这里"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "你知道吗？"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "其实"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "「短信」娃娃",
+              "contentType": "text",
+              "text": "原始博士爱吃香蕉"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
+                {
+                  "id": 1,
+                  "text": "啊？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "啊？"
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "什么意思？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "什么意思？"
+                    }
+                  ]
+                },
+                {
+                  "id": 3,
+                  "text": "然后呢？",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "然后呢？"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "message-system",
+              "text": "消息发送失败。"
+            },
+            {
+              "type": "message-system",
+              "text": "该账号已注销。"
             }
           ]
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "展开讲讲。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "展开讲讲"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "我没兴趣。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "我要下线了，改天吧"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "别下线求你了呜呜呜呜呜"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "开玩笑的～言归正传"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "你还记得「三次死亡」吗？"
-        },
-        {
-          "type": "message",
-          "side": "right",
-          "speaker": "开拓者",
-          "contentType": "text",
-          "text": "这和你有什么关系？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "谁知道呢？我只能说有人出了大价钱，请花火大人来匹诺康尼当「导演」"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "似乎是打电动时认识的朋友。那人千叮咛万嘱咐，要花火大人务必把这「三次死亡」以最安全的方式实现"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "作为交换，那人把自己的「剧本」也分享给了花火大人"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "之后的事…小灰毛这么聪明，肯定能猜到咯"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "不过，花火大人也不是那种控制狂导演。她决定让演员自己来选择剧本的走向"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "突击检查！你有按下花火大人的「相互保证毁灭按钮」吗？"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "按了。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "按了，狂按"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "那恭喜你！是你亲手改写了这「第三次死亡」！"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "没按。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "太可疑了！我不会按的"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "哼哼，挺谨慎的嘛"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "但没关系～由于按下按钮的演员人数过半，「第三次死亡」还是如期上演啦！"
-                }
-              ]
-            },
-            {
-              "id": 3,
-              "text": "按不到。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "我根本没收到按钮！"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "真的？那祝你下次能抢到门票"
-                },
-                {
-                  "type": "message",
-                  "side": "left",
-                  "speaker": "「短信」娃娃",
-                  "contentType": "text",
-                  "text": "但没关系～由于按下按钮的演员人数过半，「第三次死亡」还是如期上演啦！"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "她飞上高空，燃起匹诺康尼有史以来最璀璨的焰火，为美梦带来谢幕的礼花"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "而她本人也平安无事，可谓是最圆满的结局！"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "所以，祝贺你，小灰毛。毕竟做出了决定的是你，真正挽救了萤火虫女孩的也是你"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "这样花火大人也能如约拿到报酬啦~"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "哦"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "最后，为了庆祝小灰毛圆满杀青。花火大人决定再告诉你一个秘密"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "是什么？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "那么，是什么呢"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "有八卦？多来点。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "好好好，我先放一个耳朵在这里"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "你知道吗？"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "其实"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "「短信」娃娃",
-          "contentType": "text",
-          "text": "原始博士爱吃香蕉"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
-            {
-              "id": 1,
-              "text": "啊？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "啊？"
-                }
-              ]
-            },
-            {
-              "id": 2,
-              "text": "什么意思？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "什么意思？"
-                }
-              ]
-            },
-            {
-              "id": 3,
-              "text": "然后呢？",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "然后呢？"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message-system",
-          "text": "消息发送失败。"
-        },
-        {
-          "type": "message-system",
-          "text": "该账号已注销。"
-        },
-        {
-          "type": "message-thread-end"
         }
       ]
     },
@@ -2036,188 +2043,189 @@
       "collapsed": true,
       "content": [
         {
-          "type": "message-thread-start",
+          "type": "message-thread",
           "title": "米凯",
-          "subtitle": ""
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "开拓者，你好。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "一个好消息，科玫小姐刚刚得出了测算结果，流梦礁的忆质已经完全停止了流失。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "你们为这片梦境付出了太多。感激之情，无以言表。"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+          "subtitle": "",
+          "owner": "开拓者",
+          "collapsed": false,
+          "content": [
             {
-              "id": 1,
-              "text": "太好了",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "开拓者，你好。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "一个好消息，科玫小姐刚刚得出了测算结果，流梦礁的忆质已经完全停止了流失。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "你们为这片梦境付出了太多。感激之情，无以言表。"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "太好了，流梦礁一定会重回正轨的"
+                  "id": 1,
+                  "text": "太好了",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "太好了，流梦礁一定会重回正轨的"
+                    }
+                  ]
+                },
+                {
+                  "id": 2,
+                  "text": "举手之劳",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "对无名客来说，这不算什么"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "举手之劳",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "对无名客来说，这不算什么"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "其实，今天的感谢也应该有加拉赫和米哈伊尔的一份，但现在只能由我代为传达了。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "记得你们刚来匹诺康尼的时候，知道消息的加拉赫表露出难得的紧张和期待。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "别看他平时那么随性，每次和你们接触的时候，他总会提前反复斟酌自己的用词。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "米哈伊尔也是，他要是能看到后辈如此优秀，不知道会有多高兴。"
-        },
-        {
-          "type": "choice",
-          "presentation": "message",
-          "options": [
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "其实，今天的感谢也应该有加拉赫和米哈伊尔的一份，但现在只能由我代为传达了。"
+            },
             {
-              "id": 1,
-              "text": "原来是这样的吗…",
-              "content": [
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "记得你们刚来匹诺康尼的时候，知道消息的加拉赫表露出难得的紧张和期待。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "别看他平时那么随性，每次和你们接触的时候，他总会提前反复斟酌自己的用词。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "米哈伊尔也是，他要是能看到后辈如此优秀，不知道会有多高兴。"
+            },
+            {
+              "type": "choice",
+              "presentation": "message",
+              "options": [
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "原来加拉赫先生还有这样的一面！"
+                  "id": 1,
+                  "text": "原来是这样的吗…",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "原来加拉赫先生还有这样的一面！"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "如果他们现在还在，那该有多好……"
+                    }
+                  ]
                 },
                 {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "如果他们现在还在，那该有多好……"
+                  "id": 2,
+                  "text": "太令人遗憾了。",
+                  "content": [
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "现在他们的梦想都实现了，但他们却没能亲眼看见……"
+                    },
+                    {
+                      "type": "message",
+                      "side": "right",
+                      "speaker": "开拓者",
+                      "contentType": "text",
+                      "text": "太令人遗憾了。"
+                    }
+                  ]
                 }
               ]
             },
             {
-              "id": 2,
-              "text": "太令人遗憾了。",
-              "content": [
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "现在他们的梦想都实现了，但他们却没能亲眼看见……"
-                },
-                {
-                  "type": "message",
-                  "side": "right",
-                  "speaker": "开拓者",
-                  "contentType": "text",
-                  "text": "太令人遗憾了。"
-                }
-              ]
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "不必为此感到悲伤。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "米哈伊尔的愿望没有落空，而加拉赫也在长久无望的等待后兑现了他的诺言。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "梦想不是一个人的事情，而是我们共同的愿景。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "从米哈伊尔的祖父，到米哈伊尔、加拉赫，再到你们——"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "他们虽然已经离去，但无名客的梦想依然在蓬勃地生长，那就是对他们最好的告慰。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "你们终会踏上新的旅途，愿你们在未来联结更多的世界，将开拓的梦想带向银河各处。"
+            },
+            {
+              "type": "message",
+              "side": "left",
+              "speaker": "米凯",
+              "contentType": "text",
+              "text": "这一点心意是我们大家的祝福，请收下。"
             }
           ]
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "不必为此感到悲伤。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "米哈伊尔的愿望没有落空，而加拉赫也在长久无望的等待后兑现了他的诺言。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "梦想不是一个人的事情，而是我们共同的愿景。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "从米哈伊尔的祖父，到米哈伊尔、加拉赫，再到你们——"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "他们虽然已经离去，但无名客的梦想依然在蓬勃地生长，那就是对他们最好的告慰。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "你们终会踏上新的旅途，愿你们在未来联结更多的世界，将开拓的梦想带向银河各处。"
-        },
-        {
-          "type": "message",
-          "side": "left",
-          "speaker": "米凯",
-          "contentType": "text",
-          "text": "这一点心意是我们大家的祝福，请收下。"
-        },
-        {
-          "type": "message-thread-end"
         },
         {
           "type": "narration",

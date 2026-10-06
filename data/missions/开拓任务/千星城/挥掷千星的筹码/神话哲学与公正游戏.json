@@ -627,54 +627,55 @@
       "text": "与此同时，真珠收到了朽叶的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "朽叶",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "朽叶",
-      "contentType": "text",
-      "text": "一切已经准备妥当，接下来我会和侦探前往目标的所在地"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "朽叶",
-      "contentType": "text",
-      "text": "你说那个地方…「生命科学研究院」？"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "没错。"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "我已将我所知的一切坦诚告知了你们。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "朽叶",
-      "contentType": "text",
-      "text": "如果一切属实，如果亚婆离染指了她不该触碰的一切"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "朽叶",
-      "contentType": "text",
-      "text": "我会杀死她"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "真珠",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "朽叶",
+          "contentType": "text",
+          "text": "一切已经准备妥当，接下来我会和侦探前往目标的所在地"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "朽叶",
+          "contentType": "text",
+          "text": "你说那个地方…「生命科学研究院」？"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "没错。"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "我已将我所知的一切坦诚告知了你们。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "朽叶",
+          "contentType": "text",
+          "text": "如果一切属实，如果亚婆离染指了她不该触碰的一切"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "朽叶",
+          "contentType": "text",
+          "text": "我会杀死她"
+        }
+      ]
     },
     {
       "type": "divider"
@@ -854,356 +855,361 @@
       "text": "……"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "列车已顺利返航，正在连接信号。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "星期日",
-      "contentType": "text",
-      "text": "@开拓者 我已抵达二相乐园。很高兴看到你也成功了。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "啊！信号连上了！大家有没有事啊？@所有人 说句话！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "@开拓者 一切平安，谢谢你这一路奔波"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "@开拓者 辛苦了，做得好。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "@开拓者 大家都平安无事，不用担心。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "太好了太好了太好了太好了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "@开拓者 别装酷了，你也吱一声！"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "吱吱吱吱吱吱吱",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "列车已顺利返航，正在连接信号。"
         },
         {
-          "id": 2,
-          "text": "我好想你们！",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "星期日",
+          "contentType": "text",
+          "text": "@开拓者 我已抵达二相乐园。很高兴看到你也成功了。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "啊！信号连上了！大家有没有事啊？@所有人 说句话！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "@开拓者 一切平安，谢谢你这一路奔波"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "@开拓者 辛苦了，做得好。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "@开拓者 大家都平安无事，不用担心。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "太好了太好了太好了太好了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "@开拓者 别装酷了，你也吱一声！"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "吱吱吱吱吱吱吱",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "我好想你们！",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "谢谢大家坚持到现在"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "我好想你们！"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "谢谢大家坚持到现在"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "我好想你们！"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "银狼、刃、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "别的就不多说了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "多谢你把事办成了，刃也这么说"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "生分了！",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "别的就不多说了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "多谢你把事办成了，刃也这么说"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "也谢谢你们"
+              "id": 1,
+              "text": "生分了！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "也谢谢你们"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "别客气，都是为了银河！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "太客气了，都是为了银河！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "别客气，都是为了银河！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "太客气了，都是为了银河！"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "有人说过你官腔越来越重了吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "@刃 你也说句话"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "刃",
-      "contentType": "text",
-      "text": "谢了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "害羞什么啊你，多说几句"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "刃",
-      "contentType": "text",
-      "text": "几句"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "都给他急得开玩笑了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "对了，开拓者，启程时赠送你的那份礼物，已经耗尽了"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "有人说过你官腔越来越重了吗？"
+        },
         {
-          "id": 1,
-          "text": "星核？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "@刃 你也说句话"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "刃",
+          "contentType": "text",
+          "text": "谢了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "害羞什么啊你，多说几句"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "刃",
+          "contentType": "text",
+          "text": "几句"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "都给他急得开玩笑了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "对了，开拓者，启程时赠送你的那份礼物，已经耗尽了"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "星核？"
+              "id": 1,
+              "text": "星核？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "星核？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "怎么了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "怎么了？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "怎么了？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "怎么了？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "艾利欧本以为能拖得更久，没想到却是在这一站……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "但代价会是什么呢？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "艾利欧本以为能拖得更久，没想到却是在这一站……"
+        },
         {
-          "id": 1,
-          "text": "走一步看一步吧",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "但代价会是什么呢？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我会走一步看一步的，别担心"
+              "id": 1,
+              "text": "走一步看一步吧",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我会走一步看一步的，别担心"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "……",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "别担心，没事的"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "……",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "别担心，没事的"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "银狼",
+          "contentType": "text",
+          "text": "不管了，有事记得呼叫本狼尊"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "银狼",
-      "contentType": "text",
-      "text": "不管了，有事记得呼叫本狼尊"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "翡翠、真珠、开拓者的群聊",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "开拓者 ，画界仪式已完成。感谢你为二相乐园争取到的时间。"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "重启幻月游戏的准备就拜托你了。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "请放心，我必定照应周全。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "@翡翠 开拓者 与平民在千星城的行程，有劳费心了。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "翡翠",
-      "contentType": "text",
-      "text": "16-05"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "@开拓者  我听说虚照老师也帮了不少忙。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "真珠",
-      "contentType": "text",
-      "text": "请代为转达我的感激，以及等一切尘埃落定后的…催稿。"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "开拓者 ，画界仪式已完成。感谢你为二相乐园争取到的时间。"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "重启幻月游戏的准备就拜托你了。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "请放心，我必定照应周全。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "@翡翠 开拓者 与平民在千星城的行程，有劳费心了。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "翡翠",
+          "contentType": "sticker",
+          "sticker": "16-05",
+          "file": "聊天表情-16-05.png",
+          "asset": "assets/sr-images/聊天表情-16-05.png"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "@开拓者  我听说虚照老师也帮了不少忙。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "真珠",
+          "contentType": "text",
+          "text": "请代为转达我的感激，以及等一切尘埃落定后的…催稿。"
+        }
+      ]
     },
     {
       "type": "divider"

@@ -447,65 +447,66 @@
       "text": "收到了彦卿的短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "彦卿",
-      "subtitle": "今天工造司上新了么？没有"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "彦卿",
-      "contentType": "text",
-      "text": "开拓者，我看到天舶司发来了通知，列车已经完成了接驳"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "彦卿",
-      "contentType": "text",
-      "text": "所以，你们抵达罗浮了吗？"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "今天工造司上新了么？没有",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "刚到星槎海！",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "彦卿",
+          "contentType": "text",
+          "text": "开拓者，我看到天舶司发来了通知，列车已经完成了接驳"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "彦卿",
+          "contentType": "text",
+          "text": "所以，你们抵达罗浮了吗？"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "人在罗浮，刚到星槎海"
+              "id": 1,
+              "text": "刚到星槎海！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "人在罗浮，刚到星槎海"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "消息灵通啊！",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "你消息灵通啊！"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "消息灵通啊！",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "你消息灵通啊！"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "彦卿",
+          "contentType": "text",
+          "text": "将军安排我在星槎海迎接各位，一会儿见面聊"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "彦卿",
-      "contentType": "text",
-      "text": "将军安排我在星槎海迎接各位，一会儿见面聊"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

@@ -299,8 +299,10 @@
       "text": "丹恒离开星穹列车…"
     },
     {
-      "type": "fold",
-      "title": "短信：星穹列车一家人",
+      "type": "message-thread",
+      "title": "星穹列车一家人",
+      "subtitle": "",
+      "owner": "丹恒",
       "collapsed": false,
       "content": [
         {

@@ -1611,311 +1611,316 @@
       ]
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "异常防御部",
-      "subtitle": "听说有人想看「幻月游戏」谒者实时排名？"
-    },
-    {
-      "type": "message-system",
-      "text": "本消息为定向发送，收到无需回复"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "您好！「破晓战队VS星穹列车」之战落幕，异常防御部将面向「幻月游戏」参与者，发布八大面具谒者当前愿力排名……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "注：未唱名谒者及其持有面具相关信息，暂无获取权限"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "实时排名：第5名。谒者：火花。已唱名"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "实时排名：第4名。谒者：破晓战队。已唱名"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "实时排名：第3名。谒者：真珠。未公开唱名"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "注:「火花大会」事件后，火花所持的面具暂时被夺走"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "听说有人想看「幻月游戏」谒者实时排名？",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "公屏处刑，好可怕…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "原来，被打败后还会被公屏处刑？"
-            }
-          ]
+          "type": "message-system",
+          "text": "本消息为定向发送，收到无需回复"
         },
         {
-          "id": 2,
-          "text": "急急急，我在哪里？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "紧张起来了！我现在的排名在哪里？"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "谒者▇▅█：▄▄▇▄ ▄▇▅实时排名：▄█▅"
-    },
-    {
-      "type": "message-system",
-      "text": "「异常防御部」已断开连接"
-    },
-    {
-      "type": "message-system",
-      "text": "「异常防御部」已恢复连接"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "【警告】经过复审，您未能满足「幻月游戏」参与标准，您所持浣熊面具已被封禁"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "当前状态：乐园历2099-3-25 10:00可解除封禁"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "什么鬼？我被封了？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "封了我100年？等我解禁都第几届了？你们必须给我个理由"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "您好！「破晓战队VS星穹列车」之战落幕，异常防御部将面向「幻月游戏」参与者，发布八大面具谒者当前愿力排名……"
         },
         {
-          "id": 2,
-          "text": "转人工，我要申诉",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "注：未唱名谒者及其持有面具相关信息，暂无获取权限"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "实时排名：第5名。谒者：火花。已唱名"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "实时排名：第4名。谒者：破晓战队。已唱名"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "实时排名：第3名。谒者：真珠。未公开唱名"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "注:「火花大会」事件后，火花所持的面具暂时被夺走"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我真没时间陪你闹了，转人工，给我转人工！"
+              "id": 1,
+              "text": "公屏处刑，好可怕…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "原来，被打败后还会被公屏处刑？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "07-05"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "很不抱歉通知您，人工客服服务繁忙，请稍后……"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "哈哈，开个玩笑，吓到了？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "提醒你一句，接下来要小心了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "星核猎手，银狼——"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "即将加入「幻月游戏」"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "02-11"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "是吗？她现在才来？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "她现在才来，有点晚了吧？"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "异常防御部",
-              "contentType": "text",
-              "text": "哈哈，别看我入局晚，绝对赢得比你快"
+              "id": 2,
+              "text": "急急急，我在哪里？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "紧张起来了！我现在的排名在哪里？"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "别装了，就是你吧？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "谒者▇▅█：▄▄▇▄ ▄▇▅实时排名：▄█▅"
+        },
+        {
+          "type": "message-system",
+          "text": "「异常防御部」已断开连接"
+        },
+        {
+          "type": "message-system",
+          "text": "「异常防御部」已恢复连接"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "【警告】经过复审，您未能满足「幻月游戏」参与标准，您所持浣熊面具已被封禁"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "当前状态：乐园历2099-3-25 10:00可解除封禁"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "别装了银狼，你黑了异常防御部的号？"
+              "id": 1,
+              "text": "什么鬼？我被封了？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "封了我100年？等我解禁都第几届了？你们必须给我个理由"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "异常防御部",
-              "contentType": "text",
-              "text": "转我6,100,000,000愿宝，告诉你答案"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message-system",
-      "text": "「异常防御部」已断开连接"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "银狼？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "银狼？"
+              "id": 2,
+              "text": "转人工，我要申诉",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我真没时间陪你闹了，转人工，给我转人工！"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "sticker",
+                  "sticker": "07-05",
+                  "file": "聊天表情-07-05.png",
+                  "asset": "assets/sr-images/聊天表情-07-05.png"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "还在吗？喂喂喂？",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "很不抱歉通知您，人工客服服务繁忙，请稍后……"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "哈哈，开个玩笑，吓到了？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "提醒你一句，接下来要小心了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "星核猎手，银狼——"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "即将加入「幻月游戏」"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "sticker",
+          "sticker": "02-11",
+          "file": "聊天表情-02-11.png",
+          "asset": "assets/sr-images/聊天表情-02-11.png"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "还在吗？喂喂喂？"
+              "id": 1,
+              "text": "是吗？她现在才来？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "她现在才来，有点晚了吧？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "异常防御部",
+                  "contentType": "text",
+                  "text": "哈哈，别看我入局晚，绝对赢得比你快"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "别装了，就是你吧？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "别装了银狼，你黑了异常防御部的号？"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "异常防御部",
+                  "contentType": "text",
+                  "text": "转我6,100,000,000愿宝，告诉你答案"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message-system",
+          "text": "「异常防御部」已断开连接"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "银狼？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "银狼？"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "还在吗？喂喂喂？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "还在吗？喂喂喂？"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "message-system",
+          "text": "消息发送失败"
+        },
+        {
+          "type": "message-system",
+          "text": "「异常防御部」已恢复连接"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "实时排名：第2名。谒者：不死途。已唱名"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "实时排名：第1名。谒者：开拓者。已唱名"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "异常防御部",
+          "contentType": "text",
+          "text": "以上为「幻月游戏」面具谒者最新愿力排名，更多排名信息将在下次发布"
         }
       ]
-    },
-    {
-      "type": "message-system",
-      "text": "消息发送失败"
-    },
-    {
-      "type": "message-system",
-      "text": "「异常防御部」已恢复连接"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "实时排名：第2名。谒者：不死途。已唱名"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "实时排名：第1名。谒者：开拓者。已唱名"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "异常防御部",
-      "contentType": "text",
-      "text": "以上为「幻月游戏」面具谒者最新愿力排名，更多排名信息将在下次发布"
-    },
-    {
-      "type": "message-thread-end"
     }
   ],
   "warnings": []

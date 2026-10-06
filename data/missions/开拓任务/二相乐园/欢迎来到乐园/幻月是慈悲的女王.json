@@ -123,54 +123,55 @@
       "location": "星穹列车-派对车厢"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "各位，老规矩"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "该启程了"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "观景车厢集合？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "等等，有客人"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "来派对车厢"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "帕姆",
-      "contentType": "text",
-      "text": "姬子找你们帕"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "各位，老规矩"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "该启程了"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "观景车厢集合？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "等等，有客人"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "来派对车厢"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "帕姆",
+          "contentType": "text",
+          "text": "姬子找你们帕"
+        }
+      ]
     },
     {
       "type": "section",

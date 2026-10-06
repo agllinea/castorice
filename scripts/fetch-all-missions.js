@@ -2,6 +2,7 @@ import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchRevision, sourceMetadata } from "./sr-bwiki-client.js";
+import { collectMissionImageNames, createImageAssetStore } from "./sr-image-assets.js";
 import { collectTemplateNames, countNodeTypes, parseStarRailMission } from "./sr-wikitext-parser.js";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -57,8 +58,9 @@ function inspectPage(page, revision, parsed) {
   if ((nodeTypes.choice ?? 0) !== rawChoiceCount) {
     issues.push(`选项模板 ${rawChoiceCount} 个，但 JSON choice 节点 ${nodeTypes.choice ?? 0} 个`);
   }
-  if ((nodeTypes.fold ?? 0) !== rawFoldCount) {
-    issues.push(`折叠模板 ${rawFoldCount} 个，但 JSON fold 节点 ${nodeTypes.fold ?? 0} 个`);
+  const parsedFoldCount = (nodeTypes.fold ?? 0) + (nodeTypes["message-thread"] ?? 0);
+  if (parsedFoldCount !== rawFoldCount) {
+    issues.push(`折叠模板 ${rawFoldCount} 个，但 JSON 容器节点 ${parsedFoldCount} 个`);
   }
   if ((nodeTypes.tabs ?? 0) !== rawTabCount) {
     issues.push(`分页结构 ${rawTabCount} 个，但 JSON tabs 节点 ${nodeTypes.tabs ?? 0} 个`);
@@ -104,6 +106,7 @@ async function saveReport(report) {
 }
 
 async function main() {
+  const imageStore = await createImageAssetStore(projectDirectory);
   const index = JSON.parse(await readFile(indexPath, "utf8"));
   const pages = flattenIndex(index);
   const referenceCount = pages.reduce((total, page) => total + page.references.length, 0);
@@ -134,6 +137,8 @@ async function main() {
           wikitext: savedSource,
         };
         const reparsed = parseStarRailMission(savedSource, savedJson.source ?? {});
+        await imageStore.ensureAll(collectMissionImageNames(savedSource));
+        imageStore.attach(reparsed);
         const inspection = inspectPage(page, revision, reparsed);
         await writeFile(jsonPath, `${JSON.stringify(reparsed, null, 2)}\n`, "utf8");
         report.pages.push({ ...inspection, cached: true });
@@ -147,6 +152,8 @@ async function main() {
           process.stdout.write(`HTTP ${status}，第 ${attempt} 次退避 ${retryDelay / 1000}s ... `),
       });
       const parsed = parseStarRailMission(revision.wikitext, sourceMetadata(revision));
+      await imageStore.ensureAll(collectMissionImageNames(revision.wikitext));
+      imageStore.attach(parsed);
       const inspection = inspectPage(page, revision, parsed);
       await mkdir(path.dirname(sourcePath), { recursive: true });
       await writeFile(sourcePath, revision.wikitext, "utf8");

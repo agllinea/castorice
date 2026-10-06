@@ -81,8 +81,10 @@
       "title": "任务接取短信"
     },
     {
-      "type": "fold",
-      "title": "短信：奥列格\n忆往昔辉煌岁月。",
+      "type": "message-thread",
+      "title": "奥列格",
+      "subtitle": "忆往昔辉煌岁月。",
+      "owner": "开拓者",
       "collapsed": false,
       "content": [
         {

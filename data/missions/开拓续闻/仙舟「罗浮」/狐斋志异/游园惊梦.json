@@ -107,213 +107,214 @@
       "title": "任务接取短信"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "桂乃芬",
-      "subtitle": "不惹事不怕事、不咬打火机"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "猜你喜欢：\n#鬼怪出没#！芳龄少女误入荒废园林，孤魂野鬼出没险象环生！\n#惊险刺激##十分恐怖#荒废园林潜藏幽鬼，场面惊险让人窒息！\n【现场直播】灵异诡秘实录！两名少女误入废园，险遭厉鬼侵害！一人花容失色，一人昏厥至今！两百岁以下不宜观看！\n【大片级别】不明灵异频出，无人荒园背后隐藏惊天秘密！",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "（一张桂乃芬直播截图）",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "更多仙舟怪谈一手情报，请点击关注桂乃芬的频道，获取更多精彩内容",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "不惹事不怕事、不咬打火机",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "到底要怎样看到？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "急急急，那么请问在哪里可以看得到呢？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "猜你喜欢：\n#鬼怪出没#！芳龄少女误入荒废园林，孤魂野鬼出没险象环生！\n#惊险刺激##十分恐怖#荒废园林潜藏幽鬼，场面惊险让人窒息！\n【现场直播】灵异诡秘实录！两名少女误入废园，险遭厉鬼侵害！一人花容失色，一人昏厥至今！两百岁以下不宜观看！\n【大片级别】不明灵异频出，无人荒园背后隐藏惊天秘密！",
+          "acknowledged": true
         },
         {
-          "id": 2,
-          "text": "怎么回事？你是谁啊？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我的通讯列表里怎么又多了个发奇怪小广告的人？"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "（一张桂乃芬直播截图）",
+          "acknowledged": true
         },
         {
-          "id": 3,
-          "text": "我猜根本没什么鬼",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "更多仙舟怪谈一手情报，请点击关注桂乃芬的频道，获取更多精彩内容",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "肯定又是装神弄鬼一场虚惊，视频到了最后多半会把「闹鬼」的原因推给磁场扰动或是谁在恶作剧"
+              "id": 1,
+              "text": "到底要怎样看到？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "急急急，那么请问在哪里可以看得到呢？"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "是真的，我不骗你",
-              "acknowledged": true
+              "id": 2,
+              "text": "怎么回事？你是谁啊？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我的通讯列表里怎么又多了个发奇怪小广告的人？"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "我猜根本没什么鬼",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "肯定又是装神弄鬼一场虚惊，视频到了最后多半会把「闹鬼」的原因推给磁场扰动或是谁在恶作剧"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "是真的，我不骗你",
+                  "acknowledged": true
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "啊呀，看样子家人你很感兴趣？",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我还没有剪完直播视频，就先不发链接了",
+          "acknowledged": true
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "这样吧，家人要是真的感兴趣，就来找我？",
+          "acknowledged": true
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "很感兴趣",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我很感兴趣，你不要走，我马上就来找你"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "快来快来，我正需要充满好奇心的你！",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "text": "不感兴趣",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "其实我不感兴趣"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "真的嘛家人？",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "摸摸你自己的心，然后再一次回答我～只有你回了我的群发消息…",
+                  "acknowledged": true
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "这样吧，我可以给你看现场直播时的灵异视频原片！新鲜出炉！",
+                  "acknowledged": true
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "text": "新型诈骗手法是吧？",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "呵，多半是新型的诈骗手法"
+                },
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "把人骗过去，然后说什么来都来了，骗人花钱或是跑腿对吧！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "桂乃芬",
+                  "contentType": "text",
+                  "text": "唉，这样吧，我可以给你看现场直播时的灵异视频成片！新鲜出炉！",
+                  "acknowledged": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "桂乃芬",
+          "contentType": "text",
+          "text": "我就在金人巷这边，家人来了看见一个红头发的异邦人就是我！",
+          "acknowledged": true
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "啊呀，看样子家人你很感兴趣？",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我还没有剪完直播视频，就先不发链接了",
-      "acknowledged": true
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "这样吧，家人要是真的感兴趣，就来找我？",
-      "acknowledged": true
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "很感兴趣",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我很感兴趣，你不要走，我马上就来找你"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "快来快来，我正需要充满好奇心的你！",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "text": "不感兴趣",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "其实我不感兴趣"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "真的嘛家人？",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "摸摸你自己的心，然后再一次回答我～只有你回了我的群发消息…",
-              "acknowledged": true
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "这样吧，我可以给你看现场直播时的灵异视频原片！新鲜出炉！",
-              "acknowledged": true
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "text": "新型诈骗手法是吧？",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "呵，多半是新型的诈骗手法"
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "把人骗过去，然后说什么来都来了，骗人花钱或是跑腿对吧！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "桂乃芬",
-              "contentType": "text",
-              "text": "唉，这样吧，我可以给你看现场直播时的灵异视频成片！新鲜出炉！",
-              "acknowledged": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "桂乃芬",
-      "contentType": "text",
-      "text": "我就在金人巷这边，家人来了看见一个红头发的异邦人就是我！",
-      "acknowledged": true
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "section",

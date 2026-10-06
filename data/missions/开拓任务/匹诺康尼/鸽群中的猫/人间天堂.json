@@ -206,7 +206,8 @@
       "type": "image",
       "file": "开拓任务-人间天堂-庸人的见地.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-人间天堂-庸人的见地.png"
     },
     {
       "type": "dialogue",
@@ -885,7 +886,8 @@
       "type": "image",
       "file": "开拓任务-人间天堂-相互保证毁灭按钮.png",
       "displayWidth": "200px",
-      "fullWidth": "500px"
+      "fullWidth": "500px",
+      "asset": "assets/sr-images/开拓任务-人间天堂-相互保证毁灭按钮.png"
     },
     {
       "type": "dialogue",
@@ -948,7 +950,8 @@
       "type": "image",
       "file": "开拓任务-人间天堂-CG.png",
       "displayWidth": "600px",
-      "fullWidth": "1100px"
+      "fullWidth": "1100px",
+      "asset": "assets/sr-images/开拓任务-人间天堂-CG.png"
     },
     {
       "type": "dialogue",

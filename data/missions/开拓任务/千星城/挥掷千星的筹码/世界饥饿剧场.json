@@ -999,171 +999,172 @@
       "title": "坐稳扶好，准备跃迁"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "星穹列车一家人",
-      "subtitle": ""
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "@姬子 @丹恒 @瓦尔特 大家还好吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "收到请回复，收到请回复！"
-    },
-    {
-      "type": "message-system",
-      "text": "【提示：当前通讯信号微弱，请检查连接状态】"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "@三月七 @开拓者 @星期日 收到，我们都好"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "我们没事，@丹恒 报个平安。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "丹恒",
-      "contentType": "text",
-      "text": "别担心我们，刚击退了一波从地底钻出来的触手怪。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "呼"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "说起来，咱一定得赶去千星城吗？没别的意思，就是…对公司有点不放心"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "可不可以去向仙舟或者黑塔女士的空间站求助看看？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "这个问题，我也不是没考虑过。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "从距离上看，仙舟、黑塔空间站都太遥远。事急从权，眼下最有希望的解救方案，依然是去千星城的提案。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "比起距离，更棘手的是，二相乐园是公司贸易体的一部分。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "瓦尔特",
-      "contentType": "text",
-      "text": "按照星际贸易协定，公司拥有对它的优先处置权，外部势力贸然介入可能会引发更复杂的法律和外交纠纷。"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "三月七",
-      "contentType": "text",
-      "text": "那还真是…没招了！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "@开拓者 领航的任务，就要拜托你了。"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "放心吧，我会担起责任的。",
-          "content": [
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "@姬子 @丹恒 @瓦尔特 大家还好吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "收到请回复，收到请回复！"
+        },
+        {
+          "type": "message-system",
+          "text": "【提示：当前通讯信号微弱，请检查连接状态】"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "@三月七 @开拓者 @星期日 收到，我们都好"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "我们没事，@丹恒 报个平安。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "丹恒",
+          "contentType": "text",
+          "text": "别担心我们，刚击退了一波从地底钻出来的触手怪。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "呼"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "说起来，咱一定得赶去千星城吗？没别的意思，就是…对公司有点不放心"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "可不可以去向仙舟或者黑塔女士的空间站求助看看？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "这个问题，我也不是没考虑过。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "从距离上看，仙舟、黑塔空间站都太遥远。事急从权，眼下最有希望的解救方案，依然是去千星城的提案。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "比起距离，更棘手的是，二相乐园是公司贸易体的一部分。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "瓦尔特",
+          "contentType": "text",
+          "text": "按照星际贸易协定，公司拥有对它的优先处置权，外部势力贸然介入可能会引发更复杂的法律和外交纠纷。"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "三月七",
+          "contentType": "text",
+          "text": "那还真是…没招了！"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "@开拓者 领航的任务，就要拜托你了。"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
             {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "放心吧，我会担起责任的。"
+              "id": 1,
+              "text": "放心吧，我会担起责任的。",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "放心吧，我会担起责任的。"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "姬子",
+                  "contentType": "text",
+                  "text": "我知道，我相信你。"
+                }
+              ]
             },
             {
-              "type": "message",
-              "side": "left",
-              "speaker": "姬子",
-              "contentType": "text",
-              "text": "我知道，我相信你。"
+              "id": 2,
+              "text": "我…我不知道该做些什么…",
+              "content": [
+                {
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "我…我不知道该做些什么…"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "姬子",
+                  "contentType": "text",
+                  "text": "别担心，我相信你，身为代理领航员，你会有自己的主意的。"
+                }
+              ]
             }
           ]
         },
         {
-          "id": 2,
-          "text": "我…我不知道该做些什么…",
-          "content": [
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "我…我不知道该做些什么…"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "姬子",
-              "contentType": "text",
-              "text": "别担心，我相信你，身为代理领航员，你会有自己的主意的。"
-            }
-          ]
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "事情危急，我们会支持一切你做出的决定。"
+        },
+        {
+          "type": "message-system",
+          "text": "【提示：当前通讯信号微弱，请检查连接状态】"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "事情危急，我们会支持一切你做出的决定。"
-    },
-    {
-      "type": "message-system",
-      "text": "【提示：当前通讯信号微弱，请检查连接状态】"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

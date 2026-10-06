@@ -185,23 +185,24 @@
       "text": "到地方了，咱们先和杨叔打个招呼吧，看看他到了哪儿？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "瓦尔特",
-      "subtitle": "列车组各位，随时保持联系"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "杨叔，我和三月到学校门口了。"
-    },
-    {
-      "type": "message-system",
-      "text": "【消息发送失败】"
-    },
-    {
-      "type": "message-thread-end"
+      "subtitle": "列车组各位，随时保持联系",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "杨叔，我和三月到学校门口了。"
+        },
+        {
+          "type": "message-system",
+          "text": "【消息发送失败】"
+        }
+      ]
     },
     {
       "type": "dialogue",
@@ -3005,53 +3006,54 @@
           "text": "（向姬子报告）",
           "content": [
             {
-              "type": "message-thread-start",
+              "type": "message-thread",
               "title": "姬子",
-              "subtitle": "可以不喝水，但不能没有咖啡"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
+              "subtitle": "可以不喝水，但不能没有咖啡",
+              "owner": "开拓者",
+              "collapsed": false,
+              "content": [
                 {
-                  "id": 1,
-                  "text": "救命，姬子！",
-                  "content": []
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "救命，姬子！",
+                      "content": []
+                    },
+                    {
+                      "id": 2,
+                      "text": "学校里造反了。",
+                      "content": []
+                    }
+                  ]
                 },
                 {
-                  "id": 2,
-                  "text": "学校里造反了。",
-                  "content": []
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "姬子姐！有麻烦了！"
+                },
+                {
+                  "type": "message-system",
+                  "text": "【信息发送失败】"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "火花",
+                  "contentType": "text",
+                  "text": "哟吼~我定位到你啦！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "火花",
+                  "contentType": "text",
+                  "text": "乖乖待着不要动，我这就派我的粉丝们来接你！"
                 }
               ]
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "姬子姐！有麻烦了！"
-            },
-            {
-              "type": "message-system",
-              "text": "【信息发送失败】"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "火花",
-              "contentType": "text",
-              "text": "哟吼~我定位到你啦！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "火花",
-              "contentType": "text",
-              "text": "乖乖待着不要动，我这就派我的粉丝们来接你！"
-            },
-            {
-              "type": "message-thread-end"
             }
           ]
         },
@@ -3070,53 +3072,54 @@
               "text": "开门啊！你躲起来也没用！我们待会就会把你抓出来！"
             },
             {
-              "type": "message-thread-start",
+              "type": "message-thread",
               "title": "姬子",
-              "subtitle": "可以不喝水，但不能没有咖啡"
-            },
-            {
-              "type": "choice",
-              "presentation": "message",
-              "options": [
+              "subtitle": "可以不喝水，但不能没有咖啡",
+              "owner": "开拓者",
+              "collapsed": false,
+              "content": [
                 {
-                  "id": 1,
-                  "text": "救命，姬子！",
-                  "content": []
+                  "type": "choice",
+                  "presentation": "message",
+                  "options": [
+                    {
+                      "id": 1,
+                      "text": "救命，姬子！",
+                      "content": []
+                    },
+                    {
+                      "id": 2,
+                      "text": "学校里造反了。",
+                      "content": []
+                    }
+                  ]
                 },
                 {
-                  "id": 2,
-                  "text": "学校里造反了。",
-                  "content": []
+                  "type": "message",
+                  "side": "right",
+                  "speaker": "开拓者",
+                  "contentType": "text",
+                  "text": "姬子姐！有麻烦了！"
+                },
+                {
+                  "type": "message-system",
+                  "text": "【信息发送失败】"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "火花",
+                  "contentType": "text",
+                  "text": "哟吼~我定位到你啦！"
+                },
+                {
+                  "type": "message",
+                  "side": "left",
+                  "speaker": "火花",
+                  "contentType": "text",
+                  "text": "乖乖待着不要动，我这就派我的粉丝们来接你！"
                 }
               ]
-            },
-            {
-              "type": "message",
-              "side": "right",
-              "speaker": "开拓者",
-              "contentType": "text",
-              "text": "姬子姐！有麻烦了！"
-            },
-            {
-              "type": "message-system",
-              "text": "【信息发送失败】"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "火花",
-              "contentType": "text",
-              "text": "哟吼~我定位到你啦！"
-            },
-            {
-              "type": "message",
-              "side": "left",
-              "speaker": "火花",
-              "contentType": "text",
-              "text": "乖乖待着不要动，我这就派我的粉丝们来接你！"
-            },
-            {
-              "type": "message-thread-end"
             }
           ]
         }
@@ -3922,114 +3925,115 @@
       "text": "好啦，现在不是讨论伦理问题的时候吧？小灰毛，你到底打不打算救你的三月宝宝和杨叔啊？"
     },
     {
-      "type": "message-thread-start",
+      "type": "message-thread",
       "title": "姬子",
-      "subtitle": "可以不喝水，但不能没咖啡"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
+      "subtitle": "可以不喝水，但不能没咖啡",
+      "owner": "开拓者",
+      "collapsed": false,
+      "content": [
         {
-          "id": 1,
-          "text": "姬子，出事了！",
-          "content": []
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "姬子，出事了！",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "学校这边情况不妙！",
+              "content": []
+            }
+          ]
         },
         {
-          "id": 2,
-          "text": "学校这边情况不妙！",
-          "content": []
-        }
-      ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "姬子，学校这边出事了！"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "别着急，慢慢说"
-    },
-    {
-      "type": "choice",
-      "presentation": "message",
-      "options": [
-        {
-          "id": 1,
-          "text": "伙伴被困住了",
-          "content": []
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "姬子，学校这边出事了！"
         },
         {
-          "id": 2,
-          "text": "面具被夺走了",
-          "content": []
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "别着急，慢慢说"
+        },
+        {
+          "type": "choice",
+          "presentation": "message",
+          "options": [
+            {
+              "id": 1,
+              "text": "伙伴被困住了",
+              "content": []
+            },
+            {
+              "id": 2,
+              "text": "面具被夺走了",
+              "content": []
+            }
+          ]
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "「火花」…是花火失控的虚拟外形"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "不知怎么，这东西有了自我意识，还能跑进现实里"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "这家伙控制了绘世学院，把学生老师们都变成了她的粉丝，还抢走了你让我们带回的面具"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "眼下连三月和杨叔都落在她手里了！"
+        },
+        {
+          "type": "message",
+          "side": "right",
+          "speaker": "开拓者",
+          "contentType": "text",
+          "text": "幻月游戏…这么疯狂的吗？"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "「取悦众生的游戏」和「牵扯甚广的灾害」，就像一枚硬币的两面"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "每一次幻月游戏就是在抛掷「欢愉」留给我们的这枚硬币，没人知道结果如何"
+        },
+        {
+          "type": "message",
+          "side": "left",
+          "speaker": "姬子",
+          "contentType": "text",
+          "text": "你先找个地方待着，不要走动，我这就来和你会合"
         }
       ]
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "「火花」…是花火失控的虚拟外形"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "不知怎么，这东西有了自我意识，还能跑进现实里"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "这家伙控制了绘世学院，把学生老师们都变成了她的粉丝，还抢走了你让我们带回的面具"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "眼下连三月和杨叔都落在她手里了！"
-    },
-    {
-      "type": "message",
-      "side": "right",
-      "speaker": "开拓者",
-      "contentType": "text",
-      "text": "幻月游戏…这么疯狂的吗？"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "「取悦众生的游戏」和「牵扯甚广的灾害」，就像一枚硬币的两面"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "每一次幻月游戏就是在抛掷「欢愉」留给我们的这枚硬币，没人知道结果如何"
-    },
-    {
-      "type": "message",
-      "side": "left",
-      "speaker": "姬子",
-      "contentType": "text",
-      "text": "你先找个地方待着，不要走动，我这就来和你会合"
-    },
-    {
-      "type": "message-thread-end"
     },
     {
       "type": "divider"

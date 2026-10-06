@@ -2,6 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchRevision, safeFilename, sourceMetadata, titleFromInput } from "./sr-bwiki-client.js";
+import { collectMissionImageNames, createImageAssetStore } from "./sr-image-assets.js";
 import { parseStarRailMission } from "./sr-wikitext-parser.js";
 
 const DEFAULT_PAGE = "星星是冰冷的玩具";
@@ -15,6 +16,10 @@ async function main() {
   const parsed = parseStarRailMission(revision.wikitext, sourceMetadata(revision));
 
   const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
+  const projectDirectory = path.resolve(scriptDirectory, "..");
+  const imageStore = await createImageAssetStore(projectDirectory);
+  await imageStore.ensureAll(collectMissionImageNames(revision.wikitext));
+  imageStore.attach(parsed);
   const outputDirectory = path.resolve(scriptDirectory, "..", "data");
   const basename = safeFilename(revision.title);
   const sourcePath = path.join(outputDirectory, `${basename}.wiki`);

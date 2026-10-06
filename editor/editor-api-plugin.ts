@@ -8,6 +8,8 @@ const workspaceRoot = path.resolve(process.cwd());
 const dataRoot = path.join(workspaceRoot, "data");
 const missionRoot = path.join(dataRoot, "missions");
 const screenplayRoot = path.join(workspaceRoot, "screenplays");
+const assetRoot = path.join(dataRoot, "assets");
+const imageManifestPath = path.join(assetRoot, "sr-images", "manifest.json");
 
 type JsonRecord = Record<string, unknown>;
 
@@ -15,6 +17,11 @@ function sendJson(response: ServerResponse, status: number, value: unknown) {
 	response.statusCode = status;
 	response.setHeader("Content-Type", "application/json; charset=utf-8");
 	response.end(`${JSON.stringify(value)}\n`);
+}
+
+function assetContentType(filePath: string) {
+	const extension = path.extname(filePath).toLowerCase();
+	return ({ ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml" } as Record<string, string>)[extension] ?? "application/octet-stream";
 }
 
 function screenplayPath(name: string) {
@@ -124,6 +131,20 @@ async function listScreenplays() {
 	return items.sort((a, b) => a.id.localeCompare(b.id) || a.name.localeCompare(b.name));
 }
 
+async function listImageAssets() {
+	const manifest = JSON.parse(await fs.readFile(imageManifestPath, "utf8")) as JsonRecord;
+	const files = manifest.files && typeof manifest.files === "object" ? manifest.files as Record<string, JsonRecord> : {};
+	return Object.entries(files)
+		.map(([name, entry]) => ({
+			file: typeof entry.file === "string" ? entry.file : name,
+			asset: typeof entry.localPath === "string" ? entry.localPath : "",
+			mime: typeof entry.mime === "string" ? entry.mime : "",
+			bytes: typeof entry.bytes === "number" ? entry.bytes : 0,
+		}))
+		.filter((entry) => entry.asset.startsWith("assets/sr-images/"))
+		.sort((left, right) => left.file.localeCompare(right.file, "zh-CN"));
+}
+
 async function reorderScreenplays(order: string[]) {
 	const current = (await fs.readdir(screenplayRoot, { withFileTypes: true })).filter((entry) => entry.isFile() && /\.json$/iu.test(entry.name)).map((entry) => entry.name);
 	if (order.length !== current.length || new Set(order).size !== order.length || current.some((name) => !order.includes(name))) throw new Error("剧本顺序与磁盘文件不一致，请刷新后重试");
@@ -160,6 +181,18 @@ async function handleRequest(request: IncomingMessage, response: ServerResponse)
 	const url = new URL(request.url ?? "/", "http://localhost");
 	const pathname = url.pathname;
 
+	if (request.method === "GET" && pathname.startsWith("/editor-assets/")) {
+		const relativePath = decodeURIComponent(pathname.slice("/editor-assets/".length));
+		const fullPath = path.resolve(assetRoot, relativePath);
+		if (!fullPath.startsWith(`${assetRoot}${path.sep}`)) throw new Error("资源路径无效");
+		const content = await fs.readFile(fullPath);
+		response.statusCode = 200;
+		response.setHeader("Content-Type", assetContentType(fullPath));
+		response.setHeader("Cache-Control", "public, max-age=3600");
+		response.end(content);
+		return;
+	}
+
 	if (request.method === "GET" && pathname === "/editor-api/bootstrap") {
 		const [indexText, screenplays] = await Promise.all([
 			fs.readFile(path.join(dataRoot, "missions.json"), "utf8"),
@@ -178,6 +211,11 @@ async function handleRequest(request: IncomingMessage, response: ServerResponse)
 
 	if (request.method === "GET" && pathname === "/editor-api/screenplays") {
 		sendJson(response, 200, await listScreenplays());
+		return;
+	}
+
+	if (request.method === "GET" && pathname === "/editor-api/images") {
+		sendJson(response, 200, await listImageAssets());
 		return;
 	}
 
@@ -237,7 +275,7 @@ export function screenplayEditorApi(): Plugin {
 		name: "screenplay-editor-api",
 		configureServer(server) {
 			server.middlewares.use((request, response, next) => {
-				if (!request.url?.startsWith("/editor-api/")) {
+				if (!request.url?.startsWith("/editor-api/") && !request.url?.startsWith("/editor-assets/")) {
 					next();
 					return;
 				}
