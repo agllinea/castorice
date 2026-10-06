@@ -24,7 +24,7 @@
     ]
   },
   "createdAt": "2026-10-01T05:10:33.585Z",
-  "updatedAt": "2026-10-02T18:38:10.731Z",
+  "updatedAt": "2026-10-03T07:07:14.104Z",
   "blocks": [
     {
       "id": "0cabbc62-4857-48b4-8fed-75cd093c015b",
@@ -1078,74 +1078,6 @@
       }
     },
     {
-      "id": "9f31465e-dae0-4936-8822-d820f0b07b14",
-      "source": {
-        "mission": "在屋外的黑暗中洗涤",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/在屋外的黑暗中洗涤.json",
-        "contentIndex": 43,
-        "contentPath": [
-          "options",
-          2
-        ]
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "穹",
-        "text": "有没有觉得少了什么？"
-      }
-    },
-    {
-      "id": "71914366-07c9-4841-9346-cbe9b98c83d1",
-      "source": {
-        "mission": "在屋外的黑暗中洗涤",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/在屋外的黑暗中洗涤.json",
-        "contentIndex": 43,
-        "contentPath": [
-          "options",
-          2
-        ]
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "丹恒",
-        "text": "没有。"
-      }
-    },
-    {
-      "id": "4b27efaf-144f-4bdd-890f-040e36fc6d93",
-      "source": {
-        "mission": "在屋外的黑暗中洗涤",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/在屋外的黑暗中洗涤.json",
-        "contentIndex": 43,
-        "contentPath": [
-          "options",
-          2
-        ]
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "希儿",
-        "text": "桑博不见了——"
-      }
-    },
-    {
-      "id": "3b8411b0-ee9c-4017-8c1f-e1c6387d2c76",
-      "source": {
-        "mission": "在屋外的黑暗中洗涤",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/在屋外的黑暗中洗涤.json",
-        "contentIndex": 43,
-        "contentPath": [
-          "options",
-          2
-        ]
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "三月七",
-        "text": "没有，下个话题。"
-      }
-    },
-    {
       "id": "b99779f1-3e61-48e7-b92c-c93e3c4e6b96",
       "source": {
         "mission": "在屋外的黑暗中洗涤",
@@ -1664,19 +1596,6 @@
         "type": "narration",
         "tone": "描述",
         "text": "丹恒点头…"
-      }
-    },
-    {
-      "id": "80fa5582-7de6-483f-a201-1e917f093d68",
-      "source": {
-        "mission": "在屋外的黑暗中洗涤",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/在屋外的黑暗中洗涤.json",
-        "contentIndex": 78
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "希露瓦",
-        "text": "不错啊，够机警的！"
       }
     },
     {
@@ -3631,6 +3550,19 @@
       }
     },
     {
+      "source": {
+        "mission": "不可制造偶像",
+        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
+        "contentIndex": 70
+      },
+      "node": {
+        "type": "dialogue",
+        "speaker": "希露瓦",
+        "text": "接着前进吧，咱们得去找源头的供能设备了。"
+      },
+      "id": "a83d2b1e-e6e1-4f08-8c80-7b801733cf48"
+    },
+    {
       "id": "81d210cf-ca61-4d9f-9c42-a530e7fb1a60",
       "source": {
         "mission": "不可制造偶像",
@@ -3705,7 +3637,7 @@
       "node": {
         "type": "dialogue",
         "speaker": "希露瓦",
-        "text": "请让我们进去做个例行维护检查。我参与过这种设备的迭代……"
+        "text": "请让我们进去做个例行维护检查。"
       }
     },
     {
@@ -3745,19 +3677,6 @@
         "type": "dialogue",
         "speaker": "银鬃铁卫",
         "text": "大守护…别抖机灵！没有密钥，谁也不能接近！"
-      }
-    },
-    {
-      "id": "42266481-26f6-400a-a1b8-18e86db46ce6",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 95
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "三月七",
-        "text": "糟了，他是个聪明人……"
       }
     },
     {
@@ -3809,11 +3728,11 @@
       "node": {
         "type": "dialogue",
         "speaker": "希露瓦",
-        "text": "邓恩…邓恩？"
+        "text": "邓恩？嗐，你早说啊！"
       }
     },
     {
-      "id": "408bc159-7efe-40a1-8c13-96fad4016c94",
+      "id": "0b61b588-038d-42bb-a6a6-101b5cc250cd",
       "source": {
         "mission": "不可制造偶像",
         "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
@@ -3822,7 +3741,7 @@
       "node": {
         "type": "dialogue",
         "speaker": "希露瓦",
-        "text": "嗐，你早说啊！得了得了，那没事了——我们回头再来找你。"
+        "text": "得了得了，那没事了——我们回头再来找你。"
       }
     },
     {
@@ -3975,103 +3894,6 @@
       }
     },
     {
-      "id": "34945554-17f0-4a59-a619-6adb36009b6f",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 113,
-        "contentPath": [
-          "options",
-          0,
-          "content",
-          1
-        ]
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "三月七",
-        "text": "总觉得有一股奇怪的味道……"
-      }
-    },
-    {
-      "id": "f34f54c4-9c27-4ef8-bb43-67ea96c2964a",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 114
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "邓恩",
-        "text": "哼，咳！萨克雷，你几天没洗澡了？"
-      }
-    },
-    {
-      "id": "4083f126-ab69-4e83-8967-52e10e508460",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 115
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "银鬃铁卫",
-        "text": "啊…啊？我轮岗之前才刚——"
-      }
-    },
-    {
-      "id": "d3818f29-e49f-4012-aa96-f8ed0b3aba95",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 116
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "邓恩",
-        "text": "…嗯？再说一遍？"
-      }
-    },
-    {
-      "id": "8db9be54-7b1c-49c2-9d64-548746dbf3bd",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 117
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "银鬃铁卫",
-        "text": "…报、报告长官，两天没洗了！"
-      }
-    },
-    {
-      "id": "6a9db5bf-7844-40d0-afeb-c775aacbaaca",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 118
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "邓恩",
-        "text": "真不像话，在访客面前岂能如此失礼！"
-      }
-    },
-    {
-      "id": "da6bdbe2-b140-4a79-8a9b-9b4b3379bdc2",
-      "source": {
-        "mission": "不可制造偶像",
-        "dataFile": "missions/开拓任务/雅利洛-Ⅵ/于曈昽的骄阳下/不可制造偶像.json",
-        "contentIndex": 118
-      },
-      "node": {
-        "type": "dialogue",
-        "speaker": "邓恩",
-        "text": "抱歉，让你们见笑了。"
-      }
-    },
-    {
       "id": "aa71a167-33fa-4821-96b1-e42f17c6dc13",
       "source": {
         "mission": "不可制造偶像",
@@ -4081,7 +3903,7 @@
       "node": {
         "type": "dialogue",
         "speaker": "希露瓦",
-        "text": "没事儿，邓恩。对了，有机会的话，我们再上台合奏一次？"
+        "text": "有机会的话，我们再上台合奏一次？"
       }
     },
     {

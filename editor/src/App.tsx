@@ -929,6 +929,7 @@ function App() {
 	const selectedBlockIndex = document && selectedBlockId ? document.blocks.findIndex((block) => block.id === selectedBlockId) : -1;
 	const selectedBlock = selectedBlockIndex >= 0 && document ? document.blocks[selectedBlockIndex] : null;
 	const selectedNode = selectedBlock ? nestedNodeAtPath(selectedBlock.node, selectedNodePath) : null;
+	const selectedSourceMission = selectedBlock?.source ? missions.find((mission) => mission.dataFile === selectedBlock.source?.dataFile) ?? null : null;
 	const activeScriptSelection = multiSelectMode ? multiSelected : selectedBlockId ? [{ blockId: selectedBlockId, path: selectedNodePath }] : [];
 	const editableAddress = !multiSelectMode && selectedBlockId ? { blockId: selectedBlockId, path: selectedNodePath } : null;
 	const canFoldSelection = activeScriptSelection.length > 1 && activeScriptSelection.every((address) => scriptSiblingGroup(address) === scriptSiblingGroup(activeScriptSelection[0]));
@@ -1091,6 +1092,11 @@ function App() {
 		setSelectedMission(mission); setMissionDocument(null); setSelectedSource(new Set()); selectionAnchor.current = null; setError("");
 		try { setMissionDocument(await requestJson<MissionDocument>(`/editor-api/mission?path=${encodeURIComponent(mission.dataFile)}`)); }
 		catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); }
+	}
+	async function openSelectedBlockSource() {
+		if (!selectedSourceMission) return;
+		setEditorFocusMode(false);
+		await openMission(selectedSourceMission);
 	}
 
 	async function openScreenplay(name: string) {
@@ -1642,7 +1648,7 @@ function App() {
 						</div>
 						{searchMode ? <div className="script-search-bar"><strong>{searchMode === "gender" ? "性别指代校对" : "主角称谓检查"}</strong><span className="script-search-term">{activeSearchMatch ? `“${activeSearchMatch.term}”` : "没有找到匹配内容"}</span><span className="script-search-count">{searchMatches.length ? `${normalizedSearchIndex + 1} / ${searchMatches.length}` : "0 / 0"}</span><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(-1)}>上一个</Button><Button variant="subtle" size="compact-xs" onClick={() => navigateScriptSearch(1)}>下一个</Button>{searchMode === "gender" ? <Button size="compact-xs" disabled={!activeSearchMatch?.replacement} onClick={replaceCurrentGenderMatch}>替换为“{activeSearchMatch?.replacement ?? "—"}”</Button> : null}<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSearchMode(null); setSearchMatches([]); setSearchMatchIndex(0); }}>关闭</Button></div> : null}
 						<div className="script-blocks viewer-style">{document.blocks.length ? document.blocks.map((block) => <ScriptBlockView key={block.id} block={block} selectedAddresses={activeScriptSelection} editableAddress={editableAddress} activeMatch={activeSearchMatch} onSelect={handleScriptSelect} onChange={(path, node) => updateBlockNode(block.id, path, node)} onDrop={moveScriptNode} onDialogueCursor={recordDialogueCursor} />) : <div className="empty-script"><span>＋</span><h3>这个剧本还是空的</h3><p>从左侧加入任务内容，或在上方创建一个空白节点。</p></div>}</div>
-						<footer className="script-status-bar">{multiSelectMode ? <><strong>多选</strong><span>已选择 {multiSelected.length} 个同级 block</span></> : selectedBlock && selectedNode ? <><strong>种类：{nodeLabel(selectedNode)}</strong><span className="script-status-source">来源：{scriptBlockSourceLabel(selectedBlock, selectedNodePath)}</span></> : <span>未选择 block</span>}</footer>
+						<footer className="script-status-bar">{multiSelectMode ? <><strong>多选</strong><span>已选择 {multiSelected.length} 个同级 block</span></> : selectedBlock && selectedNode ? <><strong>种类：{nodeLabel(selectedNode)}</strong><span className="script-status-source">来源：{scriptBlockSourceLabel(selectedBlock, selectedNodePath)}</span><Button className="script-status-source-button" variant="subtle" size="compact-xs" disabled={!selectedSourceMission} onClick={() => void openSelectedBlockSource()}>打开来源任务</Button></> : <span>未选择 block</span>}</footer>
 						</div>
 					</div> : <div className="screenplay-library"><header className="screenplay-library-header"><h2>剧本</h2><div className="screenplay-library-actions"><Badge variant="light" color="blue" size="lg">{screenplays.length} 个剧本</Badge><Button size="xs" leftSection={<IconPlus size={14} />} onClick={() => void createScreenplay()}>新建</Button></div></header><div className="screenplay-list">{screenplays.length ? screenplays.map((item) => <div className={`screenplay-list-item ${draggedScreenplay === item.name ? "is-dragging" : ""}`} key={item.name} draggable onDragStart={(event) => { setDraggedScreenplay(item.name); event.dataTransfer.effectAllowed = "move"; event.dataTransfer.setData("text/plain", item.name); }} onDragEnd={() => setDraggedScreenplay(null)} onDragOver={(event) => { event.preventDefault(); event.dataTransfer.dropEffect = "move"; }} onDrop={(event) => { event.preventDefault(); const from = draggedScreenplay ?? event.dataTransfer.getData("text/plain"); if (from) void reorderScreenplayList(from, item.name); }} role="button" tabIndex={0} onClick={() => void openScreenplay(item.name)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") void openScreenplay(item.name); }}><IconGripVertical className="screenplay-list-grip" size={16} /><strong><b>{item.id || "---"}</b> {item.title || "未命名剧本"}</strong><small className="screenplay-chapter">{item.chapter || "未设置篇章"}</small><small className="screenplay-characters">{item.characters.length ? item.characters.join(" · ") : "暂无显示人物"}</small><div className="screenplay-list-metrics"><span>{item.characterCount.toLocaleString()} 字</span></div></div>) : <div className="empty-script"><span>✦</span><h3>还没有剧本</h3><p>点击右上角“新建”创建第一个剧本。</p></div>}</div></div>}
 				</Paper>
