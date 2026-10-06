@@ -2,12 +2,12 @@ import { promises as fs } from "node:fs";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 import type { Plugin } from "vite";
-import { parseBlocks, parseStarRailMission } from "../scripts/sr-wikitext-parser.js";
+import { parseBlocks, parseStarRailMission } from "../../scripts/sr-wikitext-parser.js";
 
 const workspaceRoot = path.resolve(process.cwd());
 const dataRoot = path.join(workspaceRoot, "data");
 const missionRoot = path.join(dataRoot, "missions");
-const screenplayRoot = path.join(workspaceRoot, "screenplays");
+const screenplayRoot = path.join(missionRoot, "剧本");
 const assetRoot = path.join(dataRoot, "assets");
 const imageManifestPath = path.join(assetRoot, "sr-images", "manifest.json");
 

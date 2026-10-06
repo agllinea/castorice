@@ -199,5 +199,5 @@ dist
 !.dev.vars.example
 
 # Local screenplay migration/reorder recovery data
-screenplays/.migration-backup-*/
-screenplays/.reorder-*/
+data/missions/剧本/.migration-backup-*/
+data/missions/剧本/.reorder-*/

@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -6,12 +6,11 @@ import { safeFilename } from "./sr-bwiki-client.js";
 
 const API_URL = "https://wiki.biligame.com/sr/api.php";
 const USER_AGENT = "castorice-star-rail-index-fetcher/1.0";
-const CATEGORIES = ["开拓任务", "开拓续闻", "同行任务"];
+export const MISSION_CATEGORIES = ["开拓任务", "开拓续闻", "同行任务"];
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectDirectory = path.resolve(scriptDirectory, "..");
 const outputPath = path.join(projectDirectory, "data", "missions.json");
 const reportPath = path.join(projectDirectory, "data", "mission-index-report.json");
-const legacyIndexPath = "E:\\repo\\3799\\scripts\\mission_sr.json";
 const collator = new Intl.Collator("zh-CN", { numeric: true, sensitivity: "base" });
 
 function first(values) {
@@ -84,27 +83,13 @@ async function askEntries(condition, sort = "所属版本,创建日期") {
   return entries;
 }
 
-async function readLegacyExtraMissionNames() {
-  try {
-    const legacy = JSON.parse(await readFile(legacyIndexPath, "utf8"));
-    return new Set(
-      legacy
-        .map((mission) => mission.name.match(/^.+?(X\d+(?:-\d+)?)\s+(.+)$/))
-        .filter(Boolean)
-        .map((match) => match[2]),
-    );
-  } catch {
-    return new Set();
-  }
-}
-
 function compareChildren(left, right) {
   const numberOrder = collator.compare(left._number || "999999", right._number || "999999");
   if (numberOrder !== 0) return numberOrder;
   return (left._createdAt ?? 0) - (right._createdAt ?? 0);
 }
 
-function buildCategoryIndex(category, seriesEntries, allChildEntries, extraMissionNames) {
+function buildCategoryIndex(category, seriesEntries, allChildEntries) {
   const seriesByTitle = new Map(seriesEntries.map((entry) => [entry.title, entry]));
   const seriesByName = new Map(seriesEntries.map((entry) => [entry.seriesName, entry]));
   const childrenBySeries = new Map();
@@ -134,7 +119,6 @@ function buildCategoryIndex(category, seriesEntries, allChildEntries, extraMissi
       children.push({
         name: child.title,
         link: child.url,
-        ...(extraMissionNames.has(child.title) ? { type: "ex" } : {}),
         _number: child.missionNumber,
         _createdAt: child.createdAt,
       });
@@ -155,7 +139,7 @@ function buildCategoryIndex(category, seriesEntries, allChildEntries, extraMissi
     locations[location] ??= [];
     const children = (childrenBySeries.get(series.title) ?? [])
       .sort(compareChildren)
-      .map(({ name, link, type }) => ({ name, link, ...(type ? { type } : {}) }));
+      .map(({ name, link }) => ({ name, link }));
     const name = series.seriesName || series.title.replace(/（系列任务）$/, "");
     if (children.length === 0) {
       issues.push({ kind: "series-without-children", category, title: series.title });
@@ -163,7 +147,6 @@ function buildCategoryIndex(category, seriesEntries, allChildEntries, extraMissi
     locations[location].push({
       name,
       link: series.url,
-      ...(extraMissionNames.has(name) ? { type: "ex" } : {}),
       ...(children.length ? { children } : {}),
     });
   }
@@ -180,9 +163,27 @@ function buildCategoryIndex(category, seriesEntries, allChildEntries, extraMissi
   };
 }
 
-function attachLocalFileLinks(missions) {
+function existingFilesByLink(existingIndex) {
+  const result = new Map();
+  for (const locations of Object.values(existingIndex ?? {})) {
+    for (const seriesList of Object.values(locations)) {
+      for (const series of seriesList) {
+        for (const page of series.children?.length ? series.children : [series]) {
+          if (page.link && page.sourceFile && page.dataFile) result.set(page.link, { sourceFile: page.sourceFile, dataFile: page.dataFile });
+        }
+      }
+    }
+  }
+  return result;
+}
+
+function attachLocalFileLinks(missions, existingIndex) {
   const pathsByLink = new Map();
   const ownersByBasePath = new Map();
+  const existingFiles = existingFilesByLink(existingIndex);
+  for (const [link, files] of existingFiles) {
+    ownersByBasePath.set(files.dataFile.replace(/\.json$/iu, ""), link);
+  }
 
   for (const [category, locations] of Object.entries(missions)) {
     for (const [location, seriesList] of Object.entries(locations)) {
@@ -191,17 +192,20 @@ function attachLocalFileLinks(missions) {
         for (const page of pages) {
           let files = pathsByLink.get(page.link);
           if (!files) {
-            const directory = ["missions", category, location, series.name].map(safeFilename);
-            let basename = safeFilename(page.name);
-            let basePath = path.posix.join(...directory, basename);
-            const owner = ownersByBasePath.get(basePath);
-            if (owner && owner !== page.link) {
-              const suffix = createHash("sha1").update(page.link).digest("hex").slice(0, 8);
-              basename = `${basename}-${suffix}`;
-              basePath = path.posix.join(...directory, basename);
+            files = existingFiles.get(page.link);
+            if (!files) {
+              const directory = ["missions", category, location, series.name].map(safeFilename);
+              let basename = safeFilename(page.name);
+              let basePath = path.posix.join(...directory, basename);
+              const owner = ownersByBasePath.get(basePath);
+              if (owner && owner !== page.link) {
+                const suffix = createHash("sha1").update(page.link).digest("hex").slice(0, 8);
+                basename = `${basename}-${suffix}`;
+                basePath = path.posix.join(...directory, basename);
+              }
+              ownersByBasePath.set(basePath, page.link);
+              files = { sourceFile: `${basePath}.wiki`, dataFile: `${basePath}.json` };
             }
-            ownersByBasePath.set(basePath, page.link);
-            files = { sourceFile: `${basePath}.wiki`, dataFile: `${basePath}.json` };
             pathsByLink.set(page.link, files);
           }
           Object.assign(page, files);
@@ -211,13 +215,12 @@ function attachLocalFileLinks(missions) {
   }
 }
 
-async function main() {
-  const extraMissionNames = await readLegacyExtraMissionNames();
+export async function fetchMissionIndex({ existingIndex = null } = {}) {
   const missions = {};
   const report = {
     schemaVersion: 1,
     fetchedAt: new Date().toISOString(),
-    sources: CATEGORIES.map((title) => `https://wiki.biligame.com/sr/${encodeURIComponent(title)}`),
+    sources: MISSION_CATEGORIES.map((title) => `https://wiki.biligame.com/sr/${encodeURIComponent(title)}`),
     categories: {},
     issues: [],
   };
@@ -226,25 +229,25 @@ async function main() {
   const allChildEntries = await askEntries("[[系列任务::+]]", "所属版本,创建日期");
   console.log(`${allChildEntries.length} 条带系列关系的任务`);
 
-  for (const category of CATEGORIES) {
+  for (const category of MISSION_CATEGORIES) {
     process.stdout.write(`${category} ... `);
     const seriesEntries = await askEntries(`[[分类:${category}]][[分类:系列任务]]`);
-    const built = buildCategoryIndex(category, seriesEntries, allChildEntries, extraMissionNames);
+    if (!seriesEntries.length) throw new Error(`${category} 没有返回任何系列任务，保留现有索引`);
+    const built = buildCategoryIndex(category, seriesEntries, allChildEntries);
     missions[category] = built.locations;
     report.categories[category] = built.stats;
     report.issues.push(...built.issues);
     console.log(`${built.stats.missions} 个系列，${built.stats.children} 个子任务`);
   }
 
-  attachLocalFileLinks(missions);
+  attachLocalFileLinks(missions, existingIndex);
+
+  const indexedPages = Object.values(missions).reduce((categoryTotal, locations) => categoryTotal + Object.values(locations).reduce((locationTotal, seriesList) => locationTotal + seriesList.reduce((seriesTotal, series) => seriesTotal + (series.children?.length || 1), 0), 0), 0);
+  if (!indexedPages) throw new Error("BWiki 没有返回任何任务页面，保留现有索引");
 
   await writeFile(outputPath, `${JSON.stringify(missions, null, 2)}\n`, "utf8");
   await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8");
   console.log(`已生成 ${path.relative(projectDirectory, outputPath)}`);
   console.log(`检查报告 ${path.relative(projectDirectory, reportPath)}：${report.issues.length} 个待确认项`);
+  return { missions, report };
 }
-
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});

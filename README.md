@@ -4,7 +4,7 @@
 
 ## 本地剧本编辑器
 
-编辑器是放在 `editor` 目录中的独立本地工具，不使用也不改动项目原有的 React 应用页面。
+编辑器位于 `src/editor`，与未来发布到网页的 React 应用共用 `src/components` 中的内容组件。
 
 运行：
 
@@ -12,7 +12,7 @@
 npm run editor
 ```
 
-Vite 会启动本地服务并自动打开浏览器。编辑器只允许读取 `data/missions`，用户创建的剧本以 JSON 文件保存到 `screenplays`，两者不会互相覆盖。
+Vite 会启动本地服务并自动打开浏览器。任务资料保存在 `data/missions` 的三个任务分类中，用户创建的剧本以 JSON 文件保存到 `data/missions/剧本`。
 
 编辑器支持：
 
@@ -58,8 +58,11 @@ Vite 会启动本地服务并自动打开浏览器。编辑器只允许读取 `d
 ## 更新任务资料
 
 ```powershell
-npm run fetch:mission-index
-npm run fetch:missions -- --refresh
+# 更新三类任务索引，只获取新增或本地缺失的任务
+npm run mission:update
+
+# 重建三类任务索引并重新获取全部任务
+npm run mission:reset
 ```
 
 详细抓取说明见 [`scripts/README.md`](scripts/README.md)。
