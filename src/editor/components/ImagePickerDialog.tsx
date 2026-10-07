@@ -1,4 +1,4 @@
-import { Modal, TextInput } from "@mantine/core";
+import { Button, Modal, TextInput } from "../../components/ui";
 import { editorAssetUrl } from "../../components/content/tree";
 import type { ImageAsset } from "../../components/content/types";
 
@@ -18,7 +18,7 @@ export function ImagePickerDialog({ mode, search, assets, total, loading, onClos
 		<div className="image-picker">
 			<TextInput placeholder="搜索已下载的图片" value={search} onChange={(event) => onSearchChange(event.currentTarget.value)} />
 			<div className="image-picker-summary">{loading ? "正在读取图片…" : `${assets.length} / ${total} 张图片`}</div>
-			<div className="image-picker-grid">{assets.map((image) => <button type="button" key={image.asset} onClick={() => onChoose(image)} title={image.file}><img src={editorAssetUrl(image.asset)} alt={image.file} loading="lazy" /><span>{image.file}</span></button>)}</div>
+			<div className="image-picker-grid">{assets.map((image) => <Button variant="outline" color="gray" key={image.asset} onClick={() => onChoose(image)} title={image.file}><img src={editorAssetUrl(image.asset)} alt={image.file} loading="lazy" /><span>{image.file}</span></Button>)}</div>
 			{!loading && !assets.length ? <p className="image-picker-empty">没有匹配的已下载图片。</p> : null}
 		</div>
 	</Modal>;

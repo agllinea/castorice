@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, type InputHTMLAttributes, type TextareaHTMLAttributes } from "react";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 
 type BufferedInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "defaultValue" | "onChange"> & {
 	value: string;
@@ -36,10 +38,10 @@ function useBufferedText(value: string, onValueChange: (value: string) => void) 
 
 export function BufferedInput({ value, onValueChange, onBlur, onKeyDown, ...props }: BufferedInputProps) {
 	const buffered = useBufferedText(value, onValueChange);
-	return <input {...props} value={buffered.draft} onChange={(event) => buffered.change(event.target.value)} onBlur={(event) => { buffered.commit(event.currentTarget.value); onBlur?.(event); }} onKeyDown={(event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") buffered.commit(event.currentTarget.value); onKeyDown?.(event); }} />;
+	return <Input {...props} value={buffered.draft} onChange={(event) => buffered.change(event.target.value)} onBlur={(event) => { buffered.commit(event.currentTarget.value); onBlur?.(event); }} onKeyDown={(event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") buffered.commit(event.currentTarget.value); onKeyDown?.(event); }} />;
 }
 
 export function BufferedTextarea({ value, onValueChange, onBlur, onKeyDown, ...props }: BufferedTextareaProps) {
 	const buffered = useBufferedText(value, onValueChange);
-	return <textarea {...props} value={buffered.draft} onChange={(event) => buffered.change(event.target.value)} onBlur={(event) => { buffered.commit(event.currentTarget.value); onBlur?.(event); }} onKeyDown={(event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") buffered.commit(event.currentTarget.value); onKeyDown?.(event); }} />;
+	return <Textarea {...props} value={buffered.draft} onChange={(event) => buffered.change(event.target.value)} onBlur={(event) => { buffered.commit(event.currentTarget.value); onBlur?.(event); }} onKeyDown={(event) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") buffered.commit(event.currentTarget.value); onKeyDown?.(event); }} />;
 }

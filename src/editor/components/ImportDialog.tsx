@@ -1,4 +1,4 @@
-import { Button, Modal, SegmentedControl, Textarea } from "@mantine/core";
+import { Button, Modal, SegmentedControl, Textarea } from "../../components/ui";
 
 export type ImportMode = "plain" | "source" | "srt";
 

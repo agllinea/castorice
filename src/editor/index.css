@@ -1,3 +1,36 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@source "../components/**/*.{ts,tsx}";
+
+@theme inline {
+	--font-heading: var(--font-sans);
+	--font-sans: 'Inter Variable', "Microsoft YaHei", "PingFang SC", sans-serif;
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--radius-sm: var(--radius);
+	--radius-md: var(--radius);
+	--radius-lg: var(--radius);
+	--radius-xl: var(--radius);
+}
+
 :root {
 	font-family: Inter, "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
 	color: #202124;
@@ -5,6 +38,26 @@
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
+	--background: oklch(1 0 0);
+	--foreground: oklch(.145 0 0);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(.145 0 0);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(.145 0 0);
+	--primary: oklch(.45 .15 255);
+	--primary-foreground: oklch(.985 0 0);
+	--secondary: oklch(.97 0 0);
+	--secondary-foreground: oklch(.205 0 0);
+	--muted: oklch(.97 0 0);
+	--muted-foreground: oklch(.556 0 0);
+	--accent: oklch(.96 .018 255);
+	--accent-foreground: oklch(.32 .1 255);
+	--destructive: oklch(.577 .245 27.325);
+	--border: oklch(.922 0 0);
+	--input: oklch(.922 0 0);
+	--ring: oklch(.62 .14 255);
+	/* Editor-wide corner radius. Change this single value to retheme every non-circular surface. */
+	--radius: 8px;
 }
 
 * { box-sizing: border-box; }
@@ -12,10 +65,10 @@ html, body, #root { min-width: 1180px; min-height: 100%; margin: 0; }
 body { min-height: 100vh; overflow: hidden; }
 button, input, textarea, select { font: inherit; }
 button { cursor: pointer; }
-button:disabled { cursor: not-allowed; opacity: .45; }
+button:disabled { cursor: not-allowed; }
 ::selection { background: #c9dcf8; }
 
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #b9bec9; border: 2px solid transparent; border-radius: 10px; background-clip: padding-box; }
+::-webkit-scrollbar-thumb { background: #b9bec9; border: 2px solid transparent; border-radius: var(--radius); background-clip: padding-box; }
 ::-webkit-scrollbar-thumb:hover { background-color: #9299a8; }

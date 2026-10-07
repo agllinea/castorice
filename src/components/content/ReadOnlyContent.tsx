@@ -1,9 +1,10 @@
 import { useState, type MouseEvent } from "react";
-import { ActionIcon } from "@mantine/core";
-import { IconChevronDown, IconChevronRight, IconX } from "@tabler/icons-react";
+import { ActionIcon } from "../ui";
+import { IconX } from "@tabler/icons-react";
+import { CollapsibleContent } from "./CollapsibleContent";
 import { HighlightedRichText, InlineRubyText } from "./RichText";
 import { nodeLabel, nodeSummary } from "./node-config";
-import { descendantNodePaths, editorAssetUrl, imageDisplayStyle, pathKey } from "./tree";
+import { descendantNodePaths, editorAssetUrl, imageDisplayStyle, pathKey, sourceNodeDomId } from "./tree";
 import type { AssetUrlResolver, JsonNode, NodePath, ScriptTextMatch, SelectionModifiers } from "./types";
 
 export interface ReadOnlyContentProps {
@@ -36,10 +37,9 @@ export function ReadOnlyContent({ node, path, selected, onToggle, depth = 0, hig
 
 	if (type === "fold" || type === "message-thread") {
 		const isMessageThread = type === "message-thread";
-		return <div className={`read-node ${isMessageThread ? "read-node-message-thread" : "read-node-fold"} ${foldCollapsed ? "is-collapsed" : ""} ${checked ? "is-selected" : ""}`} data-depth={depth}>
-			<div className="read-node-heading selectable-row" onClick={(event) => onToggle(path, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onDoubleClick={selectTree}><div className="container-heading-copy"><strong><HighlightedRichText text={String(node.title ?? (isMessageThread ? "未命名短信" : "未命名折叠内容"))} highlight={highlight?.field === "title" ? highlight : undefined} /></strong>{isMessageThread ? <small>{String(node.subtitle ?? "") || "无副标题"} · 手机持有者：{String(node.owner ?? "开拓者")}</small> : null}</div><ActionIcon className="fold-toggle-button" variant="subtle" color="gray" size="xs" aria-label={foldCollapsed ? "展开内容" : "收起内容"} title={foldCollapsed ? "展开" : "收起"} aria-expanded={!foldCollapsed} onClick={(event) => { event.stopPropagation(); setFoldCollapsed((current) => !current); }} onDoubleClick={(event) => event.stopPropagation()}>{foldCollapsed ? <IconChevronRight size={14} /> : <IconChevronDown size={14} />}</ActionIcon>{clearButton}</div>
-			{foldCollapsed ? null : <div className="read-node-children">{content.map((child, index) => <ReadOnlyContent key={index} node={child} path={[...path, "content", index]} selected={selected} onToggle={onToggle} depth={depth + 1} resolveAssetUrl={resolveAssetUrl} />)}</div>}
-		</div>;
+		return <CollapsibleContent collapsed={foldCollapsed} onCollapsedChange={setFoldCollapsed} className={`${isMessageThread ? "read-node-message-thread" : "read-node-fold"} ${checked ? "is-selected" : ""}`} depth={depth} headingClassName="selectable-row" onHeadingClick={(event) => onToggle(path, [], { shiftKey: event.shiftKey, additive: event.ctrlKey || event.metaKey })} onHeadingDoubleClick={selectTree} trailingActions={clearButton} heading={<div className="container-heading-copy"><strong><HighlightedRichText text={String(node.title ?? (isMessageThread ? "未命名短信" : "未命名折叠内容"))} highlight={highlight?.field === "title" ? highlight : undefined} /></strong>{isMessageThread ? <small>{String(node.subtitle ?? "") || "无副标题"} · 手机持有者：{String(node.owner ?? "开拓者")}</small> : null}</div>}>
+			{content.map((child, index) => <ReadOnlyContent key={index} node={child} path={[...path, "content", index]} selected={selected} onToggle={onToggle} depth={depth + 1} resolveAssetUrl={resolveAssetUrl} />)}
+		</CollapsibleContent>;
 	}
 
 	if (type === "choice") {
@@ -72,5 +72,5 @@ export function ReadOnlyContent({ node, path, selected, onToggle, depth = 0, hig
 }
 
 export function SourceContentCard(props: ReadOnlyContentProps) {
-	return <div className="source-card"><ReadOnlyContent {...props} /></div>;
+	return <div id={sourceNodeDomId(props.path)} className="source-card"><ReadOnlyContent {...props} /></div>;
 }

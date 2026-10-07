@@ -1,5 +1,6 @@
 import type { MouseEvent, PointerEvent } from "react";
 import { BufferedInput, BufferedTextarea } from "../forms/BufferedFields";
+import { Button } from "../ui";
 import { clone, newNodeTemplates, nodeSummary } from "./node-config";
 import { normalizeMessageThreadContent } from "./screenplay-model";
 import { editorAssetUrl, imageDisplayStyle } from "./tree";
@@ -23,7 +24,7 @@ export function EditableContent({ node, onChange, onDialogueCursor, depth = 0, r
 	const assetUrl = resolveAssetUrl(node.asset);
 
 	if (type === "fold") {
-		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠组标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableContent key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} resolveAssetUrl={resolveAssetUrl} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><button onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</button><button onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</button></div></div></div>;
+		return <div className="read-node read-node-fold inline-edit-node" data-depth={depth}><div className="read-node-heading"><BufferedInput className="inline-heading-input" value={String(node.title ?? "")} placeholder="折叠组标题" onPointerDown={stop} onClick={stop} onValueChange={(value) => set("title", value)} /></div><div className="read-node-children">{content.map((child, index) => <EditableContent key={index} node={child} depth={depth + 1} onChange={(value) => updateChild(index, value)} resolveAssetUrl={resolveAssetUrl} />)}<div className="inline-nested-actions" onPointerDown={stop} onClick={stop}><Button variant="outline" color="blue" size="compact-xs" onClick={() => set("content", [...content, clone(newNodeTemplates.dialogue)])}>＋ 对话</Button><Button variant="outline" color="blue" size="compact-xs" onClick={() => set("content", [...content, clone(newNodeTemplates.text)])}>＋ 文本</Button></div></div></div>;
 	}
 
 	if (type === "tabs") {

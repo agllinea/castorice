@@ -1,16 +1,19 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ActionIcon, Badge, Button, Menu, NavLink, Paper, Select, TextInput, Tooltip } from "@mantine/core";
-import { IconArrowLeft, IconCheck, IconFilePlus, IconListTree, IconMapPin, IconSearch } from "@tabler/icons-react";
-import { BufferedInput } from "../components/forms/BufferedFields";
+import { IconBooks, IconListTree, IconMapPin, IconSearch } from "@tabler/icons-react";
 import { clone, newNodeTemplates, nodeLabel } from "../components/content/node-config";
 import { SourceContentCard } from "../components/content/ReadOnlyContent";
 import { ScriptBlockView } from "../components/content/ScriptBlockView";
 import { adjustTargetPathAfterRemoval, collectNodePaths, collectScriptTextMatches, expandChoiceOption, expandDialogueChoices, findMessageOwner, flattenMissions, groupLegacyMessageThreadNodes, isAncestorPath, isNumberPathAncestor, nestedNodeAtPath, nodeAtPath, normalizeMessageThreads, normalizeScriptBlocks, removeNestedNode, replaceDialogueSpeaker, sameNumberPath, sameScriptAddress, scriptNodeDomId, scriptSiblingGroup, syncScreenplayCharacters, toMessageThread, updateNestedNode } from "../components/content/screenplay-model";
-import { pathKey } from "../components/content/tree";
+import { pathKey, sourceNodeDomId } from "../components/content/tree";
 import type { BootstrapResponse, CutScriptBlock, ImageAsset, JsonNode, MissionDocument, MissionIndex, MissionRef, NodePath, ScreenplayDocument, ScreenplaySummary, ScriptBlock, ScriptNodeAddress, ScriptTextMatch, ScriptTitleEntry, SearchMode, SelectionModifiers } from "../components/content/types";
+import { ActionIcon, Badge, Button, MenuButton, NavLink, Paper, Select, TextInput, Tooltip } from "../components/ui";
 import { ImagePickerDialog } from "./components/ImagePickerDialog";
 import { ImportDialog, type ImportMode } from "./components/ImportDialog";
+import { MissionContentTocOverlay, type MissionContentHeading } from "./components/MissionContentTocOverlay";
+import { MissionPager } from "./components/MissionPager";
+import { MissionTocOverlay } from "./components/MissionTocOverlay";
 import { ScreenplayLibrary } from "./components/ScreenplayLibrary";
+import { ScreenplayCharacterManager, ScreenplayMetaPanel } from "./components/ScreenplayMetaPanel";
 import "../components/content/content.css";
 import "./App.css";
 
@@ -25,6 +28,12 @@ function collectScriptTitles(blocks: ScriptBlock[]) {
 	};
 	blocks.forEach((block) => visit(block.id, block.node, []));
 	return entries;
+}
+
+function collectMissionHeadings(content: JsonNode[]) {
+	return content.flatMap((node, index) => node.type === "section" && Number(node.level ?? 3) === 3
+		? [{ title: String(node.title ?? "未命名标题"), path: [index] as NodePath }]
+		: []);
 }
 
 function scriptBlockSourceLabel(block: ScriptBlock, nodePath: number[]) {
@@ -71,6 +80,7 @@ function App() {
 	const [index, setIndex] = useState<MissionIndex>({});
 	const [screenplays, setScreenplays] = useState<ScreenplaySummary[]>([]);
 	const [missionFilter, setMissionFilter] = useState("");
+	const [categoryFilter, setCategoryFilter] = useState("开拓任务");
 	const [locationFilter, setLocationFilter] = useState("");
 	const [selectedMission, setSelectedMission] = useState<MissionRef | null>(null);
 	const [missionDocument, setMissionDocument] = useState<MissionDocument | null>(null);
@@ -95,6 +105,8 @@ function App() {
 	const [searchMatches, setSearchMatches] = useState<ScriptTextMatch[]>([]);
 	const [searchMatchIndex, setSearchMatchIndex] = useState(0);
 	const [editorFocusMode, setEditorFocusMode] = useState(false);
+	const [missionTocOpen, setMissionTocOpen] = useState(false);
+	const [missionContentTocOpen, setMissionContentTocOpen] = useState(false);
 	const [titleNavigatorOpen, setTitleNavigatorOpen] = useState(false);
 	const [dirty, setDirty] = useState(false);
 	const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "error">("idle");
@@ -113,16 +125,19 @@ function App() {
 	const multiSelectionChanged = useRef(false);
 	const scriptSelectionAnchor = useRef<ScriptNodeAddress | null>(null);
 	const missions = useMemo(() => flattenMissions(index), [index]);
-	const missionLocations = useMemo(() => [...new Set(missions.map((mission) => mission.location))], [missions]);
+	const missionCategories = useMemo(() => Object.keys(index), [index]);
+	const missionLocations = useMemo(() => [...new Set(missions.filter((mission) => !categoryFilter || mission.category === categoryFilter).map((mission) => mission.location))], [categoryFilter, missions]);
 	const sourcePaths = useMemo(() => missionDocument ? collectNodePaths(missionDocument.content) : [], [missionDocument]);
+	const missionHeadings = useMemo(() => missionDocument ? collectMissionHeadings(missionDocument.content) : [], [missionDocument]);
 	const scriptTitles = useMemo(() => document ? collectScriptTitles(document.blocks) : [], [document]);
 	const filteredMissions = useMemo(() => {
 		const needle = missionFilter.trim().toLowerCase();
 		return missions.filter((mission) => {
+			if (categoryFilter && mission.category !== categoryFilter) return false;
 			if (locationFilter && mission.location !== locationFilter) return false;
 			return !needle || [mission.name, mission.series, mission.location, mission.category].join(" ").toLowerCase().includes(needle);
 		});
-	}, [locationFilter, missionFilter, missions]);
+	}, [categoryFilter, locationFilter, missionFilter, missions]);
 	const missionGroups = useMemo(() => {
 		const locations = new Map<string, Map<string, MissionRef[]>>();
 		for (const mission of filteredMissions) {
@@ -136,6 +151,9 @@ function App() {
 			series: [...series].map(([name, entries]) => ({ name, entries })),
 		}));
 	}, [filteredMissions]);
+	const selectedMissionPosition = selectedMission ? filteredMissions.findIndex((mission) => mission.dataFile === selectedMission.dataFile) : -1;
+	const previousMission = selectedMissionPosition > 0 ? filteredMissions[selectedMissionPosition - 1] : null;
+	const nextMission = selectedMissionPosition >= 0 && selectedMissionPosition < filteredMissions.length - 1 ? filteredMissions[selectedMissionPosition + 1] : null;
 	const selectedBlockIndex = document && selectedBlockId ? document.blocks.findIndex((block) => block.id === selectedBlockId) : -1;
 	const selectedBlock = selectedBlockIndex >= 0 && document ? document.blocks[selectedBlockIndex] : null;
 	const selectedNode = selectedBlock ? nestedNodeAtPath(selectedBlock.node, selectedNodePath) : null;
@@ -239,6 +257,16 @@ function App() {
 
 	useEffect(() => {
 		function keyDown(event: KeyboardEvent) {
+			if (event.key === "Escape" && missionContentTocOpen) {
+				event.preventDefault();
+				setMissionContentTocOpen(false);
+				return;
+			}
+			if (event.key === "Escape" && missionTocOpen) {
+				event.preventDefault();
+				setMissionTocOpen(false);
+				return;
+			}
 			if (event.key === "Escape" && (multiSelectMode || selectedBlockId)) {
 				event.preventDefault();
 				const target = event.target as HTMLElement | null;
@@ -279,7 +307,7 @@ function App() {
 		}
 		window.addEventListener("keydown", keyDown); window.addEventListener("keyup", keyUp);
 		return () => { window.removeEventListener("keydown", keyDown); window.removeEventListener("keyup", keyUp); };
-	}, [multiSelectMode, saveCurrentDocument, selectedBlockId, selectedNodePath]);
+	}, [missionContentTocOpen, missionTocOpen, multiSelectMode, saveCurrentDocument, selectedBlockId, selectedNodePath]);
 
 	async function refreshScreenplays() { setScreenplays(await requestJson<ScreenplaySummary[]>("/editor-api/screenplays")); }
 	function mutateDocument(update: (current: ScreenplayDocument) => ScreenplayDocument) { setDocument((current) => { if (!current) return current; const next = update(current); documentRef.current = next; return next; }); revision.current += 1; dirtyRef.current = true; setDirty(true); setSaveState("idle"); }
@@ -292,6 +320,7 @@ function App() {
 		const next = !editorFocusMode;
 		setEditorFocusMode(next);
 		if (next) setTitleNavigatorOpen(true);
+		else setMissionTocOpen(false);
 	}
 	function navigateToScriptTitle(entry: ScriptTitleEntry) {
 		const block = document?.blocks.find((candidate) => candidate.id === entry.blockId);
@@ -303,16 +332,21 @@ function App() {
 	}
 
 	async function openMission(mission: MissionRef) {
-		setSelectedMission(mission); setMissionDocument(null); setSelectedSource(new Set()); selectionAnchor.current = null; setError("");
+		setSelectedMission(mission); setMissionDocument(null); setSelectedSource(new Set()); setMissionContentTocOpen(false); selectionAnchor.current = null; setError("");
 		try {
 			const loaded = await requestJson<MissionDocument>(`/editor-api/mission?path=${encodeURIComponent(mission.dataFile)}`);
 			setMissionDocument({ ...loaded, content: groupLegacyMessageThreadNodes(loaded.content) });
 		}
 		catch (reason) { setError(reason instanceof Error ? reason.message : String(reason)); }
 	}
+	function openMissionHeading(heading: MissionContentHeading) {
+		window.document.getElementById(sourceNodeDomId(heading.path))?.scrollIntoView({ block: "start", behavior: "smooth" });
+	}
 	async function openSelectedBlockSource() {
 		if (!selectedSourceMission) return;
 		setEditorFocusMode(false);
+		setCategoryFilter(selectedSourceMission.category);
+		setLocationFilter("");
 		await openMission(selectedSourceMission);
 	}
 
@@ -841,8 +875,9 @@ function App() {
 			<main className="workspace">
 				<Paper component="section" shadow="sm" radius="md" className="source-pane">
 					<aside className="mission-sidebar">
-						<div className="pane-heading"><div><span className="eyebrow">只读素材</span><h2>任务资料库</h2></div><Badge variant="light" color="blue" size="sm">{missions.length}</Badge></div>
+						<div className="pane-heading"><h2>任务资料库</h2><Badge variant="light" color="blue" size="sm">{filteredMissions.length}</Badge></div>
 						<TextInput className="library-search" size="xs" radius="md" leftSection={<IconSearch size={14} />} placeholder="搜索任务、系列或地点" value={missionFilter} onChange={(event) => setMissionFilter(event.target.value)} />
+						<Select className="library-category" size="xs" radius="md" aria-label="按任务种类筛选" value={categoryFilter} allowDeselect={false} onChange={(value) => { setCategoryFilter(value ?? ""); setLocationFilter(""); }} data={[{ value: "", label: "所有任务种类" }, ...missionCategories.map((category) => ({ value: category, label: category }))]} />
 						<Select className="library-location" size="xs" radius="md" leftSection={<IconMapPin size={14} />} aria-label="按地点筛选" value={locationFilter} allowDeselect={false} onChange={(value) => setLocationFilter(value ?? "")} data={[{ value: "", label: "所有地点" }, ...missionLocations.map((location) => ({ value: location, label: location }))]} />
 						<div className="mission-list">{missionGroups.length ? missionGroups.map((locationGroup) => <section className="mission-location" key={locationGroup.location}>
 							<h3>{locationGroup.location}</h3>
@@ -854,50 +889,43 @@ function App() {
 					</aside>
 					<div className="source-preview">
 						{selectedMission ? <>
-							<header className="preview-header"><div><span className="eyebrow">{selectedMission.category} / {selectedMission.location}</span><h2>{selectedMission.name}</h2><p>{selectedMission.series}</p></div><div className="preview-actions"><Button variant="light" color="gray" size="xs" leftSection={<IconFilePlus size={14} />} disabled={!document || selectedSource.size === 0} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "end")}>追加到剧本 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button><Button size="xs" leftSection={<IconCheck size={14} />} disabled={!document || selectedSource.size === 0 || !selectedNode} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "below")}>插入到所选内容后 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button></div></header>
-							<div className="selection-toolbar"><Button variant="subtle" size="compact-xs" onClick={() => { setSelectedSource(new Set(sourcePaths.map(pathKey))); selectionAnchor.current = null; }}>全选内容</Button><Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSelectedSource(new Set()); selectionAnchor.current = null; }}>清除选择</Button><small>Shift 连选 · 双击容器选择全部子项</small><Badge variant="light" color="gray" size="xs">{missionDocument ? `${sourcePaths.length} 个可选内容块` : "正在读取…"}</Badge></div>
+							<header className="preview-header">
+								<div className="preview-heading"><span className="eyebrow">{selectedMission.category} / {selectedMission.location}</span><h2>{selectedMission.name}</h2><p>{selectedMission.series}</p></div>
+								<div className="preview-header-side"><div className="preview-navigation">
+									<Tooltip label="当前任务内容目录" withArrow><ActionIcon className="mission-toc-trigger" aria-label="打开当前任务内容目录" variant={missionContentTocOpen ? "light" : "outline"} color="blue" size="sm" aria-pressed={missionContentTocOpen} onClick={() => { setMissionTocOpen(false); setMissionContentTocOpen((current) => !current); }}><IconListTree /></ActionIcon></Tooltip>
+									{editorFocusMode ? <Tooltip label="浏览全部任务" withArrow><ActionIcon className="mission-toc-trigger" aria-label="打开完整任务目录" variant={missionTocOpen ? "light" : "outline"} color="blue" size="sm" aria-pressed={missionTocOpen} onClick={() => { setMissionContentTocOpen(false); setMissionTocOpen((current) => !current); }}><IconBooks /></ActionIcon></Tooltip> : null}
+								</div></div>
+							</header>
+							<div className="selection-toolbar">
+								<Button variant="subtle" size="compact-xs" onClick={() => { setSelectedSource(new Set(sourcePaths.map(pathKey))); selectionAnchor.current = null; }}>全选内容</Button>
+								<Button variant="subtle" color="gray" size="compact-xs" onClick={() => { setSelectedSource(new Set()); selectionAnchor.current = null; }}>清除选择</Button>
+								<span className="selection-toolbar-divider" />
+								<Button variant="subtle" size="compact-xs" disabled={!document || selectedSource.size === 0} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "end")}>追加到剧本 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button>
+								<Button size="compact-xs" disabled={!document || selectedSource.size === 0 || !selectedNode} onClick={() => appendSource(sourcePaths.filter((path) => selectedSource.has(pathKey(path))), "below")}>插入到所选内容后 {selectedSource.size ? `(${selectedSource.size})` : ""}</Button>
+							</div>
 							<div className="source-cards">{missionDocument?.content.map((node, nodeIndex) => <SourceContentCard key={nodeIndex} node={node} path={[nodeIndex]} selected={selectedSource} onToggle={toggleSource} />)}</div>
+							<MissionPager placement="footer" previous={previousMission} next={nextMission} position={selectedMissionPosition} total={filteredMissions.length} onOpen={(mission) => void openMission(mission)} />
+							<MissionContentTocOverlay opened={missionContentTocOpen} missionName={selectedMission.name} headings={missionHeadings} onClose={() => setMissionContentTocOpen(false)} onOpen={openMissionHeading} />
+							<MissionTocOverlay opened={missionTocOpen} groups={missionGroups} selectedFile={selectedMission.dataFile} total={filteredMissions.length} search={missionFilter} category={categoryFilter} location={locationFilter} categories={missionCategories} locations={missionLocations} onClose={() => setMissionTocOpen(false)} onOpen={(mission) => void openMission(mission)} onSearchChange={setMissionFilter} onCategoryChange={(value) => { setCategoryFilter(value); setLocationFilter(""); }} onLocationChange={setLocationFilter} />
 						</> : <div className="empty-state"><span>←</span><h2>选择一个任务</h2><p>任务资料保持只读；选择所需内容后，可加入右侧剧本并独立编辑。</p></div>}
 					</div>
 				</Paper>
 				<Paper component="section" shadow="sm" radius="md" className="script-pane">
 					{document ? <div className={`script-editor ${titleNavigatorOpen ? "has-title-navigator" : ""}`}>
-						{titleNavigatorOpen ? <aside className="script-title-navigator"><header><span>章节目录</span><strong>{document.id} {document.title || "未命名剧本"}</strong><small>{scriptTitles.length} 个章节标题</small></header><nav>{scriptTitles.length ? scriptTitles.map((entry) => <button key={`${entry.blockId}-${entry.path.join("-")}`} className={selectedBlockId === entry.blockId && sameNumberPath(selectedNodePath, entry.path) ? "is-active" : ""} style={{ paddingLeft: `${12 + Math.min(entry.depth, 4) * 12}px` }} onClick={() => navigateToScriptTitle(entry)} title={entry.title}>{entry.title}</button>) : <p>当前剧本没有章节标题</p>}</nav></aside> : null}
+						{titleNavigatorOpen ? <aside className="script-title-navigator"><ScreenplayMetaPanel compact showCharacters={false} document={document} activeFile={activeFile} onBack={() => void closeScreenplay()} onTitleChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} onChapterChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} onCharacterHiddenChange={setCharacterHidden} onDelete={() => void deleteScreenplay()} /><header className="script-title-navigator-heading"><span>章节目录</span><small>{scriptTitles.length} 个章节标题</small></header><nav>{scriptTitles.length ? scriptTitles.map((entry) => <Button key={`${entry.blockId}-${entry.path.join("-")}`} variant="subtle" color="gray" size="compact-sm" className={selectedBlockId === entry.blockId && sameNumberPath(selectedNodePath, entry.path) ? "is-active" : ""} style={{ paddingLeft: `${12 + Math.min(entry.depth, 4) * 12}px` }} onClick={() => navigateToScriptTitle(entry)} title={entry.title}>{entry.title}</Button>) : <p>当前剧本没有章节标题</p>}</nav></aside> : null}
 						<div className="script-editor-main">
-						<header className="script-header"><ActionIcon className="back-to-library" variant="subtle" color="gray" size="lg" aria-label="返回剧本列表" title="返回剧本列表" onClick={() => void closeScreenplay()}><IconArrowLeft size={19} /></ActionIcon><div className="script-title-fields"><div className="script-title-row"><strong>{document.id}</strong><BufferedInput className="title-input" placeholder="剧本标题" value={document.title} onValueChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} /></div><BufferedInput className="chapter-input" placeholder="所属篇章（可选）" value={document.chapter} onValueChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} /><div className="character-manager"><span>出场人物</span>{document.characters.visible.length ? document.characters.visible.map((character) => <button key={character} title="从人物列表中隐藏" onClick={() => setCharacterHidden(character, true)}>{character}</button>) : <em>未识别到对话角色</em>}{document.characters.hidden.length ? <Menu position="bottom-start" shadow="md" withinPortal><Menu.Target><button className="hidden-character-trigger">已隐藏 {document.characters.hidden.length}</button></Menu.Target><Menu.Dropdown>{document.characters.hidden.map((character) => <Menu.Item key={character} onClick={() => setCharacterHidden(character, false)}>{character} · 恢复显示</Menu.Item>)}</Menu.Dropdown></Menu> : null}</div></div><div className="file-actions"><span>{activeFile}</span><button className="danger-text" onClick={() => void deleteScreenplay()}>删除剧本</button></div></header>
+						{titleNavigatorOpen ? null : <ScreenplayMetaPanel document={document} activeFile={activeFile} onBack={() => void closeScreenplay()} onTitleChange={(value) => mutateDocument((current) => ({ ...current, title: value }))} onChapterChange={(value) => mutateDocument((current) => ({ ...current, chapter: value }))} onCharacterHiddenChange={setCharacterHidden} onDelete={() => void deleteScreenplay()} />}
+						{titleNavigatorOpen ? <ScreenplayCharacterManager className="script-character-bar" document={document} onCharacterHiddenChange={setCharacterHidden} /> : null}
 						<div className={`block-toolbar ${multiSelectMode ? "is-multi-select" : ""}`}>
 							<div className="block-toolbar-actions toolbar-main-actions">
-								<Tooltip label={titleNavigatorOpen ? "关闭章节目录" : "打开章节目录"} withArrow><ActionIcon variant={titleNavigatorOpen ? "light" : "subtle"} color="blue" size="sm" aria-label={titleNavigatorOpen ? "关闭章节目录" : "打开章节目录"} aria-pressed={titleNavigatorOpen} onClick={() => setTitleNavigatorOpen((current) => !current)}><IconListTree size={16} /></ActionIcon></Tooltip>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<span className="toolbar-group-label">插入</span>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("dialogue")}>对话</Button>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("narration")}>叙述</Button>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("section")}>章节标题</Button>
-								<Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("divider")}>分割线</Button>
-								<Menu position="bottom-start" shadow="md" withinPortal>
-									<Menu.Target><Button variant="subtle" size="compact-sm">更多</Button></Menu.Target>
-									<Menu.Dropdown><Menu.Item onClick={() => insertScriptNode("text")}>普通文本</Menu.Item><Menu.Item onClick={() => insertScriptNode("note")}>编辑注释</Menu.Item></Menu.Dropdown>
-								</Menu>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<Button variant="subtle" size="compact-sm" onClick={() => setImportOpened(true)}>批量导入</Button>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<span className="toolbar-group-label">图片</span>
-								<Button variant="subtle" size="compact-sm" onClick={() => void openImagePicker("add")}>插入图片</Button>
-								<Button variant="subtle" size="compact-sm" disabled={multiSelectMode || selectedNode?.type !== "image"} onClick={() => void openImagePicker("replace")}>替换图片</Button>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<Tooltip label="将折叠组拆回独立内容块" withArrow><Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || (selectedNode?.type !== "fold" && selectedNode?.type !== "message-thread")} onClick={dissolveSelectedFold}>拆散内容组</Button></Tooltip>
-								<Tooltip label="将选中的相邻内容组成可折叠区域" withArrow><Button variant="subtle" size="compact-sm" disabled={!canFoldSelection} onClick={foldSelectedNodes}>创建折叠组</Button></Tooltip>
-								<Tooltip label="将折叠组转换为带副标题和手机持有者的短信会话" withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={convertSelectedFoldToMessageThread}>转为短信会话</Button></Tooltip>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<Tooltip label="仅能合并同级、相连且说话人相同的对话" withArrow><Button variant="subtle" size="compact-sm" disabled={!canMergeDialogues} onClick={mergeSelectedDialogues}>合并对话</Button></Tooltip>
-								<Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段（Ctrl+K）" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>拆分对话</Button></Tooltip>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<Tooltip label={activeScriptSelection.length > 1 ? `删除选中的 ${activeScriptSelection.length} 个内容块` : "删除当前内容块"} color="red" withArrow><Button variant="subtle" color="red" size="compact-sm" disabled={!activeScriptSelection.length} onClick={deleteSelectedNode}>删除</Button></Tooltip>
-								<span className="toolbar-divider" aria-hidden="true" />
-								<Menu position="bottom-end" shadow="md" withinPortal>
-									<Menu.Target><Button variant={searchMode ? "light" : "subtle"} size="compact-sm">批量工具</Button></Menu.Target>
-									<Menu.Dropdown><Menu.Item onClick={convertTrailblazerSpeakers}>统一主角名为“穹”</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("gender")}>检查性别指代</Menu.Item><Menu.Item onClick={() => toggleScriptSearch("trailblazer-reference")}>查找主角称谓</Menu.Item></Menu.Dropdown>
-								</Menu>
+								<div className="toolbar-action-group is-navigation"><Tooltip label={titleNavigatorOpen ? "关闭章节目录" : "打开章节目录"} withArrow><ActionIcon variant={titleNavigatorOpen ? "light" : "subtle"} color="blue" size="sm" aria-label={titleNavigatorOpen ? "关闭章节目录" : "打开章节目录"} aria-pressed={titleNavigatorOpen} onClick={() => setTitleNavigatorOpen((current) => !current)}><IconListTree size={16} /></ActionIcon></Tooltip></div>
+								<div className="toolbar-action-group"><span className="toolbar-group-label">插入</span><Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("dialogue")}>对话</Button><Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("narration")}>叙述</Button><Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("section")}>章节标题</Button><Button variant="subtle" size="compact-sm" onClick={() => insertScriptNode("divider")}>分割线</Button><MenuButton label="更多" items={[{ label: "普通文本", onClick: () => insertScriptNode("text") }, { label: "编辑注释", onClick: () => insertScriptNode("note") }]} /></div>
+								<div className="toolbar-action-group"><Button variant="subtle" size="compact-sm" onClick={() => setImportOpened(true)}>批量导入</Button></div>
+								<div className="toolbar-action-group"><span className="toolbar-group-label">图片</span><Button variant="subtle" size="compact-sm" onClick={() => void openImagePicker("add")}>插入图片</Button><Button variant="subtle" size="compact-sm" disabled={multiSelectMode || selectedNode?.type !== "image"} onClick={() => void openImagePicker("replace")}>替换图片</Button></div>
+								<div className="toolbar-action-group"><Tooltip label="将折叠组拆回独立内容块" withArrow><Button variant="subtle" color="orange" size="compact-sm" disabled={activeScriptSelection.length !== 1 || (selectedNode?.type !== "fold" && selectedNode?.type !== "message-thread")} onClick={dissolveSelectedFold}>拆散内容组</Button></Tooltip><Tooltip label="将选中的相邻内容组成可折叠区域" withArrow><Button variant="subtle" size="compact-sm" disabled={!canFoldSelection} onClick={foldSelectedNodes}>创建折叠组</Button></Tooltip><Tooltip label="将折叠组转换为带副标题和手机持有者的短信会话" withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={activeScriptSelection.length !== 1 || selectedNode?.type !== "fold"} onClick={convertSelectedFoldToMessageThread}>转为短信会话</Button></Tooltip></div>
+								<div className="toolbar-action-group"><Tooltip label="仅能合并同级、相连且说话人相同的对话" withArrow><Button variant="subtle" size="compact-sm" disabled={!canMergeDialogues} onClick={mergeSelectedDialogues}>合并对话</Button></Tooltip><Tooltip label={selectedNode?.type === "dialogue" ? "在台词光标处拆成两段（Ctrl+K）" : "仅对对话生效"} withArrow><Button variant="subtle" color="teal" size="compact-sm" disabled={multiSelectMode || !canSplitDialogue} onMouseDown={(event) => event.preventDefault()} onClick={splitSelectedDialogue}>拆分对话</Button></Tooltip></div>
+								<div className="toolbar-action-group"><Tooltip label={activeScriptSelection.length > 1 ? `删除选中的 ${activeScriptSelection.length} 个内容块` : "删除当前内容块"} color="red" withArrow><Button variant="subtle" color="red" size="compact-sm" disabled={!activeScriptSelection.length} onClick={deleteSelectedNode}>删除</Button></Tooltip></div>
+								<div className="toolbar-action-group"><MenuButton label="批量工具" align="end" active={Boolean(searchMode)} items={[{ label: "统一主角名为“穹”", onClick: convertTrailblazerSpeakers }, { label: "检查性别指代", onClick: () => toggleScriptSearch("gender") }, { label: "查找主角称谓", onClick: () => toggleScriptSearch("trailblazer-reference") }]} /></div>
 							</div>
 							{multiSelectMode ? <div className="toolbar-selection multi-selection-status"><Badge variant="filled" color="blue" size="sm">多选</Badge><span>{multiSelected.length ? `已选择 ${multiSelected.length} 个同级内容块` : "点击内容块开始选择"} · Esc 退出</span></div> : !selectedNode ? <span className="toolbar-hint">按住 Shift 进入多选</span> : null}
 						</div>

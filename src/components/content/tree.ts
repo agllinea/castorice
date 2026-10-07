@@ -16,6 +16,10 @@ export function pathKey(path: NodePath) {
 	return JSON.stringify(path);
 }
 
+export function sourceNodeDomId(path: NodePath) {
+	return `source-node-${path.map((part) => String(part).replace(/[^a-zA-Z0-9_-]/g, "-")).join("-")}`;
+}
+
 export function childNodePaths(node: JsonNode, path: NodePath): Array<{ node: JsonNode; path: NodePath }> {
 	const children: Array<{ node: JsonNode; path: NodePath }> = [];
 	if (Array.isArray(node.content)) (node.content as JsonNode[]).forEach((child, index) => children.push({ node: child, path: [...path, "content", index] }));
