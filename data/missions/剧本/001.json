@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "title": "今天是昨天的明天",
   "createdAt": "2026-09-30T21:38:26.251Z",
-  "updatedAt": "2026-10-01T21:26:46.299Z",
+  "updatedAt": "2026-10-07T05:58:44.708Z",
   "blocks": [
     {
       "id": "e58b42aa-a32f-4b1f-b8c1-2f50a13f8b5b",
@@ -291,7 +291,7 @@
             "text": "带向千百个世界。"
           }
         ],
-        "collapsed": true
+        "collapsed": false
       }
     },
     {

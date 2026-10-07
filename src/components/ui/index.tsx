@@ -127,9 +127,9 @@ export function InteractiveSurface({ children, className = "", disabled = false,
 }
 
 interface MenuItem { label: ReactNode; onClick: () => void; id?: string }
-interface MenuButtonProps { label: ReactNode; items: MenuItem[]; align?: "start" | "end"; active?: boolean; className?: string }
-export function MenuButton({ label, items, align = "start", active, className = "" }: MenuButtonProps) {
-	return <DropdownMenu><DropdownMenuTrigger render={<BaseButton type="button" variant="ghost" size="sm" className={`ui-menu-trigger ${active ? "is-active" : ""} ${className}`} />}>
+interface MenuButtonProps { label: ReactNode; items: MenuItem[]; align?: "start" | "end"; active?: boolean; className?: string; size?: LegacySize; variant?: LegacyVariant; color?: string }
+export function MenuButton({ label, items, align = "start", active, className = "", size = "compact-sm", variant = "subtle", color }: MenuButtonProps) {
+	return <DropdownMenu><DropdownMenuTrigger render={<Button type="button" variant={variant} size={size} color={color} className={`ui-menu-trigger ${active ? "is-active" : ""} ${className}`} />}>
 		{label}<IconChevronDown size={13} />
 	</DropdownMenuTrigger><DropdownMenuContent className="ui-menu-popover" align={align}>{items.map((item, index) => <DropdownMenuItem className="ui-menu-option" key={item.id ?? String(index)} onClick={item.onClick}>{item.label}</DropdownMenuItem>)}</DropdownMenuContent></DropdownMenu>;
 }

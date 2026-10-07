@@ -11,6 +11,7 @@ interface CollapsibleContentProps {
 	depth?: number;
 	heading: ReactNode;
 	headingClassName?: string;
+	leadingActions?: ReactNode;
 	trailingActions?: ReactNode;
 	children: ReactNode;
 	expandLabel?: string;
@@ -28,6 +29,7 @@ export function CollapsibleContent({
 	depth,
 	heading,
 	headingClassName = "",
+	leadingActions,
 	trailingActions,
 	children,
 	expandLabel = "展开内容",
@@ -39,6 +41,7 @@ export function CollapsibleContent({
 	const actionLabel = collapsed ? expandLabel : collapseLabel;
 	return <div id={id} className={`read-node collapsible-content ${className} ${collapsed ? "is-collapsed" : "is-expanded"}`} data-depth={depth}>
 		<div className={`read-node-heading ${headingClassName}`} onClick={onHeadingClick} onDoubleClick={onHeadingDoubleClick}>
+			{leadingActions}
 			{heading}
 			<ActionIcon
 				className="fold-toggle-button"
